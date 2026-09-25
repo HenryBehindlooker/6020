@@ -4,7 +4,10 @@ name: Demo-Fassung auf GitHub Pages
 # Die Live-Fassung braucht einen Node-Server und laeuft nicht auf Pages.
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      # Damit die Demo-Fassung auch ohne Merge schon gebaut wird:
+      - claude/innsbruck-webapp-proposal-qnyvew
   workflow_dispatch:
 
 permissions:
