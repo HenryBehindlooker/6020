@@ -20,12 +20,37 @@ letzten Bus verpasst, steht.
 npm install
 npm run dev        # http://localhost:5173
 npm test           # 56 Tests für Ampel-, Umkehrzeit-, Karten- und GPX-Logik
-npm run build && npm start
+npm run build && npm start     # Node-Server, rechnet pro Anfrage
+npm run build:pages            # vorgerenderte Demo-Fassung für GitHub Pages
 ```
 
 Ohne Konfiguration startet die App im **Demo-Modus**: Lagebericht, Wetter und
 Fahrplan kommen aus mitgelieferten Beispieldateien, und ein Banner weist darauf
-hin. Die Demo-Fahrplanzeiten sind erfunden und keine gültige Fahrplanauskunft.
+hin.
+
+Die Demo-Linien heißen **„Demo-Bus A/B/C"** statt 4166, J oder R. Das ist
+Absicht: mit echten Liniennummern sah der erfundene Fahrplan wie eine Auskunft
+aus. Echte Linien und Zeiten kommen ausschließlich aus dem GTFS-Datensatz des
+VVT im Live-Modus — nichts in diesem Repository ist gegen VVT, ÖBB oder IVB
+geprüft.
+
+## Zwei Build-Ziele
+
+| Ziel | Befehl | Was läuft |
+|---|---|---|
+| Node-Server | `npm run build && npm start` | rechnet pro Anfrage, Live-Daten möglich, Filter funktioniert |
+| GitHub Pages | `npm run build:pages` | vorgerendert, Demodaten, Filter fest auf 07:00 / 30 min |
+
+GitHub führt die App nicht aus — es hostet nur Dateien. Die vorgerenderte
+Fassung ist deshalb eine Momentaufnahme des Build-Zeitpunkts: zum Durchklicken
+gedacht, nicht als Auskunft. Der Workflow in `.github/workflows/pages.yml`
+veröffentlicht sie bei jedem Push auf `main`; **Pages muss im Repository einmal
+aktiviert werden** (Settings → Pages → Source: GitHub Actions), sonst schlägt
+der Deploy-Schritt fehl. Danach liegt sie unter
+`https://<konto>.github.io/<repo>/`.
+
+Für Live-Daten braucht es den Node-Server: die Lawinenlage ändert sich zweimal
+täglich, Verspätungen im Minutentakt.
 
 ## Live-Daten
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
 	import TourMap from '$lib/components/TourMap.svelte';
 	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
@@ -41,7 +42,7 @@
 	<title>{tour.name} - Bergampel Innsbruck</title>
 </svelte:head>
 
-<p class="zurueck"><a href="/">&larr; Alle Touren</a></p>
+<p class="zurueck"><a href="{base}/">&larr; Alle Touren</a></p>
 
 <header class="kopf">
 	<div>

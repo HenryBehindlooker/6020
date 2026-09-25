@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import TourCard from '$lib/components/TourCard.svelte';
 	import { problemLabel } from '$lib/logic/rating';
 	import type { PageData } from './$types';
@@ -30,7 +31,7 @@
 <section class="bulletin">
 	<div class="head">
 		<h1>Was geht heute?</h1>
-		<span class="datum">{datum} · <a href="/karte">auf der Karte</a></span>
+		<span class="datum">{datum} · <a href="{base}/karte">auf der Karte</a></span>
 	</div>
 	<p class="stufe">
 		Gefahrenstufe <strong>{plan.bulletin.rating.above}</strong>
@@ -53,17 +54,25 @@
 	{/if}
 </section>
 
-<form class="filter" method="get">
-	<label>
-		Aufbruch ab
-		<input type="time" name="ab" value={data.notBefore} />
-	</label>
-	<label>
-		Puffer vor dem Bus
-		<input type="number" name="puffer" min="10" max="120" step="5" value={data.buffer} /> min
-	</label>
-	<button type="submit">Neu rechnen</button>
-</form>
+{#if data.staticPreview}
+	<p class="statisch">
+		Vorgerenderte Fassung: Aufbruchszeit und Puffer sind auf
+		{data.notBefore} Uhr und {data.buffer} min festgelegt. Zum Umrechnen braucht es den
+		Server (<code>npm run dev</code>).
+	</p>
+{:else}
+	<form class="filter" method="get">
+		<label>
+			Aufbruch ab
+			<input type="time" name="ab" value={data.notBefore} />
+		</label>
+		<label>
+			Puffer vor dem Bus
+			<input type="number" name="puffer" min="10" max="120" step="5" value={data.buffer} /> min
+		</label>
+		<button type="submit">Neu rechnen</button>
+	</form>
+{/if}
 
 <h2 class="gruppe">Geht sich aus ({machbar.length})</h2>
 <div class="grid">
@@ -187,6 +196,18 @@
 
 	button:hover {
 		background: #475569;
+	}
+
+	.statisch {
+		margin: 1.5rem 0 0.5rem;
+		font-size: 0.82rem;
+		color: var(--muted);
+	}
+
+	.statisch code {
+		background: var(--surface);
+		padding: 0.1rem 0.3rem;
+		border-radius: 0.25rem;
 	}
 
 	.gruppe {

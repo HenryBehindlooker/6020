@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import TourMap from '$lib/components/TourMap.svelte';
 	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
@@ -23,7 +24,7 @@
 			count: group.tours.length,
 			links: group.tours.map((t) => ({
 				text: t.tour.name,
-				href: `/tour/${t.tour.id}`,
+				href: `${base}/tour/${t.tour.id}`,
 				signal: t.rating.signal
 			}))
 		}))
@@ -49,7 +50,7 @@
 			{/if}
 		</p>
 	</div>
-	<a class="wechsel" href="/">Als Liste</a>
+	<a class="wechsel" href="{base}/">Als Liste</a>
 </header>
 
 <TourMap {markers} tracks={data.tracks as MapTrack[]} height="30rem" />
@@ -77,7 +78,7 @@
 			<ul class="touren">
 				{#each group.tours as plan (plan.tour.id)}
 					<li class={plan.rating.signal}>
-						<a href="/tour/{plan.tour.id}">{plan.tour.name}</a>
+						<a href="{base}/tour/{plan.tour.id}">{plan.tour.name}</a>
 						<span class="zeit">
 							{#if plan.turnaround.turnaroundAt}
 								Umkehr {hhmm(plan.turnaround.turnaroundAt)}

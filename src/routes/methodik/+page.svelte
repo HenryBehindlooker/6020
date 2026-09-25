@@ -1,6 +1,10 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
+
 <svelte:head><title>Methodik - Bergampel Innsbruck</title></svelte:head>
 
-<p class="zurueck"><a href="/">&larr; Alle Touren</a></p>
+<p class="zurueck"><a href="{base}/">&larr; Alle Touren</a></p>
 
 <h1>Wie wird gerechnet?</h1>
 

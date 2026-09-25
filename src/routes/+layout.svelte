@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	let { children } = $props();
 </script>
 
@@ -8,7 +9,7 @@
 
 <div class="shell">
 	<header>
-		<a class="brand" href="/">
+		<a class="brand" href="{base}/">
 			<span class="mark" aria-hidden="true"></span>
 			<span>
 				<strong>Bergampel</strong>
@@ -16,8 +17,8 @@
 			</span>
 		</a>
 		<nav>
-			<a href="/karte">Karte</a>
-			<a href="/methodik">Wie wird gerechnet?</a>
+			<a href="{base}/karte">Karte</a>
+			<a href="{base}/methodik">Wie wird gerechnet?</a>
 		</nav>
 	</header>
 

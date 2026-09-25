@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { TourPlan } from '$lib/server/plan';
 	import { hhmm } from '$lib/logic/turnaround';
 	import SignalBadge from './SignalBadge.svelte';
@@ -14,7 +15,7 @@
 <article class="card {rating.signal}">
 	<header>
 		<div>
-			<h2><a href="/tour/{tour.id}">{tour.name}</a></h2>
+			<h2><a href="{base}/tour/{tour.id}">{tour.name}</a></h2>
 			<p class="meta">
 				{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} hm ·
 				{Math.round(tour.ascentMinutes / 60 * 10) / 10} h Aufstieg
