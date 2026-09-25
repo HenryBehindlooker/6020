@@ -19,7 +19,7 @@ letzten Bus verpasst, steht.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm test           # 36 Tests für Ampel-, Umkehrzeit- und Kartenlogik
+npm test           # 56 Tests für Ampel-, Umkehrzeit-, Karten- und GPX-Logik
 npm run build && npm start
 ```
 
@@ -60,13 +60,14 @@ src/
 │   ├── logic/
 │   │   ├── rating.ts            Ampel-Heuristik + Tests
 │   │   ├── turnaround.ts        Umkehrzeit aus dem letzten Bus + Tests
-│   │   └── trailheads.ts        Gruppierung nach Ausgangspunkt für die Karte + Tests
+│   │   ├── trailheads.ts        Gruppierung nach Ausgangspunkt für die Karte + Tests
+│   │   └── gpx.ts               GPX-Parser, Streckenlänge, Douglas-Peucker + Tests
 │   ├── components/              SignalBadge, TourCard, TourMap
 │   └── server/
 │       ├── config.ts            Env-Konfiguration
 │       ├── cache.ts             In-Memory-Cache für externe Antworten
 │       ├── plan.ts              Aggregation zum Tagesplan
-│       └── sources/             avalanche.ts, weather.ts, transit.ts, tours.ts
+│       └── sources/             avalanche.ts, weather.ts, transit.ts, tours.ts, tracks.ts
 ├── fixtures/                    Tourenliste + Demo-Fahrplan
 └── routes/
     ├── +page.svelte             Tourenliste mit Ampel
@@ -99,6 +100,29 @@ Standard-Kachelquelle ist OpenStreetMap. Für Österreich bietet sich basemap.at
 (CC BY 4.0) — beides über `PUBLIC_TILE_URL` und `PUBLIC_TILE_ATTRIBUTION`
 umstellbar; die URLs in `.env.example` sind hier ebenfalls nicht verifizierbar gewesen.
 
+## Tourenverläufe (GPX)
+
+Liegt in `data/tracks/` eine Datei mit dem Namen der Tour-ID, zeichnet die Karte
+den Verlauf ein — auf der Übersicht ausgedünnt (Douglas-Peucker, 40 m Toleranz),
+auf der Tourenseite feiner (10 m). Fehlt die Datei, bleibt es beim Ausgangspunkt;
+das ist der Normalfall, kein Fehler. Verzeichnis umstellbar über `TRACKS_DIR`.
+
+**Erfinde keine Verläufe.** Eine plausibel aussehende, aber ausgedachte Linie
+über einen 38°-Hang ist gefährlicher als gar keine Linie. Enthält `<desc>` einer
+Datei das Wort *schematisch*, zeichnet die Karte sie gestrichelt und beschriftet
+sie als schematisch; alles andere gilt als echte Aufzeichnung. Die drei
+mitgelieferten Dateien sind schematisch und existieren nur, damit die Darstellung
+sichtbar ist. Details in `data/tracks/README.md`.
+
+Der Parser liest `<trkpt>` und `<rtept>` samt `<ele>` mit Textmustern statt einer
+XML-Bibliothek: GPX-Tracks sind flach aufgebaut, und die Dateien kommen aus dem
+eigenen Datenverzeichnis, nicht von Nutzereingaben. Kommt das anders — etwa ein
+Upload durch Nutzerinnen — gehört hier ein echter XML-Parser hin.
+
+`data/tracks/` wird zur Laufzeit relativ zum Arbeitsverzeichnis gelesen. Wer nur
+`build/` deployt, muss das Verzeichnis mitkopieren oder `TRACKS_DIR` auf einen
+absoluten Pfad setzen.
+
 ## Rechenregeln
 
 **Ampel** — wird nur angehoben, nie gesenkt; der ungünstigste Faktor gewinnt:
@@ -127,7 +151,8 @@ Touren mit geprüften Hangrichtungen und Steilheiten als ein großer, ungeprüft
 ## Nächste Schritte
 
 - Live-Parser gegen echte API-Antworten verifizieren (siehe Hinweis oben)
-- Tourenverläufe (GPX) auf der Karte statt nur der Ausgangspunkte
+- echte GPX-Aufzeichnungen statt der schematischen Demo-Verläufe
+- Höhenprofil aus den GPX-Daten, mit der Umkehrzeit als Marke darin
 - Aufstiegszeit nach eigenem Tempo skalieren statt fixer Durchschnittswerte
 - Zweisprachigkeit DE/EN für internationale Studierende und Gäste
 - Liftstatus der Bergbahnen als zusätzliche Quelle

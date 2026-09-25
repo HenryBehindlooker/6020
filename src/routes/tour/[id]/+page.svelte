@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
 	import TourMap from '$lib/components/TourMap.svelte';
-	import type { MapMarker } from '$lib/components/mapTypes';
+	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
 	import { hhmm } from '$lib/logic/turnaround';
 	import type { PageData } from './$types';
 
@@ -12,6 +12,19 @@
 	const weather = $derived(data.tourPlan.weather);
 	const transit = $derived(data.tourPlan.transit);
 	const turnaround = $derived(data.tourPlan.turnaround);
+
+	const track = $derived<MapTrack[]>(
+		data.track
+			? [
+					{
+						points: data.track.points,
+						signal: rating.signal,
+						label: tour.name,
+						schematic: data.track.schematic
+					}
+				]
+			: []
+	);
 
 	const marker = $derived<MapMarker[]>([
 		{
@@ -107,8 +120,22 @@
 
 <section class="panel">
 	<h2>Lage</h2>
-	<TourMap markers={marker} height="18rem" zoom={12} center={[tour.lat, tour.lon]} />
-	<p class="quelle">Ausgangspunkt {tour.trailhead}, Haltestelle {tour.trailheadStop}</p>
+	<TourMap
+		markers={marker}
+		tracks={track}
+		height="18rem"
+		zoom={12}
+		center={data.track ? undefined : [tour.lat, tour.lon]}
+	/>
+	<p class="quelle">
+		Ausgangspunkt {tour.trailhead}, Haltestelle {tour.trailheadStop}
+		{#if data.track}
+			· Verlauf {data.track.lengthKm} km, {data.track.ascentMeters} hm
+			{#if data.track.schematic}
+				<strong class="warnung">schematisch, keine Wegaufzeichnung</strong>
+			{/if}
+		{/if}
+	</p>
 </section>
 
 <section class="panel">
@@ -189,4 +216,9 @@
 	.delay { color: #fca5a5; margin-left: 0.4rem; }
 
 	.quelle { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.75rem; }
+
+	.quelle .warnung {
+		color: #fde047;
+		font-weight: 600;
+	}
 </style>

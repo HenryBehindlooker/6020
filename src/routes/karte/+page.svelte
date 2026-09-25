@@ -1,6 +1,6 @@
 <script lang="ts">
 	import TourMap from '$lib/components/TourMap.svelte';
-	import type { MapMarker } from '$lib/components/mapTypes';
+	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
 	import { hhmm } from '$lib/logic/turnaround';
 	import type { PageData } from './$types';
@@ -52,13 +52,16 @@
 	<a class="wechsel" href="/">Als Liste</a>
 </header>
 
-<TourMap {markers} height="30rem" />
+<TourMap {markers} tracks={data.tracks as MapTrack[]} height="30rem" />
 
 <p class="legende">
 	<span class="gruen">Geht</span>
 	<span class="gelb">Heikel</span>
 	<span class="rot">Heute nicht</span>
 	<span class="hinweis">Die Zahl im Punkt ist die Anzahl der Touren ab diesem Ausgangspunkt.</span>
+	{#if data.tracks.some((t) => t.schematic)}
+		<span class="hinweis gestrichelt">Gestrichelte Linien sind schematisch, keine Wegaufzeichnung.</span>
+	{/if}
 </p>
 
 <ol class="liste">
@@ -143,6 +146,15 @@
 	.legende .gelb::before { background: var(--gelb); }
 	.legende .rot::before { background: var(--rot); }
 	.legende .hinweis::before { display: none; }
+
+	.legende .gestrichelt::before {
+		display: inline-block;
+		width: 1.4rem;
+		height: 0;
+		border-radius: 0;
+		border-top: 2px dashed var(--muted);
+		margin-bottom: 0.25rem;
+	}
 
 	.liste {
 		list-style: none;

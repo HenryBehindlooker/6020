@@ -12,3 +12,13 @@ export interface MapMarker {
 	/** Zahl im Marker - z.B. wie viele Touren ab hier starten. */
 	count?: number;
 }
+
+export interface MapTrack {
+	/** Punkte als [lat, lon]. */
+	points: [number, number][];
+	signal: Signal;
+	label: string;
+	/** Schematischer Verlauf: wird gestrichelt gezeichnet und als solcher benannt. */
+	schematic: boolean;
+	href?: string;
+}

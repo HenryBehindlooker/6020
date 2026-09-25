@@ -3,15 +3,17 @@
 	import { browser } from '$app/environment';
 	import { env } from '$env/dynamic/public';
 	import type { Signal } from '$lib/logic/rating';
-	import type { MapMarker } from './mapTypes';
+	import type { MapMarker, MapTrack } from './mapTypes';
 
 	let {
 		markers,
+		tracks = [],
 		height = '26rem',
 		zoom = 10,
 		center
 	}: {
 		markers: MapMarker[];
+		tracks?: MapTrack[];
 		height?: string;
 		zoom?: number;
 		center?: [number, number];
@@ -48,6 +50,40 @@
 				L.tileLayer(TILE_URL, { attribution: TILE_ATTRIBUTION, maxZoom: 17 }).addTo(map);
 
 				const points: [number, number][] = [];
+
+				// Verlaeufe zuerst, damit die Marker darueber liegen.
+				for (const track of tracks) {
+					if (track.points.length < 2) continue;
+					const line = L.polyline(track.points, {
+						color: SIGNAL_COLORS[track.signal],
+						weight: track.schematic ? 3 : 4,
+						opacity: track.schematic ? 0.75 : 0.9,
+						dashArray: track.schematic ? '6 7' : undefined
+					}).addTo(map);
+
+					const hinweis = track.schematic
+						? '<div class="sub">Schematischer Verlauf, keine Aufzeichnung</div>'
+						: '';
+					const titel = track.href
+						? `<a href="${escapeHtml(track.href)}">${escapeHtml(track.label)}</a>`
+						: escapeHtml(track.label);
+
+					// Eine 3 px breite Linie ist mit dem Finger nicht zu treffen,
+					// darum liegt darunter eine breite, unsichtbare Trefferlinie.
+					// Sie faengt nebenbei auch die Luecken der Strichelung ab, die
+					// als ungemalte Flaeche sonst keinen Klick annehmen.
+					L.polyline(track.points, {
+						className: 'bergampel-hit',
+						weight: 22,
+						opacity: 0
+					})
+						.addTo(map)
+						.bindPopup(`<strong>${titel}</strong>${hinweis}`);
+
+					line.bindPopup(`<strong>${titel}</strong>${hinweis}`);
+
+					points.push(...track.points);
+				}
 				for (const marker of markers) {
 					const color = SIGNAL_COLORS[marker.signal];
 					const icon = L.divIcon({
@@ -126,6 +162,13 @@
 		color: var(--muted);
 		font-size: 0.9rem;
 		margin: 0;
+	}
+
+	/* pointer-events: stroke trifft die volle Strichbreite, auch wo nichts
+	   gemalt ist - die unsichtbare Trefferlinie wirkt nur so. */
+	:global(path.bergampel-hit) {
+		pointer-events: stroke;
+		cursor: pointer;
 	}
 
 	/* Leaflet rendert Marker und Popups ausserhalb dieser Komponente. */
