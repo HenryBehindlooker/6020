@@ -15,7 +15,10 @@
 				<small>Innsbruck</small>
 			</span>
 		</a>
-		<nav><a href="/methodik">Wie wird gerechnet?</a></nav>
+		<nav>
+			<a href="/karte">Karte</a>
+			<a href="/methodik">Wie wird gerechnet?</a>
+		</nav>
 	</header>
 
 	{@render children()}
@@ -95,9 +98,18 @@
 		font-size: 0.8rem;
 	}
 
+	nav {
+		display: flex;
+		gap: 1rem;
+	}
+
 	nav a {
 		color: var(--muted);
 		font-size: 0.9rem;
+	}
+
+	nav a:hover {
+		color: var(--text);
 	}
 
 	footer {

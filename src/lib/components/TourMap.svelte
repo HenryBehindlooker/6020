@@ -1,0 +1,210 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
+	import { env } from '$env/dynamic/public';
+	import type { Signal } from '$lib/logic/rating';
+	import type { MapMarker } from './mapTypes';
+
+	let {
+		markers,
+		height = '26rem',
+		zoom = 10,
+		center
+	}: {
+		markers: MapMarker[];
+		height?: string;
+		zoom?: number;
+		center?: [number, number];
+	} = $props();
+
+	const TILE_URL = env.PUBLIC_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+	const TILE_ATTRIBUTION =
+		env.PUBLIC_TILE_ATTRIBUTION || '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>';
+
+	const SIGNAL_COLORS: Record<Signal, string> = {
+		gruen: '#22c55e',
+		gelb: '#eab308',
+		rot: '#ef4444',
+		unbekannt: '#64748b'
+	};
+
+	let container: HTMLDivElement | undefined = $state();
+	let failed = $state(false);
+
+	onMount(() => {
+		if (!browser || !container) return;
+		const target = container;
+		let map: import('leaflet').Map | undefined;
+
+		// Leaflet greift beim Import auf window zu und wird darum erst im
+		// Browser geladen - die Seite selbst rendert serverseitig.
+		(async () => {
+			try {
+				const L = await import('leaflet');
+				await import('leaflet/dist/leaflet.css');
+
+				map = L.map(target, { scrollWheelZoom: false, attributionControl: true });
+
+				L.tileLayer(TILE_URL, { attribution: TILE_ATTRIBUTION, maxZoom: 17 }).addTo(map);
+
+				const points: [number, number][] = [];
+				for (const marker of markers) {
+					const color = SIGNAL_COLORS[marker.signal];
+					const icon = L.divIcon({
+						className: 'bergampel-marker',
+						html: `<span style="--marker-color:${color}">${marker.count ?? ''}</span>`,
+						iconSize: [26, 26],
+						iconAnchor: [13, 13],
+						popupAnchor: [0, -14]
+					});
+
+					L.marker([marker.lat, marker.lon], { icon, title: marker.label })
+						.addTo(map)
+						.bindPopup(popupHtml(marker));
+					points.push([marker.lat, marker.lon]);
+				}
+
+				if (center) {
+					map.setView(center, zoom);
+				} else if (points.length > 1) {
+					map.fitBounds(points, { padding: [40, 40] });
+				} else if (points.length === 1) {
+					map.setView(points[0], zoom);
+				} else {
+					// Innsbruck, falls es nichts anzuzeigen gibt.
+					map.setView([47.2692, 11.4041], zoom);
+				}
+			} catch (err) {
+				console.error('[karte] Leaflet konnte nicht geladen werden:', err);
+				failed = true;
+			}
+		})();
+
+		return () => map?.remove();
+	});
+
+	function popupHtml(marker: MapMarker): string {
+		const lines = (marker.links ?? [])
+			.map(
+				(link) =>
+					`<li><i style="background:${SIGNAL_COLORS[link.signal]}"></i><a href="${escapeHtml(link.href)}">${escapeHtml(link.text)}</a></li>`
+			)
+			.join('');
+		return `
+			<strong>${escapeHtml(marker.label)}</strong>
+			${marker.sub ? `<div class="sub">${escapeHtml(marker.sub)}</div>` : ''}
+			${lines ? `<ul>${lines}</ul>` : ''}
+		`;
+	}
+
+	function escapeHtml(value: string): string {
+		return value.replace(
+			/[&<>"']/g,
+			(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
+		);
+	}
+</script>
+
+{#if failed}
+	<p class="fallback" style:height>Karte nicht verfuegbar - die Liste zeigt dieselben Touren.</p>
+{:else}
+	<div class="map" bind:this={container} style:height role="application" aria-label="Karte der Ausgangspunkte"></div>
+{/if}
+
+<style>
+	.map,
+	.fallback {
+		width: 100%;
+		border-radius: 0.9rem;
+		background: var(--surface);
+		z-index: 0;
+	}
+
+	.fallback {
+		display: grid;
+		place-items: center;
+		color: var(--muted);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	/* Leaflet rendert Marker und Popups ausserhalb dieser Komponente. */
+	:global(.bergampel-marker span) {
+		display: grid;
+		place-items: center;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		background: var(--marker-color);
+		color: #0f172a;
+		border: 2px solid rgba(15, 23, 42, 0.85);
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+		font: 600 0.75rem/1 ui-sans-serif, system-ui, sans-serif;
+	}
+
+	:global(.leaflet-popup-content-wrapper) {
+		background: var(--surface);
+		color: var(--text);
+		border-radius: 0.6rem;
+	}
+
+	:global(.leaflet-popup-tip) {
+		background: var(--surface);
+	}
+
+	:global(.leaflet-popup-content) {
+		margin: 0.7rem 0.9rem;
+		font: 0.85rem/1.5 ui-sans-serif, system-ui, sans-serif;
+	}
+
+	:global(.leaflet-popup-content .sub) {
+		color: var(--muted);
+		font-size: 0.78rem;
+	}
+
+	:global(.leaflet-popup-content ul) {
+		list-style: none;
+		margin: 0.5rem 0 0;
+		padding: 0;
+		display: grid;
+		gap: 0.25rem;
+	}
+
+	:global(.leaflet-popup-content li) {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+	}
+
+	:global(.leaflet-popup-content li i) {
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		flex: none;
+	}
+
+	:global(.leaflet-container) {
+		background: #1e293b;
+		font-family: inherit;
+	}
+
+	:global(.leaflet-control-attribution) {
+		background: rgba(15, 23, 42, 0.8) !important;
+		color: var(--muted);
+		font-size: 0.65rem;
+	}
+
+	:global(.leaflet-control-attribution a) {
+		color: var(--text);
+	}
+
+	:global(.leaflet-bar a) {
+		background: var(--surface);
+		color: var(--text);
+		border-bottom-color: var(--surface-2);
+	}
+
+	:global(.leaflet-bar a:hover) {
+		background: var(--surface-2);
+	}
+</style>

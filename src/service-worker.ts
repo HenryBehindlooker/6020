@@ -5,6 +5,10 @@ import { build, files, version } from '$service-worker';
 // zuletzt geladenen Tagesplan deshalb auch offline anzeigen koennen.
 const APP_CACHE = `app-${version}`;
 const DATA_CACHE = `data-${version}`;
+// Kartenkacheln ueberleben den Versionswechsel: sie aendern sich kaum, sind
+// aber teuer nachzuladen - und im Tal gibt es oft kein Netz mehr.
+const TILE_CACHE = 'tiles-v1';
+const TILE_LIMIT = 400;
 const ASSETS = [...build, ...files];
 
 const sw = self as unknown as ServiceWorkerGlobalScope;
@@ -17,7 +21,13 @@ sw.addEventListener('activate', (event) => {
 	event.waitUntil(
 		caches
 			.keys()
-			.then((keys) => Promise.all(keys.filter((k) => k !== APP_CACHE && k !== DATA_CACHE).map((k) => caches.delete(k))))
+			.then((keys) =>
+				Promise.all(
+					keys
+						.filter((k) => k !== APP_CACHE && k !== DATA_CACHE && k !== TILE_CACHE)
+						.map((k) => caches.delete(k))
+				)
+			)
 			.then(() => sw.clients.claim())
 	);
 });
@@ -31,6 +41,13 @@ sw.addEventListener('fetch', (event) => {
 	// Statische Assets kommen unveraendert aus dem Cache.
 	if (ASSETS.includes(url.pathname)) {
 		event.respondWith(caches.match(request).then((hit) => hit ?? fetch(request)));
+		return;
+	}
+
+	// Kartenkacheln: erst der Cache, damit eine einmal betrachtete Region
+	// offline verfuegbar bleibt.
+	if (isTileRequest(url)) {
+		event.respondWith(serveTile(request));
 		return;
 	}
 
@@ -54,3 +71,28 @@ sw.addEventListener('fetch', (event) => {
 			})
 	);
 });
+
+/** Kachel-Requests erkennt man am Pfadmuster der ueblichen Tile-Server. */
+function isTileRequest(url: URL): boolean {
+	return /\/\d+\/\d+\/\d+(@\dx)?\.(png|jpg|jpeg|webp|pbf)$/.test(url.pathname);
+}
+
+async function serveTile(request: Request): Promise<Response> {
+	const cache = await caches.open(TILE_CACHE);
+	const hit = await cache.match(request);
+	if (hit) return hit;
+
+	const response = await fetch(request);
+	if (response.ok) {
+		await cache.put(request, response.clone());
+		void trimTileCache(cache);
+	}
+	return response;
+}
+
+/** Haelt den Kachel-Cache klein - aelteste Eintraege zuerst raus. */
+async function trimTileCache(cache: Cache): Promise<void> {
+	const keys = await cache.keys();
+	if (keys.length <= TILE_LIMIT) return;
+	await Promise.all(keys.slice(0, keys.length - TILE_LIMIT).map((key) => cache.delete(key)));
+}

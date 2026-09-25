@@ -30,7 +30,7 @@
 <section class="bulletin">
 	<div class="head">
 		<h1>Was geht heute?</h1>
-		<span class="datum">{datum}</span>
+		<span class="datum">{datum} · <a href="/karte">auf der Karte</a></span>
 	</div>
 	<p class="stufe">
 		Gefahrenstufe <strong>{plan.bulletin.rating.above}</strong>

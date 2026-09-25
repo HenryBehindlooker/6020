@@ -1,5 +1,7 @@
 <script lang="ts">
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
+	import TourMap from '$lib/components/TourMap.svelte';
+	import type { MapMarker } from '$lib/components/mapTypes';
 	import { hhmm } from '$lib/logic/turnaround';
 	import type { PageData } from './$types';
 
@@ -10,6 +12,16 @@
 	const weather = $derived(data.tourPlan.weather);
 	const transit = $derived(data.tourPlan.transit);
 	const turnaround = $derived(data.tourPlan.turnaround);
+
+	const marker = $derived<MapMarker[]>([
+		{
+			lat: tour.lat,
+			lon: tour.lon,
+			signal: rating.signal,
+			label: tour.name,
+			sub: `Ausgangspunkt ${tour.trailhead}`
+		}
+	]);
 </script>
 
 <svelte:head>
@@ -92,6 +104,12 @@
 		<p class="quelle">{weather.source}</p>
 	</section>
 {/if}
+
+<section class="panel">
+	<h2>Lage</h2>
+	<TourMap markers={marker} height="18rem" zoom={12} center={[tour.lat, tour.lon]} />
+	<p class="quelle">Ausgangspunkt {tour.trailhead}, Haltestelle {tour.trailheadStop}</p>
+</section>
 
 <section class="panel">
 	<h2>Alle Rueckfahrten ab {transit.destinationStop}</h2>

@@ -19,7 +19,7 @@ letzten Bus verpasst, steht.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm test           # 28 Tests für Ampel- und Umkehrzeit-Logik
+npm test           # 36 Tests für Ampel-, Umkehrzeit- und Kartenlogik
 npm run build && npm start
 ```
 
@@ -40,6 +40,7 @@ cp .env.example .env    # DATA_MODE=live setzen
 | VVT / OGD Tirol (GTFS + GTFS-RT) | Fahrplan, Echtzeit-Verspätungen | GTFS offen, GTFS-RT braucht i.d.R. einen kostenlosen Key |
 | OpenStreetMap | Ausgangspunkte, Wege, Hütten | offen |
 | data.gv.at / Stadt Innsbruck OGD | ergänzende Geodaten | offen |
+| OpenStreetMap-Kacheln (oder basemap.at) | Kartenhintergrund | offen, via `PUBLIC_TILE_URL` austauschbar |
 
 Jeder Adapter fällt bei Fehler oder Timeout auf die Demodaten zurück und
 protokolliert das — die App bleibt bedienbar, wenn eine Quelle ausfällt.
@@ -58,8 +59,9 @@ src/
 │   ├── types.ts                 Domänenmodell (Tour, Bulletin, Wetter, Fahrt)
 │   ├── logic/
 │   │   ├── rating.ts            Ampel-Heuristik + Tests
-│   │   └── turnaround.ts        Umkehrzeit aus dem letzten Bus + Tests
-│   ├── components/              SignalBadge, TourCard
+│   │   ├── turnaround.ts        Umkehrzeit aus dem letzten Bus + Tests
+│   │   └── trailheads.ts        Gruppierung nach Ausgangspunkt für die Karte + Tests
+│   ├── components/              SignalBadge, TourCard, TourMap
 │   └── server/
 │       ├── config.ts            Env-Konfiguration
 │       ├── cache.ts             In-Memory-Cache für externe Antworten
@@ -68,6 +70,7 @@ src/
 ├── fixtures/                    Tourenliste + Demo-Fahrplan
 └── routes/
     ├── +page.svelte             Tourenliste mit Ampel
+    ├── karte/                   Karte der Ausgangspunkte
     ├── tour/[id]/               Detail: Begründung, Zeitplan, Wetter, Rückfahrten
     ├── methodik/                Offenlegung der Rechenregeln
     └── api/plan/                JSON-Sicht auf denselben Tagesplan
@@ -77,6 +80,24 @@ Die Logik in `src/lib/logic/` ist frei von Framework- und Netzwerkabhängigkeite
 und damit direkt testbar. `src/lib/server/sources/` kapselt jede externe Quelle
 hinter einer Funktion mit demselben Rückgabetyp — eine Quelle austauschen heißt,
 eine Datei anzufassen.
+
+## Kartenansicht
+
+`/karte` zeigt einen Punkt je Ausgangspunkt, gefärbt nach der **besten** Tour von
+dort — die Karte beantwortet „wohin fahre ich heute", nicht „welche Tour ist die
+heikelste". Die Zahl im Punkt ist die Anzahl der Touren ab diesem Ausgangspunkt,
+das Popup verlinkt sie einzeln. Auf der Tourenseite steht eine kleine Karte des
+Ausgangspunkts.
+
+Die Karte nutzt Leaflet (~40 KB statt ~800 KB bei MapLibre — in einer PWA fürs
+Gebirge zählt jedes KB) und wird erst im Browser nachgeladen; die Seite selbst
+rendert serverseitig und bleibt ohne JavaScript als Liste bedienbar. Der Service
+Worker hält Kacheln cache-first vor (max. 400), damit eine einmal betrachtete
+Region offline verfügbar bleibt.
+
+Standard-Kachelquelle ist OpenStreetMap. Für Österreich bietet sich basemap.at an
+(CC BY 4.0) — beides über `PUBLIC_TILE_URL` und `PUBLIC_TILE_ATTRIBUTION`
+umstellbar; die URLs in `.env.example` sind hier ebenfalls nicht verifizierbar gewesen.
 
 ## Rechenregeln
 
@@ -106,7 +127,7 @@ Touren mit geprüften Hangrichtungen und Steilheiten als ein großer, ungeprüft
 ## Nächste Schritte
 
 - Live-Parser gegen echte API-Antworten verifizieren (siehe Hinweis oben)
-- Kartenansicht der Ausgangspunkte (MapLibre + OSM-Tiles)
+- Tourenverläufe (GPX) auf der Karte statt nur der Ausgangspunkte
 - Aufstiegszeit nach eigenem Tempo skalieren statt fixer Durchschnittswerte
 - Zweisprachigkeit DE/EN für internationale Studierende und Gäste
 - Liftstatus der Bergbahnen als zusätzliche Quelle
