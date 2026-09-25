@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bergampel">
+	<rect width="64" height="64" rx="12" fill="#0f172a" />
+	<path d="M8 48 24 22l9 14 5-7 18 19z" fill="#e2e8f0" />
+	<path d="M24 22l6 9h-12z" fill="#ffffff" />
+	<circle cx="46" cy="18" r="7" fill="#22c55e" />
+</svg>
