@@ -189,7 +189,7 @@
 		gap: 0.75rem;
 		font-size: 0.88rem;
 		padding-left: 0.7rem;
-		border-left: 3px solid var(--surface-2);
+		border-left: 3px solid var(--border);
 	}
 
 	.gruende li.warnung { border-left-color: var(--gelb); }
@@ -200,11 +200,11 @@
 	}
 
 	.note { margin: 0 0 0.9rem; font-size: 0.9rem; }
-	.note.eng { color: #fca5a5; }
+	.note.eng { color: var(--text-kritisch); }
 
 	.zeiten { margin: 0; display: grid; gap: 0.55rem; }
 	.zeiten div { display: grid; grid-template-columns: 14rem 1fr; gap: 0.75rem; font-size: 0.88rem; }
-	.zeiten .hervor dd { font-weight: 700; color: #fde047; }
+	.zeiten .hervor dd { font-weight: 700; color: var(--text-warnung); }
 	dt { color: var(--muted); }
 	dd { margin: 0; }
 
@@ -214,12 +214,12 @@
 
 	.fahrten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.88rem; }
 
-	.delay { color: #fca5a5; margin-left: 0.4rem; }
+	.delay { color: var(--text-kritisch); margin-left: 0.4rem; }
 
 	.quelle { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.75rem; }
 
 	.quelle .warnung {
-		color: #fde047;
+		color: var(--text-warnung);
 		font-weight: 600;
 	}
 </style>

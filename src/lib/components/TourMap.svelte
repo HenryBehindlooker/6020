@@ -23,12 +23,26 @@
 	const TILE_ATTRIBUTION =
 		env.PUBLIC_TILE_ATTRIBUTION || '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>';
 
-	const SIGNAL_COLORS: Record<Signal, string> = {
-		gruen: '#22c55e',
-		gelb: '#eab308',
-		rot: '#ef4444',
-		unbekannt: '#64748b'
+	/**
+	 * Leaflet braucht die Ampelfarben als Zeichenkette. Sie werden aus denselben
+	 * CSS-Tokens gelesen, die auch die Oberflaeche faerbt - sonst driften die
+	 * beiden Stellen auseinander, sobald jemand die Palette anfasst.
+	 */
+	const FALLBACK: Record<Signal, string> = {
+		gruen: '#1f8a4c',
+		gelb: '#c47f00',
+		rot: '#c0392b',
+		unbekannt: '#78909c'
 	};
+
+	let SIGNAL_COLORS: Record<Signal, string> = FALLBACK;
+
+	function readSignalColors(): Record<Signal, string> {
+		if (!browser) return FALLBACK;
+		const styles = getComputedStyle(document.documentElement);
+		const read = (name: Signal) => styles.getPropertyValue(`--${name}`).trim() || FALLBACK[name];
+		return { gruen: read('gruen'), gelb: read('gelb'), rot: read('rot'), unbekannt: read('unbekannt') };
+	}
 
 	let container: HTMLDivElement | undefined = $state();
 	let failed = $state(false);
@@ -42,6 +56,7 @@
 		// Browser geladen - die Seite selbst rendert serverseitig.
 		(async () => {
 			try {
+				SIGNAL_COLORS = readSignalColors();
 				const L = await import('leaflet');
 				await import('leaflet/dist/leaflet.css');
 
@@ -179,9 +194,9 @@
 		height: 26px;
 		border-radius: 50%;
 		background: var(--marker-color);
-		color: #0f172a;
-		border: 2px solid rgba(15, 23, 42, 0.85);
-		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+		color: #ffffff;
+		border: 2px solid var(--marker-ring);
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 		font: 600 0.75rem/1 ui-sans-serif, system-ui, sans-serif;
 	}
 
@@ -227,12 +242,12 @@
 	}
 
 	:global(.leaflet-container) {
-		background: #1e293b;
+		background: var(--map-bg);
 		font-family: inherit;
 	}
 
 	:global(.leaflet-control-attribution) {
-		background: rgba(15, 23, 42, 0.8) !important;
+		background: var(--overlay) !important;
 		color: var(--muted);
 		font-size: 0.65rem;
 	}
@@ -244,7 +259,7 @@
 	:global(.leaflet-bar a) {
 		background: var(--surface);
 		color: var(--text);
-		border-bottom-color: var(--surface-2);
+		border-bottom-color: var(--border);
 	}
 
 	:global(.leaflet-bar a:hover) {

@@ -101,8 +101,8 @@
 		font-size: 0.85rem;
 	}
 
-	.reasons li.kritisch { color: #fca5a5; }
-	.reasons li.warnung { color: #fde047; }
+	.reasons li.kritisch { color: var(--text-kritisch); }
+	.reasons li.warnung { color: var(--text-warnung); }
 
 	.reasons-ok {
 		margin: 0;
@@ -114,11 +114,11 @@
 		display: flex;
 		gap: 1.5rem;
 		padding-top: 0.6rem;
-		border-top: 1px solid var(--surface-2);
+		border-top: 1px solid var(--border);
 		font-size: 0.85rem;
 	}
 
-	.transit.eng strong { color: #fca5a5; }
+	.transit.eng strong { color: var(--text-kritisch); }
 
 	.transit p { margin: 0; color: var(--muted); }
 

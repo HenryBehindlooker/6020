@@ -94,8 +94,9 @@
 
 <style>
 	.demo {
-		background: #78350f;
-		color: #fef3c7;
+		background: var(--hinweis-bg);
+		color: var(--hinweis-text);
+		border: 1px solid var(--hinweis-border);
 		padding: 0.7rem 0.9rem;
 		border-radius: 0.6rem;
 		font-size: 0.85rem;
@@ -103,7 +104,7 @@
 	}
 
 	.demo code {
-		background: rgba(0, 0, 0, 0.3);
+		background: rgba(0, 0, 0, 0.08);
 		padding: 0.1rem 0.3rem;
 		border-radius: 0.25rem;
 	}
@@ -177,7 +178,7 @@
 
 	input {
 		background: var(--surface);
-		border: 1px solid var(--surface-2);
+		border: 1px solid var(--border);
 		color: var(--text);
 		border-radius: 0.45rem;
 		padding: 0.4rem 0.55rem;
@@ -195,7 +196,7 @@
 	}
 
 	button:hover {
-		background: #475569;
+		background: var(--border);
 	}
 
 	.statisch {

@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Goldenes Dachl">
+<script lang="ts">
+	// Das Goldene Dachl als Wappen der App: vergoldete Schindeln ueber dem Erker.
+	// Bewusst grob gezeichnet - vier Reihen grosser Schindeln statt vieler
+	// kleiner, sonst verschmiert es in Favicon-Groesse zu einem Klecks.
+	let { size = 32 }: { size?: number } = $props();
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width={size} height={size} role="img" aria-label="Goldenes Dachl">
 	<defs>
 		<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
 			<stop offset="0" stop-color="#f6dc93"/>
@@ -38,3 +45,10 @@
 		<path d="M35.33 23.60 h5.67 v1.68 a2.83 2.52 0 0 1 -5.67 0 z" fill="url(#gold)" stroke="#8a6508" stroke-width="0.4"/>
 	</g>
 </svg>
+
+<style>
+	svg {
+		flex: none;
+		filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+	}
+</style>

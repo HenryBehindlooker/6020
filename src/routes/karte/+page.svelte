@@ -95,8 +95,9 @@
 
 <style>
 	.demo {
-		background: #78350f;
-		color: #fef3c7;
+		background: var(--hinweis-bg);
+		color: var(--hinweis-text);
+		border: 1px solid var(--hinweis-border);
 		padding: 0.7rem 0.9rem;
 		border-radius: 0.6rem;
 		font-size: 0.85rem;

@@ -28,7 +28,7 @@ Ohne Konfiguration startet die App im **Demo-Modus**: Lagebericht, Wetter und
 Fahrplan kommen aus mitgelieferten Beispieldateien, und ein Banner weist darauf
 hin.
 
-Die Demo-Linien heißen **„Demo-Bus A/B/C"** statt 4166, J oder R. Das ist
+Die Demo-Linien heißen **„Demo A/B/C"** statt 4166, J oder R. Das ist
 Absicht: mit echten Liniennummern sah der erfundene Fahrplan wie eine Auskunft
 aus. Echte Linien und Zeiten kommen ausschließlich aus dem GTFS-Datensatz des
 VVT im Live-Modus — nichts in diesem Repository ist gegen VVT, ÖBB oder IVB
@@ -124,6 +124,24 @@ Region offline verfügbar bleibt.
 Standard-Kachelquelle ist OpenStreetMap. Für Österreich bietet sich basemap.at an
 (CC BY 4.0) — beides über `PUBLIC_TILE_URL` und `PUBLIC_TILE_ATTRIBUTION`
 umstellbar; die URLs in `.env.example` sind hier ebenfalls nicht verifizierbar gewesen.
+
+## Gestaltung
+
+Die Palette nimmt Innsbrucker Farben auf: Himmelblau als Leitfarbe, Schneeweiß
+für die Karten, das Grau der Nordkette für Fließtext und Ränder, Waldgrün als
+zweite Farbe und das Gold des Goldenen Dachls für das Wappen der App — das als
+Inline-SVG gezeichnet ist, bewusst grob, damit es in Favicon-Größe nicht
+verschmiert.
+
+Alle Farben laufen über CSS-Tokens in `src/routes/+layout.svelte`; eine dunkle
+Fassung für die Planung am Abend schaltet über `prefers-color-scheme` dieselben
+Token um. Leaflet liest die Ampelfarben zur Laufzeit aus denselben Tokens, damit
+Karte und Oberfläche nicht auseinanderdriften.
+
+Das Ampelgrün ist bewusst ein anderes als das Waldgrün der Oberfläche: Signal
+und Dekoration sollen nicht verwechselbar sein. Alle Text-auf-Fläche-Paare
+erreichen WCAG AA (geprüft: 4.8–16.0), die Signalfarben als grafische Elemente
+mindestens 3.3.
 
 ## Tourenverläufe (GPX)
 

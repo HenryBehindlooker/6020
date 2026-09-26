@@ -70,5 +70,5 @@
 	p { font-size: 0.9rem; }
 	table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 	th { text-align: left; color: var(--muted); font-weight: 600; }
-	th, td { padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--surface-2); }
+	th, td { padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); }
 </style>
