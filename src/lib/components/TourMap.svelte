@@ -147,7 +147,8 @@
 						route: token('--sky', '#2b7fb8'),
 						skitour: token('--forest', '#2f6b41'),
 						aerialway: token('--text', '#17232e'),
-						hut: token('--gold', '#b8860b')
+						// Grau statt Gold: Gold laege zu nah am Ampel-Gelb "Heikel".
+						hut: token('--muted', '#56697a')
 					});
 				}
 			} catch (err) {

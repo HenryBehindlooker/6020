@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { pickSnapshotDay, toDeparture, type Snapshot, type SnapshotItinerary } from './snapshot';
+import { viennaParts } from './time';
 
 const reise: SnapshotItinerary = {
 	departure: '12:05',
@@ -26,20 +27,20 @@ const snapshot: Snapshot = {
 
 describe('pickSnapshotDay', () => {
 	it('nimmt am Samstag den Samstag', () => {
-		expect(pickSnapshotDay(snapshot, new Date('2026-10-10T08:00:00'))?.label).toBe('samstag');
+		expect(pickSnapshotDay(snapshot, new Date('2026-10-10T08:00:00Z'))?.label).toBe('samstag');
 	});
 
 	it('nimmt unter der Woche den Werktag', () => {
-		expect(pickSnapshotDay(snapshot, new Date('2026-10-07T08:00:00'))?.label).toBe('werktag');
+		expect(pickSnapshotDay(snapshot, new Date('2026-10-07T08:00:00Z'))?.label).toBe('werktag');
 	});
 
 	it('nimmt im Winter den Wintertag', () => {
-		expect(pickSnapshotDay(snapshot, new Date('2027-01-16T08:00:00'))?.label).toBe('winter_samstag');
+		expect(pickSnapshotDay(snapshot, new Date('2027-01-16T08:00:00Z'))?.label).toBe('winter_samstag');
 	});
 
 	it('faellt auf den anderen Tag zurueck, wenn einer fehlt', () => {
 		const nurWerktag: Snapshot = { ...snapshot, days: { werktag: snapshot.days.werktag } };
-		expect(pickSnapshotDay(nurWerktag, new Date('2026-10-10T08:00:00'))?.label).toBe('werktag');
+		expect(pickSnapshotDay(nurWerktag, new Date('2026-10-10T08:00:00Z'))?.label).toBe('werktag');
 	});
 
 	it('liefert null ohne Tage', () => {
@@ -48,13 +49,14 @@ describe('pickSnapshotDay', () => {
 });
 
 describe('toDeparture', () => {
-	const heute = new Date('2026-10-10T00:00:00');
+	const heute = new Date('2026-10-10T08:00:00Z');
 
-	it('uebertraegt die Zeiten auf das Zieldatum', () => {
+	it('uebertraegt die Zeiten auf das Zieldatum, in Innsbrucker Zeit', () => {
 		const d = toDeparture(reise, heute, 'inbound')!;
-		expect(new Date(d.departure).getHours()).toBe(12);
-		expect(new Date(d.departure).getMinutes()).toBe(5);
-		expect(new Date(d.departure).getDate()).toBe(10);
+		const p = viennaParts(new Date(d.departure));
+		expect([p.day, p.hour, p.minute]).toEqual([10, 12, 5]);
+		// Sommerzeit: 12:05 in Innsbruck ist 10:05 UTC
+		expect(d.departure).toBe('2026-10-10T10:05:00.000Z');
 	});
 
 	it('fasst die Linien zusammen und zaehlt Umstiege', () => {

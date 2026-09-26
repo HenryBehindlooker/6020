@@ -16,7 +16,8 @@
 		new Date(plan.date).toLocaleDateString('de-AT', {
 			weekday: 'long',
 			day: 'numeric',
-			month: 'long'
+			month: 'long',
+			timeZone: 'Europe/Vienna'
 		})
 	);
 </script>

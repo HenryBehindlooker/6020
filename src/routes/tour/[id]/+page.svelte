@@ -284,7 +284,7 @@
 	}
 
 	.huetten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.88rem; }
-	.huetten li { display: flex; justify-content: space-between; gap: 1rem; padding-left: 0.7rem; border-left: 3px solid var(--gold); }
+	.huetten li { display: flex; justify-content: space-between; gap: 1rem; padding-left: 0.7rem; border-left: 3px solid var(--muted); }
 	.huetten .art, .huetten .zeiten { display: block; color: var(--muted); font-size: 0.8rem; }
 	.huetten .entfernung { color: var(--muted); white-space: nowrap; }
 

@@ -190,6 +190,41 @@ KEEP_POI_TAGS = ["name", "tourism", "amenity", "ele", "operator", "opening_hours
                  "capacity", "seasonal", "description", "wikipedia", "access"]
 
 
+# Einkehr-Filter. Overpass liefert zu den Huetten auch Gasthoefe und Cafes
+# in Doerfern und der Innenstadt, weil Namen wie "...haus" oder "Gasthof"
+# mehrdeutig sind. Ohne Hoehenangabe in OSM bleibt das eine Heuristik.
+import re as _re
+
+MOUNTAIN_WORDS = _re.compile(
+    r"(Alm|Alpe|Hütte|Huette|Schutzhaus|Berggasthof|Bergrestaurant|Bergheim|Stüberl|Jausen|"
+    r"Panorama|Gipfel|Seegrube|Hafelekar|Waldgasthaus|[\w-]{3,}haus$)",
+    _re.I,
+)
+INNSBRUCK_CENTER = (47.2654, 11.3928)
+CITY_RADIUS_KM = 2.0
+
+
+def _km(lat1, lon1, lat2, lon2):
+    return _dist_m([lon1, lat1], [lon2, lat2]) / 1000
+
+
+def is_mountain_einkehr(props, lat, lon):
+    """Schutzhuetten immer; sonst nur Bergnamen oder Hoehe ab 900 m, und nie
+    in der Innenstadt."""
+    if props.get("tourism") in ("alpine_hut", "wilderness_hut"):
+        return True
+    name = props.get("name") or ""
+    if not name:
+        return False
+    if _km(lat, lon, *INNSBRUCK_CENTER) < CITY_RADIUS_KM:
+        return False
+    try:
+        ele = float(str(props.get("ele", "")).replace(",", ".").split()[0])
+    except (ValueError, IndexError):
+        ele = None
+    return bool(MOUNTAIN_WORDS.search(name.strip())) or (ele is not None and ele >= 900)
+
+
 def point_features(elements):
     features = []
     for el in elements:
@@ -233,10 +268,15 @@ def aerialway_features(elements):
     return features
 
 
+def hut_features(elements):
+    return [f for f in point_features(elements)
+            if is_mountain_einkehr(f["properties"], f["geometry"]["coordinates"][1], f["geometry"]["coordinates"][0])]
+
+
 CONVERT = {
     "routes-hiking": route_features,
     "routes-skitour": route_features,
-    "huts": point_features,
+    "huts": hut_features,
     "aerialways": aerialway_features,
     "peaks": point_features,
     "bus-stops": point_features,

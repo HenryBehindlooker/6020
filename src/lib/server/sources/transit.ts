@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import type { Departure, TransitConnection } from '$lib/types';
 import timetable from '$fixtures/timetable.json' with { type: 'json' };
 import { pickSnapshotDay, toDeparture as snapshotDeparture, type Snapshot } from '$lib/logic/snapshot';
+import { TIME_ZONE, viennaTime, viennaWeekday } from '$lib/logic/time';
 import { cached } from '$lib/server/cache';
 import { config } from '$lib/server/config';
 
@@ -51,8 +52,8 @@ async function fromSnapshot(stop: string, date: Date): Promise<TransitConnection
 	const entry = picked.day.trailheads[stop];
 	if (!entry) return null;
 
-	const tag = new Date(picked.day.date + 'T12:00:00');
-	const stand = `${WOCHENTAG[tag.getDay()]} ${tag.toLocaleDateString('de-AT')}`;
+	const tag = new Date(picked.day.date + 'T12:00:00Z');
+	const stand = `${WOCHENTAG[viennaWeekday(tag)]} ${tag.toLocaleDateString('de-AT', { timeZone: TIME_ZONE })}`;
 	const convert = (direction: 'outbound' | 'inbound') =>
 		entry[direction]
 			.map((it) => snapshotDeparture(it, date, direction))
@@ -127,12 +128,9 @@ function toDeparture(
 	};
 }
 
-/** Setzt "HH:MM" auf das gegebene Datum in oesterreichischer Ortszeit. */
+/** Setzt "HH:MM" auf das gegebene Datum in Innsbrucker Ortszeit. */
 export function atLocalTime(date: Date, hhmm: string): Date {
-	const [hours, minutes] = hhmm.split(':').map(Number);
-	const local = new Date(date);
-	local.setHours(hours, minutes, 0, 0);
-	return local;
+	return viennaTime(date, hhmm);
 }
 
 function dayKey(date: Date): string {

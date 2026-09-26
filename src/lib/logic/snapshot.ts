@@ -1,4 +1,5 @@
 import type { Departure } from '$lib/types';
+import { viennaMonth, viennaTime, viennaWeekday } from '$lib/logic/time';
 
 /** Eine Reise aus data/transit/connections.json (scripts/fetch/transitous.py). */
 export interface SnapshotItinerary {
@@ -30,16 +31,17 @@ export interface Snapshot {
 	days: Record<string, SnapshotDay>;
 }
 
-/** Dezember bis April (Date.getMonth zaehlt ab 0 = Januar). */
-const WINTER_MONTHS = new Set([11, 0, 1, 2, 3]);
+/** Dezember bis April. */
+const WINTER_MONTHS = new Set([12, 1, 2, 3, 4]);
 
 /**
  * Welcher Beispieltag passt zum gewuenschten Datum? Wochenende -> Samstag,
  * sonst Werktag; im Winter der Wintertag, falls abgefragt.
  */
 export function pickSnapshotDay(snapshot: Snapshot, date: Date): { label: string; day: SnapshotDay } | null {
-	const weekend = date.getDay() === 0 || date.getDay() === 6;
-	const order = WINTER_MONTHS.has(date.getMonth())
+	const weekday = viennaWeekday(date);
+	const weekend = weekday === 0 || weekday === 6;
+	const order = WINTER_MONTHS.has(viennaMonth(date))
 		? ['winter_samstag', weekend ? 'samstag' : 'werktag', weekend ? 'werktag' : 'samstag']
 		: [weekend ? 'samstag' : 'werktag', weekend ? 'werktag' : 'samstag'];
 
@@ -50,20 +52,14 @@ export function pickSnapshotDay(snapshot: Snapshot, date: Date): { label: string
 	return null;
 }
 
-/** "HH:MM" auf das Zieldatum setzen - der Fahrplan wird auf heute uebertragen. */
-function at(date: Date, hhmm: string): Date {
-	const [h, m] = hhmm.split(':').map(Number);
-	const d = new Date(date);
-	d.setHours(h, m, 0, 0);
-	return d;
-}
 
 /** Eine Reise in das App-Modell. Liefert null, wenn Zeiten fehlen. */
 export function toDeparture(it: SnapshotItinerary, date: Date, direction: 'outbound' | 'inbound'): Departure | null {
 	if (!it.departure || !it.arrival || it.legs.length === 0) return null;
 
-	const dep = at(date, it.departure);
-	let arr = at(date, it.arrival);
+	// Der Fahrplan wird auf den Planungstag uebertragen, in Innsbrucker Ortszeit.
+	const dep = viennaTime(date, it.departure);
+	let arr = viennaTime(date, it.arrival);
 	if (arr < dep) arr = new Date(arr.getTime() + 24 * 3_600_000); // ueber Mitternacht
 
 	const lines = it.legs.map((l) => l.line).filter(Boolean);

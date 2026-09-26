@@ -76,7 +76,7 @@
 	<span class="gruen">Geht</span>
 	<span class="gelb">Heikel</span>
 	<span class="rot">Heute nicht</span>
-	<span class="hinweis">Kreis: Haltestelle am Ausgangspunkt, die Zahl ist die Anzahl der Touren. Dreieck: Gipfel. Blaue Linien: Wanderwege (Sommer), punktiert: Seilbahnen, gold: Huetten.</span>
+	<span class="hinweis">Kreis: Haltestelle am Ausgangspunkt, die Zahl ist die Anzahl der Touren. Dreieck: Gipfel. Blau: Wanderwege (Sommer). Gruen: Skitouren-Aufstiege laut OSM. Punktiert: Seilbahnen. Graue Punkte: Huetten und Einkehr. Ebenen oben rechts umschaltbar.</span>
 	{#if data.tracks.some((t) => t.schematic)}
 		<span class="hinweis gestrichelt">Gestrichelte Linien sind schematisch, keine Wegaufzeichnung.</span>
 	{/if}
