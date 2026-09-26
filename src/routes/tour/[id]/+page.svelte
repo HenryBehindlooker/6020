@@ -32,9 +32,21 @@
 			lat: tour.lat,
 			lon: tour.lon,
 			signal: rating.signal,
-			label: tour.name,
-			sub: `Ausgangspunkt ${tour.trailhead}`
-		}
+			label: tour.trailheadStop,
+			sub: `Haltestelle am Ausgangspunkt`
+		},
+		...(tour.summit
+			? [
+					{
+						lat: tour.summit.lat,
+						lon: tour.summit.lon,
+						signal: rating.signal,
+						label: tour.summit.name,
+						sub: tour.summit.ele ? `${tour.summit.ele} m laut OpenStreetMap` : 'Gipfel laut OpenStreetMap',
+						shape: 'gipfel' as const
+					}
+				]
+			: [])
 	]);
 </script>
 
@@ -56,6 +68,14 @@
 </header>
 
 <p class="beschreibung">{tour.description}</p>
+
+{#if tour.verification}
+	<p class="belegt">
+		<strong>Belegt:</strong> {tour.verification.osm}.
+		<strong>Richtwerte:</strong> {tour.verification.estimate} - und genau sie gehen in die Ampel
+		ein.
+	</p>
+{/if}
 
 <section class="panel">
 	<h2>Warum diese Ampel?</h2>
@@ -124,12 +144,15 @@
 	<TourMap
 		markers={marker}
 		tracks={track}
-		height="18rem"
+		osm
+		height="22rem"
 		zoom={12}
-		center={data.track ? undefined : [tour.lat, tour.lon]}
+		center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]}
 	/>
 	<p class="quelle">
-		Ausgangspunkt {tour.trailhead}, Haltestelle {tour.trailheadStop}
+		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'}
+		· Linien: Wege und Seilbahnen aus OpenStreetMap, oben rechts umschaltbar. Wanderwege
+		sind Sommerwege, keine Skitouren-Aufstiege.
 		{#if data.track}
 			· Verlauf {data.track.lengthKm} km, {data.track.ascentMeters} hm
 			{#if data.track.schematic}
@@ -139,16 +162,57 @@
 	</p>
 </section>
 
+{#if data.huts.length > 0}
+	<section class="panel">
+		<h2>Einkehr und Huetten in der Naehe</h2>
+		<ul class="huetten">
+			{#each data.huts as huette (huette.osm ?? huette.name)}
+				<li>
+					<div>
+						<strong>{huette.name}</strong>
+						<span class="art">
+							{huette.kind === 'schutzhuette' ? 'Schutzhuette' : huette.kind === 'selbstversorger' ? 'Selbstversorgerhuette' : 'Einkehr'}{#if huette.ele}
+								· {huette.ele} m{/if}
+						</span>
+						{#if huette.openingHours}
+							<span class="zeiten">Geoeffnet laut OSM: {huette.openingHours}</span>
+						{/if}
+					</div>
+					<span class="entfernung">{huette.km} km</span>
+				</li>
+			{/each}
+		</ul>
+		<p class="quelle">
+			Luftlinie vom Tourengebiet, nicht Gehweg. Oeffnungszeiten stehen selten in OSM und aendern
+			sich saisonal - vor dem Aufbruch bei der Huette nachfragen. Daten: &copy;
+			OpenStreetMap-Mitwirkende (ODbL).
+		</p>
+	</section>
+{/if}
+
 <section class="panel">
 	<h2>Alle Rueckfahrten ab {transit.destinationStop}</h2>
 	<ul class="fahrten">
 		{#each transit.inbound as fahrt}
 			<li>
-				<strong>{hhmm(fahrt.departure)}</strong> Linie {fahrt.line} &rarr; {fahrt.headsign}
-				{#if fahrt.delayMinutes}<span class="delay">+{fahrt.delayMinutes} min</span>{/if}
+				<div>
+					<strong>{hhmm(fahrt.departure)}</strong> &rarr; {hhmm(fahrt.arrival)}
+					<span class="linie">{fahrt.line}</span>
+					{#if fahrt.delayMinutes}<span class="delay">+{fahrt.delayMinutes} min</span>{/if}
+				</div>
+				<div class="detail">
+					{#if fahrt.walkMinutes}{fahrt.walkMinutes} min Fussweg zur Haltestelle · {/if}
+					{#if fahrt.transfers === 0}direkt{:else if fahrt.transfers}{fahrt.transfers} Umstieg{fahrt.transfers > 1 ? 'e' : ''}{/if}
+					{#if fahrt.legs && fahrt.legs.length > 1}
+						({fahrt.legs.map((l) => `${l.line} ab ${l.from} ${l.departure}`).join(', ')})
+					{:else if fahrt.legs?.length === 1}
+						ab {fahrt.legs[0].from}
+					{/if}
+					&rarr; {fahrt.headsign}
+				</div>
 			</li>
 		{:else}
-			<li>Keine Rueckfahrten hinterlegt.</li>
+			<li>Keine Rueckfahrt an diesem Tag gefunden.</li>
 		{/each}
 	</ul>
 	<p class="quelle">{transit.source}</p>
@@ -171,6 +235,13 @@
 	.meta { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.85rem; }
 
 	.beschreibung { color: var(--muted); }
+
+	.belegt {
+		font-size: 0.82rem;
+		color: var(--muted);
+		border-left: 3px solid var(--sky);
+		padding-left: 0.7rem;
+	}
 
 	.panel {
 		background: var(--surface);
@@ -212,7 +283,14 @@
 		.zeiten div { grid-template-columns: 1fr; gap: 0.1rem; }
 	}
 
-	.fahrten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.88rem; }
+	.huetten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.88rem; }
+	.huetten li { display: flex; justify-content: space-between; gap: 1rem; padding-left: 0.7rem; border-left: 3px solid var(--muted); }
+	.huetten .art, .huetten .zeiten { display: block; color: var(--muted); font-size: 0.8rem; }
+	.huetten .entfernung { color: var(--muted); white-space: nowrap; }
+
+	.fahrten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.88rem; }
+	.fahrten .linie { margin-left: 0.4rem; color: var(--sky-deep); font-weight: 600; }
+	.fahrten .detail { color: var(--muted); font-size: 0.78rem; }
 
 	.delay { color: var(--text-kritisch); margin-left: 0.4rem; }
 

@@ -6,6 +6,7 @@ import { getConnection } from '$lib/server/sources/transit';
 import { getWeather } from '$lib/server/sources/weather';
 import { listTours, trailheads } from '$lib/server/sources/tours';
 import { config } from '$lib/server/config';
+import { viennaTime } from '$lib/logic/time';
 
 export interface TourPlan {
 	tour: Tour;
@@ -85,8 +86,5 @@ function compareTourPlans(a: TourPlan, b: TourPlan): number {
 }
 
 function atLocalIso(date: Date, hhmm: string): string {
-	const [hours, minutes] = hhmm.split(':').map(Number);
-	const local = new Date(date);
-	local.setHours(hours, minutes, 0, 0);
-	return local.toISOString();
+	return viennaTime(date, hhmm).toISOString();
 }

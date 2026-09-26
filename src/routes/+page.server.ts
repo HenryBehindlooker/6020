@@ -18,6 +18,11 @@ export const load: PageServerLoad = async ({ url, setHeaders }) => {
 		notBefore: notBefore ?? '07:00',
 		buffer: buffer > 0 ? buffer : 30,
 		// In der vorgerenderten Fassung kann das Formular nichts neu berechnen.
-		staticPreview: building
+		staticPreview: building,
+		transit: {
+			real: plan.tours.some((t) => t.transit.source.startsWith('Transitous,')),
+			demo: plan.tours.some((t) => t.transit.source.startsWith('Demo')),
+			stand: plan.tours.find((t) => t.transit.source.startsWith('Transitous,'))?.transit.source ?? null
+		}
 	};
 };

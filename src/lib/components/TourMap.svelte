@@ -4,16 +4,21 @@
 	import { env } from '$env/dynamic/public';
 	import type { Signal } from '$lib/logic/rating';
 	import type { MapMarker, MapTrack } from './mapTypes';
+	import { base } from '$app/paths';
+	import { addOsmLayers } from './osmLayers';
 
 	let {
 		markers,
 		tracks = [],
+		osm = false,
 		height = '26rem',
 		zoom = 10,
 		center
 	}: {
 		markers: MapMarker[];
 		tracks?: MapTrack[];
+		/** Wege, Huetten und Seilbahnen aus OpenStreetMap dazuladen. */
+		osm?: boolean;
 		height?: string;
 		zoom?: number;
 		center?: [number, number];
@@ -101,13 +106,22 @@
 				}
 				for (const marker of markers) {
 					const color = SIGNAL_COLORS[marker.signal];
-					const icon = L.divIcon({
-						className: 'bergampel-marker',
-						html: `<span style="--marker-color:${color}">${marker.count ?? ''}</span>`,
-						iconSize: [26, 26],
-						iconAnchor: [13, 13],
-						popupAnchor: [0, -14]
-					});
+					const icon =
+						marker.shape === 'gipfel'
+							? L.divIcon({
+									className: 'bergampel-gipfel',
+									html: `<span style="--marker-color:${color}"></span>`,
+									iconSize: [18, 16],
+									iconAnchor: [9, 14],
+									popupAnchor: [0, -14]
+								})
+							: L.divIcon({
+									className: 'bergampel-marker',
+									html: `<span style="--marker-color:${color}">${marker.count ?? ''}</span>`,
+									iconSize: [26, 26],
+									iconAnchor: [13, 13],
+									popupAnchor: [0, -14]
+								});
 
 					L.marker([marker.lat, marker.lon], { icon, title: marker.label })
 						.addTo(map)
@@ -124,6 +138,18 @@
 				} else {
 					// Innsbruck, falls es nichts anzuzeigen gibt.
 					map.setView([47.2692, 11.4041], zoom);
+				}
+
+				if (osm) {
+					const css = getComputedStyle(document.documentElement);
+					const token = (name: string, fallback: string) => css.getPropertyValue(name).trim() || fallback;
+					await addOsmLayers(L, map, base, {
+						route: token('--sky', '#2b7fb8'),
+						skitour: token('--forest', '#2f6b41'),
+						aerialway: token('--text', '#17232e'),
+						// Grau statt Gold: Gold laege zu nah am Ampel-Gelb "Heikel".
+						hut: token('--muted', '#56697a')
+					});
 				}
 			} catch (err) {
 				console.error('[karte] Leaflet konnte nicht geladen werden:', err);
@@ -200,6 +226,16 @@
 		font: 600 0.75rem/1 ui-sans-serif, system-ui, sans-serif;
 	}
 
+	/* Gipfel als Dreieck in der Ampelfarbe der Tour */
+	:global(.bergampel-gipfel span) {
+		display: block;
+		width: 18px;
+		height: 16px;
+		background: var(--marker-color);
+		clip-path: polygon(50% 0, 100% 100%, 0 100%);
+		filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+	}
+
 	:global(.leaflet-popup-content-wrapper) {
 		background: var(--surface);
 		color: var(--text);
@@ -218,6 +254,26 @@
 	:global(.leaflet-popup-content .sub) {
 		color: var(--muted);
 		font-size: 0.78rem;
+	}
+
+	:global(.leaflet-popup-content .sub.warn) {
+		color: var(--text-warnung);
+	}
+
+	:global(.leaflet-popup-content .links) {
+		margin-top: 0.35rem;
+		font-size: 0.78rem;
+	}
+
+	:global(.leaflet-popup-content a) {
+		color: var(--sky);
+	}
+
+	:global(.leaflet-control-layers) {
+		background: var(--surface);
+		color: var(--text);
+		border-radius: 0.5rem;
+		font-size: 0.8rem;
 	}
 
 	:global(.leaflet-popup-content ul) {

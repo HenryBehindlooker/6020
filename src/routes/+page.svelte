@@ -16,16 +16,28 @@
 		new Date(plan.date).toLocaleDateString('de-AT', {
 			weekday: 'long',
 			day: 'numeric',
-			month: 'long'
+			month: 'long',
+			timeZone: 'Europe/Vienna'
 		})
 	);
 </script>
 
 {#if plan.mode === 'demo'}
-	<p class="demo" role="status">
-		<strong>Demodaten.</strong> Lawinenlage, Wetter und Fahrplan stammen aus mitgelieferten
-		Beispieldateien - keine gueltige Auskunft. Fuer echte Daten <code>DATA_MODE=live</code> setzen.
-	</p>
+	<div class="demo" role="status">
+		<p>
+			<strong>Lawinenlage und Wetter sind Demodaten</strong> aus Beispieldateien - keine gueltige
+			Auskunft. Fuer echte Daten <code>DATA_MODE=live</code> setzen.
+		</p>
+		{#if data.transit.real}
+			<p>
+				<strong>Die Busverbindungen sind echt</strong> ({data.transit.stand}). Fahrplaene aendern
+				sich - vor der Fahrt in der VVT- oder OeBB-App pruefen.
+			</p>
+		{/if}
+		{#if data.transit.demo}
+			<p>Fuer einzelne Haltestellen fehlt ein echter Fahrplan; dort stehen Demo-Linien.</p>
+		{/if}
+	</div>
 {/if}
 
 <section class="bulletin">
@@ -101,6 +113,14 @@
 		border-radius: 0.6rem;
 		font-size: 0.85rem;
 		margin-bottom: 1.25rem;
+	}
+
+	.demo p {
+		margin: 0;
+	}
+
+	.demo p + p {
+		margin-top: 0.35rem;
 	}
 
 	.demo code {

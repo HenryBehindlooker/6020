@@ -51,8 +51,9 @@
 		<tbody>
 			<tr><td>Lawinenwarndienst Tirol / EAWS (CAAMLv6)</td><td>Gefahrenstufe, Gefahrenmuster, Expositionen</td></tr>
 			<tr><td>GeoSphere Austria (AROME, Open Data)</td><td>Wind, Neuschnee, Temperatur</td></tr>
-			<tr><td>VVT / OGD Tirol (GTFS + GTFS-RT)</td><td>Fahrplan und Echtzeit-Verspaetungen</td></tr>
-			<tr><td>OpenStreetMap</td><td>Ausgangspunkte, Wege, Huetten</td></tr>
+			<tr><td>Transitous (transitous.org)</td><td>Busverbindungen Ausgangspunkt - Innsbruck, als Abzug fuer Beispieltage</td></tr>
+			<tr><td>VVT / OGD Tirol (GTFS + GTFS-RT)</td><td>Fahrplan und Echtzeit-Verspaetungen (benoetigt Zugang)</td></tr>
+			<tr><td>OpenStreetMap</td><td>Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Huetten, Seilbahnen</td></tr>
 			<tr><td>data.gv.at / Stadt Innsbruck OGD</td><td>Ergaenzende Geodaten</td></tr>
 		</tbody>
 	</table>

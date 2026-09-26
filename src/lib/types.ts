@@ -66,6 +66,12 @@ export interface Departure {
 	arrival: string;
 	/** Verspaetung in Minuten aus GTFS-RT; null wenn keine Echtzeitdaten. */
 	delayMinutes: number | null;
+	/** Anzahl Umstiege; 0 = direkt. */
+	transfers?: number;
+	/** Fussweg zwischen Ausgangspunkt und Haltestelle, in Minuten. */
+	walkMinutes?: number;
+	/** Die einzelnen Fahrten, z.B. "462 bis Voels Bahnhof, dann REX". */
+	legs?: { line: string; from: string; to: string; departure: string; arrival: string }[];
 }
 
 export interface TransitConnection {
@@ -99,4 +105,19 @@ export interface Tour {
 	steepnessMax: number;
 	type: 'skitour' | 'winterwanderung' | 'schneeschuh';
 	description: string;
+	/** Gipfel bzw. Ziel laut OpenStreetMap (scripts/verify_tours.py). */
+	summit?: {
+		name: string;
+		lat: number;
+		lon: number;
+		ele: number | null;
+		osm: string | null;
+	};
+	/** OSM-Referenz der Haltestelle am Ausgangspunkt. */
+	trailheadOsm?: string | null;
+	/** Was belegt ist und was Richtwert bleibt. */
+	verification?: {
+		osm: string;
+		estimate: string;
+	};
 }

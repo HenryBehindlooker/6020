@@ -19,7 +19,7 @@ letzten Bus verpasst, steht.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm test           # 56 Tests für Ampel-, Umkehrzeit-, Karten- und GPX-Logik
+npm test           # Tests für Ampel, Umkehrzeit, Karte, GPX, Fahrplan und OSM-Popups
 npm run build && npm start     # Node-Server, rechnet pro Anfrage
 npm run build:pages            # vorgerenderte Demo-Fassung für GitHub Pages
 ```
@@ -33,6 +33,36 @@ Absicht: mit echten Liniennummern sah der erfundene Fahrplan wie eine Auskunft
 aus. Echte Linien und Zeiten kommen ausschließlich aus dem GTFS-Datensatz des
 VVT im Live-Modus — nichts in diesem Repository ist gegen VVT, ÖBB oder IVB
 geprüft.
+
+## Echte Daten und woher sie kommen
+
+Aus der Entwicklungsumgebung sind die meisten Datenquellen nicht erreichbar,
+auf dem GitHub-Runner schon. `.github/workflows/fetch-data.yml` holt die Daten
+dort und committet sie zurück; neu auslösen über **Actions → Echte Daten holen →
+Run workflow**.
+
+| Was | Quelle | Datei | Lizenz |
+|---|---|---|---|
+| Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Hütten und Einkehr, Seilbahnen | OpenStreetMap via Overpass (`scripts/fetch/osm.py`) | `static/osm/*.geojson` | ODbL, © OpenStreetMap-Mitwirkende |
+| Busverbindungen Ausgangspunkt ↔ Innsbruck Hbf | Transitous (`scripts/fetch/transitous.py`) | `data/transit/connections.json` | offene Fahrplandaten, fair use |
+| Suche nach offenen GTFS-Feeds | Mobility Database (`scripts/fetch/gtfs.py`) | `data/gtfs/PROBE.json` | — |
+
+**Touren abgleichen:** `python3 scripts/verify_tours.py` prüft Gipfelname, -höhe
+und -lage sowie die Haltestelle jeder Tour gegen OSM und schreibt
+`src/fixtures/tours.json` neu. Hangrichtung, Steilheit und Gehzeiten gibt OSM
+nicht her; sie bleiben Richtwerte und die Tourenseite sagt das.
+
+**Bewusst nicht verwendet:** Komoot, Outdooractive (auch Alpenvereinaktiv) und
+Bergfex. Ihre Touren sind urheberrechtlich geschützt, Outdooractive verlangt eine
+kostenpflichtige API-Lizenz. In einem öffentlichen Repository wäre ein Kopieren
+ein Lizenzverstoß. Die Alpenverein-Hütten und viele Wege sind ohnehin in OSM
+eingetragen — oft von den Sektionen selbst.
+
+**Fahrplan:** Die GTFS-Daten des VVT gibt es kostenlos, aber nur mit Login
+(data.mobilitaetsverbuende.at). Transitous bindet die österreichischen Fahrpläne
+ein und ist offen abfragbar; der Abzug gilt für die abgefragten Beispieltage und
+wird auf den Planungstag übertragen. Kennt Transitous an einem Tag keine Fahrt,
+zeigt die App **keine** Demo-Zeiten als Ersatz.
 
 ## Zwei Build-Ziele
 

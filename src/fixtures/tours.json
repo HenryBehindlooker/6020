@@ -3,204 +3,324 @@
     "id": "nockspitze",
     "name": "Nockspitze (Saile)",
     "trailhead": "Axamer Lizum",
-    "trailheadStop": "Axamer Lizum",
-    "lat": 47.1897,
-    "lon": 11.2833,
+    "trailheadStop": "Axams Axamer Lizum",
+    "lat": 47.19576,
+    "lon": 11.30302,
     "summitAltitude": 2404,
     "trailheadAltitude": 1580,
-    "ascentMeters": 830,
+    "ascentMeters": 824,
     "ascentMinutes": 150,
     "descentMinutes": 70,
-    "aspects": ["N", "NE", "E"],
+    "aspects": [
+      "N",
+      "NE",
+      "E"
+    ],
     "steepnessMax": 38,
     "type": "skitour",
-    "description": "Klassiker ueber dem Mittelgebirge, Gipfelhang steil und meist windexponiert."
+    "description": "Klassiker ueber dem Mittelgebirge, Gipfelhang steil und meist windexponiert.",
+    "summit": {
+      "name": "Saile (Nockspitze)",
+      "lat": 47.19207,
+      "lon": 11.32472,
+      "ele": 2404,
+      "osm": "node/275552924"
+    },
+    "trailheadOsm": "node/1074076127",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "rangger-koepfl",
     "name": "Rangger Koepfl",
     "trailhead": "Oberperfuss",
-    "trailheadStop": "Oberperfuss Sulztalalm",
-    "lat": 47.2244,
-    "lon": 11.1636,
+    "trailheadStop": "Oberperfuss Rangger Köpfl Lift",
+    "lat": 47.24576,
+    "lon": 11.23786,
     "summitAltitude": 1939,
     "trailheadAltitude": 1140,
-    "ascentMeters": 800,
+    "ascentMeters": 799,
     "ascentMinutes": 135,
     "descentMinutes": 60,
-    "aspects": ["NE", "E"],
+    "aspects": [
+      "NE",
+      "E"
+    ],
     "steepnessMax": 28,
     "type": "skitour",
-    "description": "Wenig steil, guter Rueckzugsberg bei angespannter Lage. Teilweise entlang der Piste."
+    "description": "Wenig steil, guter Rueckzugsberg bei angespannter Lage. Teilweise entlang der Piste.",
+    "summit": {
+      "name": "Rangger Köpfl",
+      "lat": 47.24265,
+      "lon": 11.18143,
+      "ele": 1939,
+      "osm": "node/292803997"
+    },
+    "trailheadOsm": "node/1424374997",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "pirchkogel",
     "name": "Pirchkogel",
     "trailhead": "Kuehtai",
-    "trailheadStop": "Kuehtai Dortmunder Huette",
-    "lat": 47.2072,
-    "lon": 11.0289,
+    "trailheadStop": "Kühtai Dortmunderhütte",
+    "lat": 47.21143,
+    "lon": 11.0082,
     "summitAltitude": 2828,
     "trailheadAltitude": 2020,
-    "ascentMeters": 810,
+    "ascentMeters": 808,
     "ascentMinutes": 165,
     "descentMinutes": 65,
-    "aspects": ["N", "NW", "W"],
+    "aspects": [
+      "N",
+      "NW",
+      "W"
+    ],
     "steepnessMax": 36,
     "type": "skitour",
-    "description": "Hochwinterlich und schneesicher, Nordhaenge halten den Altschnee lange."
+    "description": "Hochwinterlich und schneesicher, Nordhaenge halten den Altschnee lange.",
+    "summit": {
+      "name": "Pirchkogel",
+      "lat": 47.23201,
+      "lon": 10.99895,
+      "ele": 2828,
+      "osm": "node/2924644847"
+    },
+    "trailheadOsm": "node/2102151616",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "zischgeles",
     "name": "Zischgeles",
     "trailhead": "Praxmar, Sellraintal",
-    "trailheadStop": "Praxmar",
-    "lat": 47.1233,
-    "lon": 11.0731,
+    "trailheadStop": "Praxmar Wendestelle",
+    "lat": 47.14944,
+    "lon": 11.13347,
     "summitAltitude": 3004,
     "trailheadAltitude": 1690,
-    "ascentMeters": 1320,
+    "ascentMeters": 1314,
     "ascentMinutes": 240,
     "descentMinutes": 95,
-    "aspects": ["N", "NE"],
+    "aspects": [
+      "N",
+      "NE"
+    ],
     "steepnessMax": 35,
     "type": "skitour",
-    "description": "Lange Dreitausender-Tour ab Praxmar. Rueckfahrt ist der Engpass."
+    "description": "Lange Dreitausender-Tour ab Praxmar. Rueckfahrt ist der Engpass.",
+    "summit": {
+      "name": "Zischgeles",
+      "lat": 47.13154,
+      "lon": 11.09501,
+      "ele": 3004,
+      "osm": "node/255973218"
+    },
+    "trailheadOsm": "node/2102104497",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "lampsenspitze",
     "name": "Lampsenspitze",
     "trailhead": "Praxmar, Sellraintal",
-    "trailheadStop": "Praxmar",
-    "lat": 47.1361,
-    "lon": 11.0928,
+    "trailheadStop": "Praxmar Wendestelle",
+    "lat": 47.14944,
+    "lon": 11.13347,
     "summitAltitude": 2875,
     "trailheadAltitude": 1690,
-    "ascentMeters": 1190,
+    "ascentMeters": 1185,
     "ascentMinutes": 215,
     "descentMinutes": 85,
-    "aspects": ["SE", "S", "SW"],
+    "aspects": [
+      "SE",
+      "S",
+      "SW"
+    ],
     "steepnessMax": 34,
     "type": "skitour",
-    "description": "Suedseitig, bei Sonne frueh dran sein - sonst Nassschneeproblem am Nachmittag."
+    "description": "Suedseitig, bei Sonne frueh dran sein - sonst Nassschneeproblem am Nachmittag.",
+    "summit": {
+      "name": "Lampsenspitze",
+      "lat": 47.15609,
+      "lon": 11.09565,
+      "ele": 2875,
+      "osm": "node/1059284892"
+    },
+    "trailheadOsm": "node/2102104497",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "rosskogel",
     "name": "Rosskogel",
     "trailhead": "Oberperfuss",
-    "trailheadStop": "Oberperfuss Sulztalalm",
-    "lat": 47.2019,
-    "lon": 11.1503,
-    "summitAltitude": 2646,
+    "trailheadStop": "Oberperfuss Rangger Köpfl Lift",
+    "lat": 47.24576,
+    "lon": 11.23786,
+    "summitAltitude": 2647,
     "trailheadAltitude": 1140,
-    "ascentMeters": 1510,
+    "ascentMeters": 1507,
     "ascentMinutes": 255,
     "descentMinutes": 100,
-    "aspects": ["NE", "E", "SE"],
+    "aspects": [
+      "NE",
+      "E",
+      "SE"
+    ],
     "steepnessMax": 37,
     "type": "skitour",
-    "description": "Grosse Runde ueber die Bergkoepfe, oberer Teil kammnah und triebschneeanfaellig."
+    "description": "Grosse Runde ueber die Bergkoepfe, oberer Teil kammnah und triebschneeanfaellig.",
+    "summit": {
+      "name": "Roßkogel",
+      "lat": 47.223,
+      "lon": 11.15263,
+      "ele": 2647,
+      "osm": "node/4279014302"
+    },
+    "trailheadOsm": "node/1424374997",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "patscherkofel",
     "name": "Patscherkofel",
     "trailhead": "Igls",
-    "trailheadStop": "Igls Patscherkofelbahn",
-    "lat": 47.2094,
-    "lon": 11.4614,
+    "trailheadStop": "Patscherkofel",
+    "lat": 47.22213,
+    "lon": 11.42581,
     "summitAltitude": 2246,
     "trailheadAltitude": 900,
-    "ascentMeters": 1350,
+    "ascentMeters": 1346,
     "ascentMinutes": 210,
     "descentMinutes": 85,
-    "aspects": ["N", "NW"],
+    "aspects": [
+      "N",
+      "NW"
+    ],
     "steepnessMax": 30,
     "type": "winterwanderung",
-    "description": "Hausberg mit praeparierter Route, Anbindung per Linie J bis spaet am Abend."
+    "description": "Hausberg mit praeparierter Route, Anbindung per Linie J bis spaet am Abend.",
+    "summit": {
+      "name": "Patscherkofel",
+      "lat": 47.20883,
+      "lon": 11.46061,
+      "ele": 2246,
+      "osm": "node/256042002"
+    },
+    "trailheadOsm": "node/3032430979",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "hafelekar",
     "name": "Hafelekar / Nordkette",
     "trailhead": "Innsbruck Hungerburg",
     "trailheadStop": "Hungerburg",
-    "lat": 47.3125,
-    "lon": 11.3836,
+    "lat": 47.28622,
+    "lon": 11.40018,
     "summitAltitude": 2334,
     "trailheadAltitude": 860,
-    "ascentMeters": 1480,
+    "ascentMeters": 1474,
     "ascentMinutes": 225,
     "descentMinutes": 90,
-    "aspects": ["S", "SW"],
+    "aspects": [
+      "S",
+      "SW"
+    ],
     "steepnessMax": 40,
     "type": "winterwanderung",
-    "description": "Direkt ueber der Stadt. Sehr steile Suedhaenge, Abfahrt nur bei sicherer Lage."
+    "description": "Direkt ueber der Stadt. Sehr steile Suedhaenge, Abfahrt nur bei sicherer Lage.",
+    "summit": {
+      "name": "Hafelekarspitze",
+      "lat": 47.31283,
+      "lon": 11.38632,
+      "ele": 2334,
+      "osm": "node/1620258707"
+    },
+    "trailheadOsm": "node/275810487",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "sulzkogel",
     "name": "Sulzkogel",
     "trailhead": "Kuehtai",
-    "trailheadStop": "Kuehtai Dortmunder Huette",
-    "lat": 47.1972,
-    "lon": 11.0053,
+    "trailheadStop": "Kühtai Dortmunderhütte",
+    "lat": 47.2114,
+    "lon": 11.00885,
     "summitAltitude": 3016,
     "trailheadAltitude": 2020,
-    "ascentMeters": 1000,
+    "ascentMeters": 996,
     "ascentMinutes": 190,
     "descentMinutes": 75,
-    "aspects": ["E", "SE"],
+    "aspects": [
+      "E",
+      "SE"
+    ],
     "steepnessMax": 39,
     "type": "skitour",
-    "description": "Gipfelaufbau ausgesetzt und steil, oft abgeblasen."
-  },
-  {
-    "id": "gamskogel",
-    "name": "Gamskogel",
-    "trailhead": "Kuehtai",
-    "trailheadStop": "Kuehtai Dortmunder Huette",
-    "lat": 47.2144,
-    "lon": 11.0403,
-    "summitAltitude": 2659,
-    "trailheadAltitude": 2020,
-    "ascentMeters": 640,
-    "ascentMinutes": 120,
-    "descentMinutes": 50,
-    "aspects": ["NE", "E"],
-    "steepnessMax": 27,
-    "type": "skitour",
-    "description": "Kurz und maessig steil - die Schlechtwetter- und Stufe-3-Variante in Kuehtai."
+    "description": "Gipfelaufbau ausgesetzt und steil, oft abgeblasen.",
+    "summit": {
+      "name": "Sulzkogel",
+      "lat": 47.18242,
+      "lon": 11.01143,
+      "ele": 3016,
+      "osm": "node/1632744974"
+    },
+    "trailheadOsm": "node/2144782625",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   },
   {
     "id": "arzler-alm",
     "name": "Arzler Alm",
-    "trailhead": "Innsbruck Arzl",
-    "trailheadStop": "Arzl Schoenblick",
-    "lat": 47.2953,
-    "lon": 11.4197,
+    "trailhead": "Innsbruck, Theresienkirche (Hungerburg)",
+    "trailheadStop": "Theresienkirche",
+    "lat": 47.28639,
+    "lon": 11.39816,
     "summitAltitude": 1067,
     "trailheadAltitude": 700,
-    "ascentMeters": 370,
+    "ascentMeters": 367,
     "ascentMinutes": 75,
     "descentMinutes": 50,
-    "aspects": ["S", "SE"],
+    "aspects": [
+      "S",
+      "SE"
+    ],
     "steepnessMax": 18,
     "type": "winterwanderung",
-    "description": "Rodel- und Winterwanderweg, praktisch immer machbar. Bus bis spaet."
-  },
-  {
-    "id": "pfriemesknoepfl",
-    "name": "Pfriemeskoepfl",
-    "trailhead": "Praxmar, Sellraintal",
-    "trailheadStop": "Praxmar",
-    "lat": 47.1156,
-    "lon": 11.0972,
-    "summitAltitude": 2896,
-    "trailheadAltitude": 1690,
-    "ascentMeters": 1210,
-    "ascentMinutes": 220,
-    "descentMinutes": 85,
-    "aspects": ["NW", "N"],
-    "steepnessMax": 33,
-    "type": "skitour",
-    "description": "Nordseitige Alternative zum Zischgeles, oben weites Kar."
+    "description": "Rodel- und Winterwanderweg, praktisch immer machbar. Bus bis spaet.",
+    "summit": {
+      "name": "Arzler Alm",
+      "lat": 47.29654,
+      "lon": 11.40307,
+      "ele": 1067,
+      "osm": "way/48860108"
+    },
+    "trailheadOsm": "node/2028102843",
+    "verification": {
+      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+    }
   }
 ]

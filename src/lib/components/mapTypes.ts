@@ -11,6 +11,8 @@ export interface MapMarker {
 	links?: { text: string; href: string; signal: Signal }[];
 	/** Zahl im Marker - z.B. wie viele Touren ab hier starten. */
 	count?: number;
+	/** Ausgangspunkt (Kreis) oder Gipfel (Dreieck). */
+	shape?: 'punkt' | 'gipfel';
 }
 
 export interface MapTrack {

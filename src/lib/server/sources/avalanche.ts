@@ -1,6 +1,7 @@
 import type { Aspect, AvalancheBulletin, AvalancheProblem, DangerLevel } from '$lib/types';
 import { cached } from '$lib/server/cache';
 import { config } from '$lib/server/config';
+import { viennaTime } from '$lib/logic/time';
 
 const LEVEL_BY_NAME: Record<string, DangerLevel> = {
 	no_snow: 0,
@@ -95,8 +96,7 @@ function parseElevation(value: unknown): number | null {
 
 /** Beispielbericht: erhebliche Lage mit Triebschneeproblem in Nordsektoren. */
 export function demoBulletin(now = new Date()): AvalancheBulletin {
-	const end = new Date(now);
-	end.setHours(17, 0, 0, 0);
+	const end = viennaTime(now, '17:00');
 
 	return {
 		regionId: REGION_ID,
