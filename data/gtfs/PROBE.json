@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-26T10:16:48+00:00",
+  "fetched_at": "2026-09-26T10:26:14+00:00",
   "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
   "candidates": [
     {
@@ -120,7 +120,7 @@
           "name": "Innsbruck Hbf"
         }
       ],
-      "score": 5,
+      "score": 0,
       "id": "mdb-1077",
       "provider": "OVapi",
       "name": "Netherlands aggregate",
@@ -180,7 +180,7 @@
           "name": "Innsbruck Hbf"
         }
       ],
-      "score": 5,
+      "score": 0,
       "id": "mdb-768",
       "provider": "Long-distance rail transport in Germany",
       "name": "gtfs.de - GTFS for Germany Data provided by DELFI e.V",
@@ -273,14 +273,8 @@
       "size_mb": 0.3
     }
   ],
-  "chosen": {
-    "id": "mdb-1077",
-    "provider": "OVapi",
-    "name": "Netherlands aggregate",
-    "license": "",
-    "valid_from": "20260925",
-    "valid_to": "20261212",
-    "latest": "https://files.mobilitydatabase.org/mdb-1077/latest.zip"
-  },
-  "notes": []
+  "chosen": null,
+  "notes": [
+    "Kein öffentlicher Feed enthält die Tiroler Ausgangspunkte."
+  ]
 }
