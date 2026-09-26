@@ -1,0 +1,103 @@
+{
+ "source": {
+  "id": "mdb-1077",
+  "provider": "OVapi",
+  "name": "Netherlands aggregate",
+  "license": "",
+  "valid_from": "20260925",
+  "valid_to": "20261212",
+  "latest": "https://files.mobilitydatabase.org/mdb-1077/latest.zip"
+ },
+ "generated_at": "2026-09-26T10:16:48+00:00",
+ "trailhead_stops": {
+  "Praxmar": [],
+  "Kuehtai Dortmunder Huette": [],
+  "Oberperfuss Sulztalalm": [],
+  "Axamer Lizum": [],
+  "Igls Patscherkofelbahn": [],
+  "Hungerburg": [],
+  "Arzl Schoenblick": []
+ },
+ "central_stops": [
+  {
+   "stop_id": "2993215",
+   "name": "Innsbruck Hbf"
+  },
+  {
+   "stop_id": "2993216",
+   "name": "Innsbruck Hbf"
+  },
+  {
+   "stop_id": "stoparea:30398",
+   "name": "Innsbruck Hbf"
+  }
+ ],
+ "days": {
+  "naechster_werktag": {
+   "date": "2026-10-28",
+   "connections": {
+    "Praxmar": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Kuehtai Dortmunder Huette": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Oberperfuss Sulztalalm": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Axamer Lizum": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Igls Patscherkofelbahn": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Hungerburg": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Arzl Schoenblick": {
+     "outbound": [],
+     "inbound": []
+    }
+   }
+  },
+  "naechster_samstag": {
+   "date": "2026-10-24",
+   "connections": {
+    "Praxmar": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Kuehtai Dortmunder Huette": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Oberperfuss Sulztalalm": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Axamer Lizum": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Igls Patscherkofelbahn": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Hungerburg": {
+     "outbound": [],
+     "inbound": []
+    },
+    "Arzl Schoenblick": {
+     "outbound": [],
+     "inbound": []
+    }
+   }
+  }
+ }
+}

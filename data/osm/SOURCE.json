@@ -1,0 +1,39 @@
+{
+  "fetched_at": "2026-09-26T10:16:48+00:00",
+  "bbox_s_w_n_e": [
+    47.08,
+    10.95,
+    47.36,
+    11.62
+  ],
+  "attribution": "© OpenStreetMap-Mitwirkende, verfügbar unter der Open Database License (ODbL) 1.0",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "files": {
+    "routes-hiking": {
+      "count": 250,
+      "kb": 411,
+      "osm_timestamp": "2026-09-26T10:04:51Z"
+    },
+    "routes-skitour": "Fehler: Overpass nicht erreichbar: HTTP Error 504: Gateway Timeout",
+    "huts": {
+      "count": 253,
+      "kb": 62,
+      "osm_timestamp": "2026-09-26T10:13:53Z"
+    },
+    "aerialways": {
+      "count": 78,
+      "kb": 27,
+      "osm_timestamp": "2026-09-26T10:13:53Z"
+    },
+    "peaks": {
+      "count": 455,
+      "kb": 81,
+      "osm_timestamp": "2026-09-26T10:14:58Z"
+    },
+    "bus-stops": {
+      "count": 1653,
+      "kb": 325,
+      "osm_timestamp": "2026-09-26T10:14:58Z"
+    }
+  }
+}

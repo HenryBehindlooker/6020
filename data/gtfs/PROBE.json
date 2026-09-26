@@ -1,0 +1,286 @@
+{
+  "fetched_at": "2026-09-26T10:16:48+00:00",
+  "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
+  "candidates": [
+    {
+      "id": "mdb-1077",
+      "provider": "OVapi",
+      "name": "Netherlands aggregate",
+      "subdivision": "Lower Austria",
+      "latest": "https://files.mobilitydatabase.org/mdb-1077/latest.zip",
+      "direct": "http://gtfs.ovapi.nl/gtfs-nl.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": true,
+      "relevant_name": true
+    },
+    {
+      "id": "mdb-768",
+      "provider": "Long-distance rail transport in Germany",
+      "name": "gtfs.de - GTFS for Germany Data provided by DELFI e.V",
+      "subdivision": "Carinthia",
+      "latest": "https://files.mobilitydatabase.org/mdb-768/latest.zip",
+      "direct": "https://download.gtfs.de/germany/fv_free/latest.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": true,
+      "relevant_name": false
+    },
+    {
+      "id": "mdb-648",
+      "provider": "Wiener Lokalbahnen (WLB), Wiener Linien",
+      "name": "",
+      "subdivision": "Vienna",
+      "latest": "https://files.mobilitydatabase.org/mdb-648/latest.zip",
+      "direct": "http://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": false,
+      "relevant_name": false
+    },
+    {
+      "id": "mdb-3123",
+      "provider": "Optima Express",
+      "name": "",
+      "subdivision": "Carinthia",
+      "latest": "https://files.mobilitydatabase.org/mdb-3123/latest.zip",
+      "direct": "https://github.com/jonaes/gtfs/raw/refs/heads/main/output/optima_gtfs.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": false,
+      "relevant_name": false
+    }
+  ],
+  "probed": [
+    {
+      "agencies": [
+        "allGo (Keolis)",
+        "Arriva",
+        "Blauwnet",
+        "Bravo",
+        "Bravo (Arriva)",
+        "Bravo (Hermes)",
+        "Breng",
+        "Connexxion",
+        "De Lijn",
+        "Rederij Doeksen",
+        "EBS",
+        "GVB",
+        "Hermes",
+        "HTM",
+        "Arriva",
+        "Blauwnet Arriva",
+        "Blauwnet Keolis",
+        "DB",
+        "Eurobahn",
+        "European Sleeper",
+        "GoVolta",
+        "NMBS",
+        "NS",
+        "NS International",
+        "R-net NS",
+        "R-net Qbuzz",
+        "RRReis Arriva",
+        "RRReis Keolis",
+        "VIAS",
+        "MeerPlus"
+      ],
+      "agency_count": 43,
+      "valid_from": "20260925",
+      "valid_to": "20261212",
+      "trailheads_found": {
+        "Praxmar": 0,
+        "Kuehtai Dortmunder Huette": 0,
+        "Oberperfuss Sulztalalm": 0,
+        "Axamer Lizum": 0,
+        "Igls Patscherkofelbahn": 0,
+        "Hungerburg": 0,
+        "Arzl Schoenblick": 0
+      },
+      "trailhead_stops": {
+        "Praxmar": [],
+        "Kuehtai Dortmunder Huette": [],
+        "Oberperfuss Sulztalalm": [],
+        "Axamer Lizum": [],
+        "Igls Patscherkofelbahn": [],
+        "Hungerburg": [],
+        "Arzl Schoenblick": []
+      },
+      "central_stops": [
+        {
+          "stop_id": "2993215",
+          "name": "Innsbruck Hbf"
+        },
+        {
+          "stop_id": "2993216",
+          "name": "Innsbruck Hbf"
+        },
+        {
+          "stop_id": "stoparea:30398",
+          "name": "Innsbruck Hbf"
+        }
+      ],
+      "score": 5,
+      "id": "mdb-1077",
+      "provider": "OVapi",
+      "name": "Netherlands aggregate",
+      "subdivision": "Lower Austria",
+      "latest": "https://files.mobilitydatabase.org/mdb-1077/latest.zip",
+      "direct": "http://gtfs.ovapi.nl/gtfs-nl.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": true,
+      "relevant_name": true,
+      "size_mb": 266.1
+    },
+    {
+      "agencies": [
+        "Dänische Staatsbahnen",
+        "SBB",
+        "Ceske Drahy",
+        "MAV",
+        "DB Fernverkehr AG",
+        "BahnTouristikExpress",
+        "HZZP",
+        "DB Fernverkehr (Codesharing)",
+        "ÖBB",
+        "ZSSK",
+        "PKP Intercity",
+        "SNCF",
+        "Nederlandse Spoorwegen"
+      ],
+      "agency_count": 13,
+      "valid_from": "20260919",
+      "valid_to": "20261019",
+      "trailheads_found": {
+        "Praxmar": 0,
+        "Kuehtai Dortmunder Huette": 0,
+        "Oberperfuss Sulztalalm": 0,
+        "Axamer Lizum": 0,
+        "Igls Patscherkofelbahn": 0,
+        "Hungerburg": 0,
+        "Arzl Schoenblick": 0
+      },
+      "trailhead_stops": {
+        "Praxmar": [],
+        "Kuehtai Dortmunder Huette": [],
+        "Oberperfuss Sulztalalm": [],
+        "Axamer Lizum": [],
+        "Igls Patscherkofelbahn": [],
+        "Hungerburg": [],
+        "Arzl Schoenblick": []
+      },
+      "central_stops": [
+        {
+          "stop_id": "541473",
+          "name": "Innsbruck Hauptbahnhof"
+        },
+        {
+          "stop_id": "290452",
+          "name": "Innsbruck Hbf"
+        }
+      ],
+      "score": 5,
+      "id": "mdb-768",
+      "provider": "Long-distance rail transport in Germany",
+      "name": "gtfs.de - GTFS for Germany Data provided by DELFI e.V",
+      "subdivision": "Carinthia",
+      "latest": "https://files.mobilitydatabase.org/mdb-768/latest.zip",
+      "direct": "https://download.gtfs.de/germany/fv_free/latest.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": true,
+      "relevant_name": false,
+      "size_mb": 0.4
+    },
+    {
+      "agencies": [
+        "Wiener Linien GmbH & Co KG",
+        "Wiener Lokalbahnen GmbH"
+      ],
+      "agency_count": 2,
+      "valid_from": "20251214",
+      "valid_to": "20261212",
+      "trailheads_found": {
+        "Praxmar": 0,
+        "Kuehtai Dortmunder Huette": 0,
+        "Oberperfuss Sulztalalm": 0,
+        "Axamer Lizum": 0,
+        "Igls Patscherkofelbahn": 0,
+        "Hungerburg": 0,
+        "Arzl Schoenblick": 0
+      },
+      "trailhead_stops": {
+        "Praxmar": [],
+        "Kuehtai Dortmunder Huette": [],
+        "Oberperfuss Sulztalalm": [],
+        "Axamer Lizum": [],
+        "Igls Patscherkofelbahn": [],
+        "Hungerburg": [],
+        "Arzl Schoenblick": []
+      },
+      "central_stops": [],
+      "score": 0,
+      "id": "mdb-648",
+      "provider": "Wiener Lokalbahnen (WLB), Wiener Linien",
+      "name": "",
+      "subdivision": "Vienna",
+      "latest": "https://files.mobilitydatabase.org/mdb-648/latest.zip",
+      "direct": "http://www.wienerlinien.at/ogd_realtime/doku/ogd/gtfs/gtfs.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": false,
+      "relevant_name": false,
+      "size_mb": 93.0
+    },
+    {
+      "agencies": [
+        "Optima Tours"
+      ],
+      "agency_count": 1,
+      "valid_from": "20260425",
+      "valid_to": "20270313",
+      "trailheads_found": {
+        "Praxmar": 0,
+        "Kuehtai Dortmunder Huette": 0,
+        "Oberperfuss Sulztalalm": 0,
+        "Axamer Lizum": 0,
+        "Igls Patscherkofelbahn": 0,
+        "Hungerburg": 0,
+        "Arzl Schoenblick": 0
+      },
+      "trailhead_stops": {
+        "Praxmar": [],
+        "Kuehtai Dortmunder Huette": [],
+        "Oberperfuss Sulztalalm": [],
+        "Axamer Lizum": [],
+        "Igls Patscherkofelbahn": [],
+        "Hungerburg": [],
+        "Arzl Schoenblick": []
+      },
+      "central_stops": [],
+      "score": 0,
+      "id": "mdb-3123",
+      "provider": "Optima Express",
+      "name": "",
+      "subdivision": "Carinthia",
+      "latest": "https://files.mobilitydatabase.org/mdb-3123/latest.zip",
+      "direct": "https://github.com/jonaes/gtfs/raw/refs/heads/main/output/optima_gtfs.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": false,
+      "relevant_name": false,
+      "size_mb": 0.3
+    }
+  ],
+  "chosen": {
+    "id": "mdb-1077",
+    "provider": "OVapi",
+    "name": "Netherlands aggregate",
+    "license": "",
+    "valid_from": "20260925",
+    "valid_to": "20261212",
+    "latest": "https://files.mobilitydatabase.org/mdb-1077/latest.zip"
+  },
+  "notes": []
+}
