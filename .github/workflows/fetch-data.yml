@@ -2,7 +2,7 @@ name: Echte Daten holen (OSM + Fahrplan)
 
 # Holt Wege, Huetten und Seilbahnen aus OpenStreetMap und sucht oeffentliche
 # GTFS-Fahrplaene. Laeuft auf GitHub, weil nur dort freies Internet ist, und
-# committet die Ergebnisse nach data/ zurueck.
+# committet die Ergebnisse nach static/osm/ und data/gtfs/ zurueck.
 on:
   push:
     branches: [claude/innsbruck-webapp-proposal-qnyvew]
@@ -36,11 +36,15 @@ jobs:
         continue-on-error: true
         run: python scripts/fetch/gtfs.py
 
+      - name: Verbindungen bei Transitous abfragen
+        continue-on-error: true
+        run: python scripts/fetch/transitous.py
+
       - name: Ergebnisse committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/osm data/gtfs 2>/dev/null || true
+          git add static/osm data/gtfs data/transit 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine neuen Daten."
           else

@@ -175,7 +175,9 @@ def probe(zip_bytes):
         "trailheads_found": {k: len(v) for k, v in trail.items()},
         "trailhead_stops": {k: v[:6] for k, v in trail.items()},
         "central_stops": central[:12],
-        "score": sum(1 for v in trail.values() if v) * 10 + (5 if central else 0),
+        # Ohne einen einzigen Ausgangspunkt ist ein Feed wertlos, auch wenn er
+        # "Innsbruck Hauptbahnhof" kennt (etwa ueber internationale Zuege).
+        "score": (sum(1 for v in trail.values() if v) * 10 + (5 if central else 0)) if any(trail.values()) else 0,
     }
 
 

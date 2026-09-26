@@ -53,7 +53,7 @@
 	<a class="wechsel" href="{base}/">Als Liste</a>
 </header>
 
-<TourMap {markers} tracks={data.tracks as MapTrack[]} height="30rem" />
+<TourMap {markers} tracks={data.tracks as MapTrack[]} osm height="34rem" />
 
 <p class="legende">
 	<span class="gruen">Geht</span>

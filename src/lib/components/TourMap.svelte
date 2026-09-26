@@ -4,16 +4,21 @@
 	import { env } from '$env/dynamic/public';
 	import type { Signal } from '$lib/logic/rating';
 	import type { MapMarker, MapTrack } from './mapTypes';
+	import { base } from '$app/paths';
+	import { addOsmLayers } from './osmLayers';
 
 	let {
 		markers,
 		tracks = [],
+		osm = false,
 		height = '26rem',
 		zoom = 10,
 		center
 	}: {
 		markers: MapMarker[];
 		tracks?: MapTrack[];
+		/** Wege, Huetten und Seilbahnen aus OpenStreetMap dazuladen. */
+		osm?: boolean;
 		height?: string;
 		zoom?: number;
 		center?: [number, number];
@@ -125,6 +130,17 @@
 					// Innsbruck, falls es nichts anzuzeigen gibt.
 					map.setView([47.2692, 11.4041], zoom);
 				}
+
+				if (osm) {
+					const css = getComputedStyle(document.documentElement);
+					const token = (name: string, fallback: string) => css.getPropertyValue(name).trim() || fallback;
+					await addOsmLayers(L, map, base, {
+						route: token('--sky', '#2b7fb8'),
+						skitour: token('--forest', '#2f6b41'),
+						aerialway: token('--text', '#17232e'),
+						hut: token('--gold', '#b8860b')
+					});
+				}
 			} catch (err) {
 				console.error('[karte] Leaflet konnte nicht geladen werden:', err);
 				failed = true;
@@ -218,6 +234,26 @@
 	:global(.leaflet-popup-content .sub) {
 		color: var(--muted);
 		font-size: 0.78rem;
+	}
+
+	:global(.leaflet-popup-content .sub.warn) {
+		color: var(--text-warnung);
+	}
+
+	:global(.leaflet-popup-content .links) {
+		margin-top: 0.35rem;
+		font-size: 0.78rem;
+	}
+
+	:global(.leaflet-popup-content a) {
+		color: var(--sky);
+	}
+
+	:global(.leaflet-control-layers) {
+		background: var(--surface);
+		color: var(--text);
+		border-radius: 0.5rem;
+		font-size: 0.8rem;
 	}
 
 	:global(.leaflet-popup-content ul) {

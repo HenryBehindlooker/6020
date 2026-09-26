@@ -124,7 +124,8 @@
 	<TourMap
 		markers={marker}
 		tracks={track}
-		height="18rem"
+		osm
+		height="22rem"
 		zoom={12}
 		center={data.track ? undefined : [tour.lat, tour.lon]}
 	/>
@@ -138,6 +139,34 @@
 		{/if}
 	</p>
 </section>
+
+{#if data.huts.length > 0}
+	<section class="panel">
+		<h2>Einkehr und Huetten in der Naehe</h2>
+		<ul class="huetten">
+			{#each data.huts as huette (huette.osm ?? huette.name)}
+				<li>
+					<div>
+						<strong>{huette.name}</strong>
+						<span class="art">
+							{huette.kind === 'schutzhuette' ? 'Schutzhuette' : huette.kind === 'selbstversorger' ? 'Selbstversorgerhuette' : 'Einkehr'}{#if huette.ele}
+								· {huette.ele} m{/if}
+						</span>
+						{#if huette.openingHours}
+							<span class="zeiten">Geoeffnet laut OSM: {huette.openingHours}</span>
+						{/if}
+					</div>
+					<span class="entfernung">{huette.km} km</span>
+				</li>
+			{/each}
+		</ul>
+		<p class="quelle">
+			Luftlinie vom Tourengebiet, nicht Gehweg. Oeffnungszeiten stehen selten in OSM und aendern
+			sich saisonal - vor dem Aufbruch bei der Huette nachfragen. Daten: &copy;
+			OpenStreetMap-Mitwirkende (ODbL).
+		</p>
+	</section>
+{/if}
 
 <section class="panel">
 	<h2>Alle Rueckfahrten ab {transit.destinationStop}</h2>
@@ -211,6 +240,11 @@
 	@media (max-width: 40rem) {
 		.zeiten div { grid-template-columns: 1fr; gap: 0.1rem; }
 	}
+
+	.huetten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.88rem; }
+	.huetten li { display: flex; justify-content: space-between; gap: 1rem; padding-left: 0.7rem; border-left: 3px solid var(--gold); }
+	.huetten .art, .huetten .zeiten { display: block; color: var(--muted); font-size: 0.8rem; }
+	.huetten .entfernung { color: var(--muted); white-space: nowrap; }
 
 	.fahrten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.88rem; }
 

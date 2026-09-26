@@ -2,7 +2,7 @@
 Holt Wege, Hütten, Seilbahnen und Gipfel rund um Innsbruck aus OpenStreetMap.
 
 Läuft auf dem GitHub-Runner (dort gibt es freies Internet) und schreibt
-vereinfachte GeoJSON-Dateien nach data/osm/. Nur Standardbibliothek.
+vereinfachte GeoJSON-Dateien nach static/osm/. Nur Standardbibliothek.
 
 Daten: © OpenStreetMap-Mitwirkende, ODbL 1.0.
 """
@@ -15,7 +15,9 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-OUT = Path("data/osm")
+# Unter static/, damit die Karte die Dateien direkt nachladen kann, statt sie
+# in jede Seite einzubetten.
+OUT = Path("static/osm")
 ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
