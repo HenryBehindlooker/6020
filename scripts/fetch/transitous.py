@@ -26,16 +26,16 @@ VIENNA = ZoneInfo("Europe/Vienna")
 # Ziel: Innsbruck zentral (Hauptbahnhof)
 INNSBRUCK = (47.2632, 11.4009)
 
-# Ausgangspunkte: Koordinaten der Haltestellen laut OpenStreetMap, sonst
-# Ortsmitte. Werden vom App-Code gegen static/osm/bus-stops.geojson geprueft.
+# Ausgangspunkte: Koordinaten der Haltestellen laut OpenStreetMap
+# (siehe scripts/verify_tours.py).
 TRAILHEADS = {
-    "Praxmar": (47.1575, 11.1305),
-    "Kuehtai Dortmunder Huette": (47.2135, 11.0205),
-    "Oberperfuss Sulztalalm": (47.2443, 11.2492),
-    "Axamer Lizum": (47.1962, 11.3010),
-    "Igls Patscherkofelbahn": (47.2310, 11.4120),
-    "Hungerburg": (47.2855, 11.3985),
-    "Arzl Schoenblick": (47.2840, 11.4250),
+    "Praxmar Wendestelle": (47.1494, 11.1335),
+    "Kühtai Dortmunderhütte": (47.2114, 11.0089),
+    "Oberperfuss Rangger Köpfl Lift": (47.2458, 11.2379),
+    "Axams Axamer Lizum": (47.1958, 11.303),
+    "Patscherkofel": (47.2221, 11.4258),
+    "Hungerburg": (47.2862, 11.4002),
+    "Theresienkirche": (47.2864, 11.3982),
 }
 
 
@@ -52,7 +52,7 @@ def find_plan_endpoint():
         for path in PLAN_PATHS:
             url = base + path + "?" + urllib.parse.urlencode({
                 "fromPlace": f"{INNSBRUCK[0]},{INNSBRUCK[1]}",
-                "toPlace": f"{TRAILHEADS['Igls Patscherkofelbahn'][0]},{TRAILHEADS['Igls Patscherkofelbahn'][1]}",
+                "toPlace": f"{TRAILHEADS['Patscherkofel'][0]},{TRAILHEADS['Patscherkofel'][1]}",
                 "time": probe_time.isoformat(),
             })
             try:
@@ -85,10 +85,19 @@ def local_hhmm(iso):
 
 
 def simplify_itinerary(it):
+    """Fahrten mit Zeiten AM Ausgangspunkt: die Reise beginnt mit dem Fussweg
+    zur ersten Haltestelle, nicht mit der Abfahrt dort."""
     legs = []
-    for leg in it.get("legs", []):
+    walk_start = walk_end = 0
+    all_legs = it.get("legs", [])
+    for index, leg in enumerate(all_legs):
         mode = leg.get("mode", "")
         if mode in ("WALK", "BIKE", "CAR") and not leg.get("routeShortName"):
+            minutes = round((leg.get("duration") or 0) / 60)
+            if index == 0:
+                walk_start = minutes
+            elif index == len(all_legs) - 1:
+                walk_end = minutes
             continue
         legs.append({
             "mode": mode,
@@ -103,8 +112,11 @@ def simplify_itinerary(it):
     if not legs:
         return None
     return {
-        "departure": legs[0]["departure"],
-        "arrival": legs[-1]["arrival"],
+        # Gesamtreise: ab Koordinate des Ausgangspunkts bis zum Ziel
+        "departure": local_hhmm(it["startTime"]) if it.get("startTime") else legs[0]["departure"],
+        "arrival": local_hhmm(it["endTime"]) if it.get("endTime") else legs[-1]["arrival"],
+        "walk_to_stop_min": walk_start,
+        "walk_from_stop_min": walk_end,
         "transfers": max(0, len(legs) - 1),
         "legs": legs,
     }
@@ -118,6 +130,20 @@ def dedupe(items):
             seen.add(key)
             out.append(i)
     return out
+
+
+def geocode(base, name):
+    """Kennt Transitous die Haltestelle? Unterscheidet 'keine Daten' von
+    'an diesem Tag faehrt nichts'."""
+    for path in ("/api/v1/geocode", "/api/v5/geocode"):
+        try:
+            data = get(base + path + "?" + urllib.parse.urlencode({"text": name, "type": "STOP"}))
+            items = data if isinstance(data, list) else data.get("matches", [])
+            return [{"name": m.get("name"), "lat": m.get("lat"), "lon": m.get("lon"), "type": m.get("type")}
+                    for m in items[:3]]
+        except Exception as err:  # noqa: BLE001
+            print(f"geocode {path} {name}: {err}", file=sys.stderr)
+    return None
 
 
 def next_weekday(weekday):
@@ -138,7 +164,23 @@ def main():
         return
     (OUT / "raw-sample.json").write_text(json.dumps(raw, ensure_ascii=False, indent=1)[:200_000])
 
-    for label, day in (("samstag", next_weekday(5)), ("werktag", next_weekday(2))):
+    base = endpoint.split("/api/")[0]
+    result["stops_known"] = {}
+    for key in TRAILHEADS:
+        result["stops_known"][key] = geocode(base, key)
+        print(f"geocode {key:32} -> {[m['name'] for m in (result['stops_known'][key] or [])]}")
+        time.sleep(1)
+
+    # Ein Samstag Anfang Dezember: Wintersaison in Kuehtai und der Axamer Lizum,
+    # aber noch im laufenden Fahrplanjahr.
+    days = [("samstag", next_weekday(5)), ("werktag", next_weekday(2))]
+    winter = date(date.today().year, 12, 5)
+    while winter.weekday() != 5:
+        winter += timedelta(days=1)
+    if winter > date.today():
+        days.append(("winter_samstag", winter))
+
+    for label, day in days:
         result["days"][label] = {"date": day.isoformat(), "trailheads": {}}
         for key, coords in TRAILHEADS.items():
             entry = {"outbound": [], "inbound": [], "errors": []}

@@ -35,13 +35,13 @@ CATALOG_URLS = [
 # gleichnamiger Halt am anderen Ende Tirols gewinnt.
 RADIUS_KM = 4.0
 TRAILHEADS = {
-    "Praxmar": {"pattern": r"Praxmar", "lat": 47.157, "lon": 11.131},
-    "Kuehtai Dortmunder Huette": {"pattern": r"K(ü|ue)htai", "lat": 47.213, "lon": 11.020},
-    "Oberperfuss Sulztalalm": {"pattern": r"Oberperfu(ss|ß)", "lat": 47.244, "lon": 11.249},
-    "Axamer Lizum": {"pattern": r"Lizum", "lat": 47.196, "lon": 11.301},
-    "Igls Patscherkofelbahn": {"pattern": r"Igls|Patscherkofel", "lat": 47.231, "lon": 11.412},
-    "Hungerburg": {"pattern": r"Hungerburg", "lat": 47.285, "lon": 11.398},
-    "Arzl Schoenblick": {"pattern": r"Arzl", "lat": 47.284, "lon": 11.425},
+    "Praxmar Wendestelle": {"pattern": r"Praxmar", "lat": 47.1494, "lon": 11.1335},
+    "Kühtai Dortmunderhütte": {"pattern": r"K(ü|ue)htai", "lat": 47.2114, "lon": 11.0089},
+    "Oberperfuss Rangger Köpfl Lift": {"pattern": r"Oberperfu(ss|ß)", "lat": 47.2458, "lon": 11.2379},
+    "Axams Axamer Lizum": {"pattern": r"Lizum", "lat": 47.1958, "lon": 11.303},
+    "Patscherkofel": {"pattern": r"Igls|Patscherkofel", "lat": 47.2221, "lon": 11.4258},
+    "Hungerburg": {"pattern": r"Hungerburg", "lat": 47.2862, "lon": 11.4002},
+    "Theresienkirche": {"pattern": r"Theresienkirche", "lat": 47.2864, "lon": 11.3982},
 }
 
 # "Egal wo, Hauptsache zentral": Hauptbahnhof, Marktplatz, Altstadt.

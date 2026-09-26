@@ -106,13 +106,22 @@
 				}
 				for (const marker of markers) {
 					const color = SIGNAL_COLORS[marker.signal];
-					const icon = L.divIcon({
-						className: 'bergampel-marker',
-						html: `<span style="--marker-color:${color}">${marker.count ?? ''}</span>`,
-						iconSize: [26, 26],
-						iconAnchor: [13, 13],
-						popupAnchor: [0, -14]
-					});
+					const icon =
+						marker.shape === 'gipfel'
+							? L.divIcon({
+									className: 'bergampel-gipfel',
+									html: `<span style="--marker-color:${color}"></span>`,
+									iconSize: [18, 16],
+									iconAnchor: [9, 14],
+									popupAnchor: [0, -14]
+								})
+							: L.divIcon({
+									className: 'bergampel-marker',
+									html: `<span style="--marker-color:${color}">${marker.count ?? ''}</span>`,
+									iconSize: [26, 26],
+									iconAnchor: [13, 13],
+									popupAnchor: [0, -14]
+								});
 
 					L.marker([marker.lat, marker.lon], { icon, title: marker.label })
 						.addTo(map)
@@ -214,6 +223,16 @@
 		border: 2px solid var(--marker-ring);
 		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 		font: 600 0.75rem/1 ui-sans-serif, system-ui, sans-serif;
+	}
+
+	/* Gipfel als Dreieck in der Ampelfarbe der Tour */
+	:global(.bergampel-gipfel span) {
+		display: block;
+		width: 18px;
+		height: 16px;
+		background: var(--marker-color);
+		clip-path: polygon(50% 0, 100% 100%, 0 100%);
+		filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
 	}
 
 	:global(.leaflet-popup-content-wrapper) {

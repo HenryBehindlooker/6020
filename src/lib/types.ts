@@ -99,4 +99,19 @@ export interface Tour {
 	steepnessMax: number;
 	type: 'skitour' | 'winterwanderung' | 'schneeschuh';
 	description: string;
+	/** Gipfel bzw. Ziel laut OpenStreetMap (scripts/verify_tours.py). */
+	summit?: {
+		name: string;
+		lat: number;
+		lon: number;
+		ele: number | null;
+		osm: string | null;
+	};
+	/** OSM-Referenz der Haltestelle am Ausgangspunkt. */
+	trailheadOsm?: string | null;
+	/** Was belegt ist und was Richtwert bleibt. */
+	verification?: {
+		osm: string;
+		estimate: string;
+	};
 }

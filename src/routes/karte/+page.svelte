@@ -14,7 +14,23 @@
 		return `${count} ${count === 1 ? singular : plural}`;
 	}
 
-	const markers = $derived<MapMarker[]>(
+	const gipfel = $derived<MapMarker[]>(
+		groups.flatMap((group) =>
+			group.tours
+				.filter((t) => t.tour.summit)
+				.map((t) => ({
+					lat: t.tour.summit!.lat,
+					lon: t.tour.summit!.lon,
+					signal: t.rating.signal,
+					label: t.tour.summit!.name,
+					sub: t.tour.summit!.ele ? `${t.tour.summit!.ele} m` : undefined,
+					links: [{ text: t.tour.name, href: `${base}/tour/${t.tour.id}`, signal: t.rating.signal }],
+					shape: 'gipfel' as const
+				}))
+		)
+	);
+
+	const ausgangspunkte = $derived<MapMarker[]>(
 		groups.map((group) => ({
 			lat: group.lat,
 			lon: group.lon,
@@ -53,13 +69,13 @@
 	<a class="wechsel" href="{base}/">Als Liste</a>
 </header>
 
-<TourMap {markers} tracks={data.tracks as MapTrack[]} osm height="34rem" />
+<TourMap markers={[...gipfel, ...ausgangspunkte]} tracks={data.tracks as MapTrack[]} osm height="34rem" />
 
 <p class="legende">
 	<span class="gruen">Geht</span>
 	<span class="gelb">Heikel</span>
 	<span class="rot">Heute nicht</span>
-	<span class="hinweis">Die Zahl im Punkt ist die Anzahl der Touren ab diesem Ausgangspunkt.</span>
+	<span class="hinweis">Kreis: Haltestelle am Ausgangspunkt, die Zahl ist die Anzahl der Touren. Dreieck: Gipfel. Blaue Linien: Wanderwege (Sommer), punktiert: Seilbahnen, gold: Huetten.</span>
 	{#if data.tracks.some((t) => t.schematic)}
 		<span class="hinweis gestrichelt">Gestrichelte Linien sind schematisch, keine Wegaufzeichnung.</span>
 	{/if}

@@ -2,54 +2,139 @@
   "_hinweis": "Demo-Fahrplan im Format eines aus GTFS abgeleiteten Auszugs. Zeiten UND Liniennamen sind frei erfunden und NICHT als Fahrplanauskunft verwendbar. Die Linien heissen bewusst 'Demo A/B/C', damit sie niemand fuer echte VVT-, OeBB- oder IVB-Linien haelt - im Live-Modus kommen Linien und Zeiten aus GTFS von VVT/OGD Tirol.",
   "origin": "Innsbruck Hauptbahnhof",
   "stops": {
-    "Praxmar": {
+    "Praxmar Wendestelle": {
       "line": "Demo A",
       "headsign": "Praxmar Sellraintal",
       "travelMinutes": 62,
-      "outbound": ["06:45", "08:45", "10:45", "12:45"],
-      "inbound": ["12:20", "14:20", "16:20", "17:35"]
+      "outbound": [
+        "06:45",
+        "08:45",
+        "10:45",
+        "12:45"
+      ],
+      "inbound": [
+        "12:20",
+        "14:20",
+        "16:20",
+        "17:35"
+      ]
     },
-    "Kuehtai Dortmunder Huette": {
+    "Kühtai Dortmunderhütte": {
       "line": "Demo A",
       "headsign": "Kuehtai",
       "travelMinutes": 70,
-      "outbound": ["06:45", "08:45", "10:45", "13:45"],
-      "inbound": ["12:05", "14:05", "16:05", "17:05"]
+      "outbound": [
+        "06:45",
+        "08:45",
+        "10:45",
+        "13:45"
+      ],
+      "inbound": [
+        "12:05",
+        "14:05",
+        "16:05",
+        "17:05"
+      ]
     },
-    "Oberperfuss Sulztalalm": {
+    "Oberperfuss Rangger Köpfl Lift": {
       "line": "Demo B",
       "headsign": "Oberperfuss",
       "travelMinutes": 38,
-      "outbound": ["06:55", "07:55", "08:55", "10:55", "12:55"],
-      "inbound": ["13:10", "15:10", "16:40", "18:10"]
+      "outbound": [
+        "06:55",
+        "07:55",
+        "08:55",
+        "10:55",
+        "12:55"
+      ],
+      "inbound": [
+        "13:10",
+        "15:10",
+        "16:40",
+        "18:10"
+      ]
     },
-    "Axamer Lizum": {
+    "Axams Axamer Lizum": {
       "line": "Demo B",
       "headsign": "Axamer Lizum",
       "travelMinutes": 45,
-      "outbound": ["07:10", "08:10", "09:10", "11:10"],
-      "inbound": ["13:30", "15:30", "16:30", "17:30"]
+      "outbound": [
+        "07:10",
+        "08:10",
+        "09:10",
+        "11:10"
+      ],
+      "inbound": [
+        "13:30",
+        "15:30",
+        "16:30",
+        "17:30"
+      ]
     },
-    "Igls Patscherkofelbahn": {
+    "Patscherkofel": {
       "line": "Demo C",
       "headsign": "Igls",
       "travelMinutes": 32,
-      "outbound": ["07:05", "07:35", "08:05", "08:35", "09:05", "10:05", "11:05"],
-      "inbound": ["16:10", "17:10", "18:10", "19:10", "20:10", "21:10"]
+      "outbound": [
+        "07:05",
+        "07:35",
+        "08:05",
+        "08:35",
+        "09:05",
+        "10:05",
+        "11:05"
+      ],
+      "inbound": [
+        "16:10",
+        "17:10",
+        "18:10",
+        "19:10",
+        "20:10",
+        "21:10"
+      ]
     },
     "Hungerburg": {
       "line": "Demo D",
       "headsign": "Hungerburg",
       "travelMinutes": 14,
-      "outbound": ["07:15", "07:45", "08:15", "08:45", "09:15", "10:15", "11:15"],
-      "inbound": ["16:00", "17:00", "18:00", "19:00", "20:00", "21:30"]
+      "outbound": [
+        "07:15",
+        "07:45",
+        "08:15",
+        "08:45",
+        "09:15",
+        "10:15",
+        "11:15"
+      ],
+      "inbound": [
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:30"
+      ]
     },
-    "Arzl Schoenblick": {
+    "Theresienkirche": {
       "line": "Demo E",
       "headsign": "Arzl",
       "travelMinutes": 21,
-      "outbound": ["08:12", "09:12", "10:12", "11:12", "12:12", "13:12"],
-      "inbound": ["15:40", "16:40", "17:40", "18:40", "19:40", "20:40"]
+      "outbound": [
+        "08:12",
+        "09:12",
+        "10:12",
+        "11:12",
+        "12:12",
+        "13:12"
+      ],
+      "inbound": [
+        "15:40",
+        "16:40",
+        "17:40",
+        "18:40",
+        "19:40",
+        "20:40"
+      ]
     }
   }
 }

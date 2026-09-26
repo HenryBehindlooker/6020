@@ -32,9 +32,21 @@
 			lat: tour.lat,
 			lon: tour.lon,
 			signal: rating.signal,
-			label: tour.name,
-			sub: `Ausgangspunkt ${tour.trailhead}`
-		}
+			label: tour.trailheadStop,
+			sub: `Haltestelle am Ausgangspunkt`
+		},
+		...(tour.summit
+			? [
+					{
+						lat: tour.summit.lat,
+						lon: tour.summit.lon,
+						signal: rating.signal,
+						label: tour.summit.name,
+						sub: tour.summit.ele ? `${tour.summit.ele} m laut OpenStreetMap` : 'Gipfel laut OpenStreetMap',
+						shape: 'gipfel' as const
+					}
+				]
+			: [])
 	]);
 </script>
 
@@ -56,6 +68,14 @@
 </header>
 
 <p class="beschreibung">{tour.description}</p>
+
+{#if tour.verification}
+	<p class="belegt">
+		<strong>Belegt:</strong> {tour.verification.osm}.
+		<strong>Richtwerte:</strong> {tour.verification.estimate} - und genau sie gehen in die Ampel
+		ein.
+	</p>
+{/if}
 
 <section class="panel">
 	<h2>Warum diese Ampel?</h2>
@@ -127,10 +147,12 @@
 		osm
 		height="22rem"
 		zoom={12}
-		center={data.track ? undefined : [tour.lat, tour.lon]}
+		center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]}
 	/>
 	<p class="quelle">
-		Ausgangspunkt {tour.trailhead}, Haltestelle {tour.trailheadStop}
+		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'}
+		· Linien: Wege und Seilbahnen aus OpenStreetMap, oben rechts umschaltbar. Wanderwege
+		sind Sommerwege, keine Skitouren-Aufstiege.
 		{#if data.track}
 			· Verlauf {data.track.lengthKm} km, {data.track.ascentMeters} hm
 			{#if data.track.schematic}
@@ -200,6 +222,13 @@
 	.meta { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.85rem; }
 
 	.beschreibung { color: var(--muted); }
+
+	.belegt {
+		font-size: 0.82rem;
+		color: var(--muted);
+		border-left: 3px solid var(--sky);
+		padding-left: 0.7rem;
+	}
 
 	.panel {
 		background: var(--surface);

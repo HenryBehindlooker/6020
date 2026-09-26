@@ -2,9 +2,12 @@ import type { Tour } from '$lib/types';
 import toursFixture from '$fixtures/tours.json' with { type: 'json' };
 
 /**
- * Kuratierte Tourenliste rund um Innsbruck. Hangrichtungen, Steilheit und
- * Gehzeiten stammen aus Fuehrerliteratur und OpenStreetMap; die Liste ist
- * bewusst klein gehalten und wird per Hand gepflegt.
+ * Tourenliste rund um Innsbruck.
+ *
+ * Gipfelname, -hoehe und -lage sowie die Haltestelle am Ausgangspunkt sind mit
+ * OpenStreetMap abgeglichen (scripts/verify_tours.py). Hangrichtung, Steilheit
+ * und Gehzeiten sind Richtwerte ohne gepruefte Quelle - und genau die gehen in
+ * die Ampel ein. Die Tourenseite sagt das dazu.
  */
 const TOURS = toursFixture as Tour[];
 

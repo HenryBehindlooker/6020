@@ -13,10 +13,10 @@ Enthält `<desc>` das Wort *schematisch*, zeichnet die Karte die Linie
 **gestrichelt** und beschriftet sie als schematisch. Alles andere gilt als echte
 Aufzeichnung und wird durchgezogen dargestellt.
 
-Die drei mitgelieferten Dateien sind schematisch: gerechnete Linien vom
-Ausgangspunkt Richtung Gipfel, **kein Wegverlauf und keine Routenempfehlung**.
-Sie existieren, damit die Darstellung sichtbar ist — nicht, damit jemand danach
-geht.
+Früher lagen hier drei schematische Demo-Linien. Sie sind entfernt, seit die
+Karte die echten Wege aus OpenStreetMap zeigt (`static/osm/`) — eine davon
+gehörte zu einer Tour, die sich beim Abgleich mit OSM als falsch erwiesen hat,
+die anderen begannen an ungenauen Ausgangspunkten.
 
 ## Echte Verläufe ergänzen
 
