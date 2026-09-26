@@ -1,5 +1,7 @@
+import { readFile } from 'node:fs/promises';
 import type { Departure, TransitConnection } from '$lib/types';
 import timetable from '$fixtures/timetable.json' with { type: 'json' };
+import { pickSnapshotDay, toDeparture as snapshotDeparture, type Snapshot } from '$lib/logic/snapshot';
 import { cached } from '$lib/server/cache';
 import { config } from '$lib/server/config';
 
@@ -19,7 +21,61 @@ const SCHEDULES = timetable.stops as unknown as Record<string, StopSchedule>;
  * Der Demo-Modus erzeugt die Zeiten aus dem mitgelieferten Fahrplanauszug.
  * Im Live-Modus werden dieselben Fahrten mit GTFS-RT-Verspaetungen angereichert.
  */
+/** Von scripts/fetch/transitous.py auf dem GitHub-Runner geschrieben. */
+const SNAPSHOT_PATH = 'data/transit/connections.json';
+
+async function loadSnapshot(): Promise<Snapshot | null> {
+	return cached('transit:snapshot', config.cacheTtlMs, async () => {
+		try {
+			return JSON.parse(await readFile(SNAPSHOT_PATH, 'utf8')) as Snapshot;
+		} catch {
+			return null;
+		}
+	});
+}
+
+const WOCHENTAG = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+
+/**
+ * Echte Verbindungen aus dem Transitous-Abzug, falls vorhanden.
+ *
+ * Kennt der Abzug die Haltestelle, aber an dem Tag keine Fahrt, kommt eine
+ * LEERE Verbindung zurueck - keine Demo-Zeiten als Ersatz. Sonst wuerde die
+ * App einen Bus erfinden, wo die echten Daten sagen, dass keiner faehrt.
+ */
+async function fromSnapshot(stop: string, date: Date): Promise<TransitConnection | null> {
+	const snapshot = await loadSnapshot();
+	if (!snapshot) return null;
+	const picked = pickSnapshotDay(snapshot, date);
+	if (!picked) return null;
+	const entry = picked.day.trailheads[stop];
+	if (!entry) return null;
+
+	const tag = new Date(picked.day.date + 'T12:00:00');
+	const stand = `${WOCHENTAG[tag.getDay()]} ${tag.toLocaleDateString('de-AT')}`;
+	const convert = (direction: 'outbound' | 'inbound') =>
+		entry[direction]
+			.map((it) => snapshotDeparture(it, date, direction))
+			.filter((d): d is Departure => d !== null);
+
+	const outbound = convert('outbound');
+	const inbound = convert('inbound');
+	return {
+		originStop: snapshot.destination,
+		destinationStop: stop,
+		outbound,
+		inbound,
+		source:
+			outbound.length || inbound.length
+				? `Transitous, Fahrplan vom ${stand}, auf heute uebertragen`
+				: `Transitous: keine Verbindung am ${stand} gefunden`
+	};
+}
+
 export async function getConnection(stop: string, date: Date): Promise<TransitConnection> {
+	const real = await fromSnapshot(stop, date);
+	if (real) return real;
+
 	const schedule = SCHEDULES[stop];
 	if (!schedule) {
 		return {

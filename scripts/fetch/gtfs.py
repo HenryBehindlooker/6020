@@ -293,8 +293,23 @@ def extract_connections(zf, trail, central, day: date):
     return result
 
 
+def recently_probed(days=7) -> bool:
+    """Der Katalog aendert sich selten; eine Suche pro Woche reicht."""
+    import os
+    if os.environ.get("FORCE_GTFS") == "1":
+        return False
+    try:
+        fetched = datetime.fromisoformat(json.loads((OUT / "PROBE.json").read_text())["fetched_at"])
+    except (OSError, KeyError, ValueError):
+        return False
+    return (datetime.now(timezone.utc) - fetched).days < days
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    if recently_probed():
+        print("GTFS-Suche liegt weniger als eine Woche zurueck - uebersprungen (FORCE_GTFS=1 erzwingt).")
+        return
     report = {"fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "catalog": None,
               "candidates": [], "probed": [], "chosen": None, "notes": []}
 

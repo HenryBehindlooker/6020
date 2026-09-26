@@ -195,11 +195,24 @@
 	<ul class="fahrten">
 		{#each transit.inbound as fahrt}
 			<li>
-				<strong>{hhmm(fahrt.departure)}</strong> Linie {fahrt.line} &rarr; {fahrt.headsign}
-				{#if fahrt.delayMinutes}<span class="delay">+{fahrt.delayMinutes} min</span>{/if}
+				<div>
+					<strong>{hhmm(fahrt.departure)}</strong> &rarr; {hhmm(fahrt.arrival)}
+					<span class="linie">{fahrt.line}</span>
+					{#if fahrt.delayMinutes}<span class="delay">+{fahrt.delayMinutes} min</span>{/if}
+				</div>
+				<div class="detail">
+					{#if fahrt.walkMinutes}{fahrt.walkMinutes} min Fussweg zur Haltestelle · {/if}
+					{#if fahrt.transfers === 0}direkt{:else if fahrt.transfers}{fahrt.transfers} Umstieg{fahrt.transfers > 1 ? 'e' : ''}{/if}
+					{#if fahrt.legs && fahrt.legs.length > 1}
+						({fahrt.legs.map((l) => `${l.line} ab ${l.from} ${l.departure}`).join(', ')})
+					{:else if fahrt.legs?.length === 1}
+						ab {fahrt.legs[0].from}
+					{/if}
+					&rarr; {fahrt.headsign}
+				</div>
 			</li>
 		{:else}
-			<li>Keine Rueckfahrten hinterlegt.</li>
+			<li>Keine Rueckfahrt an diesem Tag gefunden.</li>
 		{/each}
 	</ul>
 	<p class="quelle">{transit.source}</p>
@@ -275,7 +288,9 @@
 	.huetten .art, .huetten .zeiten { display: block; color: var(--muted); font-size: 0.8rem; }
 	.huetten .entfernung { color: var(--muted); white-space: nowrap; }
 
-	.fahrten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.88rem; }
+	.fahrten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.88rem; }
+	.fahrten .linie { margin-left: 0.4rem; color: var(--sky-deep); font-weight: 600; }
+	.fahrten .detail { color: var(--muted); font-size: 0.78rem; }
 
 	.delay { color: var(--text-kritisch); margin-left: 0.4rem; }
 

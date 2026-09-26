@@ -10,6 +10,11 @@ on:
       - scripts/fetch/**
       - .github/workflows/fetch-data.yml
   workflow_dispatch:
+    inputs:
+      force_osm:
+        description: 'OSM-Daten auch dann neu holen, wenn sie juenger als eine Woche sind'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -30,14 +35,19 @@ jobs:
 
       - name: OpenStreetMap (Wege, Huetten, Seilbahnen, Gipfel, Haltestellen)
         continue-on-error: true
+        timeout-minutes: 20
+        env:
+          FORCE_OSM: ${{ inputs.force_osm && '1' || '0' }}
         run: python scripts/fetch/osm.py
 
       - name: Fahrplaene (GTFS) suchen und Verbindungen ausrechnen
         continue-on-error: true
+        timeout-minutes: 10
         run: python scripts/fetch/gtfs.py
 
       - name: Verbindungen bei Transitous abfragen
         continue-on-error: true
+        timeout-minutes: 15
         run: python scripts/fetch/transitous.py
 
       - name: Ergebnisse committen

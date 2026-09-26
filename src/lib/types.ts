@@ -66,6 +66,12 @@ export interface Departure {
 	arrival: string;
 	/** Verspaetung in Minuten aus GTFS-RT; null wenn keine Echtzeitdaten. */
 	delayMinutes: number | null;
+	/** Anzahl Umstiege; 0 = direkt. */
+	transfers?: number;
+	/** Fussweg zwischen Ausgangspunkt und Haltestelle, in Minuten. */
+	walkMinutes?: number;
+	/** Die einzelnen Fahrten, z.B. "462 bis Voels Bahnhof, dann REX". */
+	legs?: { line: string; from: string; to: string; departure: string; arrival: string }[];
 }
 
 export interface TransitConnection {

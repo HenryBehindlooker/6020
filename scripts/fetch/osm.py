@@ -243,8 +243,30 @@ CONVERT = {
 }
 
 
+MAX_AGE_DAYS = 7
+
+
+def fresh_enough() -> bool:
+    """OSM aendert sich langsam, Overpass ist oft ausgelastet: Daten, die
+    juenger als eine Woche sind, werden nicht neu geholt (FORCE_OSM=1 erzwingt)."""
+    import os
+    if os.environ.get("FORCE_OSM") == "1":
+        return False
+    try:
+        meta = json.loads((OUT / "SOURCE.json").read_text())
+        fetched = datetime.fromisoformat(meta["fetched_at"])
+        complete = all(isinstance(v, dict) for v in meta.get("files", {}).values())
+    except (OSError, KeyError, ValueError):
+        return False
+    age = datetime.now(timezone.utc) - fetched
+    return complete and age.days < MAX_AGE_DAYS
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    if fresh_enough():
+        print(f"OSM-Daten juenger als {MAX_AGE_DAYS} Tage und vollstaendig - uebersprungen (FORCE_OSM=1 erzwingt).")
+        return
     summary = {}
     for name, query in QUERIES.items():
         print(f"== {name}")

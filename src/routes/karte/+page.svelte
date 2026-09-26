@@ -51,7 +51,8 @@
 
 {#if data.mode === 'demo'}
 	<p class="demo" role="status">
-		<strong>Demodaten.</strong> Lawinenlage, Wetter und Fahrplan stammen aus Beispieldateien.
+		<strong>Lawinenlage und Wetter sind Demodaten.</strong> Wege, Huetten, Seilbahnen und Gipfel
+		stammen aus OpenStreetMap.
 	</p>
 {/if}
 
