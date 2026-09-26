@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Bergampel Innsbruck (Demodaten)" xmlns="http://www.topografix.com/GPX/1/1">
+	<trk>
+		<name>Rangger Koepfl</name>
+		<desc>Schematischer Verlauf fuer die Demodaten - KEINE Wegaufzeichnung und keine Routenempfehlung. Durch eine echte Aufzeichnung ersetzen.</desc>
+		<trkseg>
+			<trkpt lat="47.22440" lon="11.16360"><ele>1140</ele></trkpt>
+			<trkpt lat="47.22321" lon="11.16501"><ele>1201</ele></trkpt>
+			<trkpt lat="47.22199" lon="11.16635"><ele>1263</ele></trkpt>
+			<trkpt lat="47.22074" lon="11.16764"><ele>1324</ele></trkpt>
+			<trkpt lat="47.21947" lon="11.16888"><ele>1386</ele></trkpt>
+			<trkpt lat="47.21819" lon="11.17012"><ele>1447</ele></trkpt>
+			<trkpt lat="47.21693" lon="11.17137"><ele>1509</ele></trkpt>
+			<trkpt lat="47.21568" lon="11.17267"><ele>1570</ele></trkpt>
+			<trkpt lat="47.21447" lon="11.17403"><ele>1632</ele></trkpt>
+			<trkpt lat="47.21331" lon="11.17549"><ele>1693</ele></trkpt>
+			<trkpt lat="47.21219" lon="11.17705"><ele>1755</ele></trkpt>
+			<trkpt lat="47.21114" lon="11.17872"><ele>1816</ele></trkpt>
+			<trkpt lat="47.21015" lon="11.18050"><ele>1878</ele></trkpt>
+			<trkpt lat="47.20922" lon="11.18236"><ele>1939</ele></trkpt>
+		</trkseg>
+	</trk>
+</gpx>

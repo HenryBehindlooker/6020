@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Bergampel Innsbruck (Demodaten)" xmlns="http://www.topografix.com/GPX/1/1">
+	<trk>
+		<name>Gamskogel</name>
+		<desc>Schematischer Verlauf fuer die Demodaten - KEINE Wegaufzeichnung und keine Routenempfehlung. Durch eine echte Aufzeichnung ersetzen.</desc>
+		<trkseg>
+			<trkpt lat="47.21440" lon="11.04030"><ele>2020</ele></trkpt>
+			<trkpt lat="47.21298" lon="11.03949"><ele>2069</ele></trkpt>
+			<trkpt lat="47.21158" lon="11.03860"><ele>2118</ele></trkpt>
+			<trkpt lat="47.21020" lon="11.03765"><ele>2167</ele></trkpt>
+			<trkpt lat="47.20883" lon="11.03666"><ele>2217</ele></trkpt>
+			<trkpt lat="47.20746" lon="11.03565"><ele>2266</ele></trkpt>
+			<trkpt lat="47.20609" lon="11.03466"><ele>2315</ele></trkpt>
+			<trkpt lat="47.20471" lon="11.03372"><ele>2364</ele></trkpt>
+			<trkpt lat="47.20330" lon="11.03286"><ele>2413</ele></trkpt>
+			<trkpt lat="47.20186" lon="11.03210"><ele>2462</ele></trkpt>
+			<trkpt lat="47.20039" lon="11.03146"><ele>2512</ele></trkpt>
+			<trkpt lat="47.19888" lon="11.03096"><ele>2561</ele></trkpt>
+			<trkpt lat="47.19734" lon="11.03058"><ele>2610</ele></trkpt>
+			<trkpt lat="47.19578" lon="11.03032"><ele>2659</ele></trkpt>
+		</trkseg>
+	</trk>
+</gpx>
