@@ -50,11 +50,16 @@ jobs:
         timeout-minutes: 15
         run: python scripts/fetch/transitous.py
 
+      - name: Freie Schnittstellen pruefen
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python scripts/fetch/probe_apis.py
+
       - name: Ergebnisse committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add static/osm data/gtfs data/transit 2>/dev/null || true
+          git add static/osm data/gtfs data/transit data/probe 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Keine neuen Daten."
           else
