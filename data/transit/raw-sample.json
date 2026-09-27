@@ -2,7 +2,7 @@
  "requestParameters": {},
  "debugOutput": {
   "algorithm": 1,
-  "direct": 19,
+  "direct": 5,
   "execute_time": 26,
   "fares": 0,
   "fastest_direct": 0,
@@ -24,9 +24,9 @@
   "n_start_offsets": 68,
   "n_td_dest_offsets": 0,
   "n_td_start_offsets": 0,
-  "prepare": 8,
+  "prepare": 3,
   "prepare_backward_WALK": 0,
-  "prepare_forward_WALK": 7,
+  "prepare_forward_WALK": 3,
   "route_update_prevented_by_lower_bound": 0,
   "search_interval_reduction_by_early_termination": 0
  },
