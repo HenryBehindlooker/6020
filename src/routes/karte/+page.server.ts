@@ -4,11 +4,12 @@ import { building } from '$app/environment';
 import { buildDayPlan } from '$lib/server/plan';
 import { groupByTrailhead } from '$lib/logic/trailheads';
 import { getSimplifiedTracks } from '$lib/server/sources/tracks';
+import { parsePlanParams } from '$lib/planParams';
 
 export const load: PageServerLoad = async ({ url, setHeaders }) => {
-	const notBefore = building ? undefined : (url.searchParams.get('ab') ?? undefined);
+	const params = parsePlanParams(building ? null : url.searchParams);
 	const [plan, tracks] = await Promise.all([
-		buildDayPlan({ notBefore: /^\d{2}:\d{2}$/.test(notBefore ?? '') ? notBefore : undefined }),
+		buildDayPlan({ notBefore: params.notBefore, bufferMinutes: params.bufferMinutes }),
 		getSimplifiedTracks()
 	]);
 
@@ -29,7 +30,8 @@ export const load: PageServerLoad = async ({ url, setHeaders }) => {
 				href: `${base}/tour/${track.tourId}`
 			})),
 		bulletin: plan.bulletin,
+		status: plan.status,
 		mode: plan.mode,
-		notBefore: notBefore ?? '07:00'
+		params
 	};
 };

@@ -18,22 +18,50 @@ export interface TourRating {
 	reasons: RatingReason[];
 }
 
-const ORDER: Record<Signal, number> = { gruen: 0, gelb: 1, rot: 2, unbekannt: 3 };
+/** Reihenfolge der Ampel: gut zuerst. Von Liste, Karte und Sortierung gemeinsam genutzt. */
+export const SIGNAL_ORDER: Record<Signal, number> = { gruen: 0, gelb: 1, rot: 2, unbekannt: 3 };
 
 /** Hebt die Ampel an, senkt sie aber nie wieder ab. */
 function escalate(current: Signal, next: Signal): Signal {
 	if (current === 'unbekannt' || next === 'unbekannt') return 'unbekannt';
-	return ORDER[next] > ORDER[current] ? next : current;
+	return SIGNAL_ORDER[next] > SIGNAL_ORDER[current] ? next : current;
 }
 
 /**
- * Gefahrenstufe, die auf Gipfelhoehe der Tour gilt. Der Lagebericht
+ * Gefahrenstufe, die auf einer bestimmten Hoehe gilt. Der Lagebericht
  * unterscheidet ober- und unterhalb einer Hoehengrenze.
  */
 export function dangerLevelForAltitude(bulletin: AvalancheBulletin, altitude: number): DangerLevel {
 	const { rating } = bulletin;
 	if (rating.elevationBoundary === null) return rating.above;
 	return altitude >= rating.elevationBoundary ? rating.above : rating.below;
+}
+
+/**
+ * Hoechste Gefahrenstufe entlang der ganzen Tour, vom Ausgangspunkt bis zum
+ * Gipfel. Meist ist das die Stufe oben - bei Nassschnee im Fruehjahr kann es
+ * aber unten ungemuetlicher sein.
+ */
+export function dangerLevelForTour(bulletin: AvalancheBulletin, tour: Tour): DangerLevel {
+	return Math.max(
+		dangerLevelForAltitude(bulletin, tour.summitAltitude),
+		dangerLevelForAltitude(bulletin, tour.trailheadAltitude)
+	) as DangerLevel;
+}
+
+/**
+ * Liegt die Tour im Hoehenband eines Gefahrenmusters? Das Band reicht von
+ * elevationAbove bis elevationBelow (jeweils optional), die Tour vom
+ * Ausgangspunkt bis zum Gipfel - es zaehlt jede Ueberschneidung.
+ */
+export function tourInElevationBand(
+	tour: Pick<Tour, 'trailheadAltitude' | 'summitAltitude'>,
+	elevationAbove: number | null,
+	elevationBelow: number | null
+): boolean {
+	const reachesUp = elevationAbove === null || tour.summitAltitude >= elevationAbove;
+	const reachesDown = elevationBelow === null || tour.trailheadAltitude <= elevationBelow;
+	return reachesUp && reachesDown;
 }
 
 /** Schnittmenge der Hangrichtungen von Tour und Gefahrenmuster. */
@@ -61,34 +89,40 @@ export function rateTour(
 			reasons: [
 				{
 					factor: 'Lawinenlage',
-					detail: 'Kein Lagebericht verfuegbar - keine Bewertung moeglich.',
+					detail: 'Kein Lagebericht verfügbar - keine Bewertung möglich.',
 					impact: 'kritisch'
 				}
 			]
 		};
 	}
 
-	const level = dangerLevelForAltitude(bulletin, tour.summitAltitude);
+	const level = dangerLevelForTour(bulletin, tour);
 	let signal: Signal = 'gruen';
 
-	if (level >= 4) {
+	if (level === 0) {
+		reasons.push({
+			factor: 'Lawinenlage',
+			detail: 'Laut Lagebericht kein Schnee - keine Lawinengefahr ausgewiesen.',
+			impact: 'neutral'
+		});
+	} else if (level >= 4) {
 		signal = escalate(signal, 'rot');
 		reasons.push({
 			factor: 'Lawinenlage',
-			detail: `Gefahrenstufe ${level} auf ${tour.summitAltitude} m - grosse bis sehr grosse Gefahr.`,
+			detail: `Gefahrenstufe ${level} zwischen ${tour.trailheadAltitude} und ${tour.summitAltitude} m - große bis sehr große Gefahr.`,
 			impact: 'kritisch'
 		});
 	} else if (level === 3) {
 		signal = escalate(signal, 'gelb');
 		reasons.push({
 			factor: 'Lawinenlage',
-			detail: `Gefahrenstufe 3 (erheblich) auf ${tour.summitAltitude} m.`,
+			detail: `Gefahrenstufe 3 (erheblich) zwischen ${tour.trailheadAltitude} und ${tour.summitAltitude} m.`,
 			impact: 'warnung'
 		});
 	} else {
 		reasons.push({
 			factor: 'Lawinenlage',
-			detail: `Gefahrenstufe ${level} auf ${tour.summitAltitude} m.`,
+			detail: `Gefahrenstufe ${level} zwischen ${tour.trailheadAltitude} und ${tour.summitAltitude} m.`,
 			impact: 'neutral'
 		});
 	}
@@ -99,14 +133,14 @@ export function rateTour(
 		signal = escalate(signal, 'rot');
 		reasons.push({
 			factor: 'Steilheit',
-			detail: `Schluesselstelle bis ${tour.steepnessMax} Grad bei Gefahrenstufe ${level}.`,
+			detail: `Schlüsselstelle bis ${tour.steepnessMax}° bei Gefahrenstufe ${level}.`,
 			impact: 'kritisch'
 		});
 	} else if (tour.steepnessMax >= 30 && level >= 3) {
 		signal = escalate(signal, 'gelb');
 		reasons.push({
 			factor: 'Steilheit',
-			detail: `Passagen bis ${tour.steepnessMax} Grad bei Gefahrenstufe ${level}.`,
+			detail: `Passagen bis ${tour.steepnessMax}° bei Gefahrenstufe ${level}.`,
 			impact: 'warnung'
 		});
 	}
@@ -116,9 +150,7 @@ export function rateTour(
 		const overlap = overlappingAspects(tour.aspects, problem.aspects);
 		if (overlap.length === 0) continue;
 
-		const aboveOk = problem.elevationAbove === null || tour.summitAltitude >= problem.elevationAbove;
-		const belowOk = problem.elevationBelow === null || tour.trailheadAltitude <= problem.elevationBelow;
-		if (!aboveOk && !belowOk) continue;
+		if (!tourInElevationBand(tour, problem.elevationAbove, problem.elevationBelow)) continue;
 
 		const critical = level >= 3;
 		signal = escalate(signal, critical ? 'rot' : 'gelb');
@@ -132,7 +164,7 @@ export function rateTour(
 	if (!weather) {
 		reasons.push({
 			factor: 'Bergwetter',
-			detail: 'Keine Wetterprognose verfuegbar.',
+			detail: 'Keine Wetterprognose verfügbar - vorsichtshalber strenger bewertet.',
 			impact: 'warnung'
 		});
 		return { signal: escalate(signal, 'gelb'), effectiveDangerLevel: level, reasons };
@@ -142,14 +174,14 @@ export function rateTour(
 		signal = escalate(signal, 'rot');
 		reasons.push({
 			factor: 'Wind',
-			detail: `${weather.windSpeedKmh} km/h aus ${weather.windDirection} auf Kammhoehe, Boeen bis ${weather.windGustsKmh} km/h - frischer Triebschnee.`,
+			detail: `${weather.windSpeedKmh} km/h aus ${weather.windDirection} auf Kammhöhe, Böen bis ${weather.windGustsKmh} km/h - frischer Triebschnee.`,
 			impact: 'kritisch'
 		});
 	} else if (weather.windSpeedKmh >= 40) {
 		signal = escalate(signal, 'gelb');
 		reasons.push({
 			factor: 'Wind',
-			detail: `${weather.windSpeedKmh} km/h aus ${weather.windDirection} - Triebschneebildung in Leehaengen.`,
+			detail: `${weather.windSpeedKmh} km/h aus ${weather.windDirection} - Triebschneebildung in Leehängen.`,
 			impact: 'warnung'
 		});
 	} else {
@@ -185,7 +217,7 @@ const PROBLEM_LABELS: Record<string, string> = {
 	persistent_weak_layer: 'Altschnee',
 	wet_snow: 'Nassschnee',
 	gliding_snow: 'Gleitschnee',
-	favourable_situation: 'Guenstige Situation'
+	favourable_situation: 'Günstige Situation'
 };
 
 export function problemLabel(type: string): string {

@@ -16,10 +16,14 @@ const LEVEL_BY_NAME: Record<string, DangerLevel> = {
 const REGION_ID = 'AT-07';
 
 /**
- * Laedt den Lawinenlagebericht. Im Demo-Modus - und wenn die Quelle nicht
- * erreichbar ist - wird ein mitgelieferter Beispielbericht zurueckgegeben.
+ * Laedt den Lawinenlagebericht.
+ *
+ * Demo-Modus: mitgelieferter Beispielbericht. Live-Modus: der echte Bericht -
+ * und wenn der nicht zu bekommen ist, null. Niemals still auf Demodaten
+ * ausweichen: ein erfundener Bericht, der wie ein echter aussieht, ist
+ * gefaehrlicher als gar keiner. Ohne Bericht zeigt die Ampel "unklar".
  */
-export async function getBulletin(now = new Date()): Promise<AvalancheBulletin> {
+export async function getBulletin(now = new Date()): Promise<AvalancheBulletin | null> {
 	if (config.mode === 'demo') return demoBulletin(now);
 
 	return cached('bulletin', config.cacheTtlMs, async () => {
@@ -31,43 +35,40 @@ export async function getBulletin(now = new Date()): Promise<AvalancheBulletin> 
 			if (!res.ok) throw new Error(`Lagebericht antwortete mit ${res.status}`);
 			return parseCaaml(await res.json(), now);
 		} catch (err) {
-			console.error('[avalanche] Live-Abruf fehlgeschlagen, nutze Demodaten:', err);
-			return demoBulletin(now);
+			console.error('[avalanche] Lagebericht nicht verfuegbar:', err);
+			return null;
 		}
 	});
 }
 
-/**
- * Uebersetzt ein CAAMLv6-Bulletin (EAWS) in das interne Modell. Die Quelle
- * liefert eine Liste von Bulletins - eines pro Regionsgruppe; wir nehmen das
- * erste, das die Region Tirol enthaelt.
- */
-export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
-	const doc = raw as Record<string, any>;
-	const list: any[] = Array.isArray(doc?.bulletins) ? doc.bulletins : Array.isArray(doc) ? doc : [];
-	const bulletin =
-		list.find((b) =>
-			(b?.regions ?? []).some((r: any) => String(r?.regionID ?? '').startsWith(REGION_ID))
-		) ?? list[0];
+interface RegionRating {
+	above: DangerLevel;
+	below: DangerLevel;
+	boundary: number | null;
+	aspects: Aspect[];
+	problems: AvalancheProblem[];
+	highlights: string | null;
+}
 
-	if (!bulletin) throw new Error('Kein Bulletin im CAAML-Dokument gefunden');
+function readBulletin(bulletin: any): RegionRating {
+	const ratings: any[] = bulletin?.dangerRatings ?? [];
+	if (ratings.length === 0) throw new Error('Bulletin ohne Gefahrenstufe');
 
-	const ratings: any[] = bulletin.dangerRatings ?? [];
+	const level = (value: unknown): DangerLevel => {
+		const mapped = LEVEL_BY_NAME[String(value)];
+		// Unbekannter Wert: lieber abbrechen als ihn als Stufe 0 gruen zu zeigen.
+		if (mapped === undefined) throw new Error(`Unbekannte Gefahrenstufe: ${String(value)}`);
+		return mapped;
+	};
+
 	const above = ratings.find((r) => r?.elevation?.lowerBound !== undefined) ?? ratings[0];
-	const below = ratings.find((r) => r?.elevation?.upperBound !== undefined);
-	const boundary = parseElevation(above?.elevation?.lowerBound ?? below?.elevation?.upperBound);
+	const below = ratings.find((r) => r?.elevation?.upperBound !== undefined) ?? above;
 
 	return {
-		regionId: REGION_ID,
-		regionName: bulletin.regions?.[0]?.name ?? 'Tirol',
-		publishedAt: bulletin.publicationTime ?? now.toISOString(),
-		validUntil: bulletin.validTime?.endTime ?? now.toISOString(),
-		rating: {
-			above: LEVEL_BY_NAME[above?.mainValue] ?? 0,
-			below: LEVEL_BY_NAME[below?.mainValue ?? above?.mainValue] ?? 0,
-			elevationBoundary: boundary,
-			aspects: (above?.aspects ?? []) as Aspect[]
-		},
+		above: level(above?.mainValue),
+		below: level(below?.mainValue),
+		boundary: parseElevation(above?.elevation?.lowerBound ?? below?.elevation?.upperBound),
+		aspects: (above?.aspects ?? []) as Aspect[],
 		problems: (bulletin.avalancheProblems ?? []).map(
 			(p: any): AvalancheProblem => ({
 				type: p?.problemType ?? 'unknown',
@@ -76,9 +77,45 @@ export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
 				elevationBelow: parseElevation(p?.elevation?.upperBound)
 			})
 		),
+		highlights: bulletin.highlights ?? bulletin.avalancheActivity?.highlights ?? null
+	};
+}
+
+/**
+ * Uebersetzt ein CAAMLv6-Dokument (EAWS) in das interne Modell.
+ *
+ * Tirol ist in Mikroregionen geteilt, und das Dokument enthaelt ein Bulletin je
+ * Regionsgruppe - oft mit verschiedenen Stufen. Die Touren sind noch keiner
+ * Mikroregion zugeordnet, darum gilt die unguenstigste Einschaetzung aller
+ * Tiroler Bulletins: hoechste Stufe ober- und unterhalb, tiefste Hoehengrenze,
+ * alle Gefahrenmuster. Lieber zu vorsichtig als eine Stufe zu niedrig.
+ */
+export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
+	const doc = raw as Record<string, any>;
+	const list: any[] = Array.isArray(doc?.bulletins) ? doc.bulletins : Array.isArray(doc) ? doc : [];
+	const tirol = list.filter((b) =>
+		(b?.regions ?? []).some((r: any) => String(r?.regionID ?? '').startsWith(REGION_ID))
+	);
+	if (tirol.length === 0) throw new Error('Kein Tiroler Bulletin im CAAML-Dokument gefunden');
+
+	const parts = tirol.map(readBulletin);
+	const max = (values: DangerLevel[]) => Math.max(...values) as DangerLevel;
+	const boundaries = parts.map((p) => p.boundary).filter((b): b is number => b !== null);
+
+	return {
+		regionId: REGION_ID,
+		regionName: parts.length > 1 ? `Tirol (ungünstigste von ${parts.length} Regionen)` : 'Tirol',
+		publishedAt: tirol[0].publicationTime ?? now.toISOString(),
+		validUntil: tirol[0].validTime?.endTime ?? now.toISOString(),
+		rating: {
+			above: max(parts.map((p) => p.above)),
+			below: max(parts.map((p) => p.below)),
+			elevationBoundary: boundaries.length ? Math.min(...boundaries) : null,
+			aspects: [...new Set(parts.flatMap((p) => p.aspects))]
+		},
+		problems: parts.flatMap((p) => p.problems),
 		summary:
-			bulletin.highlights ??
-			bulletin.avalancheActivity?.highlights ??
+			parts.find((p) => p.highlights)?.highlights ??
 			'Details siehe Originalbericht des Lawinenwarndienstes Tirol.',
 		source: 'Lawinenwarndienst Tirol / EAWS (CAAMLv6)'
 	};
@@ -109,7 +146,7 @@ export function demoBulletin(now = new Date()): AvalancheBulletin {
 			{ type: 'persistent_weak_layer', aspects: ['N', 'NW', 'W'], elevationAbove: 2400, elevationBelow: null }
 		],
 		summary:
-			'Frischer Triebschnee ist die Hauptgefahr. Stoeranfaellig sind kammnahe Bereiche der Expositionen Nordwest ueber Nord bis Ost oberhalb von 2200 m.',
+			'Frischer Triebschnee ist die Hauptgefahr. Störanfällig sind kammnahe Bereiche der Expositionen Nordwest über Nord bis Ost oberhalb von 2200 m.',
 		source: 'Demodaten im Format des Lawinenwarndienstes Tirol'
 	};
 }

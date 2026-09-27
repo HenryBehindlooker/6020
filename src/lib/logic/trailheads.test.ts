@@ -31,7 +31,7 @@ function plan(
 		},
 		rating: { signal, effectiveDangerLevel: 2, reasons: [] },
 		weather: null,
-		transit: { originStop: 'Innsbruck', destinationStop: stop, outbound: [], inbound: [], source: 't' },
+		transit: { kind: 'echt', originStop: 'Innsbruck', destinationStop: stop, outbound: [], inbound: [], source: 't' },
 		turnaround: {
 			outbound: null,
 			lastInbound: null,

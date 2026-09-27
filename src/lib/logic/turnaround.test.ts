@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Departure, Tour, TransitConnection } from '$lib/types';
-import { pickLastInbound, pickOutbound, planTurnaround, realDeparture } from './turnaround';
+import { formatReserve, pickLastInbound, pickOutbound, planTurnaround, realDeparture } from './turnaround';
 
 const tour: Tour = {
 	id: 'test',
@@ -31,6 +31,7 @@ function dep(departure: string, travelMinutes = 60, delayMinutes: number | null 
 }
 
 const connection: TransitConnection = {
+	kind: 'echt',
 	originStop: 'Innsbruck Hauptbahnhof',
 	destinationStop: 'Praxmar',
 	outbound: [dep('2026-01-15T05:45:00Z'), dep('2026-01-15T07:45:00Z')],
@@ -114,7 +115,7 @@ describe('planTurnaround', () => {
 		const ohne: TransitConnection = { ...connection, inbound: [] };
 		const plan = planTurnaround(tour, ohne, { notBefore: '2026-01-15T05:00:00Z' });
 		expect(plan.feasible).toBe(false);
-		expect(plan.note).toMatch(/Keine Rueckfahrt/);
+		expect(plan.note).toMatch(/kein Bus zurück/);
 	});
 
 	it('warnt, wenn keine Hinfahrt mehr passt', () => {
@@ -122,5 +123,29 @@ describe('planTurnaround', () => {
 		expect(plan.feasible).toBe(false);
 		expect(plan.outbound).toBeNull();
 		expect(plan.turnaroundAt).not.toBeNull();
+	});
+});
+
+describe('fehlender oder unbekannter Fahrplan', () => {
+	it('sagt bei fehlgeschlagener Abfrage "nicht verfuegbar" statt "kein Bus"', () => {
+		const kaputt: TransitConnection = { ...connection, kind: 'unvollstaendig', inbound: [], outbound: [] };
+		const plan = planTurnaround(tour, kaputt, { notBefore: '2026-01-15T05:00:00Z' });
+		expect(plan.feasible).toBe(false);
+		expect(plan.note).toMatch(/nicht verfügbar/);
+		expect(plan.note).not.toMatch(/kein Bus/);
+	});
+
+	it('nennt die Aufbruchszeit in Innsbrucker Zeit, nicht in UTC', () => {
+		// 06:00 UTC ist im Jaenner 07:00 in Innsbruck; vorher stand hier "ab 06:00"
+		const plan = planTurnaround(tour, { ...connection, outbound: [] }, { notBefore: '2026-01-15T06:00:00Z' });
+		expect(plan.note).toContain('ab 07:00');
+	});
+});
+
+describe('formatReserve', () => {
+	it('schreibt Stunden und Minuten', () => {
+		expect(formatReserve(45)).toBe('45 min');
+		expect(formatReserve(60)).toBe('1 h');
+		expect(formatReserve(506)).toBe('8 h 26 min');
 	});
 });

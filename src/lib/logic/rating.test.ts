@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { AvalancheBulletin, Tour, WeatherForecast } from '$lib/types';
-import { dangerLevelForAltitude, overlappingAspects, rateTour } from './rating';
+import { dangerLevelForAltitude, dangerLevelForTour, overlappingAspects, rateTour, tourInElevationBand } from './rating';
 
 const tour: Tour = {
 	id: 'test',
@@ -130,5 +130,62 @@ describe('rateTour', () => {
 
 	it('stuft ohne Wetterdaten vorsichtshalber hoch', () => {
 		expect(rateTour(tour, bulletin(), null).signal).toBe('gelb');
+	});
+});
+
+describe('tourInElevationBand', () => {
+	const tief = { trailheadAltitude: 860, summitAltitude: 1067 };
+	const hoch = { trailheadAltitude: 1600, summitAltitude: 2800 };
+
+	it('trifft eine niedrige Tour nicht mit einem Problem ab 2200 m', () => {
+		// Dieser Fall war vor dem Fix falsch: die Arzler Alm bekam Triebschnee ab 2200 m.
+		expect(tourInElevationBand(tief, 2200, null)).toBe(false);
+	});
+
+	it('trifft eine hohe Tour mit einem Problem ab 2200 m', () => {
+		expect(tourInElevationBand(hoch, 2200, null)).toBe(true);
+	});
+
+	it('trifft eine hohe Tour mit einem Problem unterhalb 1800 m (Aufstieg beginnt tiefer)', () => {
+		expect(tourInElevationBand(hoch, null, 1800)).toBe(true);
+	});
+
+	it('trifft eine Tour, die komplett oberhalb eines Problems unter 1500 m liegt, nicht', () => {
+		expect(tourInElevationBand(hoch, null, 1500)).toBe(false);
+	});
+
+	it('trifft ohne Hoehenangabe immer', () => {
+		expect(tourInElevationBand(tief, null, null)).toBe(true);
+	});
+
+	it('beachtet ein geschlossenes Band', () => {
+		expect(tourInElevationBand(hoch, 2000, 2400)).toBe(true);
+		expect(tourInElevationBand(tief, 2000, 2400)).toBe(false);
+	});
+});
+
+describe('dangerLevelForTour', () => {
+	it('nimmt die hoehere Stufe, auch wenn sie unten gilt (Nassschnee)', () => {
+		const b = bulletin({ rating: { above: 2, below: 3, elevationBoundary: 2000, aspects: [] } });
+		expect(dangerLevelForTour(b, tour)).toBe(3);
+	});
+});
+
+describe('rateTour - Hoehenband', () => {
+	it('warnt eine niedrige Tour nicht vor einem Problem weit oberhalb', () => {
+		const niedrig: Tour = { ...tour, trailheadAltitude: 860, summitAltitude: 1067, aspects: ['N'], steepnessMax: 18 };
+		const b = bulletin({
+			problems: [{ type: 'wind_slab', aspects: ['N'], elevationAbove: 2200, elevationBelow: null }]
+		});
+		const result = rateTour(niedrig, b, calmWeather);
+		expect(result.reasons.some((r) => r.factor === 'Gefahrenmuster')).toBe(false);
+		expect(result.signal).toBe('gruen');
+	});
+
+	it('zeigt bei Stufe 0 (kein Schnee) gruen mit Hinweis', () => {
+		const b = bulletin({ rating: { above: 0, below: 0, elevationBoundary: null, aspects: [] } });
+		const result = rateTour(tour, b, calmWeather);
+		expect(result.signal).toBe('gruen');
+		expect(result.reasons[0].detail).toMatch(/kein Schnee/);
 	});
 });

@@ -1,17 +1,21 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import DataNotice from '$lib/components/DataNotice.svelte';
 	import TourMap from '$lib/components/TourMap.svelte';
 	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
 	import { hhmm } from '$lib/logic/turnaround';
+	import { planQuery } from '$lib/planParams';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
 	const groups = $derived(data.groups);
+	const query = $derived(planQuery(data.params));
+	const tourHref = (id: string) => `${base}/tour/${id}${query}`;
 
-	function plural(count: number, singular: string, plural: string): string {
-		return `${count} ${count === 1 ? singular : plural}`;
+	function anzahl(count: number, einzahl: string, mehrzahl: string): string {
+		return `${count} ${count === 1 ? einzahl : mehrzahl}`;
 	}
 
 	const gipfel = $derived<MapMarker[]>(
@@ -24,7 +28,7 @@
 					signal: t.rating.signal,
 					label: t.tour.summit!.name,
 					sub: t.tour.summit!.ele ? `${t.tour.summit!.ele} m` : undefined,
-					links: [{ text: t.tour.name, href: `${base}/tour/${t.tour.id}`, signal: t.rating.signal }],
+					links: [{ text: t.tour.name, href: tourHref(t.tour.id), signal: t.rating.signal }],
 					shape: 'gipfel' as const
 				}))
 		)
@@ -36,50 +40,53 @@
 			lon: group.lon,
 			signal: group.bestSignal,
 			label: group.name,
-			sub: `${plural(group.tours.length, 'Tour', 'Touren')} · ${group.feasibleCount} ${group.feasibleCount === 1 ? 'geht' : 'gehen'} sich zeitlich aus`,
+			sub: `${anzahl(group.tours.length, 'Tour', 'Touren')} · ${group.feasibleCount} ${group.feasibleCount === 1 ? 'geht' : 'gehen'} sich zeitlich aus`,
 			count: group.tours.length,
-			links: group.tours.map((t) => ({
-				text: t.tour.name,
-				href: `${base}/tour/${t.tour.id}`,
-				signal: t.rating.signal
-			}))
+			links: group.tours.map((t) => ({ text: t.tour.name, href: tourHref(t.tour.id), signal: t.rating.signal }))
 		}))
+	);
+
+	const tracks = $derived(
+		(data.tracks as MapTrack[]).map((t) => ({ ...t, href: t.href ? `${t.href}${query}` : undefined }))
 	);
 </script>
 
 <svelte:head><title>Karte - Bergampel Innsbruck</title></svelte:head>
 
-{#if data.mode === 'demo'}
-	<p class="demo" role="status">
-		<strong>Lawinenlage und Wetter sind Demodaten.</strong> Wege, Huetten, Seilbahnen und Gipfel
-		stammen aus OpenStreetMap.
-	</p>
-{/if}
+<DataNotice status={data.status} />
 
 <header class="kopf">
 	<div>
 		<h1>Karte</h1>
 		<p class="meta">
-			Ein Punkt je Ausgangspunkt, gefaerbt nach der <em>besten</em> Tour von dort.
-			Gefahrenstufe {data.bulletin.rating.above}
-			{#if data.bulletin.rating.elevationBoundary}
-				ueber {data.bulletin.rating.elevationBoundary} m
+			Ein Kreis je Ausgangspunkt, gefärbt nach der <em>besten</em> Tour von dort.
+			{#if data.bulletin}
+				Gefahrenstufe {data.bulletin.rating.above}{#if data.bulletin.rating.elevationBoundary}
+					&nbsp;oberhalb {data.bulletin.rating.elevationBoundary} m{/if}.
+			{:else}
+				Lagebericht nicht verfügbar.
 			{/if}
 		</p>
 	</div>
-	<a class="wechsel" href="{base}/">Als Liste</a>
+	<a class="wechsel" href="{base}/{query}">Als Liste</a>
 </header>
 
-<TourMap markers={[...gipfel, ...ausgangspunkte]} tracks={data.tracks as MapTrack[]} osm height="34rem" />
+<TourMap markers={[...gipfel, ...ausgangspunkte]} {tracks} osm height="min(70vh, 36rem)" />
 
-<p class="legende">
-	<span class="gruen">Geht</span>
-	<span class="gelb">Heikel</span>
-	<span class="rot">Heute nicht</span>
-	<span class="hinweis">Kreis: Haltestelle am Ausgangspunkt, die Zahl ist die Anzahl der Touren. Dreieck: Gipfel. Blau: Wanderwege (Sommer). Gruen: Skitouren-Aufstiege laut OSM. Punktiert: Seilbahnen. Graue Punkte: Huetten und Einkehr. Ebenen oben rechts umschaltbar.</span>
-	{#if data.tracks.some((t) => t.schematic)}
-		<span class="hinweis gestrichelt">Gestrichelte Linien sind schematisch, keine Wegaufzeichnung.</span>
-	{/if}
+<ul class="legende" aria-label="Legende">
+	<li><span class="punkt gruen"></span>Geat</li>
+	<li><span class="punkt gelb"></span>Heikl</li>
+	<li><span class="punkt rot"></span>Heit nit</li>
+	<li><span class="form kreis"></span>Haltestelle (Zahl = Touren)</li>
+	<li><span class="form dreieck"></span>Gipfel</li>
+	<li><span class="linie blau"></span>Wanderweg (Sommer)</li>
+	<li><span class="linie gruen-dunkel"></span>Skitouren-Aufstieg</li>
+	<li><span class="linie punktiert"></span>Seilbahn</li>
+	<li><span class="punkt grau"></span>Hütte, Einkehr</li>
+</ul>
+<p class="hinweis">
+	Wege, Hütten und Seilbahnen stammen aus OpenStreetMap und lassen sich oben rechts ein- und
+	ausschalten. Wanderwege sind Sommerwege - im Winter keine Aufstiegsroute.
 </p>
 
 <ol class="liste">
@@ -95,12 +102,12 @@
 			<ul class="touren">
 				{#each group.tours as plan (plan.tour.id)}
 					<li class={plan.rating.signal}>
-						<a href="{base}/tour/{plan.tour.id}">{plan.tour.name}</a>
+						<a href={tourHref(plan.tour.id)}>{plan.tour.name}</a>
 						<span class="zeit">
 							{#if plan.turnaround.turnaroundAt}
-								Umkehr {hhmm(plan.turnaround.turnaroundAt)}
+								umkehrn um {hhmm(plan.turnaround.turnaroundAt)}
 							{:else}
-								keine Rueckfahrt
+								koa Rückfahrt
 							{/if}
 						</span>
 					</li>
@@ -111,16 +118,6 @@
 </ol>
 
 <style>
-	.demo {
-		background: var(--hinweis-bg);
-		color: var(--hinweis-text);
-		border: 1px solid var(--hinweis-border);
-		padding: 0.7rem 0.9rem;
-		border-radius: 0.6rem;
-		font-size: 0.85rem;
-		margin-bottom: 1.25rem;
-	}
-
 	.kopf {
 		display: flex;
 		justify-content: space-between;
@@ -130,76 +127,66 @@
 		margin-bottom: 0.9rem;
 	}
 
-	h1 { margin: 0; font-size: 1.5rem; letter-spacing: -0.02em; }
+	h1 { margin: 0; font-size: 1.6rem; letter-spacing: -0.02em; color: var(--sky-deep); }
 
-	.meta { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.85rem; }
+	.meta { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.87rem; }
 
 	.wechsel {
-		background: var(--surface-2);
-		border-radius: 0.45rem;
-		padding: 0.45rem 0.8rem;
-		font-size: 0.85rem;
+		background: var(--surface);
+		border-radius: 999px;
+		padding: 0.5rem 0.95rem;
+		font-size: 0.87rem;
 		text-decoration: none;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 	}
 
+	.wechsel:hover { color: var(--sky-deep); }
+
 	.legende {
+		list-style: none;
 		display: flex;
 		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.9rem;
-		margin: 0.7rem 0 0;
+		gap: 0.4rem 1rem;
+		margin: 0.8rem 0 0.2rem;
+		padding: 0;
 		font-size: 0.78rem;
 		color: var(--muted);
 	}
 
-	.legende span::before {
-		content: '';
-		display: inline-block;
-		width: 0.6rem;
-		height: 0.6rem;
-		border-radius: 50%;
-		margin-right: 0.35rem;
-	}
+	.legende li { display: flex; align-items: center; gap: 0.35rem; }
 
-	.legende .gruen::before { background: var(--gruen); }
-	.legende .gelb::before { background: var(--gelb); }
-	.legende .rot::before { background: var(--rot); }
-	.legende .hinweis::before { display: none; }
+	.punkt { width: 0.62rem; height: 0.62rem; border-radius: 50%; display: inline-block; }
+	.punkt.gruen { background: var(--gruen); }
+	.punkt.gelb { background: var(--gelb); }
+	.punkt.rot { background: var(--rot); }
+	.punkt.grau { background: var(--muted); }
 
-	.legende .gestrichelt::before {
-		display: inline-block;
-		width: 1.4rem;
-		height: 0;
-		border-radius: 0;
-		border-top: 2px dashed var(--muted);
-		margin-bottom: 0.25rem;
-	}
+	.form.kreis { width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 2px solid var(--muted); display: inline-block; }
+	.form.dreieck { width: 0.8rem; height: 0.7rem; background: var(--muted); clip-path: polygon(50% 0, 100% 100%, 0 100%); display: inline-block; }
+
+	.linie { width: 1.4rem; height: 0; display: inline-block; border-top: 3px solid; }
+	.linie.blau { border-color: var(--sky); }
+	.linie.gruen-dunkel { border-color: var(--forest); }
+	.linie.punktiert { border-top-style: dotted; border-color: var(--text); }
+
+	.hinweis { margin: 0.3rem 0 0; font-size: 0.78rem; color: var(--muted); }
 
 	.liste {
 		list-style: none;
-		margin: 1.25rem 0 0;
+		margin: 1.4rem 0 0;
 		padding: 0;
 		display: grid;
-		gap: 0.75rem;
+		gap: 0.8rem;
 		grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
 	}
 
-	.liste > li {
-		background: var(--surface);
-		border-radius: 0.9rem;
-		padding: 0.9rem 1rem;
-	}
+	.liste > li { background: var(--surface); border-radius: 1rem; padding: 0.95rem 1.05rem; }
 
-	.zeile {
-		display: flex;
-		align-items: center;
-		gap: 0.7rem;
-		margin-bottom: 0.6rem;
-	}
+	.zeile { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem; }
 
 	.halt { display: block; color: var(--muted); font-size: 0.75rem; }
 
-	.touren { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; font-size: 0.85rem; }
+	.touren { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.87rem; }
 
 	.touren li {
 		display: flex;
@@ -214,7 +201,7 @@
 	.touren li.rot { border-left-color: var(--rot); }
 
 	.touren a { text-decoration: none; }
-	.touren a:hover { text-decoration: underline; }
+	.touren a:hover { text-decoration: underline; color: var(--sky-deep); }
 
 	.zeit { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
 </style>

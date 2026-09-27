@@ -1,5 +1,5 @@
 import type { AvalancheBulletin, Tour, TransitConnection, WeatherForecast } from '$lib/types';
-import { rateTour, type TourRating } from '$lib/logic/rating';
+import { rateTour, SIGNAL_ORDER, type TourRating } from '$lib/logic/rating';
 import { planTurnaround, type TurnaroundPlan } from '$lib/logic/turnaround';
 import { getBulletin } from '$lib/server/sources/avalanche';
 import { getConnection } from '$lib/server/sources/transit';
@@ -16,12 +16,23 @@ export interface TourPlan {
 	turnaround: TurnaroundPlan;
 }
 
+/** Was an den Daten dieses Plans echt ist - fuer den Hinweis oben auf der Seite. */
+export interface DataStatus {
+	lawine: 'echt' | 'demo' | 'fehlt';
+	wetter: 'echt' | 'demo' | 'fehlt' | 'teilweise';
+	fahrplan: 'echt' | 'demo' | 'fehlt' | 'teilweise';
+	/** Stand des echten Fahrplans, z.B. "Transitous, Fahrplan vom Sa 3.10.2026 ...". */
+	fahrplanStand: string | null;
+}
+
 export interface DayPlan {
 	date: string;
 	mode: 'demo' | 'live';
-	bulletin: AvalancheBulletin;
+	/** null: Lagebericht nicht verfuegbar - die Ampel steht dann auf "unklar". */
+	bulletin: AvalancheBulletin | null;
 	tours: TourPlan[];
 	sources: string[];
+	status: DataStatus;
 }
 
 /** Standard-Aufbruchszeit, wenn die Nutzerin nichts anderes angibt. */
@@ -38,7 +49,7 @@ export async function buildDayPlan(options: {
 	const bulletin = await getBulletin(date);
 
 	// Wetter einmal pro Ausgangspunkt holen, nicht einmal pro Tour.
-	const weatherByStop = new Map<string, WeatherForecast>();
+	const weatherByStop = new Map<string, WeatherForecast | null>();
 	await Promise.all(
 		trailheads().map(async (t) => {
 			weatherByStop.set(t.stop, await getWeather(t.lat, t.lon, t.altitude));
@@ -69,13 +80,30 @@ export async function buildDayPlan(options: {
 		mode: config.mode,
 		bulletin,
 		tours,
-		sources: [...new Set([bulletin.source, ...tours.flatMap((t) => [t.weather?.source, t.transit.source])])].filter(
+		sources: [...new Set([bulletin?.source, ...tours.flatMap((t) => [t.weather?.source, t.transit.source])])].filter(
 			(s): s is string => Boolean(s)
-		)
+		),
+		status: dataStatus(bulletin, tours)
 	};
 }
 
-const SIGNAL_ORDER = { gruen: 0, gelb: 1, rot: 2, unbekannt: 3 } as const;
+function dataStatus(bulletin: AvalancheBulletin | null, tours: TourPlan[]): DataStatus {
+	const demo = config.mode === 'demo';
+	const mix = <T extends string>(values: T[], all: T, none: T): T | 'teilweise' =>
+		values.every((v) => v === all) ? all : values.every((v) => v === none) ? none : 'teilweise';
+
+	const wetter = tours.map((t) => (t.weather === null ? 'fehlt' : demo ? 'demo' : 'echt'));
+	const fahrplan = tours.map((t) => (t.transit.kind === 'unvollstaendig' ? 'fehlt' : t.transit.kind));
+	const fahrplanArten = new Set(fahrplan);
+
+	return {
+		lawine: bulletin === null ? 'fehlt' : demo ? 'demo' : 'echt',
+		wetter: demo ? 'demo' : mix(wetter, 'echt', 'fehlt'),
+		fahrplan:
+			fahrplanArten.size === 1 ? (fahrplan[0] as DataStatus['fahrplan']) : fahrplanArten.has('echt') ? 'teilweise' : 'fehlt',
+		fahrplanStand: tours.find((t) => t.transit.kind === 'echt' && t.transit.outbound.length + t.transit.inbound.length > 0)?.transit.source ?? null
+	};
+}
 
 /** Machbares und Sicheres zuerst. */
 function compareTourPlans(a: TourPlan, b: TourPlan): number {

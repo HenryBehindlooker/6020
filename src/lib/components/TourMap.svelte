@@ -5,7 +5,7 @@
 	import type { Signal } from '$lib/logic/rating';
 	import type { MapMarker, MapTrack } from './mapTypes';
 	import { base } from '$app/paths';
-	import { addOsmLayers } from './osmLayers';
+	import { addOsmLayers, escapeHtml } from './osmLayers';
 
 	let {
 		markers,
@@ -67,7 +67,10 @@
 
 				map = L.map(target, { scrollWheelZoom: false, attributionControl: true });
 
-				L.tileLayer(TILE_URL, { attribution: TILE_ATTRIBUTION, maxZoom: 17 }).addTo(map);
+				// crossOrigin: ohne CORS kommen Kacheln als "undurchsichtige" Antwort
+				// (ok === false) zurueck, und der Service Worker kann sie nicht fuer
+				// den Offline-Betrieb speichern.
+				L.tileLayer(TILE_URL, { attribution: TILE_ATTRIBUTION, maxZoom: 17, crossOrigin: 'anonymous' }).addTo(map);
 
 				const points: [number, number][] = [];
 
@@ -172,13 +175,6 @@
 			${marker.sub ? `<div class="sub">${escapeHtml(marker.sub)}</div>` : ''}
 			${lines ? `<ul>${lines}</ul>` : ''}
 		`;
-	}
-
-	function escapeHtml(value: string): string {
-		return value.replace(
-			/[&<>"']/g,
-			(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
-		);
 	}
 </script>
 

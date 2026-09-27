@@ -46,12 +46,12 @@ describe('Popups', () => {
 	});
 
 	it('benennt die Huettenart', () => {
-		expect(hutPopup({ name: 'Pfeishuette', tourism: 'alpine_hut', ele: '1922' })).toContain('Schutzhuette · 1922 m');
+		expect(hutPopup({ name: 'Pfeishütte', tourism: 'alpine_hut', ele: '1922' })).toContain('Schutzhütte · 1922 m');
 		expect(hutPopup({ name: 'Arzler Alm', amenity: 'restaurant' })).toContain('Einkehr');
 	});
 
 	it('warnt, wenn Oeffnungszeiten fehlen', () => {
-		expect(hutPopup({ name: 'A' })).toContain('vorher pruefen');
+		expect(hutPopup({ name: 'A' })).toContain('vorher prüfen');
 	});
 
 	it('uebersetzt die Seilbahnart', () => {

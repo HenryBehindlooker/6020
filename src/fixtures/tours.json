@@ -18,7 +18,7 @@
     ],
     "steepnessMax": 38,
     "type": "skitour",
-    "description": "Klassiker ueber dem Mittelgebirge, Gipfelhang steil und meist windexponiert.",
+    "description": "Klassiker über dem Mittelgebirge, Gipfelhang steil und meist windexponiert.",
     "summit": {
       "name": "Saile (Nockspitze)",
       "lat": 47.19207,
@@ -28,13 +28,13 @@
     },
     "trailheadOsm": "node/1074076127",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
     "id": "rangger-koepfl",
-    "name": "Rangger Koepfl",
+    "name": "Rangger Köpfl",
     "trailhead": "Oberperfuss",
     "trailheadStop": "Oberperfuss Rangger Köpfl Lift",
     "lat": 47.24576,
@@ -50,7 +50,7 @@
     ],
     "steepnessMax": 28,
     "type": "skitour",
-    "description": "Wenig steil, guter Rueckzugsberg bei angespannter Lage. Teilweise entlang der Piste.",
+    "description": "Wenig steil, guter Rückzugsberg bei angespannter Lage. Teilweise entlang der Piste.",
     "summit": {
       "name": "Rangger Köpfl",
       "lat": 47.24265,
@@ -60,14 +60,14 @@
     },
     "trailheadOsm": "node/1424374997",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
     "id": "pirchkogel",
     "name": "Pirchkogel",
-    "trailhead": "Kuehtai",
+    "trailhead": "Kühtai",
     "trailheadStop": "Kühtai Dortmunderhütte",
     "lat": 47.21143,
     "lon": 11.0082,
@@ -83,7 +83,7 @@
     ],
     "steepnessMax": 36,
     "type": "skitour",
-    "description": "Hochwinterlich und schneesicher, Nordhaenge halten den Altschnee lange.",
+    "description": "Hochwinterlich und schneesicher, Nordhänge halten den Altschnee lange.",
     "summit": {
       "name": "Pirchkogel",
       "lat": 47.23201,
@@ -93,8 +93,8 @@
     },
     "trailheadOsm": "node/2102151616",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
@@ -115,7 +115,7 @@
     ],
     "steepnessMax": 35,
     "type": "skitour",
-    "description": "Lange Dreitausender-Tour ab Praxmar. Rueckfahrt ist der Engpass.",
+    "description": "Lange Dreitausender-Tour ab Praxmar. Rückfahrt ist der Engpass.",
     "summit": {
       "name": "Zischgeles",
       "lat": 47.13154,
@@ -125,8 +125,8 @@
     },
     "trailheadOsm": "node/2102104497",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
@@ -148,7 +148,7 @@
     ],
     "steepnessMax": 34,
     "type": "skitour",
-    "description": "Suedseitig, bei Sonne frueh dran sein - sonst Nassschneeproblem am Nachmittag.",
+    "description": "Südseitig, bei Sonne früh dran sein - sonst Nassschneeproblem am Nachmittag.",
     "summit": {
       "name": "Lampsenspitze",
       "lat": 47.15609,
@@ -158,13 +158,13 @@
     },
     "trailheadOsm": "node/2102104497",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
     "id": "rosskogel",
-    "name": "Rosskogel",
+    "name": "Roßkogel",
     "trailhead": "Oberperfuss",
     "trailheadStop": "Oberperfuss Rangger Köpfl Lift",
     "lat": 47.24576,
@@ -181,7 +181,7 @@
     ],
     "steepnessMax": 37,
     "type": "skitour",
-    "description": "Grosse Runde ueber die Bergkoepfe, oberer Teil kammnah und triebschneeanfaellig.",
+    "description": "Große Runde über die Bergköpfe, oberer Teil kammnah und triebschneeanfällig.",
     "summit": {
       "name": "Roßkogel",
       "lat": 47.223,
@@ -191,8 +191,8 @@
     },
     "trailheadOsm": "node/1424374997",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
@@ -213,7 +213,7 @@
     ],
     "steepnessMax": 30,
     "type": "winterwanderung",
-    "description": "Hausberg mit praeparierter Route, Anbindung per Linie J bis spaet am Abend.",
+    "description": "Hausberg mit präparierter Route, Anbindung per Linie J bis spät am Abend.",
     "summit": {
       "name": "Patscherkofel",
       "lat": 47.20883,
@@ -223,8 +223,8 @@
     },
     "trailheadOsm": "node/3032430979",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
@@ -245,7 +245,7 @@
     ],
     "steepnessMax": 40,
     "type": "winterwanderung",
-    "description": "Direkt ueber der Stadt. Sehr steile Suedhaenge, Abfahrt nur bei sicherer Lage.",
+    "description": "Direkt über der Stadt. Sehr steile Südhänge, Abfahrt nur bei sicherer Lage.",
     "summit": {
       "name": "Hafelekarspitze",
       "lat": 47.31283,
@@ -255,14 +255,14 @@
     },
     "trailheadOsm": "node/275810487",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
     "id": "sulzkogel",
     "name": "Sulzkogel",
-    "trailhead": "Kuehtai",
+    "trailhead": "Kühtai",
     "trailheadStop": "Kühtai Dortmunderhütte",
     "lat": 47.2114,
     "lon": 11.00885,
@@ -287,8 +287,8 @@
     },
     "trailheadOsm": "node/2144782625",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   },
   {
@@ -309,7 +309,7 @@
     ],
     "steepnessMax": 18,
     "type": "winterwanderung",
-    "description": "Rodel- und Winterwanderweg, praktisch immer machbar. Bus bis spaet.",
+    "description": "Rodel- und Winterwanderweg, praktisch immer machbar. Bus bis spät.",
     "summit": {
       "name": "Arzler Alm",
       "lat": 47.29654,
@@ -319,8 +319,8 @@
     },
     "trailheadOsm": "node/2028102843",
     "verification": {
-      "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen"
+      "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+      "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
     }
   }
 ]

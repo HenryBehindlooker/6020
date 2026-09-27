@@ -158,9 +158,9 @@ def main():
               "source": "Transitous (transitous.org), MOTIS", "endpoint": endpoint,
               "destination": "Innsbruck Hauptbahnhof", "days": {}}
     if not endpoint:
-        result["error"] = "Kein Transitous-Endpunkt erreichbar"
-        (OUT / "connections.json").write_text(json.dumps(result, ensure_ascii=False, indent=1))
-        print("Transitous nicht erreichbar.")
+        # Den letzten guten Abzug NICHT ueberschreiben - lieber alte echte Daten
+        # als ein leerer Abzug, den die App als "kein Bus" lesen koennte.
+        print("Transitous nicht erreichbar - vorhandener Abzug bleibt unveraendert.")
         return
     (OUT / "raw-sample.json").write_text(json.dumps(raw, ensure_ascii=False, indent=1)[:200_000])
 
@@ -200,6 +200,14 @@ def main():
             print(f"{label} {day} {key:28} hin {len(entry['outbound']):2}  zurueck {len(entry['inbound']):2}"
                   + (f"  Fehler: {entry['errors'][:1]}" if entry["errors"] else ""))
 
+    total = sum(len(e["outbound"]) + len(e["inbound"])
+                for d in result["days"].values() for e in d["trailheads"].values())
+    failed = sum(1 for d in result["days"].values() for e in d["trailheads"].values() if e["errors"])
+    if total == 0:
+        print("Keine einzige Verbindung erhalten - vorhandener Abzug bleibt unveraendert.")
+        return
+    if failed:
+        print(f"Warnung: {failed} Abfragen mit Fehlern - die App zeigt diese Halte als 'nicht verfuegbar'.")
     (OUT / "connections.json").write_text(json.dumps(result, ensure_ascii=False, indent=1))
 
 

@@ -228,8 +228,14 @@ def sample_days(valid_from, valid_to):
     return days
 
 
+def hhmm(t):
+    """GTFS erlaubt 'H:MM:SS' und Zeiten ueber 24:00 - auf 'HH:MM' bringen."""
+    h, m, *_ = t.strip().split(":")
+    return f"{int(h):02d}:{int(m):02d}"
+
+
 def gtfs_time_to_min(t):
-    h, m, *_ = (int(x) for x in t.split(":"))
+    h, m = (int(x) for x in hhmm(t).split(":"))
     return h * 60 + m
 
 
@@ -273,12 +279,12 @@ def extract_connections(zf, trail, central, day: date):
                     key, name = stop_to_trail[stop_b]
                     result[key]["outbound"].append({"line": trip["route"], "headsign": trip["headsign"],
                                                     "from": central_ids[stop_a], "to": name,
-                                                    "departure": dep_a[:5], "arrival": arr_b[:5]})
+                                                    "departure": hhmm(dep_a), "arrival": hhmm(arr_b)})
                 if stop_a in stop_to_trail and stop_b in central_ids:
                     key, name = stop_to_trail[stop_a]
                     result[key]["inbound"].append({"line": trip["route"], "headsign": trip["headsign"],
                                                    "from": name, "to": central_ids[stop_b],
-                                                   "departure": dep_a[:5], "arrival": arr_b[:5]})
+                                                   "departure": hhmm(dep_a), "arrival": hhmm(arr_b)})
 
     # Pro Fahrt nur die erste passende Kombination; nach Abfahrt sortieren
     for key in result:

@@ -68,18 +68,18 @@ export function routePopup(props: Props, kind: 'Wanderweg' | 'Skitour'): string 
 }
 
 export function hutPopup(props: Props): string {
-	const name = escapeHtml(props.name ?? 'Huette');
+	const name = escapeHtml(props.name ?? 'Hütte');
 	const art =
 		props.tourism === 'alpine_hut'
-			? 'Schutzhuette'
+			? 'Schutzhütte'
 			: props.tourism === 'wilderness_hut'
-				? 'Selbstversorgerhuette'
+				? 'Selbstversorgerhütte'
 				: 'Einkehr';
 	const hoehe = props.ele ? ` · ${escapeHtml(props.ele)} m` : '';
 	const betreiber = props.operator ? `<div class="sub">${escapeHtml(props.operator)}</div>` : '';
 	const zeiten = props.opening_hours
-		? `<div class="sub">Geoeffnet: ${escapeHtml(props.opening_hours)}</div>`
-		: '<div class="sub">Oeffnungszeiten nicht in OSM - vorher pruefen</div>';
+		? `<div class="sub">Geöffnet: ${escapeHtml(props.opening_hours)}</div>`
+		: '<div class="sub">Öffnungszeiten nicht in OSM - vorher prüfen</div>';
 	return `<strong>${name}</strong><div class="sub">${art}${hoehe}</div>${betreiber}${zeiten}${links(props)}`;
 }
 
@@ -161,7 +161,7 @@ export async function addOsmLayers(
 		counts.aerialways = aerialways.features.length;
 	}
 	if (huts) {
-		overlays['Huetten & Einkehr'] = L.geoJSON(huts, {
+		overlays['Hütten & Einkehr'] = L.geoJSON(huts, {
 			attribution,
 			pointToLayer: (_f, latlng) =>
 				L.circleMarker(latlng, {
@@ -182,7 +182,7 @@ export async function addOsmLayers(
 		'Wanderwege (Sommer)': 'hiking',
 		Skitouren: 'skitour',
 		Seilbahnen: 'aerialways',
-		'Huetten & Einkehr': 'huts'
+		'Hütten & Einkehr': 'huts'
 	};
 
 	for (const [label, layer] of Object.entries(overlays)) {

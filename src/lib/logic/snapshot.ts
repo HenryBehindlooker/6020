@@ -21,7 +21,10 @@ export interface SnapshotItinerary {
 
 export interface SnapshotDay {
 	date: string;
-	trailheads: Record<string, { outbound: SnapshotItinerary[]; inbound: SnapshotItinerary[] }>;
+	trailheads: Record<
+		string,
+		{ outbound: SnapshotItinerary[]; inbound: SnapshotItinerary[]; errors?: string[] }
+	>;
 }
 
 export interface Snapshot {
@@ -36,14 +39,16 @@ const WINTER_MONTHS = new Set([12, 1, 2, 3, 4]);
 
 /**
  * Welcher Beispieltag passt zum gewuenschten Datum? Wochenende -> Samstag,
- * sonst Werktag; im Winter der Wintertag, falls abgefragt.
+ * sonst Werktag. Im Winter am Wochenende der Wintersamstag, falls abgefragt -
+ * unter der Woche NICHT, sonst fehlten Pendler- und Schulbusse.
  */
 export function pickSnapshotDay(snapshot: Snapshot, date: Date): { label: string; day: SnapshotDay } | null {
 	const weekday = viennaWeekday(date);
 	const weekend = weekday === 0 || weekday === 6;
-	const order = WINTER_MONTHS.has(viennaMonth(date))
-		? ['winter_samstag', weekend ? 'samstag' : 'werktag', weekend ? 'werktag' : 'samstag']
-		: [weekend ? 'samstag' : 'werktag', weekend ? 'werktag' : 'samstag'];
+	const winter = WINTER_MONTHS.has(viennaMonth(date));
+	const order = weekend
+		? [...(winter ? ['winter_samstag'] : []), 'samstag', 'werktag']
+		: ['werktag', 'samstag', ...(winter ? ['winter_samstag'] : [])];
 
 	for (const label of order) {
 		const day = snapshot.days[label];

@@ -63,6 +63,7 @@ export function planTurnaround(
 	const lastInbound = pickLastInbound(connection);
 
 	if (!lastInbound) {
+		const unbekannt = connection.kind === 'fehlt' || connection.kind === 'unvollstaendig';
 		return {
 			outbound,
 			lastInbound: null,
@@ -70,7 +71,9 @@ export function planTurnaround(
 			summitAt: null,
 			slackMinutes: null,
 			feasible: false,
-			note: 'Keine Rueckfahrt am Ausgangspunkt gefunden - Rueckweg selbst organisieren.'
+			note: unbekannt
+				? 'Fahrplan für diesen Ausgangspunkt nicht verfügbar - Rückfahrt vor der Tour selbst klären.'
+				: 'An diesem Tag fährt vom Ausgangspunkt kein Bus zurück - Rückweg selbst organisieren.'
 		};
 	}
 
@@ -86,7 +89,7 @@ export function planTurnaround(
 			summitAt: null,
 			slackMinutes: null,
 			feasible: false,
-			note: `Keine passende Hinfahrt ab ${options.notBefore.slice(11, 16)} Uhr gefunden.`
+			note: `Keine passende Hinfahrt ab ${hhmm(options.notBefore)} Uhr gefunden.`
 		};
 	}
 
@@ -96,10 +99,18 @@ export function planTurnaround(
 	const feasible = slackMinutes >= 0;
 
 	const note = feasible
-		? `Gipfel rechnerisch um ${hhmm(summitAt)}, Umkehrzeit ${hhmm(turnaroundAt)} - ${slackMinutes} min Reserve.`
-		: `Zu knapp: der Gipfel faellt ${Math.abs(slackMinutes)} min hinter die Umkehrzeit ${hhmm(turnaroundAt)}.`;
+		? `Gipfel rechnerisch um ${hhmm(summitAt)}, Umkehrzeit ${hhmm(turnaroundAt)} - ${formatReserve(slackMinutes)} Reserve.`
+		: `Zu knapp: der Gipfel fällt ${formatReserve(Math.abs(slackMinutes))} hinter die Umkehrzeit ${hhmm(turnaroundAt)}.`;
 
 	return { outbound, lastInbound, turnaroundAt, summitAt, slackMinutes, feasible, note };
+}
+
+/** 506 min liest niemand gern - 8 h 26 min schon. */
+export function formatReserve(minutes: number): string {
+	if (minutes < 60) return `${minutes} min`;
+	const h = Math.floor(minutes / 60);
+	const m = minutes % 60;
+	return m === 0 ? `${h} h` : `${h} h ${m} min`;
 }
 
 export function hhmm(iso: string): string {
