@@ -1,0 +1,1544 @@
+{
+ "fetched_at": "2026-09-28T13:03:00+00:00",
+ "date_dirs": {
+  "count": 1966,
+  "first": [
+   "2021-01-25",
+   "2021-01-26"
+  ],
+  "last": [
+   "2026-11-26",
+   "2026-11-27",
+   "2026-11-28",
+   "2026-11-29",
+   "2026-11-30"
+  ]
+ },
+ "checked_dirs": {
+  "2026-11-30": [
+   "2026-11-30-ES-CT.json",
+   "2026-11-30-ES-CT.problems.json",
+   "2026-11-30-ES-CT.ratings.json",
+   "2026-11-30-ES-CT.raw.json"
+  ],
+  "2026-11-29": [
+   "2026-11-29-ES-CT.json",
+   "2026-11-29-ES-CT.problems.json",
+   "2026-11-29-ES-CT.ratings.json",
+   "2026-11-29-ES-CT.raw.json"
+  ],
+  "2026-11-28": [
+   "2026-11-28-ES-CT.json",
+   "2026-11-28-ES-CT.problems.json",
+   "2026-11-28-ES-CT.ratings.json",
+   "2026-11-28-ES-CT.raw.json"
+  ],
+  "2026-11-27": [
+   "2026-11-27-ES-CT.json",
+   "2026-11-27-ES-CT.problems.json",
+   "2026-11-27-ES-CT.ratings.json",
+   "2026-11-27-ES-CT.raw.json"
+  ],
+  "2026-11-26": [
+   "2026-11-26-ES-CT.json",
+   "2026-11-26-ES-CT.problems.json",
+   "2026-11-26-ES-CT.ratings.json",
+   "2026-11-26-ES-CT.raw.json"
+  ],
+  "2026-11-25": [
+   "2026-11-25-ES-CT.json",
+   "2026-11-25-ES-CT.problems.json",
+   "2026-11-25-ES-CT.ratings.json",
+   "2026-11-25-ES-CT.raw.json"
+  ],
+  "2026-11-24": [
+   "2026-11-24-ES-CT.json",
+   "2026-11-24-ES-CT.problems.json",
+   "2026-11-24-ES-CT.ratings.json",
+   "2026-11-24-ES-CT.raw.json"
+  ],
+  "2026-11-23": [
+   "2026-11-23-ES-CT.json",
+   "2026-11-23-ES-CT.problems.json",
+   "2026-11-23-ES-CT.ratings.json",
+   "2026-11-23-ES-CT.raw.json"
+  ],
+  "2026-11-22": [
+   "2026-11-22-ES-CT.json",
+   "2026-11-22-ES-CT.problems.json",
+   "2026-11-22-ES-CT.ratings.json",
+   "2026-11-22-ES-CT.raw.json"
+  ],
+  "2026-11-21": [
+   "2026-11-21-ES-CT.json",
+   "2026-11-21-ES-CT.problems.json",
+   "2026-11-21-ES-CT.ratings.json",
+   "2026-11-21-ES-CT.raw.json"
+  ]
+ },
+ "samples": {
+  "2026-01-17": {
+   "file": "2026-01-17-AT-07.json",
+   "summary": {
+    "bulletin_count": 7,
+    "top_keys": [
+     "bulletins"
+    ],
+    "bulletins": [
+     {
+      "regions": [
+       "AT-07-02-02",
+       "AT-07-02-01",
+       "AT-07-14-01",
+       "AT-07-10",
+       "AT-07-11",
+       "AT-07-01"
+      ],
+      "region_count": 13,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2000"
+        },
+        "all_day"
+       ],
+       [
+        "considerable",
+        {
+         "lowerBound": "2000"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NE",
+         "SW",
+         "NW",
+         "W",
+         "S",
+         "N",
+         "SE",
+         "E"
+        ],
+        {
+         "lowerBound": "2000"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-01-16T16:00:00+00:00",
+       "endTime": "2026-01-17T16:00:00+00:00"
+      },
+      "publicationTime": "2026-01-16T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-15",
+       "AT-07-16"
+      ],
+      "region_count": 2,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "considerable",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NE",
+         "NW",
+         "W",
+         "N",
+         "E"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-01-16T16:00:00+00:00",
+       "endTime": "2026-01-17T16:00:00+00:00"
+      },
+      "publicationTime": "2026-01-16T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-03-01-01",
+       "AT-02-03-02",
+       "AT-02-01-02-01",
+       "AT-02-01-01",
+       "AT-07-23-01",
+       "AT-07-26-01"
+      ],
+      "region_count": 9,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NE",
+         "NW",
+         "W",
+         "N",
+         "E"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-01-16T16:00:00+00:00",
+       "endTime": "2026-01-17T16:00:00+00:00"
+      },
+      "publicationTime": "2026-01-16T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-09",
+       "AT-02-01-02-02",
+       "AT-02-02",
+       "AT-02-03-01-02",
+       "AT-07-29-03",
+       "AT-07-23-02"
+      ],
+      "region_count": 28,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2400"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2400"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NE",
+         "NW",
+         "W",
+         "N",
+         "E"
+        ],
+        {
+         "lowerBound": "2400"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-01-16T16:00:00+00:00",
+       "endTime": "2026-01-17T16:00:00+00:00"
+      },
+      "publicationTime": "2026-01-16T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-05",
+       "AT-07-06",
+       "AT-07-18",
+       "AT-07-04-02",
+       "AT-07-17-02"
+      ],
+      "region_count": 5,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2000"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2000"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NE",
+         "NW",
+         "W",
+         "N",
+         "E"
+        ],
+        {
+         "lowerBound": "2000"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-01-16T16:00:00+00:00",
+       "endTime": "2026-01-17T16:00:00+00:00"
+      },
+      "publicationTime": "2026-01-16T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-14-04",
+       "AT-07-09",
+       "AT-07-14-05",
+       "AT-07-14-02",
+       "AT-07-14-03"
+      ],
+      "region_count": 5,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NE",
+         "NW",
+         "W",
+         "N",
+         "E"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-01-16T16:00:00+00:00",
+       "endTime": "2026-01-17T16:00:00+00:00"
+      },
+      "publicationTime": "2026-01-16T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-14",
+       "AT-02-10",
+       "AT-02-15-01",
+       "AT-07-29-02",
+       "AT-07-29-01",
+       "IT-32-BZ-18-02"
+      ],
+      "region_count": 18,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NE",
+         "NW",
+         "N"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-01-16T16:00:00+00:00",
+       "endTime": "2026-01-17T16:00:00+00:00"
+      },
+      "publicationTime": "2026-01-16T16:00:00+00:00"
+     }
+    ]
+   }
+  },
+  "2026-02-14": {
+   "file": "2026-02-14-AT-07.json",
+   "summary": {
+    "bulletin_count": 5,
+    "top_keys": [
+     "bulletins"
+    ],
+    "bulletins": [
+     {
+      "regions": [
+       "AT-07-14-01",
+       "AT-07-19",
+       "AT-07-29-02",
+       "AT-07-29-01",
+       "AT-07-23-02",
+       "AT-07-23-01"
+      ],
+      "region_count": 42,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "treeline"
+        },
+        "all_day"
+       ],
+       [
+        "considerable",
+        {
+         "lowerBound": "treeline"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NE",
+         "NW",
+         "E",
+         "N",
+         "W"
+        ],
+        {
+         "lowerBound": "treeline"
+        },
+        "all_day"
+       ],
+       [
+        "wind_slab",
+        [
+         "NE",
+         "SE",
+         "NW",
+         "SW",
+         "S",
+         "E",
+         "N",
+         "W"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-02-13T16:00:00+00:00",
+       "endTime": "2026-02-14T16:00:00+00:00"
+      },
+      "publicationTime": "2026-02-13T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-07",
+       "AT-07-08",
+       "AT-07-02-02",
+       "AT-07-10",
+       "AT-07-11",
+       "AT-07-01"
+      ],
+      "region_count": 8,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "treeline"
+        },
+        "all_day"
+       ],
+       [
+        "considerable",
+        {
+         "lowerBound": "treeline"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NE",
+         "NW",
+         "E",
+         "N",
+         "W"
+        ],
+        {
+         "lowerBound": "treeline"
+        },
+        "all_day"
+       ],
+       [
+        "wind_slab",
+        [
+         "NE",
+         "SE",
+         "NW",
+         "SW",
+         "S",
+         "E",
+         "N",
+         "W"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-02-13T16:00:00+00:00",
+       "endTime": "2026-02-14T16:00:00+00:00"
+      },
+      "publicationTime": "2026-02-13T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-15",
+       "AT-07-16",
+       "AT-07-14-04",
+       "AT-07-09",
+       "AT-07-14-05",
+       "AT-07-02-01"
+      ],
+      "region_count": 10,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "treeline"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "treeline"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NE",
+         "NW",
+         "E",
+         "N",
+         "W"
+        ],
+        {
+         "lowerBound": "treeline"
+        },
+        "all_day"
+       ],
+       [
+        "wind_slab",
+        [
+         "NE",
+         "SE",
+         "NW",
+         "SW",
+         "S",
+         "E",
+         "N",
+         "W"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-02-13T16:00:00+00:00",
+       "endTime": "2026-02-14T16:00:00+00:00"
+      },
+      "publicationTime": "2026-02-13T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-03-01-02",
+       "AT-02-09",
+       "AT-07-29-03"
+      ],
+      "region_count": 3,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2000"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2000"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NE",
+         "NW",
+         "N",
+         "W",
+         "E"
+        ],
+        {
+         "lowerBound": "2000"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-02-13T16:00:00+00:00",
+       "endTime": "2026-02-14T16:00:00+00:00"
+      },
+      "publicationTime": "2026-02-13T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-05",
+       "AT-07-06",
+       "AT-07-18",
+       "AT-07-04-02"
+      ],
+      "region_count": 4,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [],
+      "keys": [
+       "avalancheActivity",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-02-13T16:00:00+00:00",
+       "endTime": "2026-02-14T16:00:00+00:00"
+      },
+      "publicationTime": "2026-02-13T16:00:00+00:00"
+     }
+    ]
+   }
+  },
+  "2026-03-21": {
+   "file": "2026-03-21-AT-07.json",
+   "summary": {
+    "bulletin_count": 6,
+    "top_keys": [
+     "bulletins"
+    ],
+    "bulletins": [
+     {
+      "regions": [
+       "AT-07-23-02",
+       "AT-07-23-01",
+       "AT-07-02-02",
+       "AT-07-14-01",
+       "AT-07-10",
+       "AT-07-17-01"
+      ],
+      "region_count": 43,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "persistent_weak_layers",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-03-20T16:00:00+00:00",
+       "endTime": "2026-03-21T16:00:00+00:00"
+      },
+      "publicationTime": "2026-03-20T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-03-01-01",
+       "AT-02-03-02",
+       "AT-02-01-02-01",
+       "AT-02-01-01",
+       "AT-07-26-01",
+       "AT-07-24"
+      ],
+      "region_count": 6,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "persistent_weak_layers",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-03-20T16:00:00+00:00",
+       "endTime": "2026-03-21T16:00:00+00:00"
+      },
+      "publicationTime": "2026-03-20T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-03-01-02",
+       "AT-02-09",
+       "AT-02-01-02-02",
+       "AT-02-02",
+       "AT-07-28",
+       "AT-07-26-02"
+      ],
+      "region_count": 7,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-03-20T16:00:00+00:00",
+       "endTime": "2026-03-21T16:00:00+00:00"
+      },
+      "publicationTime": "2026-03-20T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-20",
+       "AT-07-21",
+       "AT-07-22",
+       "IT-32-BZ-07-01",
+       "IT-32-BZ-07-02",
+       "IT-32-BZ-04-01"
+      ],
+      "region_count": 10,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "persistent_weak_layers",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-03-20T16:00:00+00:00",
+       "endTime": "2026-03-21T16:00:00+00:00"
+      },
+      "publicationTime": "2026-03-20T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-14",
+       "AT-02-10",
+       "AT-02-15-01",
+       "AT-07-29-02",
+       "AT-07-29-01"
+      ],
+      "region_count": 5,
+      "ratings": [
+       [
+        "low",
+        {
+         "upperBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "moderate",
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ],
+       [
+        "persistent_weak_layers",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2200"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-03-20T16:00:00+00:00",
+       "endTime": "2026-03-21T16:00:00+00:00"
+      },
+      "publicationTime": "2026-03-20T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-05",
+       "AT-07-06",
+       "AT-07-18",
+       "AT-07-02-01",
+       "AT-07-04-02",
+       "AT-07-17-02"
+      ],
+      "region_count": 6,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NW",
+         "N",
+         "E",
+         "W",
+         "NE"
+        ],
+        {
+         "lowerBound": "2000"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2026-03-20T16:00:00+00:00",
+       "endTime": "2026-03-21T16:00:00+00:00"
+      },
+      "publicationTime": "2026-03-20T16:00:00+00:00"
+     }
+    ]
+   }
+  },
+  "2025-12-27": {
+   "file": "2025-12-27-AT-07.json",
+   "summary": {
+    "bulletin_count": 5,
+    "top_keys": [
+     "bulletins"
+    ],
+    "bulletins": [
+     {
+      "regions": [
+       "AT-07-23-02",
+       "AT-07-23-01",
+       "AT-07-20",
+       "AT-07-21",
+       "AT-07-22",
+       "AT-07-19"
+      ],
+      "region_count": 17,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NE",
+         "NW",
+         "N"
+        ],
+        {
+         "lowerBound": "2600"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2025-12-26T16:00:00+00:00",
+       "endTime": "2025-12-27T16:00:00+00:00"
+      },
+      "publicationTime": "2025-12-26T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-14",
+       "AT-02-10",
+       "AT-02-15-02",
+       "AT-02-15-01",
+       "AT-07-29-02",
+       "AT-07-29-01"
+      ],
+      "region_count": 6,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "wind_slab",
+        [
+         "NE",
+         "NW",
+         "N"
+        ],
+        {
+         "lowerBound": "treeline"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2025-12-26T16:00:00+00:00",
+       "endTime": "2025-12-27T16:00:00+00:00"
+      },
+      "publicationTime": "2025-12-26T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-02-02",
+       "AT-07-02-01",
+       "AT-07-17-02",
+       "AT-07-17-01",
+       "AT-07-01",
+       "AT-07-03"
+      ],
+      "region_count": 14,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [],
+      "keys": [
+       "avalancheActivity",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2025-12-26T16:00:00+00:00",
+       "endTime": "2025-12-27T16:00:00+00:00"
+      },
+      "publicationTime": "2025-12-26T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-02-09",
+       "AT-02-01-02-01",
+       "AT-02-01-02-02",
+       "AT-02-02",
+       "AT-02-03-01-02",
+       "AT-02-03-01-01"
+      ],
+      "region_count": 15,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [
+       [
+        "persistent_weak_layers",
+        [
+         "NE",
+         "NW",
+         "N"
+        ],
+        {
+         "lowerBound": "2600"
+        },
+        "all_day"
+       ]
+      ],
+      "keys": [
+       "avalancheActivity",
+       "avalancheProblems",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2025-12-26T16:00:00+00:00",
+       "endTime": "2025-12-27T16:00:00+00:00"
+      },
+      "publicationTime": "2025-12-26T16:00:00+00:00"
+     },
+     {
+      "regions": [
+       "AT-07-15",
+       "AT-07-14-04",
+       "AT-07-14-05",
+       "AT-07-09",
+       "AT-07-14-02",
+       "AT-07-14-03"
+      ],
+      "region_count": 11,
+      "ratings": [
+       [
+        "low",
+        null,
+        "all_day"
+       ]
+      ],
+      "problems": [],
+      "keys": [
+       "avalancheActivity",
+       "bulletinID",
+       "customData",
+       "dangerRatings",
+       "lang",
+       "publicationTime",
+       "regions",
+       "snowpackStructure",
+       "source",
+       "tendency",
+       "unscheduled",
+       "validTime"
+      ],
+      "validTime": {
+       "startTime": "2025-12-26T16:00:00+00:00",
+       "endTime": "2025-12-27T16:00:00+00:00"
+      },
+      "publicationTime": "2025-12-26T16:00:00+00:00"
+     }
+    ]
+   }
+  }
+ }
+}
