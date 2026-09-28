@@ -108,8 +108,8 @@ def main():
             },
             "trailheadOsm": stop["properties"].get("osm"),
             "verification": {
-                "osm": "Gipfelname, -hoehe und -lage sowie die Haltestelle aus OpenStreetMap",
-                "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprueften Quellen",
+                "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
+                "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen",
             },
         })
         print(f"{tour['id']:16} Gipfel {osm_name:20} {summit_ele} m (vorher {old_alt}) | Haltestelle {stop['properties']['name']} "

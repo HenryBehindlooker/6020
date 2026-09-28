@@ -74,7 +74,17 @@ export interface Departure {
 	legs?: { line: string; from: string; to: string; departure: string; arrival: string }[];
 }
 
+/**
+ * Woher eine Verbindung stammt - entscheidet, wie die Oberflaeche sie zeigt.
+ * - echt: echter Fahrplan (Transitous-Abzug oder VVT)
+ * - demo: erfundener Beispielfahrplan, nur im Demo-Modus
+ * - fehlt: fuer diesen Halt gibt es keinen Fahrplan
+ * - unvollstaendig: die Abfrage ist fehlgeschlagen - leer heisst NICHT "kein Bus"
+ */
+export type TransitKind = 'echt' | 'demo' | 'fehlt' | 'unvollstaendig';
+
 export interface TransitConnection {
+	kind: TransitKind;
 	/** Halt in Innsbruck, von dem die Hinfahrt startet. */
 	originStop: string;
 	/** Halt am Ausgangspunkt der Tour. */

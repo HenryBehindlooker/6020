@@ -34,8 +34,13 @@ describe('pickSnapshotDay', () => {
 		expect(pickSnapshotDay(snapshot, new Date('2026-10-07T08:00:00Z'))?.label).toBe('werktag');
 	});
 
-	it('nimmt im Winter den Wintertag', () => {
+	it('nimmt im Winter am Samstag den Wintersamstag', () => {
 		expect(pickSnapshotDay(snapshot, new Date('2027-01-16T08:00:00Z'))?.label).toBe('winter_samstag');
+	});
+
+	it('nimmt im Winter unter der Woche den Werktag, nicht den Samstag', () => {
+		// Vorher: an einem Dienstag im Jaenner wurde der Samstagsfahrplan genommen.
+		expect(pickSnapshotDay(snapshot, new Date('2027-01-12T08:00:00Z'))?.label).toBe('werktag');
 	});
 
 	it('faellt auf den anderen Tag zurueck, wenn einer fehlt', () => {

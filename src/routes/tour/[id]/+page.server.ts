@@ -6,24 +6,27 @@ import { getTrack } from '$lib/server/sources/tracks';
 import { simplify } from '$lib/logic/gpx';
 import { nearby } from '$lib/logic/nearby';
 import { getHuts } from '$lib/server/sources/osm';
+import { parsePlanParams } from '$lib/planParams';
 
-export const load: PageServerLoad = async ({ params, url }) => {
-	const notBefore = building ? undefined : (url.searchParams.get('ab') ?? undefined);
-	const plan = await buildDayPlan({
-		notBefore: /^\d{2}:\d{2}$/.test(notBefore ?? '') ? notBefore : undefined
-	});
+export const load: PageServerLoad = async ({ params: route, url }) => {
+	// Dieselben Werte wie auf der Liste - sonst zeigt die Tourenseite eine
+	// andere Umkehrzeit als die Karte, von der man gerade kam.
+	const params = parsePlanParams(building ? null : url.searchParams);
+	const plan = await buildDayPlan({ notBefore: params.notBefore, bufferMinutes: params.bufferMinutes });
 
-	const tourPlan = plan.tours.find((t) => t.tour.id === params.id);
+	const tourPlan = plan.tours.find((t) => t.tour.id === route.id);
 	if (!tourPlan) error(404, 'Tour nicht gefunden');
 
 	// Auf der Detailkarte darf der Verlauf genauer sein als in der Uebersicht.
-	const track = await getTrack(params.id);
+	const track = await getTrack(route.id);
 	const huts = nearby(await getHuts(), tourPlan.tour.lat, tourPlan.tour.lon);
 
 	return {
 		tourPlan,
 		bulletin: plan.bulletin,
+		status: plan.status,
 		mode: plan.mode,
+		params,
 		huts,
 		track: track
 			? {

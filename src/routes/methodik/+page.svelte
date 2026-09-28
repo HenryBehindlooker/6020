@@ -1,75 +1,104 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { TEXT } from '$lib/copy';
 </script>
 
-<svelte:head><title>Methodik - Bergampel Innsbruck</title></svelte:head>
+<svelte:head><title>Wia grechnet wird - Bergampel Innsbruck</title></svelte:head>
 
-<p class="zurueck"><a href="{base}/">&larr; Alle Touren</a></p>
+<p class="zurueck"><a href="{base}/">&larr; {TEXT.zurueck}</a></p>
 
-<h1>Wie wird gerechnet?</h1>
+<h1>Wia grechnet wird</h1>
 
 <p class="lead">
-	Die Ampel ist eine Heuristik, kein Gutachten. Sie fasst zusammen, was in Lagebericht und
-	Wetterprognose steht, und haelt es gegen die Eigenschaften der jeweiligen Tour. Jede Bewertung
-	ist auf der Tourenseite vollstaendig aufgeschluesselt - es gibt keine versteckte Gewichtung.
+	Die Ampel ist eine Faustregel, kein Gutachten. Sie fasst zusammen, was im Lawinenlagebericht und in
+	der Wetterprognose steht, und hält es gegen die Eigenschaften der Tour. Jede Bewertung ist auf der
+	Tourenseite vollständig aufgeschlüsselt - es gibt keine versteckte Gewichtung.
 </p>
 
 <section>
-	<h2>Ampel</h2>
+	<h2>Die Ampel</h2>
 	<ul>
-		<li><strong>Lawinenlage:</strong> Stufe 3 setzt auf gelb, Stufe 4 und 5 auf rot. Massgeblich ist die Stufe auf Gipfelhoehe.</li>
-		<li><strong>Gefahrenmuster:</strong> Ueberschneiden sich die Hangrichtungen der Tour mit denen eines Gefahrenmusters, steigt die Ampel - ab Stufe 3 direkt auf rot.</li>
-		<li><strong>Steilheit:</strong> Ab Stufe 3 sind Schluesselstellen ueber 35&deg; rot, ueber 30&deg; gelb.</li>
-		<li><strong>Wind:</strong> Ab 40 km/h auf Kammhoehe gelb, ab 60 km/h rot (frischer Triebschnee).</li>
+		<li>
+			<strong>Lawinenlage:</strong> Maßgeblich ist die höchste Gefahrenstufe zwischen Ausgangspunkt und
+			Gipfel. Stufe 3 setzt auf gelb, Stufe 4 und 5 auf rot.
+		</li>
+		<li>
+			<strong>Mehrere Regionen:</strong> Der Tiroler Bericht ist in Regionen geteilt. Solange die Touren
+			keiner Region zugeordnet sind, gilt die ungünstigste Einschätzung aller Tiroler Regionen.
+		</li>
+		<li>
+			<strong>Lawinenprobleme:</strong> Trifft ein Problem die Hangrichtungen der Tour <em>und</em>
+			liegt die Tour in seinem Höhenband, steigt die Ampel - ab Stufe 3 direkt auf rot.
+		</li>
+		<li><strong>Steilheit:</strong> Ab Stufe 3 sind Schlüsselstellen über 35&deg; rot, über 30&deg; gelb.</li>
+		<li><strong>Wind:</strong> Ab 40 km/h gelb, ab 60 km/h rot (frischer Triebschnee).</li>
 		<li><strong>Neuschnee:</strong> Ab 15 cm in 24 h gelb, ab 30 cm rot.</li>
 	</ul>
 	<p>
-		Die Ampel wird nur angehoben, nie gesenkt: der ungeguenstigste Faktor bestimmt das Ergebnis.
-		Fehlt der Lagebericht, steht die Tour auf <em>unklar</em>; fehlt die Wetterprognose, wird
-		vorsichtshalber hochgestuft.
+		Die Ampel wird nur hochgestuft, nie herunter: Der ungünstigste Faktor entscheidet. Fehlt der
+		Lagebericht, steht die Tour auf <em>Unklar</em>. Fehlt die Wetterprognose, wird vorsichtshalber
+		hochgestuft.
 	</p>
 </section>
 
 <section>
-	<h2>Umkehrzeit</h2>
+	<h2>Die Umkehrzeit</h2>
 	<p>
-		Vom letzten Bus am Ausgangspunkt wird rueckwaerts gerechnet: Abfahrtszeit (inklusive
-		Echtzeit-Verspaetung) minus Sicherheitspuffer minus Abstiegszeit ergibt die spaeteste
-		Umkehrzeit. Dagegen wird der rechnerische Gipfelzeitpunkt gehalten - Ankunft der Hinfahrt
-		plus Aufstiegszeit. Bleibt keine Reserve, gilt die Tour als zu knapp.
+		Gerechnet wird rückwärts vom letzten Bus am Ausgangspunkt: Abfahrt (mit Echtzeit-Verspätung,
+		falls bekannt) minus Puffer minus Abstiegszeit ergibt die späteste Umkehrzeit. Dagegen steht die
+		rechnerische Gipfelzeit: Ankunft mit dem Bus plus Aufstiegszeit. Bleibt keine Reserve, ist die
+		Tour zu knapp.
 	</p>
 	<p>
-		Der Puffer betraegt standardmaessig 30 Minuten und ist auf der Startseite einstellbar. Die
-		Gehzeiten sind Durchschnittswerte ohne Pausen - wer langsamer geht, erhoeht den Puffer.
+		Der Puffer ist standardmäßig 30 Minuten und auf der Startseite einstellbar. Die Gehzeiten sind
+		Richtwerte ohne Pausen - wer langsamer geht, erhöht den Puffer.
 	</p>
+	<p class="grenze">
+		<strong>Noch nicht berücksichtigt:</strong> die Dunkelheit. Im Dezember ist es gegen 16:30 finster,
+		oft früher als der letzte Bus fährt.
+	</p>
+</section>
+
+<section>
+	<h2>Was belegt ist und was nicht</h2>
+	<ul>
+		<li><strong>Belegt aus OpenStreetMap:</strong> Gipfelname, Gipfelhöhe und -lage, Haltestellen, Wege, Hütten, Seilbahnen.</li>
+		<li><strong>Echte Busverbindungen:</strong> über Transitous, als Abzug für Beispieltage, auf den Planungstag übertragen.</li>
+		<li>
+			<strong>Richtwerte ohne geprüfte Quelle:</strong> Hangrichtung, Steilheit und Gehzeiten der
+			Touren - und genau sie gehen in die Ampel ein.
+		</li>
+	</ul>
 </section>
 
 <section>
 	<h2>Datenquellen</h2>
-	<table>
-		<thead><tr><th>Quelle</th><th>Wofuer</th></tr></thead>
-		<tbody>
-			<tr><td>Lawinenwarndienst Tirol / EAWS (CAAMLv6)</td><td>Gefahrenstufe, Gefahrenmuster, Expositionen</td></tr>
-			<tr><td>GeoSphere Austria (AROME, Open Data)</td><td>Wind, Neuschnee, Temperatur</td></tr>
-			<tr><td>Transitous (transitous.org)</td><td>Busverbindungen Ausgangspunkt - Innsbruck, als Abzug fuer Beispieltage</td></tr>
-			<tr><td>VVT / OGD Tirol (GTFS + GTFS-RT)</td><td>Fahrplan und Echtzeit-Verspaetungen (benoetigt Zugang)</td></tr>
-			<tr><td>OpenStreetMap</td><td>Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Huetten, Seilbahnen</td></tr>
-			<tr><td>data.gv.at / Stadt Innsbruck OGD</td><td>Ergaenzende Geodaten</td></tr>
-		</tbody>
-	</table>
+	<div class="tabelle">
+		<table>
+			<thead><tr><th>Quelle</th><th>Wofür</th></tr></thead>
+			<tbody>
+				<tr><td>Lawinenwarndienst Tirol / EAWS (CAAMLv6)</td><td>Gefahrenstufe, Lawinenprobleme, Hangrichtungen</td></tr>
+				<tr><td>GeoSphere Austria (AROME, Open Data)</td><td>Wind, Neuschnee, Temperatur</td></tr>
+				<tr><td>Transitous (transitous.org)</td><td>Busverbindungen zwischen Ausgangspunkt und Innsbruck</td></tr>
+				<tr><td>OpenStreetMap</td><td>Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Hütten, Seilbahnen</td></tr>
+			</tbody>
+		</table>
+	</div>
 </section>
 
 <style>
-	.zurueck { font-size: 0.85rem; color: var(--muted); }
-	.zurueck a { text-decoration: none; }
-	h1 { font-size: 1.6rem; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+	.zurueck { font-size: 0.87rem; }
+	.zurueck a { text-decoration: none; color: var(--sky-deep); }
+	h1 { font-size: clamp(1.6rem, 4.5vw, 2.1rem); letter-spacing: -0.02em; margin: 0 0 0.5rem; color: var(--sky-deep); }
 	.lead { color: var(--muted); }
-	section { background: var(--surface); border-radius: 0.9rem; padding: 1rem 1.2rem; margin-top: 1rem; }
-	h2 { font-size: 1rem; margin: 0 0 0.6rem; }
+	section { background: var(--surface); border-radius: 1rem; padding: 1.05rem 1.25rem; margin-top: 1rem; }
+	h2 { font-size: 1.08rem; margin: 0 0 0.6rem; color: var(--sky-deep); }
 	ul { margin: 0 0 0.8rem; padding-left: 1.1rem; }
-	li { margin-bottom: 0.3rem; font-size: 0.9rem; }
-	p { font-size: 0.9rem; }
-	table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+	li { margin-bottom: 0.4rem; font-size: 0.92rem; }
+	p { font-size: 0.92rem; }
+	.grenze { border-left: 3px solid var(--text-warnung); padding-left: 0.7rem; }
+	.tabelle { overflow-x: auto; }
+	table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
 	th { text-align: left; color: var(--muted); font-weight: 600; }
-	th, td { padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); }
+	th, td { padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
 </style>

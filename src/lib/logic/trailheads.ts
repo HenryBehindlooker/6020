@@ -1,4 +1,4 @@
-import type { Signal } from '$lib/logic/rating';
+import { SIGNAL_ORDER, type Signal } from '$lib/logic/rating';
 import type { TourPlan } from '$lib/server/plan';
 
 export interface TrailheadGroup {
@@ -12,8 +12,6 @@ export interface TrailheadGroup {
 	feasibleCount: number;
 	tours: TourPlan[];
 }
-
-const SIGNAL_ORDER: Record<Signal, number> = { gruen: 0, gelb: 1, rot: 2, unbekannt: 3 };
 
 /**
  * Fasst die Touren nach Ausgangspunkt zusammen - eine Haltestelle ist ein

@@ -50,14 +50,24 @@ jobs:
         timeout-minutes: 15
         run: python scripts/fetch/transitous.py
 
+      - name: Freie Schnittstellen pruefen
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python scripts/fetch/probe_apis.py
+
       - name: Ergebnisse committen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add static/osm data/gtfs data/transit 2>/dev/null || true
+          # Jeden Pfad einzeln: fehlt einer, soll das nicht die anderen verschlucken.
+          for pfad in static/osm data/gtfs data/transit data/probe; do
+            if [ -e "$pfad" ]; then git add "$pfad"; fi
+          done
           if git diff --cached --quiet; then
             echo "Keine neuen Daten."
           else
             git commit -m "Daten aktualisiert: OSM und Fahrplan ($(date -u +%Y-%m-%d))"
+            # Der Zweig kann sich waehrend des Laufs bewegt haben.
+            git pull --rebase
             git push
           fi

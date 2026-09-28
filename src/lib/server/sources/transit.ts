@@ -41,8 +41,8 @@ const WOCHENTAG = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
  * Echte Verbindungen aus dem Transitous-Abzug, falls vorhanden.
  *
  * Kennt der Abzug die Haltestelle, aber an dem Tag keine Fahrt, kommt eine
- * LEERE Verbindung zurueck - keine Demo-Zeiten als Ersatz. Sonst wuerde die
- * App einen Bus erfinden, wo die echten Daten sagen, dass keiner faehrt.
+ * LEERE Verbindung zurueck - keine Demo-Zeiten als Ersatz. Ist die Abfrage fuer
+ * den Halt dagegen fehlgeschlagen, heisst leer nur "unbekannt", nicht "kein Bus".
  */
 async function fromSnapshot(stop: string, date: Date): Promise<TransitConnection | null> {
 	const snapshot = await loadSnapshot();
@@ -61,55 +61,67 @@ async function fromSnapshot(stop: string, date: Date): Promise<TransitConnection
 
 	const outbound = convert('outbound');
 	const inbound = convert('inbound');
+	const failed = (entry.errors?.length ?? 0) > 0;
+	const empty = outbound.length === 0 && inbound.length === 0;
+
 	return {
+		kind: failed && empty ? 'unvollstaendig' : 'echt',
 		originStop: snapshot.destination,
 		destinationStop: stop,
 		outbound,
 		inbound,
-		source:
-			outbound.length || inbound.length
-				? `Transitous, Fahrplan vom ${stand}, auf heute uebertragen`
-				: `Transitous: keine Verbindung am ${stand} gefunden`
+		source: failed && empty
+			? `Fahrplanabfrage für diesen Halt fehlgeschlagen (${stand}) - bitte in der VVT-App nachschauen`
+			: empty
+				? `Transitous: keine Verbindung am ${stand} gefunden`
+				: `Transitous, Fahrplan vom ${stand}, auf heute übertragen`
 	};
 }
 
+/**
+ * Verbindungen zwischen Innsbruck und dem Ausgangspunkt einer Tour.
+ *
+ * 1. Echter Abzug vorhanden: der gilt - im Live-Modus mit Echtzeit, falls
+ *    eingerichtet.
+ * 2. Kein Abzug, Demo-Modus: der erfundene Beispielfahrplan, als Demo markiert.
+ * 3. Kein Abzug, Live-Modus: nichts. Demo-Zeiten als echten Fahrplan
+ *    auszugeben waere gefaehrlich - die Umkehrzeit haenge an einem Bus, den es
+ *    nicht gibt.
+ */
 export async function getConnection(stop: string, date: Date): Promise<TransitConnection> {
 	const real = await fromSnapshot(stop, date);
-	if (real) return real;
+	if (real) {
+		if (config.mode !== 'live' || !config.vvtRealtimeUrl || real.kind !== 'echt') return real;
+		return cached(`transit:${stop}:${dayKey(date)}`, config.cacheTtlMs, async () => {
+			try {
+				return applyDelays(real, await fetchRealtimeDelays(stop));
+			} catch (err) {
+				console.error('[transit] Echtzeitdaten nicht verfuegbar, nutze Soll-Fahrplan:', err);
+				return real;
+			}
+		});
+	}
 
 	const schedule = SCHEDULES[stop];
-	if (!schedule) {
+	if (config.mode === 'live' || !schedule) {
 		return {
+			kind: 'fehlt',
 			originStop: timetable.origin,
 			destinationStop: stop,
 			outbound: [],
 			inbound: [],
-			source: 'Kein Fahrplan fuer diesen Halt hinterlegt'
+			source: 'Für diesen Halt liegt kein Fahrplan vor'
 		};
 	}
 
-	const connection: TransitConnection = {
+	return {
+		kind: 'demo',
 		originStop: timetable.origin,
 		destinationStop: stop,
 		outbound: schedule.outbound.map((t) => toDeparture(schedule, t, date, schedule.travelMinutes)),
 		inbound: schedule.inbound.map((t) => toDeparture(schedule, t, date, schedule.travelMinutes)),
-		source:
-			config.mode === 'live'
-				? 'VVT / OGD Tirol (GTFS + GTFS-RT)'
-				: 'Demo-Fahrplan - keine gueltige Fahrplanauskunft'
+		source: 'Demo-Fahrplan - keine gültige Fahrplanauskunft'
 	};
-
-	if (config.mode !== 'live' || !config.vvtRealtimeUrl) return connection;
-
-	return cached(`transit:${stop}:${dayKey(date)}`, config.cacheTtlMs, async () => {
-		try {
-			const delays = await fetchRealtimeDelays(stop);
-			return applyDelays(connection, delays);
-		} catch (err) {
-			console.error('[transit] Echtzeitdaten nicht verfuegbar, nutze Soll-Fahrplan:', err);
-			return connection;
-		}
-	});
 }
 
 function toDeparture(
@@ -133,8 +145,10 @@ export function atLocalTime(date: Date, hhmm: string): Date {
 	return viennaTime(date, hhmm);
 }
 
+/** Kalendertag in Innsbruck - nicht der UTC-Tag, sonst teilen sich kurz vor
+ * Mitternacht zwei Tage einen Cache-Eintrag. */
 function dayKey(date: Date): string {
-	return date.toISOString().slice(0, 10);
+	return date.toLocaleDateString('en-CA', { timeZone: TIME_ZONE });
 }
 
 /** Verspaetungen je Liniennummer aus dem GTFS-RT-Feed des VVT. */
