@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { nearby, toPointFeature, type PointFeature } from './nearby';
 
 const huette = (name: string, lat: number, lon: number): PointFeature => ({
-	name, lat, lon, ele: null, kind: 'einkehr', openingHours: null, website: null, osm: null
+	name, lat, lon, ele: null, kind: 'einkehr', openingHours: null, website: null, osm: null,
+	payment: { kind: 'unbekannt', text: '' }, phone: null, seasonal: null, checkDate: null
 });
 
 describe('nearby', () => {

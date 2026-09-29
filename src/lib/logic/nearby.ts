@@ -1,4 +1,5 @@
 import { distanceKm } from '$lib/logic/gpx';
+import { paymentInfo, type PaymentInfo } from '$lib/logic/payment';
 
 export interface PointFeature {
 	name: string;
@@ -9,6 +10,12 @@ export interface PointFeature {
 	openingHours: string | null;
 	website: string | null;
 	osm: string | null;
+	payment: PaymentInfo;
+	phone: string | null;
+	/** Freitext wie "summer" oder "Mai-Oktober" */
+	seasonal: string | null;
+	/** Wann jemand die Angaben zuletzt geprueft hat (OSM check_date) */
+	checkDate: string | null;
 }
 
 export interface Nearby extends PointFeature {
@@ -53,6 +60,14 @@ export function toPointFeature(feature: {
 		kind,
 		openingHours: typeof props.opening_hours === 'string' ? props.opening_hours : null,
 		website: typeof website === 'string' ? website : null,
-		osm: typeof props.osm === 'string' ? props.osm : null
+		osm: typeof props.osm === 'string' ? props.osm : null,
+		payment: paymentInfo(props),
+		phone: str(props.phone ?? props['contact:phone']),
+		seasonal: str(props.seasonal),
+		checkDate: str(props['check_date:opening_hours'] ?? props.check_date)
 	};
+}
+
+function str(value: unknown): string | null {
+	return typeof value === 'string' && value.trim() ? value.trim() : null;
 }

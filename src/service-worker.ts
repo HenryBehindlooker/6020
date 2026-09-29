@@ -9,9 +9,16 @@ const DATA_CACHE = `data-${version}`;
 // aber teuer nachzuladen - und im Tal gibt es oft kein Netz mehr.
 const TILE_CACHE = 'tiles-v1';
 const TILE_LIMIT = 400;
-// bus-stops und peaks nutzen nur die Skripte, nicht der Browser - 400 KB,
-// die sonst jede Installation mitlaedt.
-const SKIP = ['/osm/bus-stops.geojson', '/osm/peaks.geojson', '/osm/SOURCE.json'];
+// bus-stops, peaks und photos.json nutzen nur Skripte und Server, nicht der
+// Browser. Die Radrouten braucht man im Sommer im Tal, nicht offline am Berg -
+// sie werden erst beim Aufruf geladen. Das spart jeder Installation ~1 MB.
+const SKIP = [
+	'/osm/bus-stops.geojson',
+	'/osm/peaks.geojson',
+	'/osm/SOURCE.json',
+	'/osm/routes-bike.geojson',
+	'/photos/photos.json'
+];
 const ASSETS = [...build, ...files].filter((f) => !SKIP.some((skip) => f.endsWith(skip)));
 
 const sw = self as unknown as ServiceWorkerGlobalScope;

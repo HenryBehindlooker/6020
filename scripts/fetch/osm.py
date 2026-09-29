@@ -55,6 +55,30 @@ QUERIES = {
         );
         out center tags;
     """,
+    # Radltouren fuer den Sommer: beschilderte MTB- und Radrouten. Der
+    # Innradweg ragt weit hinaus, geom(bbox) schneidet ihn ab.
+    "routes-bike": f"""
+        [out:json][timeout:180];
+        relation["route"~"^(mtb|bicycle)$"]["name"]({B});
+        out geom({B});
+    """,
+    # Markante Punkte unterwegs: Sattel und Joch, Aussicht, Trinkwasser,
+    # Quellen, Unterstaende, Wasserfaelle, Gipfelkreuze.
+    "pois": f"""
+        [out:json][timeout:180];
+        (
+          node["natural"="saddle"]({B});
+          node["tourism"="viewpoint"]({B});
+          node["amenity"="drinking_water"]({B});
+          node["natural"="spring"]["name"]({B});
+          node["natural"="spring"]["drinking_water"="yes"]({B});
+          nwr["amenity"="shelter"]({B});
+          node["waterway"="waterfall"]({B});
+          node["man_made"="cross"]["summit:cross"="yes"]({B});
+          node["natural"="peak"]["summit:cross"="yes"]({B});
+        );
+        out center tags;
+    """,
     "aerialways": f"""
         [out:json][timeout:180];
         (
@@ -155,7 +179,8 @@ def length_km(lines):
 
 KEEP_ROUTE_TAGS = ["name", "ref", "network", "operator", "osmc:symbol", "from", "to",
                    "description", "website", "distance", "sac_scale", "piste:type",
-                   "piste:difficulty", "wikipedia"]
+                   "piste:difficulty", "wikipedia", "route", "mtb:scale", "mtb:scale:uphill",
+                   "mtb:type", "ascent", "descent", "roundtrip", "state"]
 
 
 def route_features(elements):
@@ -187,7 +212,10 @@ def route_features(elements):
 
 KEEP_POI_TAGS = ["name", "tourism", "amenity", "ele", "operator", "opening_hours",
                  "website", "contact:website", "phone", "contact:phone", "beds",
-                 "capacity", "seasonal", "description", "wikipedia", "access"]
+                 "capacity", "seasonal", "description", "wikipedia", "access",
+                 "opening_hours:kitchen", "check_date", "check_date:opening_hours",
+                 "reservation", "drinking_water", "shelter_type", "summit:cross",
+                 "image", "wikimedia_commons", "wikidata", "direction"]
 
 
 # Einkehr-Filter. Overpass liefert zu den Huetten auch Gasthoefe und Cafes
@@ -236,7 +264,10 @@ def point_features(elements):
             continue
         tags = el.get("tags", {})
         props = {k: tags[k] for k in KEEP_POI_TAGS if k in tags}
-        for k in ("natural", "highway", "public_transport", "railway", "bus", "tram"):
+        # Bezahlarten (payment:cash, payment:debit_cards, ...) - fuer den
+        # Bargeld-Hinweis bei Huetten
+        props.update({k: v for k, v in tags.items() if k.startswith("payment:")})
+        for k in ("natural", "man_made", "waterway", "highway", "public_transport", "railway", "bus", "tram"):
             if k in tags:
                 props[k] = tags[k]
         props["osm"] = f"{el['type']}/{el['id']}"
@@ -276,6 +307,8 @@ def hut_features(elements):
 CONVERT = {
     "routes-hiking": route_features,
     "routes-skitour": route_features,
+    "routes-bike": route_features,
+    "pois": point_features,
     "huts": hut_features,
     "aerialways": aerialway_features,
     "peaks": point_features,
@@ -295,7 +328,9 @@ def fresh_enough() -> bool:
     try:
         meta = json.loads((OUT / "SOURCE.json").read_text())
         fetched = datetime.fromisoformat(meta["fetched_at"])
-        complete = all(isinstance(v, dict) for v in meta.get("files", {}).values())
+        files = meta.get("files", {})
+        # Neue Abfragen (etwa nach einer Erweiterung) sofort holen
+        complete = all(isinstance(files.get(k), dict) for k in QUERIES)
     except (OSError, KeyError, ValueError):
         return False
     age = datetime.now(timezone.utc) - fetched

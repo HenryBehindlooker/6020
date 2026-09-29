@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import DataNotice from '$lib/components/DataNotice.svelte';
+	import HutInfo from '$lib/components/HutInfo.svelte';
+	import PhotoGallery from '$lib/components/PhotoGallery.svelte';
+	import { LANDMARK_LABEL } from '$lib/logic/landmarks';
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
 	import TourMap from '$lib/components/TourMap.svelte';
 	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
 	import { formatReserve, hhmm } from '$lib/logic/turnaround';
+	import { googleEarthUrl } from '$lib/logic/kml';
 	import { planQuery } from '$lib/planParams';
 	import { TEXT } from '$lib/copy';
 	import type { Departure } from '$lib/types';
@@ -50,6 +54,12 @@
 				]
 			: [])
 	]);
+
+	/** Rechnerisch zurueck am Ausgangspunkt, wenn man bis zum Gipfel geht. */
+	const zurueckAm = $derived(
+		turnaround.summitAt ? new Date(new Date(turnaround.summitAt).getTime() + tour.descentMinutes * 60_000).toISOString() : null
+	);
+	const imDunkeln = $derived(!!(data.sunset && zurueckAm && zurueckAm > data.sunset));
 
 	const huettenArt = { schutzhuette: 'Schutzhütte', selbstversorger: 'Selbstversorgerhütte', einkehr: 'Einkehr' };
 </script>
@@ -98,6 +108,12 @@
 </section>
 
 <p class="note" class:eng={!turnaround.feasible}>{turnaround.note}</p>
+{#if imDunkeln && zurueckAm && data.sunset}
+	<p class="note eng">
+		Rechnerisch bist du erst um {hhmm(zurueckAm)} zurück am Ausgangspunkt – nach Sonnenuntergang
+		({hhmm(data.sunset)}). Früher aufbrechen oder umkehren, Stirnlampe einpacken.
+	</p>
+{/if}
 
 <p class="beschreibung">{tour.description}</p>
 
@@ -146,6 +162,11 @@
 			</li>
 		{/if}
 	</ol>
+	{#if data.sunset}
+		<p class="sonne" class:dunkel={imDunkeln}>
+			Sonnenuntergang {hhmm(data.sunset)} – bei freiem Horizont; im Tal und am Nordhang wird's früher finster.
+		</p>
+	{/if}
 	<p class="quelle">
 		Umkehrzeit = letzter Bus - {data.params.bufferMinutes} min Puffer - {tour.descentMinutes} min Abstieg.
 		Gehzeiten ohne Pausen.
@@ -167,13 +188,59 @@
 
 <section class="panel">
 	<h2>{TEXT.lage}</h2>
-	<TourMap markers={marker} tracks={track} osm height="22rem" zoom={12} center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]} />
+	<TourMap markers={marker} tracks={track} osm osmVisible={{ pois: true }} height="22rem" zoom={12} center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]} />
+	<p class="earth">
+		<a href={googleEarthUrl(tour.summit?.lat ?? tour.lat, tour.summit?.lon ?? tour.lon, tour.summit?.ele ?? tour.summitAltitude)} target="_blank" rel="noopener noreferrer">In 3D anschauen (Google Earth)</a>
+		<a href="{base}/tour/{tour.id}/tour.kml" download="{tour.id}.kml">KML für Google Earth laden</a>
+	</p>
 	<p class="quelle">
 		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'} · Linien: Wege und
 		Seilbahnen aus OpenStreetMap, oben rechts umschaltbar. Wanderwege sind Sommerwege, keine
 		Skitouren-Aufstiege.
 	</p>
 </section>
+
+{#if data.photos.length > 0 || data.valley}
+	<section class="panel">
+		<h2>Bilder <span class="unter">{data.valley ? `${data.valley.title} und Umgebung` : 'rund um den Gipfel'}</span></h2>
+		{#if data.valley}
+			<p class="tal">
+				{data.valley.extract}
+				<a href={data.valley.article} target="_blank" rel="noopener noreferrer">Wikipedia</a>
+			</p>
+		{/if}
+		<PhotoGallery photos={[...(data.valley ? [data.valley.photo] : []), ...data.photos]} alt={tour.name} />
+		<p class="quelle">
+			Fotos von Wikimedia Commons, rund um den Gipfel aufgenommen (bis 3 km entfernt) – Jahreszeit und
+			Verhältnisse auf dem Bild sagen nichts über heute. Text: Wikipedia, CC BY-SA 4.0.
+		</p>
+	</section>
+{/if}
+
+{#if data.landmarks.length > 0}
+	<section class="panel">
+		<h2>Markante Punkte <span class="unter">zwischen Ausgangspunkt und Gipfel</span></h2>
+		<ol class="punkte">
+			{#each data.landmarks as punkt (punkt.osm ?? `${punkt.lat},${punkt.lon}`)}
+				<li>
+					<span class="anteil" style="--anteil: {punkt.along}" aria-hidden="true"></span>
+					<div>
+						<strong>{punkt.name ?? LANDMARK_LABEL[punkt.kind]}</strong>
+						<span class="art">
+							{#if punkt.name}{LANDMARK_LABEL[punkt.kind]} · {/if}{#if punkt.ele}{punkt.ele} m · {/if}{punkt.offM} m neben der Luftlinie
+							{#if punkt.osm}· <a href="https://www.openstreetmap.org/{punkt.osm}" target="_blank" rel="noopener noreferrer">OSM</a>{/if}
+						</span>
+					</div>
+				</li>
+			{/each}
+		</ol>
+		<p class="quelle">
+			Aus OpenStreetMap, im Streifen von 500 m um die Luftlinie Haltestelle–Gipfel. Das ist keine
+			Route: Ein Punkt kann hinter einem Grat liegen. Trinkwasser und Quellen im Winter nicht
+			verlassen – sie sind oft eingeschneit oder abgedreht.
+		</p>
+	</section>
+{/if}
 
 {#if data.huts.length > 0}
 	<section class="panel">
@@ -184,15 +251,22 @@
 					<div>
 						<strong>{huette.name}</strong>
 						<span class="art">{huettenArt[huette.kind]}{#if huette.ele}&nbsp;· {huette.ele} m{/if}</span>
-						{#if huette.openingHours}<span class="art">Geöffnet laut OSM: {huette.openingHours}</span>{/if}
+						<HutInfo
+							openingHours={huette.openingHours}
+							payment={huette.payment}
+							seasonal={huette.seasonal}
+							phone={huette.phone}
+							checkDate={huette.checkDate}
+						/>
 					</div>
 					<span class="entfernung">{huette.km} km</span>
 				</li>
 			{/each}
 		</ul>
 		<p class="quelle">
-			Luftlinie vom Ausgangspunkt, nicht Gehweg. Öffnungszeiten stehen selten in OSM und ändern sich
-			saisonal - vorher bei der Hütte nachfragen.
+			Luftlinie vom Ausgangspunkt, nicht Gehweg. Öffnungszeiten und Zahlungsarten aus OpenStreetMap,
+			von Freiwilligen eingetragen und oft veraltet – vor dem Aufstieg bei der Hütte anrufen. Am Berg
+			gibt's keinen Bankomaten.
 		</p>
 	</section>
 {/if}
@@ -341,6 +415,8 @@
 
 	.ablauf li.wichtig { border-left: 4px solid var(--text-warnung); font-weight: 650; }
 	.ablauf li.wichtig .uhr { color: var(--text-warnung); }
+	.sonne { margin: 0.8rem 0 0; font-size: 0.88rem; color: var(--muted); }
+	.sonne.dunkel { color: var(--text-kritisch); font-weight: 600; }
 	.uhr { font-variant-numeric: tabular-nums; font-weight: 650; }
 
 	.werte { margin: 0; display: grid; gap: 0.55rem; }
@@ -368,6 +444,22 @@
 	details { margin-top: 0.9rem; }
 	summary { cursor: pointer; color: var(--sky-deep); font-size: 0.88rem; padding: 0.3rem 0; }
 	details .fahrten { margin-top: 0.6rem; }
+
+	.earth { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0.7rem 0 0; font-size: 0.88rem; }
+	.earth a { color: var(--sky-deep); font-weight: 600; }
+
+	.tal { font-size: 0.88rem; color: var(--muted); margin: 0 0 0.8rem; }
+	.tal a { color: var(--sky-deep); }
+
+	.punkte { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.9rem; }
+	.punkte li { display: grid; grid-template-columns: 2.4rem 1fr; gap: 0.6rem; align-items: center; }
+	.punkte a { color: var(--sky-deep); }
+	/* Kleiner Balken: wie weit Richtung Gipfel der Punkt liegt */
+	.anteil {
+		height: 0.4rem;
+		border-radius: 999px;
+		background: linear-gradient(90deg, var(--sky) calc(var(--anteil) * 100%), var(--surface-2) 0);
+	}
 
 	.quelle { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.76rem; }
 </style>

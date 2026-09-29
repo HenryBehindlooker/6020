@@ -8,6 +8,8 @@
 	const links = [
 		{ href: `${base}/`, label: TEXT.nav.touren, match: (p: string) => p === `${base}/` || p.startsWith(`${base}/tour/`) },
 		{ href: `${base}/karte`, label: TEXT.nav.karte, match: (p: string) => p.startsWith(`${base}/karte`) },
+		{ href: `${base}/radl`, label: TEXT.nav.radl, match: (p: string) => p.startsWith(`${base}/radl`) },
+		{ href: `${base}/taeler`, label: TEXT.nav.taeler, match: (p: string) => p.startsWith(`${base}/taeler`) },
 		{ href: `${base}/methodik`, label: TEXT.nav.methodik, match: (p: string) => p.startsWith(`${base}/methodik`) }
 	];
 </script>
@@ -48,6 +50,7 @@
 		<p class="quellen">
 			Karten- und Wegdaten &copy; <a href="https://www.openstreetmap.org/copyright" rel="noreferrer">OpenStreetMap-Mitwirkende</a> (ODbL) ·
 			Fahrpläne über <a href="https://transitous.org" rel="noreferrer">Transitous</a> ·
+			Fotos von <a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a> (Urheber je Bild) ·
 			<a href="https://github.com/HenryBehindlooker/6020" rel="noreferrer">Quellcode</a>
 		</p>
 	</footer>
