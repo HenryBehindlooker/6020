@@ -15,6 +15,7 @@ Schreibt:
 import json
 import re
 import sys
+import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -148,23 +149,28 @@ def main():
         (OUT / "PROBE.json").write_text(json.dumps(probe, ensure_ascii=False, indent=1))
         return
 
-    # Neuester Tiroler Bericht. Der Tiroler Warndienst berichtet etwa von
-    # Dezember bis Mai; ausserhalb davon liegen im Verzeichnis nur Berichte
-    # anderer Laender. Darum nur Saisontage durchsuchen, neueste zuerst, und
-    # einzelne Zeitueberschreitungen ueberspringen statt abzubrechen.
+    # Neuester Tiroler Bericht. Die Datei heisst <Tag>/<Tag>-AT-07.json - direkt
+    # abfragen statt die (im Fruehjahr sehr grossen, langsamen) Verzeichnisseiten
+    # zu lesen. Der Bericht fuer morgen erscheint gegen 17 Uhr im Ordner von
+    # morgen. Ausserhalb der Saison (etwa Juni bis November) gibt es keinen
+    # aktuellen; dann wird der letzte der Saison gesucht, nur zur Anzeige.
     latest = None
     checked, errors = 0, []
-    season = [d for d in reversed(days) if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6)]
-    for day in season[:60]:
+    heute = datetime.now(timezone.utc).date()
+    kandidaten = [(heute + timedelta(days=d)).isoformat() for d in (1, 0, -1)]
+    kandidaten += [d for d in reversed(days) if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6) and d not in kandidaten][:200]
+    for day in kandidaten:
         checked += 1
+        url = f"{BASE}{day}/{day}-AT-07.json"
         try:
-            name, _ = pick_tirol_file(day)
-            if name:
-                latest, _ = fetch_day(day)
-                break
+            latest = {"date": day, "file": f"{day}-AT-07.json", "url": url, "bulletin": json.loads(get(url))}
+            break
+        except urllib.error.HTTPError as err:
+            if err.code != 404:
+                errors.append(f"{day}: HTTP {err.code}")
         except Exception as err:  # noqa: BLE001
             errors.append(f"{day}: {err}")
-    probe["checked_dirs_until_found"] = checked
+    probe["checked_until_found"] = checked
     probe["search_errors"] = errors[:10]
     if latest:
         latest["fetched_at"] = probe["fetched_at"]
