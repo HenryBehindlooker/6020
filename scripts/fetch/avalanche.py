@@ -180,10 +180,15 @@ def main():
             latest = {"date": day, "file": f"{day}-AT-07.json", "url": url, "bulletin": json.loads(get(url))}
             break
         except urllib.error.HTTPError as err:
-            if err.code != 404:
-                errors.append(f"{day}: HTTP {err.code}")
+            if err.code == 404:
+                continue
+            errors.append(f"{day}: HTTP {err.code}")
+            break
         except Exception as err:  # noqa: BLE001
             errors.append(f"{day}: {err}")
+            break
+    # Bei einem Netzfehler nicht zum naechstaelteren Tag weiterspringen: das
+    # waere ein falscher "neuester" Bericht. Dann bleibt der letzte Abzug stehen.
     probe["checked_until_found"] = checked
     probe["search_errors"] = errors[:10]
     if latest:
@@ -192,7 +197,7 @@ def main():
         probe["latest"] = {"date": latest["date"], "file": latest["file"], "summary": summarize(latest["bulletin"])}
         print(f"Neuester Bericht: {latest['date']} {latest['file']}")
     else:
-        print("In den letzten zehn Tagesordnern keine Tiroler JSON-Datei.")
+        print(f"Kein Bericht geholt ({errors[-1] if errors else 'keiner gefunden'}); latest.json bleibt.")
 
     # Beispieltage einmalig ablegen
     for day in SAMPLE_DAYS:
