@@ -82,7 +82,9 @@ jobs:
             echo "Keine neuen Daten."
           else
             git commit -m "Daten aktualisiert: Lawine, Fahrplan, OSM ($(date -u "+%Y-%m-%d %H:%M") UTC)"
-            # Der Zweig kann sich waehrend des Laufs bewegt haben.
-            git pull --rebase
+            # Der Zweig kann sich waehrend des Laufs bewegt haben - etwa durch
+            # einen zweiten Lauf. Bei Konflikten in den Daten gewinnt der eben
+            # geholte, frischere Stand (beim Rebase ist das "theirs").
+            git pull --rebase -X theirs
             git push
           fi
