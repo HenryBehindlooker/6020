@@ -197,6 +197,16 @@ def main():
         else:
             probe.setdefault("samples", {})[day] = {"files": sfiles[:40]}
 
+    # Die EAWS-Datei ist englisch. avalanche.report hat ein eigenes Archiv unter
+    # /bulletins/ - dort die deutschen Fassungen suchen (nur zur Erkundung).
+    for tag in ("2026-01-17", latest["date"] if latest else None):
+        if not tag:
+            continue
+        try:
+            probe.setdefault("albina_archiv", {})[tag] = list_links(f"https://static.avalanche.report/bulletins/{tag}/")[:80]
+        except Exception as err:  # noqa: BLE001
+            probe.setdefault("albina_archiv", {})[tag] = f"Fehler: {err}"
+
     (OUT / "PROBE.json").write_text(json.dumps(probe, ensure_ascii=False, indent=1))
 
 
