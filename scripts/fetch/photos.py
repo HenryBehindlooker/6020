@@ -41,7 +41,7 @@ VALLEYS = [
 FREE = re.compile(r"^(CC|Public domain|PD|CC0|GFDL|Attribution|FAL)", re.I)
 
 
-def api(base, params, versuche=3):
+def api(base, params, versuche=4):
     params = {**params, "format": "json", "formatversion": "2"}
     url = f"{base}?{urllib.parse.urlencode(params)}"
     for versuch in range(versuche):
@@ -52,12 +52,18 @@ def api(base, params, versuche=3):
             if versuch == versuche - 1:
                 raise
             print(f"  Wiederholung ({err})", file=sys.stderr)
-            time.sleep(3 * (versuch + 1))
+            # Commons drosselt mit 429 - dann deutlich laenger warten
+            warten = 20 * (versuch + 1) if "429" in str(err) else 3 * (versuch + 1)
+            time.sleep(warten)
 
 
 def plain(text):
     """HTML aus den Commons-Metadaten zu Klartext."""
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", text or ""))).strip()
+
+
+def norm(title):
+    return title.replace("_", " ")
 
 
 def file_infos(titles):
@@ -77,7 +83,8 @@ def file_infos(titles):
             lic = plain(meta.get("LicenseShortName", {}).get("value"))
             if not FREE.search(lic):
                 continue
-            out[page["title"]] = {
+            # Wikipedia liefert Dateinamen mit "_", Commons mit Leerzeichen
+            out[norm(page["title"])] = {
                 "file": page["title"],
                 "thumb": info.get("thumburl"),
                 "width": info.get("thumbwidth"),
@@ -89,7 +96,7 @@ def file_infos(titles):
                 "caption": plain(meta.get("ImageDescription", {}).get("value"))[:200] or None,
                 "date": plain(meta.get("DateTimeOriginal", {}).get("value"))[:10] or None,
             }
-        time.sleep(1)
+        time.sleep(2)
     return out
 
 
@@ -104,7 +111,7 @@ def valleys():
     infos = file_infos(files)
     result = []
     for p in pages:
-        info = infos.get(f"File:{p.get('pageimage')}")
+        info = infos.get(norm(f"File:{p.get('pageimage')}"))
         coords = (p.get("coordinates") or [None])[0]
         if not info or not coords:
             print(f"  {p['title']}: {'kein freies Bild' if not info else 'keine Koordinaten'}")
@@ -128,7 +135,7 @@ def near(lat, lon, radius=1000, limit=4):
     infos = file_infos([h["title"] for h in hits])
     out = []
     for h in hits:
-        info = infos.get(h["title"])
+        info = infos.get(norm(h["title"]))
         # Querformat bevorzugt, sehr kleine Bilder weglassen
         if info and (info.get("width") or 0) >= 600:
             out.append({**info, "distM": round(h.get("dist", 0))})
@@ -148,19 +155,27 @@ def main():
     except Exception as err:  # noqa: BLE001
         print(f"Taeler: {err}", file=sys.stderr)
 
+    path = OUT / "photos.json"
+    old = json.loads(path.read_text()) if path.exists() else None
+
     for tour in json.loads(TOURS.read_text()):
         summit = tour.get("summit") or {"lat": tour["lat"], "lon": tour["lon"]}
         try:
             photos = near(summit["lat"], summit["lon"])
+            # Entlegene Gipfel: im weiteren Umkreis suchen
+            if not photos:
+                time.sleep(2)
+                photos = near(summit["lat"], summit["lon"], radius=3000)
         except Exception as err:  # noqa: BLE001
             print(f"{tour['id']}: {err}", file=sys.stderr)
+            # Fehlschlag: den letzten Stand behalten statt die Fotos zu verlieren
+            if old and tour["id"] in old.get("tours", {}):
+                result["tours"][tour["id"]] = old["tours"][tour["id"]]
             continue
         result["tours"][tour["id"]] = photos
         print(f"{tour['id']}: {len(photos)} Fotos")
-        time.sleep(1)
+        time.sleep(3)
 
-    path = OUT / "photos.json"
-    old = json.loads(path.read_text()) if path.exists() else None
     # Ein Totalausfall soll den letzten guten Stand nicht ueberschreiben
     if not result["valleys"] and not any(result["tours"].values()) and old:
         print("Nichts geholt - alter Stand bleibt.")

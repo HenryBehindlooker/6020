@@ -170,7 +170,12 @@ def main():
     checked, errors = 0, []
     heute = datetime.now(timezone.utc).date()
     kandidaten = [(heute + timedelta(days=d)).isoformat() for d in (1, 0, -1)]
-    kandidaten += [d for d in reversed(days) if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6) and d not in kandidaten][:200]
+    # Die Saison rueckwaerts nur durchsuchen, wenn noch kein Bericht abgelegt
+    # ist oder Saison ist - im Sommer waeren das zweimal taeglich ~150 Anfragen
+    # fuer einen Bericht, der sich nicht mehr aendert.
+    saison = heute.month in (11, 12, 1, 2, 3, 4, 5)
+    if saison or not (OUT / "latest.json").exists():
+        kandidaten += [d for d in reversed(days) if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6) and d not in kandidaten][:200]
     for day in kandidaten:
         checked += 1
         if checked > 1:
@@ -197,7 +202,7 @@ def main():
         probe["latest"] = {"date": latest["date"], "file": latest["file"], "summary": summarize(latest["bulletin"])}
         print(f"Neuester Bericht: {latest['date']} {latest['file']}")
     else:
-        print(f"Kein Bericht geholt ({errors[-1] if errors else 'keiner gefunden'}); latest.json bleibt.")
+        print(f"Kein neuer Bericht ({errors[-1] if errors else 'keiner gefunden'}); latest.json bleibt.")
 
     # Beispieltage einmalig ablegen
     for day in SAMPLE_DAYS:

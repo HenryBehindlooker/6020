@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { aerialwayPopup, escapeHtml, hutPopup, routePopup, safeUrl } from './osmLayers';
+import { aerialwayPopup, escapeHtml, hutPopup, poiPopup, routePopup, safeUrl } from './osmLayers';
 
 describe('safeUrl', () => {
 	it('laesst https durch', () => {
@@ -61,5 +61,20 @@ describe('Popups', () => {
 
 	it('escapeHtml deckt alle Sonderzeichen ab', () => {
 		expect(escapeHtml(`<>&"'`)).toBe('&lt;&gt;&amp;&quot;&#39;');
+	});
+});
+
+
+describe('poiPopup und hutPopup', () => {
+	it('benennt Punkte und warnt bei Wasser im Winter', () => {
+		expect(poiPopup({ amenity: 'drinking_water' })).toContain('Trinkwasser');
+		expect(poiPopup({ amenity: 'drinking_water' })).toContain('eingeschneit');
+		expect(poiPopup({ natural: 'peak', 'summit:cross': 'yes', name: '<b>X</b>' })).toContain('&lt;b&gt;X');
+	});
+	it('Huette: heute offen und Bargeld', () => {
+		// Mittwoch, 15.7.2026, Mittag in Wien
+		const html = hutPopup({ name: 'Alm', opening_hours: 'Mo-Su 10:00-18:00', 'payment:cash': 'only' }, new Date('2026-07-15T10:00:00Z'));
+		expect(html).toContain('Heute offen laut OSM: 10:00–18:00');
+		expect(html).toContain('Nur Bargeld');
 	});
 });

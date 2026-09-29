@@ -1,4 +1,7 @@
 import type * as Leaflet from 'leaflet';
+import { openingOn, viennaDay } from '$lib/logic/openingHours';
+import { paymentInfo } from '$lib/logic/payment';
+import { LANDMARK_LABEL, landmarkKind } from '$lib/logic/landmarks';
 
 /**
  * Zusatzebenen aus OpenStreetMap: Wege, Skitouren, Seilbahnen, Huetten.
@@ -15,6 +18,8 @@ type Props = Record<string, string | number | undefined>;
 
 export interface OsmLayerStyle {
 	route: string;
+	bike?: string;
+	poi?: string;
 	skitour: string;
 	aerialway: string;
 	hut: string;
@@ -67,7 +72,7 @@ export function routePopup(props: Props, kind: 'Wanderweg' | 'Skitour'): string 
 	return `<strong>${name}</strong>${ref}${hinweis}${laenge}${links(props)}`;
 }
 
-export function hutPopup(props: Props): string {
+export function hutPopup(props: Props, now: Date = new Date()): string {
 	const name = escapeHtml(props.name ?? 'Hütte');
 	const art =
 		props.tourism === 'alpine_hut'
@@ -77,10 +82,46 @@ export function hutPopup(props: Props): string {
 				: 'Einkehr';
 	const hoehe = props.ele ? ` · ${escapeHtml(props.ele)} m` : '';
 	const betreiber = props.operator ? `<div class="sub">${escapeHtml(props.operator)}</div>` : '';
-	const zeiten = props.opening_hours
-		? `<div class="sub">Geöffnet: ${escapeHtml(props.opening_hours)}</div>`
-		: '<div class="sub">Öffnungszeiten nicht in OSM - vorher prüfen</div>';
-	return `<strong>${name}</strong><div class="sub">${art}${hoehe}</div>${betreiber}${zeiten}${links(props)}`;
+	const oh = typeof props.opening_hours === 'string' ? props.opening_hours : null;
+	const heute = openingOn(oh, viennaDay(now));
+	const zeiten =
+		heute.status === 'offen'
+			? `<div class="sub">Heute offen laut OSM: ${escapeHtml(heute.spans.join(', '))}</div>`
+			: heute.status === 'zu'
+				? '<div class="sub warn">Heute zu laut OSM</div>'
+				: oh
+					? `<div class="sub">Geöffnet: ${escapeHtml(oh)}</div>`
+					: '<div class="sub">Öffnungszeiten nicht in OSM - vorher prüfen</div>';
+	const zahlung = `<div class="sub${paymentInfo(props).kind === 'karte' ? '' : ' warn'}">${escapeHtml(paymentInfo(props).text)}</div>`;
+	return `<strong>${name}</strong><div class="sub">${art}${hoehe}</div>${betreiber}${zeiten}${zahlung}${links(props)}`;
+}
+
+const MTB_SCALE: Record<string, string> = {
+	'0': 'S0 – leicht',
+	'1': 'S1 – leicht bis mittel',
+	'2': 'S2 – mittel',
+	'3': 'S3 – schwer',
+	'4': 'S4 – sehr schwer',
+	'5': 'S5 – extrem'
+};
+
+export function bikePopup(props: Props): string {
+	const name = escapeHtml(props.name ?? 'Radroute');
+	const ref = props.ref ? ` <span class="sub">(${escapeHtml(props.ref)})</span>` : '';
+	const art = props.route === 'mtb' ? 'Mountainbike-Route' : 'Radroute';
+	const scale = props['mtb:scale'] ? ` · ${escapeHtml(MTB_SCALE[String(props['mtb:scale'])] ?? props['mtb:scale'])}` : '';
+	const laenge = props.length_km_in_region ? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>` : '';
+	return `<strong>${name}</strong>${ref}<div class="sub">${art} laut OSM${scale}</div>${laenge}${links(props)}`;
+}
+
+export function poiPopup(props: Props): string {
+	const kind = landmarkKind(props);
+	const art = kind ? LANDMARK_LABEL[kind] : 'Punkt';
+	const name = props.name ? `<strong>${escapeHtml(props.name)}</strong><div class="sub">${art}</div>` : `<strong>${art}</strong>`;
+	const hoehe = props.ele ? `<div class="sub">${escapeHtml(props.ele)} m</div>` : '';
+	const wasser =
+		kind === 'wasser' || kind === 'quelle' ? '<div class="sub warn">Im Winter oft eingeschneit oder abgedreht</div>' : '';
+	return `${name}${hoehe}${wasser}${links(props)}`;
 }
 
 export function aerialwayPopup(props: Props): string {
@@ -100,7 +141,9 @@ const FILES = {
 	hiking: 'routes-hiking.geojson',
 	skitour: 'routes-skitour.geojson',
 	aerialways: 'aerialways.geojson',
-	huts: 'huts.geojson'
+	huts: 'huts.geojson',
+	bike: 'routes-bike.geojson',
+	pois: 'pois.geojson'
 } as const;
 
 async function load(basePath: string, file: string): Promise<GeoJSON.FeatureCollection | null> {
@@ -123,13 +166,15 @@ export async function addOsmLayers(
 	map: Leaflet.Map,
 	basePath: string,
 	style: OsmLayerStyle,
-	visible: { hiking?: boolean; skitour?: boolean; aerialways?: boolean; huts?: boolean } = {}
+	visible: { hiking?: boolean; skitour?: boolean; aerialways?: boolean; huts?: boolean; bike?: boolean; pois?: boolean } = {}
 ): Promise<Record<string, number>> {
-	const [hiking, skitour, aerialways, huts] = await Promise.all([
+	const [hiking, skitour, aerialways, huts, bike, pois] = await Promise.all([
 		load(basePath, FILES.hiking),
 		load(basePath, FILES.skitour),
 		load(basePath, FILES.aerialways),
-		load(basePath, FILES.huts)
+		load(basePath, FILES.huts),
+		load(basePath, FILES.bike),
+		load(basePath, FILES.pois)
 	]);
 
 	const attribution = '&copy; OpenStreetMap-Mitwirkende (ODbL)';
@@ -160,6 +205,34 @@ export async function addOsmLayers(
 		});
 		counts.aerialways = aerialways.features.length;
 	}
+	if (bike) {
+		overlays['Radl & MTB'] = L.geoJSON(bike, {
+			attribution,
+			style: (f) => ({
+				color: style.bike ?? '#8e44ad',
+				weight: 3,
+				opacity: 0.85,
+				dashArray: f?.properties?.route === 'mtb' ? undefined : '6 4'
+			}),
+			onEachFeature: (f, layer) => layer.bindPopup(bikePopup(f.properties ?? {}))
+		});
+		counts.bike = bike.features.length;
+	}
+	if (pois) {
+		overlays['Markante Punkte'] = L.geoJSON(pois, {
+			attribution,
+			pointToLayer: (_f, latlng) =>
+				L.circleMarker(latlng, {
+					radius: 3.5,
+					color: '#ffffff',
+					weight: 1,
+					fillColor: style.poi ?? '#5b6b78',
+					fillOpacity: 1
+				}),
+			onEachFeature: (f, layer) => layer.bindPopup(poiPopup(f.properties ?? {}))
+		});
+		counts.pois = pois.features.length;
+	}
 	if (huts) {
 		overlays['Hütten & Einkehr'] = L.geoJSON(huts, {
 			attribution,
@@ -177,12 +250,15 @@ export async function addOsmLayers(
 		counts.huts = huts.features.length;
 	}
 
-	const defaults = { hiking: true, skitour: true, aerialways: true, huts: true, ...visible };
+	// Sommer-Radl und die vielen kleinen Punkte nur auf Wunsch
+	const defaults = { hiking: true, skitour: true, aerialways: true, huts: true, bike: false, pois: false, ...visible };
 	const keyOf: Record<string, keyof typeof defaults> = {
 		'Wanderwege (Sommer)': 'hiking',
 		Skitouren: 'skitour',
 		Seilbahnen: 'aerialways',
-		'Hütten & Einkehr': 'huts'
+		'Hütten & Einkehr': 'huts',
+		'Radl & MTB': 'bike',
+		'Markante Punkte': 'pois'
 	};
 
 	for (const [label, layer] of Object.entries(overlays)) {

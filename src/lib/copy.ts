@@ -21,7 +21,7 @@ export const TEXT = {
 	titel: 'Bergampel',
 	untertitel: 'Innsbruck',
 	frage: 'Wos geat heit?',
-	nav: { touren: 'Touren', karte: 'Karte', methodik: 'Wia grechnet wird' },
+	nav: { touren: 'Touren', karte: 'Karte', radl: 'Radl', taeler: 'Täler', methodik: 'Wia grechnet wird' },
 	gruppeGeht: 'Des geat si aus',
 	gruppeNicht: 'Heit lei nit',
 	leerGeht: 'Heit geat si leider nix aus. Schau morgen wieder vorbei.',

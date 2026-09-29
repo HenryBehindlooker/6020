@@ -13,7 +13,8 @@
 		osm = false,
 		height = '26rem',
 		zoom = 10,
-		center
+		center,
+		osmVisible = {}
 	}: {
 		markers: MapMarker[];
 		tracks?: MapTrack[];
@@ -22,6 +23,8 @@
 		height?: string;
 		zoom?: number;
 		center?: [number, number];
+		/** Welche OSM-Ebenen anfangs sichtbar sind, etwa { bike: true, skitour: false } */
+		osmVisible?: Parameters<typeof addOsmLayers>[4];
 	} = $props();
 
 	const TILE_URL = env.PUBLIC_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -151,8 +154,10 @@
 						skitour: token('--forest', '#2f6b41'),
 						aerialway: token('--text', '#17232e'),
 						// Grau statt Gold: Gold laege zu nah am Ampel-Gelb "Heikel".
-						hut: token('--muted', '#56697a')
-					});
+						hut: token('--muted', '#56697a'),
+						bike: '#8e44ad',
+						poi: token('--muted', '#56697a')
+					}, osmVisible);
 				}
 			} catch (err) {
 				console.error('[karte] Leaflet konnte nicht geladen werden:', err);
