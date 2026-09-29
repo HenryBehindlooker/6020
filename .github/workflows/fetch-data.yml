@@ -60,6 +60,11 @@ jobs:
         timeout-minutes: 5
         run: python scripts/fetch/avalanche.py
 
+      - name: Fotos von Wikimedia (Taeler, Gipfel)
+        continue-on-error: true
+        timeout-minutes: 10
+        run: python scripts/fetch/photos.py
+
       - name: Freie Schnittstellen pruefen
         continue-on-error: true
         timeout-minutes: 5
@@ -70,7 +75,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Jeden Pfad einzeln: fehlt einer, soll das nicht die anderen verschlucken.
-          for pfad in static/osm data/gtfs data/transit data/probe data/lawine; do
+          for pfad in static/osm static/photos data/gtfs data/transit data/probe data/lawine; do
             if [ -e "$pfad" ]; then git add "$pfad"; fi
           done
           if git diff --cached --quiet; then
