@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-09-29T08:33:20+00:00",
+ "fetched_at": "2026-09-29T08:47:52+00:00",
  "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
  "valleys": [
   {
@@ -490,19 +490,6 @@
   ],
   "hafelekar": [
    {
-    "file": "File:Lila Gruner Igls mit Blick auf Hafelekar.jpg",
-    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Lila_Gruner_Igls_mit_Blick_auf_Hafelekar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "width": 960,
-    "height": 1494,
-    "page": "https://commons.wikimedia.org/wiki/File:Lila_Gruner_Igls_mit_Blick_auf_Hafelekar.jpg",
-    "author": "Lila Gruner",
-    "license": "Public domain",
-    "licenseUrl": null,
-    "caption": "ca. 47 x 30 cm, signiert und datiert: 1938, Mischtechnik auf Papier",
-    "date": "1938",
-    "distM": 0
-   },
-   {
     "file": "File:Hafelekar, Tyrol, Austria - panoramio.jpg",
     "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg/960px-Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "width": 960,
@@ -540,6 +527,19 @@
     "caption": "Hafelekar, Tyrol, Austria",
     "date": "Taken on 2",
     "distM": 4
+   },
+   {
+    "file": "File:Tiroler Mittelland 2013-07 Mattes (155).JPG",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Tiroler_Mittelland_2013-07_Mattes_%28155%29.JPG/960px-Tiroler_Mittelland_2013-07_Mattes_%28155%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Tiroler_Mittelland_2013-07_Mattes_(155).JPG",
+    "author": "User:Mattes",
+    "license": "CC BY 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/de/deed.en",
+    "caption": "Hafelekar, Flugsicherungsanlage",
+    "date": "Taken on 9",
+    "distM": 7
    }
   ],
   "sulzkogel": [
