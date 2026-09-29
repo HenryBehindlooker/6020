@@ -29,7 +29,7 @@ SAMPLE_DAYS = ["2026-01-17", "2026-02-14", "2026-03-21", "2025-12-27"]
 
 def get(url):
     req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as res:
+    with urllib.request.urlopen(req, timeout=25) as res:
         return res.read().decode("utf-8", "replace")
 
 
@@ -132,6 +132,14 @@ def main():
     (OUT / "samples").mkdir(exist_ok=True)
     probe = {"fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
+    regions_path = OUT / "regions-AT-07.geojson"
+    if not regions_path.exists():
+        try:
+            fetch_regions(probe)
+        except Exception as err:  # noqa: BLE001
+            probe["regions_error"] = str(err)
+            print(f"Regionen: {err}", file=sys.stderr)
+
     days = date_dirs()
     probe["date_dirs"] = {"count": len(days), "first": days[:2], "last": days[-5:]}
     print(f"{len(days)} Tagesordner, zuletzt {days[-3:]}")
@@ -140,18 +148,24 @@ def main():
         (OUT / "PROBE.json").write_text(json.dumps(probe, ensure_ascii=False, indent=1))
         return
 
-    # Neuester Tiroler Bericht. Ausserhalb der Saison (etwa Mai bis November)
-    # liegt der letzte im Fruehjahr - darum weit zurueck suchen, aber nur die
-    # Verzeichnisliste jedes Ordners lesen, bis einer die Tiroler Datei hat.
+    # Neuester Tiroler Bericht. Der Tiroler Warndienst berichtet etwa von
+    # Dezember bis Mai; ausserhalb davon liegen im Verzeichnis nur Berichte
+    # anderer Laender. Darum nur Saisontage durchsuchen, neueste zuerst, und
+    # einzelne Zeitueberschreitungen ueberspringen statt abzubrechen.
     latest = None
-    checked = 0
-    for day in reversed(days[-240:]):
-        name, files = pick_tirol_file(day)
+    checked, errors = 0, []
+    season = [d for d in reversed(days) if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6)]
+    for day in season[:60]:
         checked += 1
-        if name:
-            latest, _ = fetch_day(day)
-            break
+        try:
+            name, _ = pick_tirol_file(day)
+            if name:
+                latest, _ = fetch_day(day)
+                break
+        except Exception as err:  # noqa: BLE001
+            errors.append(f"{day}: {err}")
     probe["checked_dirs_until_found"] = checked
+    probe["search_errors"] = errors[:10]
     if latest:
         latest["fetched_at"] = probe["fetched_at"]
         (OUT / "latest.json").write_text(json.dumps(latest, ensure_ascii=False))
@@ -176,14 +190,6 @@ def main():
             print(f"Beispiel {day}: {sample['file']}")
         else:
             probe.setdefault("samples", {})[day] = {"files": sfiles[:40]}
-
-    regions_path = OUT / "regions-AT-07.geojson"
-    if not regions_path.exists():
-        try:
-            fetch_regions(probe)
-        except Exception as err:  # noqa: BLE001
-            probe["regions_error"] = str(err)
-            print(f"Regionen: {err}", file=sys.stderr)
 
     (OUT / "PROBE.json").write_text(json.dumps(probe, ensure_ascii=False, indent=1))
 
