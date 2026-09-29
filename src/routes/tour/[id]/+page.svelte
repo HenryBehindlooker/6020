@@ -55,6 +55,12 @@
 			: [])
 	]);
 
+	/** Rechnerisch zurueck am Ausgangspunkt, wenn man bis zum Gipfel geht. */
+	const zurueckAm = $derived(
+		turnaround.summitAt ? new Date(new Date(turnaround.summitAt).getTime() + tour.descentMinutes * 60_000).toISOString() : null
+	);
+	const imDunkeln = $derived(!!(data.sunset && zurueckAm && zurueckAm > data.sunset));
+
 	const huettenArt = { schutzhuette: 'Schutzhütte', selbstversorger: 'Selbstversorgerhütte', einkehr: 'Einkehr' };
 </script>
 
@@ -102,6 +108,12 @@
 </section>
 
 <p class="note" class:eng={!turnaround.feasible}>{turnaround.note}</p>
+{#if imDunkeln && zurueckAm && data.sunset}
+	<p class="note eng">
+		Rechnerisch bist du erst um {hhmm(zurueckAm)} zurück am Ausgangspunkt – nach Sonnenuntergang
+		({hhmm(data.sunset)}). Früher aufbrechen oder umkehren, Stirnlampe einpacken.
+	</p>
+{/if}
 
 <p class="beschreibung">{tour.description}</p>
 
@@ -150,6 +162,11 @@
 			</li>
 		{/if}
 	</ol>
+	{#if data.sunset}
+		<p class="sonne" class:dunkel={imDunkeln}>
+			Sonnenuntergang {hhmm(data.sunset)} – bei freiem Horizont; im Tal und am Nordhang wird's früher finster.
+		</p>
+	{/if}
 	<p class="quelle">
 		Umkehrzeit = letzter Bus - {data.params.bufferMinutes} min Puffer - {tour.descentMinutes} min Abstieg.
 		Gehzeiten ohne Pausen.
@@ -398,6 +415,8 @@
 
 	.ablauf li.wichtig { border-left: 4px solid var(--text-warnung); font-weight: 650; }
 	.ablauf li.wichtig .uhr { color: var(--text-warnung); }
+	.sonne { margin: 0.8rem 0 0; font-size: 0.88rem; color: var(--muted); }
+	.sonne.dunkel { color: var(--text-kritisch); font-weight: 600; }
 	.uhr { font-variant-numeric: tabular-nums; font-weight: 650; }
 
 	.werte { margin: 0; display: grid; gap: 0.55rem; }

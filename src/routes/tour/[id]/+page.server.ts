@@ -9,6 +9,7 @@ import { getHuts, getPois } from '$lib/server/sources/osm';
 import { getTourPhotos, getValleys } from '$lib/server/sources/photos';
 import { landmarksAlong } from '$lib/logic/landmarks';
 import { distanceKm } from '$lib/logic/gpx';
+import { sunTimes } from '$lib/logic/sun';
 import { parsePlanParams } from '$lib/planParams';
 
 export const load: PageServerLoad = async ({ params: route, url }) => {
@@ -23,6 +24,8 @@ export const load: PageServerLoad = async ({ params: route, url }) => {
 	// Auf der Detailkarte darf der Verlauf genauer sein als in der Uebersicht.
 	const track = await getTrack(route.id);
 	const tour = tourPlan.tour;
+	// Am Ausgangspunkt gerechnet, freier Horizont
+	const sonne = sunTimes(new Date(plan.date), tour.lat, tour.lon);
 	const huts = nearby(await getHuts(), tour.lat, tour.lon);
 	const landmarks = tour.summit ? landmarksAlong(await getPois(), tour, tour.summit) : [];
 
@@ -43,6 +46,7 @@ export const load: PageServerLoad = async ({ params: route, url }) => {
 		params,
 		huts,
 		landmarks,
+		sunset: sonne?.sunset.toISOString() ?? null,
 		photos,
 		valley,
 		track: track
