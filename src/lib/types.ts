@@ -17,7 +17,7 @@ export interface DangerRating {
 }
 
 export interface AvalancheProblem {
-	/** EAWS-Problemtyp, z.B. "wind_slab", "persistent_weak_layer". */
+	/** EAWS-Problemtyp (CAAMLv6), z.B. "wind_slab", "persistent_weak_layers". */
 	type: string;
 	aspects: Aspect[];
 	elevationAbove: number | null;

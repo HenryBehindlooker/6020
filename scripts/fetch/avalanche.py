@@ -16,7 +16,7 @@ import json
 import re
 import sys
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 BASE = "https://static.avalanche.report/eaws_bulletins/"
@@ -51,10 +51,13 @@ def list_links(url):
 
 
 def date_dirs():
+    """Tagesordner bis morgen. Das Verzeichnis enthaelt auch Ordner fuer Tage in
+    der Zukunft (gesehen: bis Ende November, nur mit katalanischen Berichten)."""
+    limit = (datetime.now(timezone.utc) + timedelta(days=1)).date().isoformat()
     names = set()
     for link in list_links(BASE):
         m = re.search(r"(\d{4}-\d{2}-\d{2})/?$", link)
-        if m:
+        if m and m.group(1) <= limit:
             names.add(m.group(1))
     return sorted(names)
 
@@ -96,6 +99,34 @@ def summarize(doc):
             "bulletins": out}
 
 
+REGIONS_BASE = "https://regions.avalanches.org/"
+
+
+def fetch_regions(probe):
+    """Grenzen der Tiroler Mikroregionen (EAWS). Auch hier sind die Dateinamen
+    nicht dokumentiert - die Uebersichtsseite wird nach AT-07 durchsucht."""
+    html = get(REGIONS_BASE)
+    links = sorted(set(h for h in re.findall(r'href="([^"?#]+)"', html) if "AT-07" in h))
+    probe["region_links"] = links[:60]
+    candidates = [l for l in links if l.endswith((".geojson", ".json")) and "micro" in l.lower()
+                  and "elevation" not in l.lower() and "_en" not in l and "_de" not in l]
+    candidates.sort(key=lambda l: (len(l), l))
+    for link in candidates:
+        url = link if link.startswith("http") else REGIONS_BASE + link.lstrip("./")
+        try:
+            doc = json.loads(get(url))
+        except Exception as err:  # noqa: BLE001
+            print(f"Regionen {url}: {err}", file=sys.stderr)
+            continue
+        if isinstance(doc, dict) and doc.get("features"):
+            (OUT / "regions-AT-07.geojson").write_text(json.dumps(doc, ensure_ascii=False))
+            probe["regions"] = {"url": url, "features": len(doc["features"]),
+                                "properties": sorted(doc["features"][0].get("properties", {}).keys())}
+            print(f"Regionen: {url} mit {len(doc['features'])} Flaechen")
+            return
+    print("Keine Tiroler Regionsgrenzen gefunden.")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "samples").mkdir(exist_ok=True)
@@ -109,14 +140,18 @@ def main():
         (OUT / "PROBE.json").write_text(json.dumps(probe, ensure_ascii=False, indent=1))
         return
 
-    # Neuester Bericht - ausserhalb der Saison einer vom Fruehjahr. Ist der
-    # juengste Ordner leer, die naechstaelteren probieren.
+    # Neuester Tiroler Bericht. Ausserhalb der Saison (etwa Mai bis November)
+    # liegt der letzte im Fruehjahr - darum weit zurueck suchen, aber nur die
+    # Verzeichnisliste jedes Ordners lesen, bis einer die Tiroler Datei hat.
     latest = None
-    for day in reversed(days[-10:]):
-        latest, files = fetch_day(day)
-        probe.setdefault("checked_dirs", {})[day] = files[:40]
-        if latest:
+    checked = 0
+    for day in reversed(days[-240:]):
+        name, files = pick_tirol_file(day)
+        checked += 1
+        if name:
+            latest, _ = fetch_day(day)
             break
+    probe["checked_dirs_until_found"] = checked
     if latest:
         latest["fetched_at"] = probe["fetched_at"]
         (OUT / "latest.json").write_text(json.dumps(latest, ensure_ascii=False))
@@ -141,6 +176,14 @@ def main():
             print(f"Beispiel {day}: {sample['file']}")
         else:
             probe.setdefault("samples", {})[day] = {"files": sfiles[:40]}
+
+    regions_path = OUT / "regions-AT-07.geojson"
+    if not regions_path.exists():
+        try:
+            fetch_regions(probe)
+        except Exception as err:  # noqa: BLE001
+            probe["regions_error"] = str(err)
+            print(f"Regionen: {err}", file=sys.stderr)
 
     (OUT / "PROBE.json").write_text(json.dumps(probe, ensure_ascii=False, indent=1))
 

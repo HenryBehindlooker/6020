@@ -61,20 +61,28 @@ function readBulletin(bulletin: any): RegionRating {
 		return mapped;
 	};
 
-	const above = ratings.find((r) => r?.elevation?.lowerBound !== undefined) ?? ratings[0];
-	const below = ratings.find((r) => r?.elevation?.upperBound !== undefined) ?? above;
+	// Im Fruehjahr gibt es getrennte Stufen fuer Vormittag und Nachmittag
+	// (validTimePeriod "earlier"/"later"). Eine Tour dauert in den Nachmittag
+	// hinein - darum zaehlt je Hoehenband die hoehere Stufe.
+	const upper = ratings.filter((r) => r?.elevation?.lowerBound !== undefined);
+	const lower = ratings.filter((r) => r?.elevation?.upperBound !== undefined);
+	const whole = ratings.filter((r) => !r?.elevation || (r.elevation.lowerBound === undefined && r.elevation.upperBound === undefined));
+	const worst = (list: any[]) => Math.max(...list.map((r) => level(r?.mainValue))) as DangerLevel;
+
+	const aboveList = upper.length ? upper : whole.length ? whole : ratings;
+	const belowList = lower.length ? lower : aboveList;
 
 	return {
-		above: level(above?.mainValue),
-		below: level(below?.mainValue),
-		boundary: parseElevation(above?.elevation?.lowerBound ?? below?.elevation?.upperBound),
-		aspects: (above?.aspects ?? []) as Aspect[],
+		above: worst([...aboveList, ...whole]),
+		below: worst([...belowList, ...whole]),
+		boundary: parseElevation(upper[0]?.elevation?.lowerBound, 'lower') ?? parseElevation(lower[0]?.elevation?.upperBound, 'upper'),
+		aspects: [...new Set(aboveList.flatMap((r) => (r?.aspects ?? []) as Aspect[]))],
 		problems: (bulletin.avalancheProblems ?? []).map(
 			(p: any): AvalancheProblem => ({
 				type: p?.problemType ?? 'unknown',
 				aspects: (p?.aspects ?? []) as Aspect[],
-				elevationAbove: parseElevation(p?.elevation?.lowerBound),
-				elevationBelow: parseElevation(p?.elevation?.upperBound)
+				elevationAbove: parseElevation(p?.elevation?.lowerBound, 'lower'),
+				elevationBelow: parseElevation(p?.elevation?.upperBound, 'upper')
 			})
 		),
 		highlights: bulletin.highlights ?? bulletin.avalancheActivity?.highlights ?? null
@@ -122,11 +130,17 @@ export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
 }
 
 /** CAAML erlaubt "treeline" statt einer Zahl. */
-function parseElevation(value: unknown): number | null {
+/**
+ * Hoehenangabe aus CAAML. "treeline" (Waldgrenze) liegt in Tirol irgendwo
+ * zwischen 1800 und 2200 m - ausgelegt wird sie immer zur sicheren Seite:
+ * "oberhalb der Waldgrenze" ab 1800 m, "unterhalb der Waldgrenze" bis 2200 m.
+ * So faellt keine Tour durch die Unschaerfe aus einer Warnung heraus.
+ */
+export function parseElevation(value: unknown, bound: 'lower' | 'upper'): number | null {
 	if (value === undefined || value === null) return null;
 	if (typeof value === 'number') return value;
 	const text = String(value).toLowerCase();
-	if (text === 'treeline') return 2000;
+	if (text === 'treeline') return bound === 'lower' ? 1800 : 2200;
 	const parsed = Number.parseInt(text, 10);
 	return Number.isNaN(parsed) ? null : parsed;
 }
@@ -143,7 +157,7 @@ export function demoBulletin(now = new Date()): AvalancheBulletin {
 		rating: { above: 3, below: 2, elevationBoundary: 2200, aspects: ['N', 'NE', 'E', 'NW'] },
 		problems: [
 			{ type: 'wind_slab', aspects: ['N', 'NE', 'E', 'NW'], elevationAbove: 2200, elevationBelow: null },
-			{ type: 'persistent_weak_layer', aspects: ['N', 'NW', 'W'], elevationAbove: 2400, elevationBelow: null }
+			{ type: 'persistent_weak_layers', aspects: ['N', 'NW', 'W'], elevationAbove: 2400, elevationBelow: null }
 		],
 		summary:
 			'Frischer Triebschnee ist die Hauptgefahr. Störanfällig sind kammnahe Bereiche der Expositionen Nordwest über Nord bis Ost oberhalb von 2200 m.',
