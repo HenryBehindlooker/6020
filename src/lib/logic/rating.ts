@@ -96,8 +96,23 @@ export function rateTour(
 		};
 	}
 
+	// Hat die Tour eine Lawinenregion und der Bericht eine Einschaetzung dafuer,
+	// gilt diese. Sonst die unguenstigste ueber ganz Tirol.
+	const regional = tour.eawsRegion ? bulletin.byRegion?.[tour.eawsRegion] : undefined;
+	if (regional) {
+		bulletin = { ...bulletin, rating: regional.rating, problems: regional.problems };
+	}
+
 	const level = dangerLevelForTour(bulletin, tour);
 	let signal: Signal = 'gruen';
+
+	reasons.push({
+		factor: 'Region',
+		detail: regional
+			? `Bewertet nach der Lawinenregion ${tour.eawsRegion}.`
+			: 'Keine Einschätzung für die Region dieser Tour - es gilt die ungünstigste Tirols.',
+		impact: 'neutral'
+	});
 
 	if (level === 0) {
 		reasons.push({
@@ -127,8 +142,9 @@ export function rateTour(
 		});
 	}
 
-	// Steilheit im Zusammenspiel mit der Gefahrenstufe: ab Stufe 3 sind
-	// Hangneigungen ueber 35 Grad das entscheidende Kriterium.
+	// Steilheit im Zusammenspiel mit der Gefahrenstufe, angelehnt an die
+	// Reduktionsmethode: bei Stufe 2 sind Haenge ab 40 Grad heikel, ab Stufe 3
+	// solche ab 35 Grad das entscheidende Kriterium.
 	if (tour.steepnessMax >= 35 && level >= 3) {
 		signal = escalate(signal, 'rot');
 		reasons.push({
@@ -143,10 +159,18 @@ export function rateTour(
 			detail: `Passagen bis ${tour.steepnessMax}° bei Gefahrenstufe ${level}.`,
 			impact: 'warnung'
 		});
+	} else if (tour.steepnessMax >= 40 && level === 2) {
+		signal = escalate(signal, 'gelb');
+		reasons.push({
+			factor: 'Steilheit',
+			detail: `Schlüsselstelle bis ${tour.steepnessMax}° - auch bei Gefahrenstufe 2 heikel.`,
+			impact: 'warnung'
+		});
 	}
 
 	// Gefahrenmuster des Lageberichts gegen die Hangrichtungen der Tour pruefen.
 	for (const problem of bulletin.problems) {
+		if (HARMLESS_PROBLEMS.has(problem.type)) continue;
 		const overlap = overlappingAspects(tour.aspects, problem.aspects);
 		if (overlap.length === 0) continue;
 
@@ -211,14 +235,24 @@ export function rateTour(
 	return { signal, effectiveDangerLevel: level, reasons };
 }
 
+/** Problemtypen nach CAAMLv6 - "persistent_weak_layers" im Plural, so steht es in den echten Berichten. */
 const PROBLEM_LABELS: Record<string, string> = {
-	wind_slab: 'Triebschnee',
 	new_snow: 'Neuschnee',
+	wind_slab: 'Triebschnee',
+	persistent_weak_layers: 'Altschnee',
 	persistent_weak_layer: 'Altschnee',
 	wet_snow: 'Nassschnee',
 	gliding_snow: 'Gleitschnee',
-	favourable_situation: 'Günstige Situation'
+	cornices: 'Wechten',
+	favourable_situation: 'Günstige Situation',
+	no_distinct_avalanche_problem: 'Kein ausgeprägtes Lawinenproblem'
 };
+
+/**
+ * Diese "Probleme" beschreiben eine Entwarnung. Sie duerfen die Ampel nie
+ * hochstufen, auch wenn ihre Hangrichtungen zur Tour passen.
+ */
+export const HARMLESS_PROBLEMS = new Set(['favourable_situation', 'no_distinct_avalanche_problem']);
 
 export function problemLabel(type: string): string {
 	return PROBLEM_LABELS[type] ?? type;

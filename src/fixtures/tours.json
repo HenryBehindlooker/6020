@@ -30,7 +30,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-14-04"
   },
   {
     "id": "rangger-koepfl",
@@ -62,7 +63,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-09"
   },
   {
     "id": "pirchkogel",
@@ -95,7 +97,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-09"
   },
   {
     "id": "zischgeles",
@@ -127,7 +130,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-14-03"
   },
   {
     "id": "lampsenspitze",
@@ -160,7 +164,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-14-03"
   },
   {
     "id": "rosskogel",
@@ -193,7 +198,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-09"
   },
   {
     "id": "patscherkofel",
@@ -225,7 +231,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-15"
   },
   {
     "id": "hafelekar",
@@ -257,7 +264,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-04-01"
   },
   {
     "id": "sulzkogel",
@@ -289,7 +297,8 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-14-02"
   },
   {
     "id": "arzler-alm",
@@ -321,6 +330,7 @@
     "verification": {
       "osm": "Gipfelname, -höhe und -lage sowie die Haltestelle aus OpenStreetMap",
       "estimate": "Hangrichtung, Steilheit und Gehzeiten sind Richtwerte, nicht aus geprüften Quellen"
-    }
+    },
+    "eawsRegion": "AT-07-04-01"
   }
 ]

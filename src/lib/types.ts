@@ -17,7 +17,7 @@ export interface DangerRating {
 }
 
 export interface AvalancheProblem {
-	/** EAWS-Problemtyp, z.B. "wind_slab", "persistent_weak_layer". */
+	/** EAWS-Problemtyp (CAAMLv6), z.B. "wind_slab", "persistent_weak_layers". */
 	type: string;
 	aspects: Aspect[];
 	elevationAbove: number | null;
@@ -25,6 +25,8 @@ export interface AvalancheProblem {
 }
 
 export interface AvalancheBulletin {
+	/** echt: Lawinenwarndienst Tirol. demo: mitgelieferter Beispielbericht. */
+	kind: 'echt' | 'demo';
 	regionId: string;
 	regionName: string;
 	/** ISO-Zeitpunkt der Veroeffentlichung. */
@@ -35,6 +37,11 @@ export interface AvalancheBulletin {
 	/** Kurzfassung des Berichts (Originaltext des Lawinenwarndienstes). */
 	summary: string;
 	source: string;
+	/**
+	 * Einschaetzung je Mikroregion (z.B. "AT-07-09"). rating und problems oben
+	 * sind die unguenstigste ueber ganz Tirol - fuer Touren ohne Region.
+	 */
+	byRegion?: Record<string, { rating: DangerRating; problems: AvalancheProblem[] }>;
 }
 
 export interface WeatherForecast {
@@ -125,6 +132,8 @@ export interface Tour {
 	};
 	/** OSM-Referenz der Haltestelle am Ausgangspunkt. */
 	trailheadOsm?: string | null;
+	/** EAWS-Mikroregion des Gipfels (scripts/assign_regions.py). */
+	eawsRegion?: string;
 	/** Was belegt ist und was Richtwert bleibt. */
 	verification?: {
 		osm: string;

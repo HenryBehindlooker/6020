@@ -6,8 +6,9 @@ export const config = {
 	get mode(): DataMode {
 		return env.DATA_MODE === 'live' ? 'live' : 'demo';
 	},
-	get avalancheUrl(): string {
-		return env.AVALANCHE_BULLETIN_URL || 'https://static.avalanche.report/eaws_bulletins/latest/AT-07.json';
+	/** Verzeichnis der Tagesordner; die Datei heisst <Tag>/<Tag>-AT-07.json. */
+	get avalancheBaseUrl(): string {
+		return (env.AVALANCHE_BASE_URL || 'https://static.avalanche.report/eaws_bulletins').replace(/\/$/, '');
 	},
 	get geosphereBaseUrl(): string {
 		return env.GEOSPHERE_BASE_URL || 'https://dataset.api.hub.geosphere.at/v1';

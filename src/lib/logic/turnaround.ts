@@ -98,9 +98,17 @@ export function planTurnaround(
 	const slackMinutes = diffMinutes(turnaroundAt, summitAt);
 	const feasible = slackMinutes >= 0;
 
-	const note = feasible
+	let note = feasible
 		? `Gipfel rechnerisch um ${hhmm(summitAt)}, Umkehrzeit ${hhmm(turnaroundAt)} - ${formatReserve(slackMinutes)} Reserve.`
 		: `Zu knapp: der Gipfel fällt ${formatReserve(Math.abs(slackMinutes))} hinter die Umkehrzeit ${hhmm(turnaroundAt)}.`;
+
+	// Zu knapp mit dem gewaehlten Aufbruch - ginge es mit einem frueheren Bus?
+	if (!feasible) {
+		const frueher = earliestFeasibleOutbound(tour, connection, turnaroundAt);
+		if (frueher && new Date(frueher.departure) < new Date(outbound.departure)) {
+			note += ` Mit dem Bus um ${hhmm(realDeparture(frueher))} ginge es sich aus.`;
+		}
+	}
 
 	return { outbound, lastInbound, turnaroundAt, summitAt, slackMinutes, feasible, note };
 }
@@ -111,6 +119,19 @@ export function formatReserve(minutes: number): string {
 	const h = Math.floor(minutes / 60);
 	const m = minutes % 60;
 	return m === 0 ? `${h} h` : `${h} h ${m} min`;
+}
+
+/** Die spaeteste Hinfahrt, mit der der Gipfel noch vor der Umkehrzeit erreicht wird. */
+export function earliestFeasibleOutbound(
+	tour: Tour,
+	connection: TransitConnection,
+	turnaroundAt: string
+): Departure | null {
+	const grenze = new Date(turnaroundAt).getTime() - tour.ascentMinutes * 60_000;
+	const passend = connection.outbound
+		.filter((d) => new Date(d.arrival).getTime() + (d.delayMinutes ?? 0) * 60_000 <= grenze)
+		.sort((a, b) => new Date(b.departure).getTime() - new Date(a.departure).getTime());
+	return passend[0] ?? null;
 }
 
 export function hhmm(iso: string): string {

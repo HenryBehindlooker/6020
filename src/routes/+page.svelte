@@ -55,7 +55,17 @@
 				{/if}
 			</span>
 		</p>
-		<p class="summary">{bulletin.summary}</p>
+		{#if bulletin.kind === 'echt'}
+			<p class="summary">
+				<span lang="en">{bulletin.summary}</span>
+				<span class="herkunft">
+					Englischer Originaltext des Lawinenwarndienstes Tirol · {plan.status.lawineStand} ·
+					<a href="https://lawinen.report" rel="noreferrer">deutsche Fassung auf lawinen.report</a>
+				</span>
+			</p>
+		{:else}
+			<p class="summary">{bulletin.summary}</p>
+		{/if}
 		{#if bulletin.problems.length > 0}
 			<ul class="problems" aria-label="Lawinenprobleme">
 				{#each bulletin.problems as problem}
@@ -183,6 +193,16 @@
 		margin: 0;
 		color: var(--muted);
 		font-size: 0.92rem;
+	}
+
+	.herkunft {
+		display: block;
+		margin-top: 0.35rem;
+		font-size: 0.78rem;
+	}
+
+	.herkunft a {
+		color: var(--sky-deep);
 	}
 
 	.fehlt {

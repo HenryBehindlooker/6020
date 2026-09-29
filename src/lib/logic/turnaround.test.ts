@@ -149,3 +149,19 @@ describe('formatReserve', () => {
 		expect(formatReserve(506)).toBe('8 h 26 min');
 	});
 });
+
+describe('Hinweis auf einen frueheren Bus', () => {
+	it('schlaegt den spaetesten Bus vor, mit dem es sich noch ausgeht', () => {
+		const langsam = { ...tour, ascentMinutes: 400 };
+		// Mit Aufbruch 07:00 UTC erwischt man erst 07:45 - zu knapp; um 05:45 ginge es.
+		const plan = planTurnaround(langsam, connection, { notBefore: '2026-01-15T07:00:00Z' });
+		expect(plan.feasible).toBe(false);
+		expect(plan.note).toContain('Mit dem Bus um 06:45 ginge es sich aus.');
+	});
+
+	it('schlaegt nichts vor, wenn es auch mit dem ersten Bus nicht reicht', () => {
+		const sehrLangsam = { ...tour, ascentMinutes: 700 };
+		const plan = planTurnaround(sehrLangsam, connection, { notBefore: '2026-01-15T07:00:00Z' });
+		expect(plan.note).not.toContain('ginge es sich aus');
+	});
+});

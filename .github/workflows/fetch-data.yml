@@ -1,9 +1,14 @@
 name: Echte Daten holen (OSM + Fahrplan)
 
-# Holt Wege, Huetten und Seilbahnen aus OpenStreetMap und sucht oeffentliche
-# GTFS-Fahrplaene. Laeuft auf GitHub, weil nur dort freies Internet ist, und
-# committet die Ergebnisse nach static/osm/ und data/gtfs/ zurueck.
+# Holt Wege, Huetten und Seilbahnen aus OpenStreetMap, Fahrplaene und den
+# Lawinenlagebericht. Laeuft auf GitHub, weil nur dort freies Internet ist, und
+# committet die Ergebnisse nach static/osm/ und data/ zurueck.
 on:
+  # Der Lagebericht erscheint gegen 17 Uhr, manchmal mit Aktualisierung am
+  # Morgen: 06:30 und 16:30 UTC = 07:30 und 17:30 Wiener Winterzeit.
+  # Zeitplaene laufen immer auf dem Standardzweig (main).
+  schedule:
+    - cron: '30 6,16 * * *'
   push:
     branches: [claude/innsbruck-webapp-proposal-qnyvew]
     paths:
@@ -50,6 +55,11 @@ jobs:
         timeout-minutes: 15
         run: python scripts/fetch/transitous.py
 
+      - name: Lawinenlagebericht Tirol (avalanche.report)
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python scripts/fetch/avalanche.py
+
       - name: Freie Schnittstellen pruefen
         continue-on-error: true
         timeout-minutes: 5
@@ -60,13 +70,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Jeden Pfad einzeln: fehlt einer, soll das nicht die anderen verschlucken.
-          for pfad in static/osm data/gtfs data/transit data/probe; do
+          for pfad in static/osm data/gtfs data/transit data/probe data/lawine; do
             if [ -e "$pfad" ]; then git add "$pfad"; fi
           done
           if git diff --cached --quiet; then
             echo "Keine neuen Daten."
           else
-            git commit -m "Daten aktualisiert: OSM und Fahrplan ($(date -u +%Y-%m-%d))"
+            git commit -m "Daten aktualisiert: Lawine, Fahrplan, OSM ($(date -u "+%Y-%m-%d %H:%M") UTC)"
             # Der Zweig kann sich waehrend des Laufs bewegt haben.
             git pull --rebase
             git push
