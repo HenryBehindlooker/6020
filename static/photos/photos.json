@@ -1,0 +1,391 @@
+{
+ "fetched_at": "2026-09-29T08:26:11+00:00",
+ "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
+ "valleys": [
+  {
+   "title": "Patscherkofel",
+   "lat": 47.20861,
+   "lon": 11.46056,
+   "extract": "Der Patscherkofel ist ein 2246 m ü. A. hoher Gipfel der Tuxer Alpen.",
+   "article": "https://de.wikipedia.org/wiki/Patscherkofel",
+   "photo": {
+    "file": "File:12-06-05-innsbruck-by-ralfr-014.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/12-06-05-innsbruck-by-ralfr-014.jpg/960px-12-06-05-innsbruck-by-ralfr-014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 638,
+    "page": "https://commons.wikimedia.org/wiki/File:12-06-05-innsbruck-by-ralfr-014.jpg",
+    "author": "Ralf Roletschek (talk) - Infos über Fahrräder auf fahrradmonteur.deWiki-Technologie für Schulen und Unternehmen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "Patscherkofel, Innsbruck",
+    "date": "2012-06-05"
+   }
+  },
+  {
+   "title": "Stubaital",
+   "lat": 47.14722,
+   "lon": 11.34694,
+   "extract": "Das Stubaital, kurz das Stubai genannt, ist das größte Seitental des Wipptals und das Haupttal der Stubaier Alpen im österreichischen Bundesland Tirol.\nEs erstreckt sich vom Alpenhauptkamm rund 30 km in nordöstlicher Richtung zum Wipptal, von diesem ist es leicht zugänglich.",
+   "article": "https://de.wikipedia.org/wiki/Stubaital",
+   "photo": {
+    "file": "File:Elferspitzenblick.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Elferspitzenblick.jpg/960px-Elferspitzenblick.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Elferspitzenblick.jpg",
+    "author": "Benutzer:Hejkal",
+    "license": "CC BY-SA 2.0 de",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en",
+    "caption": "Blick ins Stubaital",
+    "date": "2007-09-22"
+   }
+  },
+  {
+   "title": "Kühtai",
+   "lat": 47.21333,
+   "lon": 11.02333,
+   "extract": "Das Kühtai ist ein Wintersportort in den Stubaier Alpen am Kühtaisattel zwischen dem Nedertal im Westen und dem Sellraintal im Osten. Er gehört zur Gemeinde Silz, Bezirk Imst, Tirol.",
+   "article": "https://de.wikipedia.org/wiki/K%C3%BChtai",
+   "photo": {
+    "file": "File:Kuehtai.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Kuehtai.jpg/960px-Kuehtai.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 727,
+    "page": "https://commons.wikimedia.org/wiki/File:Kuehtai.jpg",
+    "author": "Tubantia",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "caption": "The winter sport resort Kühtai in Tyrol, Austria. The road through the mountain pass Kühtaisattel (2017 m) can be found in the left below corner, running through Kühtai and disappearing behind the mou",
+    "date": "2007-07-13"
+   }
+  }
+ ],
+ "tours": {
+  "nockspitze": [
+   {
+    "file": "File:Habicht-Ampferstein-Marchreisenspitze.JPG",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Habicht-Ampferstein-Marchreisenspitze.JPG/960px-Habicht-Ampferstein-Marchreisenspitze.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Habicht-Ampferstein-Marchreisenspitze.JPG",
+    "author": "Svickova",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "caption": "Mountains Habicht 3277m, Ampferstein 2556m and Marchreisenspitze 2620, seen from NE, Saile (Nockspitze)2404m",
+    "date": "2008-06-22",
+    "distM": 14
+   },
+   {
+    "file": "File:Gipfelkreuz Saile.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Gipfelkreuz_Saile.jpg/960px-Gipfelkreuz_Saile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Saile.jpg",
+    "author": "Werner Singer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 135336. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2014-08-13",
+    "distM": 17
+   },
+   {
+    "file": "File:Gipfelkreuz Saile Vorgipfel.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Gipfelkreuz_Saile_Vorgipfel.jpg/960px-Gipfelkreuz_Saile_Vorgipfel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Saile_Vorgipfel.jpg",
+    "author": "Werner Singer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 137342. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2014-08-24",
+    "distM": 250
+   },
+   {
+    "file": "File:Zwischen Birgitzköpflalm und Hoadl - panoramio.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg/960px-Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg",
+    "author": "Martin Kolp",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "Zwischen Birgitzköpflalm und Hoadl",
+    "date": "Taken on 1",
+    "distM": 607
+   }
+  ],
+  "rangger-koepfl": [
+   {
+    "file": "File:Roßkogelhütte (IMG 20201001 163047).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163047%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163047%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163047).jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Roßkogelhütte",
+    "date": "2020-10-01",
+    "distM": 596
+   },
+   {
+    "file": "File:Roßkogelhütte (IMG 20201001 163203).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163203%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163203%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163203).jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Roßkogelhütte",
+    "date": "2020-10-01",
+    "distM": 646
+   },
+   {
+    "file": "File:Roßkogelhütte (IMG 20201001 163240).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163240%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163240%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 719,
+    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163240).jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Roßkogelhütte",
+    "date": "2020-10-01",
+    "distM": 646
+   },
+   {
+    "file": "File:Roßkogelhütte (IMG 20201001 163249).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163249%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163249%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163249).jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Roßkogelhütte",
+    "date": "2020-10-01",
+    "distM": 646
+   }
+  ],
+  "pirchkogel": [
+   {
+    "file": "File:Pirchkogel 5.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Pirchkogel_5.jpg/960px-Pirchkogel_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Pirchkogel_5.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Pirchkogel",
+    "date": "2025-07-31",
+    "distM": 0
+   },
+   {
+    "file": "File:Pirchkogel 4.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Pirchkogel_4.jpg/960px-Pirchkogel_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 281,
+    "page": "https://commons.wikimedia.org/wiki/File:Pirchkogel_4.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Pirchkogel",
+    "date": "2025-07-31",
+    "distM": 4
+   },
+   {
+    "file": "File:Pirchkogel 2.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Pirchkogel_2.jpg/960px-Pirchkogel_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 331,
+    "page": "https://commons.wikimedia.org/wiki/File:Pirchkogel_2.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Pirchkogel",
+    "date": "2025-07-31",
+    "distM": 4
+   },
+   {
+    "file": "File:Pirchkogel 3.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Pirchkogel_3.jpg/960px-Pirchkogel_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 358,
+    "page": "https://commons.wikimedia.org/wiki/File:Pirchkogel_3.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Pirchkogel",
+    "date": "2025-07-31",
+    "distM": 15
+   }
+  ],
+  "zischgeles": [],
+  "lampsenspitze": [],
+  "hafelekar": [
+   {
+    "file": "File:Lila Gruner Igls mit Blick auf Hafelekar.jpg",
+    "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Lila_Gruner_Igls_mit_Blick_auf_Hafelekar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "width": 960,
+    "height": 1494,
+    "page": "https://commons.wikimedia.org/wiki/File:Lila_Gruner_Igls_mit_Blick_auf_Hafelekar.jpg",
+    "author": "Lila Gruner",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "caption": "ca. 47 x 30 cm, signiert und datiert: 1938, Mischtechnik auf Papier",
+    "date": "1938",
+    "distM": 0
+   },
+   {
+    "file": "File:Hafelekar, Tyrol, Austria - panoramio.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg/960px-Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 643,
+    "page": "https://commons.wikimedia.org/wiki/File:Hafelekar,_Tyrol,_Austria_-_panoramio.jpg",
+    "author": "Pavel.Shulekin",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "caption": "Hafelekar, Tyrol, Austria",
+    "date": "Taken on 2",
+    "distM": 1
+   },
+   {
+    "file": "File:Innsbruck look from Hafelekar, Tyrol, Austria - panoramio.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Innsbruck_look_from_Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg/960px-Innsbruck_look_from_Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 597,
+    "page": "https://commons.wikimedia.org/wiki/File:Innsbruck_look_from_Hafelekar,_Tyrol,_Austria_-_panoramio.jpg",
+    "author": "Pavel.Shulekin",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "caption": "Innsbruck look from Hafelekar, Tyrol, Austria",
+    "date": "Taken on 2",
+    "distM": 1
+   },
+   {
+    "file": "File:Hafelekar, Tyrol, Austria - panoramio (1).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Hafelekar%2C_Tyrol%2C_Austria_-_panoramio_%281%29.jpg/960px-Hafelekar%2C_Tyrol%2C_Austria_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 631,
+    "page": "https://commons.wikimedia.org/wiki/File:Hafelekar,_Tyrol,_Austria_-_panoramio_(1).jpg",
+    "author": "Pavel.Shulekin",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "caption": "Hafelekar, Tyrol, Austria",
+    "date": "Taken on 2",
+    "distM": 4
+   }
+  ],
+  "sulzkogel": [
+   {
+    "file": "File:Kraspesspitze, Weitkarspitze and Zwieselbacher Rosskogel.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Kraspesspitze%2C_Weitkarspitze_and_Zwieselbacher_Rosskogel.jpg/960px-Kraspesspitze%2C_Weitkarspitze_and_Zwieselbacher_Rosskogel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 265,
+    "page": "https://commons.wikimedia.org/wiki/File:Kraspesspitze,_Weitkarspitze_and_Zwieselbacher_Rosskogel.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Kraspesspitze, Weitkarspitze and Zwieselbacher Rosskogel.",
+    "date": "2025-07-30",
+    "distM": 8
+   },
+   {
+    "file": "File:Kraspesspitze.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Kraspesspitze.jpg/960px-Kraspesspitze.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 746,
+    "page": "https://commons.wikimedia.org/wiki/File:Kraspesspitze.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Kraspesspitze",
+    "date": "2025-07-30",
+    "distM": 8
+   },
+   {
+    "file": "File:Zwölferkogel 3.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Zw%C3%B6lferkogel_3.jpg/960px-Zw%C3%B6lferkogel_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 640,
+    "page": "https://commons.wikimedia.org/wiki/File:Zw%C3%B6lferkogel_3.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Zwölferkogel. View from Sulzkogel.",
+    "date": "2025-07-30",
+    "distM": 8
+   },
+   {
+    "file": "File:Zwölferkogel 2.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Zw%C3%B6lferkogel_2.jpg/960px-Zw%C3%B6lferkogel_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 593,
+    "page": "https://commons.wikimedia.org/wiki/File:Zw%C3%B6lferkogel_2.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Zwölferkogel. View from Sulzkogel.",
+    "date": "2025-07-30",
+    "distM": 8
+   }
+  ],
+  "arzler-alm": [
+   {
+    "file": "File:Sunlit roots in the woods (Unsplash).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Sunlit_roots_in_the_woods_%28Unsplash%29.jpg/960px-Sunlit_roots_in_the_woods_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 640,
+    "page": "https://commons.wikimedia.org/wiki/File:Sunlit_roots_in_the_woods_(Unsplash).jpg",
+    "author": "Fabian Irsara firsara",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Arzler Alm, Innsbruck, Austria",
+    "date": "2016-10-09",
+    "distM": 5
+   },
+   {
+    "file": "File:Arzler Alm Innsbruck 2023-09-25 01.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Arzler_Alm_Innsbruck_2023-09-25_01.jpg/960px-Arzler_Alm_Innsbruck_2023-09-25_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 641,
+    "page": "https://commons.wikimedia.org/wiki/File:Arzler_Alm_Innsbruck_2023-09-25_01.jpg",
+    "author": "Leonhard Lenz",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Arzler Alm in Innsbruck.",
+    "date": "2023-09-25",
+    "distM": 19
+   },
+   {
+    "file": "File:Arzler Alm Innsbruck 2023-09-25 05.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Arzler_Alm_Innsbruck_2023-09-25_05.jpg/960px-Arzler_Alm_Innsbruck_2023-09-25_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 641,
+    "page": "https://commons.wikimedia.org/wiki/File:Arzler_Alm_Innsbruck_2023-09-25_05.jpg",
+    "author": "Leonhard Lenz",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Arzler Alm in Innsbruck.",
+    "date": "2023-09-25",
+    "distM": 20
+   },
+   {
+    "file": "File:Arzler Alm Innsbruck 2023-09-25 04.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Arzler_Alm_Innsbruck_2023-09-25_04.jpg/960px-Arzler_Alm_Innsbruck_2023-09-25_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 641,
+    "page": "https://commons.wikimedia.org/wiki/File:Arzler_Alm_Innsbruck_2023-09-25_04.jpg",
+    "author": "Leonhard Lenz",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Arzler Alm in Innsbruck.",
+    "date": "2023-09-25",
+    "distM": 20
+   }
+  ]
+ }
+}

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-26T10:26:14+00:00",
+  "fetched_at": "2026-09-29T08:20:14+00:00",
   "bbox_s_w_n_e": [
     47.08,
     10.95,
@@ -10,35 +10,44 @@
   "license_url": "https://www.openstreetmap.org/copyright",
   "files": {
     "routes-hiking": {
-      "count": 250,
-      "kb": 411,
-      "osm_timestamp": "2026-09-26T10:23:06Z"
+      "count": 252,
+      "kb": 418,
+      "osm_timestamp": "2026-09-29T08:11:45Z"
     },
     "routes-skitour": {
       "count": 273,
-      "kb": 157,
-      "osm_timestamp": "2026-09-26T10:24:06Z"
+      "kb": 159,
+      "osm_timestamp": "2026-09-29T08:11:45Z"
     },
     "huts": {
       "count": 187,
-      "kb": 62,
-      "osm_timestamp": "2026-09-26T10:24:06Z",
-      "filter": "Schutzhuetten sowie Einkehr mit Bergnamen oder Hoehe ab 900 m, ausserhalb der Innenstadt (Heuristik)"
+      "kb": 48,
+      "osm_timestamp": "2026-09-29T08:11:45Z"
+    },
+    "routes-bike": {
+      "count": 190,
+      "kb": 408,
+      "osm_timestamp": "2026-09-29T08:11:45Z"
+    },
+    "pois": {
+      "count": 1830,
+      "kb": 303,
+      "osm_timestamp": "2026-07-24T11:04:51Z"
     },
     "aerialways": {
-      "count": 78,
+      "count": 76,
       "kb": 27,
-      "osm_timestamp": "2026-09-26T10:24:06Z"
+      "osm_timestamp": "2026-06-01T08:52:28Z"
     },
     "peaks": {
       "count": 455,
-      "kb": 81,
-      "osm_timestamp": "2026-09-26T10:24:06Z"
+      "kb": 89,
+      "osm_timestamp": "2026-09-29T08:18:14Z"
     },
     "bus-stops": {
       "count": 1653,
-      "kb": 325,
-      "osm_timestamp": "2026-09-26T10:24:06Z"
+      "kb": 329,
+      "osm_timestamp": "2026-09-29T08:18:14Z"
     }
   }
 }
