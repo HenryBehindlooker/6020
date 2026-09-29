@@ -1,7 +1,8 @@
 import type { Aspect, AvalancheBulletin, AvalancheProblem, DangerLevel } from '$lib/types';
 import { cached } from '$lib/server/cache';
 import { config } from '$lib/server/config';
-import { viennaTime } from '$lib/logic/time';
+import { readFile } from 'node:fs/promises';
+import { TIME_ZONE, viennaTime } from '$lib/logic/time';
 
 const LEVEL_BY_NAME: Record<string, DangerLevel> = {
 	no_snow: 0,
@@ -15,29 +16,81 @@ const LEVEL_BY_NAME: Record<string, DangerLevel> = {
 /** Region Tirol im EAWS-Schema. */
 const REGION_ID = 'AT-07';
 
+/** Vom Abholer auf dem GitHub-Runner geschrieben (scripts/fetch/avalanche.py). */
+const SNAPSHOT_PATH = 'data/lawine/latest.json';
+
+interface Snapshot {
+	date: string;
+	bulletin: unknown;
+	fetched_at?: string;
+}
+
+async function loadSnapshot(): Promise<Snapshot | null> {
+	return cached('lawine:snapshot', config.cacheTtlMs, async () => {
+		try {
+			return JSON.parse(await readFile(SNAPSHOT_PATH, 'utf8')) as Snapshot;
+		} catch {
+			return null;
+		}
+	});
+}
+
+/**
+ * Nur ein gueltiger Bericht zaehlt als aktuelle Lage. Ein abgelaufener - etwa
+ * der letzte vom Fruehjahr - wird nie als heutige Einschaetzung ausgegeben.
+ */
+export function currentBulletin(raw: unknown, now: Date): AvalancheBulletin | null {
+	try {
+		const bulletin = parseCaaml(raw, now);
+		const start = new Date(bulletin.publishedAt).getTime();
+		const end = new Date(bulletin.validUntil).getTime();
+		return now.getTime() <= end && now.getTime() >= start - 24 * 3_600_000 ? bulletin : null;
+	} catch (err) {
+		console.error('[avalanche] Bericht nicht lesbar:', err);
+		return null;
+	}
+}
+
+/** Datum des letzten echten Berichts - fuer den Hinweis auf die Saisonpause. */
+export async function lastBulletinDate(): Promise<string | null> {
+	return (await loadSnapshot())?.date ?? null;
+}
+
 /**
  * Laedt den Lawinenlagebericht.
  *
- * Demo-Modus: mitgelieferter Beispielbericht. Live-Modus: der echte Bericht -
- * und wenn der nicht zu bekommen ist, null. Niemals still auf Demodaten
- * ausweichen: ein erfundener Bericht, der wie ein echter aussieht, ist
- * gefaehrlicher als gar keiner. Ohne Bericht zeigt die Ampel "unklar".
+ * 1. Gueltiger Bericht im Abzug des Runners: der gilt - auch in der
+ *    oeffentlichen Demo-Fassung.
+ * 2. Sonst im Demo-Modus: der mitgelieferte Beispielbericht.
+ * 3. Sonst im Live-Modus: direkt bei avalanche.report nachfragen - und wenn
+ *    das nichts bringt, null. Niemals still auf Demodaten ausweichen: ein
+ *    erfundener Bericht, der wie ein echter aussieht, ist gefaehrlicher als
+ *    gar keiner. Ohne Bericht zeigt die Ampel "unklar".
  */
 export async function getBulletin(now = new Date()): Promise<AvalancheBulletin | null> {
+	const snapshot = await loadSnapshot();
+	const fromSnapshot = snapshot ? currentBulletin(snapshot.bulletin, now) : null;
+	if (fromSnapshot) return fromSnapshot;
+
 	if (config.mode === 'demo') return demoBulletin(now);
 
 	return cached('bulletin', config.cacheTtlMs, async () => {
-		try {
-			const res = await fetch(config.avalancheUrl, {
-				headers: { accept: 'application/json' },
-				signal: AbortSignal.timeout(10_000)
-			});
-			if (!res.ok) throw new Error(`Lagebericht antwortete mit ${res.status}`);
-			return parseCaaml(await res.json(), now);
-		} catch (err) {
-			console.error('[avalanche] Lagebericht nicht verfuegbar:', err);
-			return null;
+		// Der Bericht fuer morgen erscheint gegen 17 Uhr im Ordner von morgen.
+		for (const offset of [1, 0]) {
+			const tag = new Date(now.getTime() + offset * 86_400_000).toLocaleDateString('en-CA', { timeZone: TIME_ZONE });
+			try {
+				const res = await fetch(`${config.avalancheBaseUrl}/${tag}/${tag}-AT-07.json`, {
+					headers: { accept: 'application/json' },
+					signal: AbortSignal.timeout(10_000)
+				});
+				if (!res.ok) continue;
+				const bulletin = currentBulletin(await res.json(), now);
+				if (bulletin) return bulletin;
+			} catch (err) {
+				console.error('[avalanche] Lagebericht nicht verfuegbar:', err);
+			}
 		}
+		return null;
 	});
 }
 
@@ -113,6 +166,7 @@ export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
 	const boundaries = parts.map((p) => p.boundary).filter((b): b is number => b !== null);
 
 	return {
+		kind: 'echt',
 		regionId: REGION_ID,
 		regionName: parts.length > 1 ? `Tirol (ungünstigste von ${parts.length} Regionen)` : 'Tirol',
 		publishedAt: tirol[0].publicationTime ?? now.toISOString(),
@@ -165,6 +219,7 @@ export function demoBulletin(now = new Date()): AvalancheBulletin {
 	const end = viennaTime(now, '17:00');
 
 	return {
+		kind: 'demo',
 		regionId: REGION_ID,
 		regionName: 'Tirol (Demodaten)',
 		publishedAt: now.toISOString(),

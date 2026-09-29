@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { parseCaaml, parseElevation } from './avalanche';
+import { currentBulletin, parseCaaml, parseElevation } from './avalanche';
 import { rateTour } from '$lib/logic/rating';
 import type { Tour, WeatherForecast } from '$lib/types';
 
@@ -123,5 +123,23 @@ describe('Bewertung je Lawinenregion (echter Bericht 17.1.2026)', () => {
 		const r = rateTour({ ...tour, eawsRegion: 'AT-07-99' }, b, ruhig);
 		expect(r.signal).toBe('rot');
 		expect(r.reasons.find((x) => x.factor === 'Region')?.detail).toContain('ungünstigste');
+	});
+});
+
+describe('currentBulletin - nur gueltige Berichte zaehlen', () => {
+	// Der echte Bericht vom 17.1.2026 gilt vom 16.1. 16:00 bis 17.1. 16:00 UTC
+	const doc = echt('2026-01-17');
+
+	it('nimmt den Bericht innerhalb seiner Gueltigkeit', () => {
+		expect(currentBulletin(doc, new Date('2026-01-17T08:00:00Z'))?.kind).toBe('echt');
+	});
+
+	it('verwirft ihn nach Ablauf - etwa den letzten vom Fruehjahr im Herbst', () => {
+		expect(currentBulletin(doc, new Date('2026-01-17T16:01:00Z'))).toBeNull();
+		expect(currentBulletin(doc, new Date('2026-09-29T08:00:00Z'))).toBeNull();
+	});
+
+	it('verwirft unlesbare Berichte, statt abzustuerzen', () => {
+		expect(currentBulletin({ bulletins: [] }, new Date())).toBeNull();
 	});
 });

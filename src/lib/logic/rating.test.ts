@@ -34,6 +34,7 @@ const calmWeather: WeatherForecast = {
 
 function bulletin(overrides: Partial<AvalancheBulletin> = {}): AvalancheBulletin {
 	return {
+		kind: 'echt',
 		regionId: 'AT-07',
 		regionName: 'Tirol',
 		publishedAt: '2026-01-15T17:00:00Z',

@@ -1,9 +1,17 @@
 name: Demo-Fassung auf GitHub Pages
 
-# Baut die vorgerenderte Demo-Fassung (DATA_MODE=demo) und veroeffentlicht sie.
-# Die Live-Fassung braucht einen Node-Server und laeuft nicht auf Pages.
+# Baut die vorgerenderte Fassung und veroeffentlicht sie. Lawinenbericht und
+# Busverbindungen kommen aus den Abzuegen des Abholers (echt, sofern gueltig);
+# das Wetter ist noch Beispieldaten.
 on:
   push:
+    branches: [main]
+  # Der Abholer committet neue Daten mit dem Workflow-Token - solche Pushes
+  # loesen bewusst keine anderen Workflows aus. Darum hier ausdruecklich auf
+  # sein Ende warten, damit der frische Lagebericht auch veroeffentlicht wird.
+  workflow_run:
+    workflows: ['Echte Daten holen (OSM + Fahrplan)']
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -18,9 +26,15 @@ concurrency:
 
 jobs:
   build:
+    # Nach dem Abholer nur bauen, wenn er erfolgreich war
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Beim Ausloesen durch den Abholer den neuesten Stand von main nehmen,
+          # nicht den Commit, auf dem der Abholer gestartet ist.
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 22

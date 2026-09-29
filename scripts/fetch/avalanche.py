@@ -15,6 +15,7 @@ Schreibt:
 import json
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -28,10 +29,21 @@ UA = {"User-Agent": "Bergampel-Innsbruck/0.1 (github.com/HenryBehindlooker/6020;
 SAMPLE_DAYS = ["2026-01-17", "2026-02-14", "2026-03-21", "2025-12-27"]
 
 
-def get(url):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=25) as res:
-        return res.read().decode("utf-8", "replace")
+def get(url, versuche=3):
+    """Mit Wiederholung: eine einzelne Zeitueberschreitung darf nicht dazu fuehren,
+    dass die Suche zum naechstaelteren Bericht weiterspringt. 404 wird sofort
+    weitergereicht - die Datei gibt es dann einfach nicht."""
+    for versuch in range(versuche):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=25) as res:
+                return res.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError:
+            raise
+        except Exception:  # noqa: BLE001 - Zeitueberschreitung, Verbindungsabbruch
+            if versuch == versuche - 1:
+                raise
+            time.sleep(3 * (versuch + 1))
 
 
 def list_links(url):
@@ -161,6 +173,8 @@ def main():
     kandidaten += [d for d in reversed(days) if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6) and d not in kandidaten][:200]
     for day in kandidaten:
         checked += 1
+        if checked > 1:
+            time.sleep(1)  # Ruecksicht: zu schnelle Folgeanfragen weist der Server ab
         url = f"{BASE}{day}/{day}-AT-07.json"
         try:
             latest = {"date": day, "file": f"{day}-AT-07.json", "url": url, "bulletin": json.loads(get(url))}
@@ -196,16 +210,6 @@ def main():
             print(f"Beispiel {day}: {sample['file']}")
         else:
             probe.setdefault("samples", {})[day] = {"files": sfiles[:40]}
-
-    # Die EAWS-Datei ist englisch. avalanche.report hat ein eigenes Archiv unter
-    # /bulletins/ - dort die deutschen Fassungen suchen (nur zur Erkundung).
-    for tag in ("2026-01-17", latest["date"] if latest else None):
-        if not tag:
-            continue
-        try:
-            probe.setdefault("albina_archiv", {})[tag] = list_links(f"https://static.avalanche.report/bulletins/{tag}/")[:80]
-        except Exception as err:  # noqa: BLE001
-            probe.setdefault("albina_archiv", {})[tag] = f"Fehler: {err}"
 
     (OUT / "PROBE.json").write_text(json.dumps(probe, ensure_ascii=False, indent=1))
 

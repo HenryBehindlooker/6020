@@ -1,7 +1,7 @@
 import type { AvalancheBulletin, Tour, TransitConnection, WeatherForecast } from '$lib/types';
 import { rateTour, SIGNAL_ORDER, type TourRating } from '$lib/logic/rating';
 import { planTurnaround, type TurnaroundPlan } from '$lib/logic/turnaround';
-import { getBulletin } from '$lib/server/sources/avalanche';
+import { getBulletin, lastBulletinDate } from '$lib/server/sources/avalanche';
 import { getConnection } from '$lib/server/sources/transit';
 import { getWeather } from '$lib/server/sources/weather';
 import { listTours, trailheads } from '$lib/server/sources/tours';
@@ -23,6 +23,10 @@ export interface DataStatus {
 	fahrplan: 'echt' | 'demo' | 'fehlt' | 'teilweise';
 	/** Stand des echten Fahrplans, z.B. "Transitous, Fahrplan vom Sa 3.10.2026 ...". */
 	fahrplanStand: string | null;
+	/** Gueltigkeit des echten Lageberichts, z.B. "gültig bis Sa 17. Jän., 17:00". */
+	lawineStand: string | null;
+	/** Ausserhalb der Saison: Datum des letzten echten Berichts (JJJJ-MM-TT). */
+	lawineLetzter: string | null;
 }
 
 export interface DayPlan {
@@ -83,11 +87,11 @@ export async function buildDayPlan(options: {
 		sources: [...new Set([bulletin?.source, ...tours.flatMap((t) => [t.weather?.source, t.transit.source])])].filter(
 			(s): s is string => Boolean(s)
 		),
-		status: dataStatus(bulletin, tours)
+		status: dataStatus(bulletin, tours, await lastBulletinDate())
 	};
 }
 
-function dataStatus(bulletin: AvalancheBulletin | null, tours: TourPlan[]): DataStatus {
+function dataStatus(bulletin: AvalancheBulletin | null, tours: TourPlan[], letzter: string | null): DataStatus {
 	const demo = config.mode === 'demo';
 	const mix = <T extends string>(values: T[], all: T, none: T): T | 'teilweise' =>
 		values.every((v) => v === all) ? all : values.every((v) => v === none) ? none : 'teilweise';
@@ -96,8 +100,16 @@ function dataStatus(bulletin: AvalancheBulletin | null, tours: TourPlan[]): Data
 	const fahrplan = tours.map((t) => (t.transit.kind === 'unvollstaendig' ? 'fehlt' : t.transit.kind));
 	const fahrplanArten = new Set(fahrplan);
 
+	const gueltigBis = bulletin?.kind === 'echt'
+		? new Date(bulletin.validUntil).toLocaleString('de-AT', {
+				weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Vienna'
+			})
+		: null;
+
 	return {
-		lawine: bulletin === null ? 'fehlt' : demo ? 'demo' : 'echt',
+		lawine: bulletin === null ? 'fehlt' : bulletin.kind,
+		lawineStand: gueltigBis ? `gültig bis ${gueltigBis}` : null,
+		lawineLetzter: bulletin?.kind === 'echt' ? null : letzter,
 		wetter: demo ? 'demo' : mix(wetter, 'echt', 'fehlt'),
 		fahrplan:
 			fahrplanArten.size === 1 ? (fahrplan[0] as DataStatus['fahrplan']) : fahrplanArten.has('echt') ? 'teilweise' : 'fehlt',

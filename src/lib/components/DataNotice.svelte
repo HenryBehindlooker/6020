@@ -8,53 +8,68 @@
 	 */
 	let { status }: { status: DataStatus } = $props();
 
-	const lawineText = $derived(
-		status.lawine === 'demo'
-			? 'Lawinenlage und Wetter sind Demodaten aus Beispieldateien - keine gültige Auskunft.'
-			: status.lawine === 'fehlt'
-				? 'Der Lawinenlagebericht ist gerade nicht verfügbar. Ohne ihn steht die Ampel auf „Unklar".'
-				: null
-	);
-
-	const wetterText = $derived(
-		status.lawine !== 'demo' && (status.wetter === 'fehlt' || status.wetter === 'teilweise')
-			? 'Die Wetterprognose fehlt für einige Ausgangspunkte; dort ist die Ampel vorsichtshalber strenger.'
+	const letzter = $derived(
+		status.lawineLetzter
+			? new Date(status.lawineLetzter + 'T12:00:00Z').toLocaleDateString('de-AT', {
+					day: 'numeric',
+					month: 'long',
+					year: 'numeric',
+					timeZone: 'Europe/Vienna'
+				})
 			: null
 	);
 
-	const fahrplanText = $derived(
-		status.fahrplan === 'demo'
-			? 'Der Fahrplan ist ein Demo-Fahrplan mit erfundenen Linien.'
-			: status.fahrplan === 'fehlt'
-				? 'Für die Ausgangspunkte liegt gerade kein Fahrplan vor.'
-				: status.fahrplan === 'teilweise'
-					? 'Für einzelne Ausgangspunkte fehlt der Fahrplan; das steht dann bei der Tour.'
-					: null
+	const warnungen = $derived(
+		[
+			status.lawine === 'demo'
+				? letzter
+					? `Der Lawinenwarndienst Tirol berichtet etwa von Dezember bis Mai. Der letzte Bericht ist vom ${letzter}; bis zum Saisonstart zeigt die Bergampel eine Beispiel-Lawinenlage - keine gültige Auskunft.`
+					: 'Die Lawinenlage ist ein Beispiel aus einer mitgelieferten Datei - keine gültige Auskunft.'
+				: null,
+			status.lawine === 'fehlt'
+				? 'Der Lawinenlagebericht ist gerade nicht verfügbar. Ohne ihn steht die Ampel auf „Unklar".'
+				: null,
+			status.wetter === 'demo' ? 'Das Bergwetter ist ein Beispiel, keine Prognose.' : null,
+			status.wetter === 'fehlt' || status.wetter === 'teilweise'
+				? 'Die Wetterprognose fehlt für einige Ausgangspunkte; dort ist die Ampel vorsichtshalber strenger.'
+				: null,
+			status.fahrplan === 'demo' ? 'Der Fahrplan ist ein Demo-Fahrplan mit erfundenen Linien.' : null,
+			status.fahrplan === 'fehlt' ? 'Für die Ausgangspunkte liegt gerade kein Fahrplan vor.' : null,
+			status.fahrplan === 'teilweise'
+				? 'Für einzelne Ausgangspunkte fehlt der Fahrplan; das steht dann bei der Tour.'
+				: null
+		].filter((t): t is string => t !== null)
 	);
 
-	const warnung = $derived(Boolean(lawineText || wetterText || fahrplanText));
+	const echt = $derived(
+		[
+			status.lawine === 'echt'
+				? `Lawinenlage: echter Bericht des Lawinenwarndienstes Tirol (${status.lawineStand}).`
+				: null,
+			status.fahrplan === 'echt' || status.fahrplan === 'teilweise'
+				? `Busverbindungen: echt (${status.fahrplanStand ?? 'Transitous'}). Fahrpläne ändern sich - vor der Fahrt in der VVT- oder ÖBB-App prüfen.`
+				: null
+		].filter((t): t is string => t !== null)
+	);
 </script>
 
-{#if warnung}
+{#if warnungen.length > 0}
 	<aside class="notice" role="note">
 		<strong>{TEXT.obacht}</strong>
-		{#if lawineText}<span>{lawineText}</span>{/if}
-		{#if wetterText}<span>{wetterText}</span>{/if}
-		{#if fahrplanText}<span>{fahrplanText}</span>{/if}
-		{#if status.fahrplan === 'echt' || status.fahrplan === 'teilweise'}
-			<span class="gut">
-				Die Busverbindungen sind echt ({status.fahrplanStand ?? 'Transitous'}). Fahrpläne ändern
-				sich - vor der Fahrt in der VVT- oder ÖBB-App prüfen.
-			</span>
-		{/if}
+		{#each warnungen as text}<span>{text}</span>{/each}
+		{#each echt as text}<span class="gut">{text}</span>{/each}
+	</aside>
+{:else if echt.length > 0}
+	<aside class="notice echt" role="note">
+		{#each echt as text}<span>{text}</span>{/each}
 	</aside>
 {/if}
 
 <style>
 	.notice {
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.25rem 0.5rem;
+		flex-direction: column;
+		gap: 0.3rem;
 		background: var(--hinweis-bg);
 		color: var(--hinweis-text);
 		border: 1px solid var(--hinweis-border);
@@ -65,13 +80,10 @@
 		margin-bottom: 1.25rem;
 	}
 
-	.notice span {
-		flex-basis: 100%;
-	}
-
-	.notice strong {
-		flex-basis: 100%;
-		letter-spacing: 0.01em;
+	.notice.echt {
+		background: var(--surface);
+		color: var(--muted);
+		border-color: var(--border);
 	}
 
 	.gut {

@@ -25,6 +25,8 @@ export interface AvalancheProblem {
 }
 
 export interface AvalancheBulletin {
+	/** echt: Lawinenwarndienst Tirol. demo: mitgelieferter Beispielbericht. */
+	kind: 'echt' | 'demo';
 	regionId: string;
 	regionName: string;
 	/** ISO-Zeitpunkt der Veroeffentlichung. */
