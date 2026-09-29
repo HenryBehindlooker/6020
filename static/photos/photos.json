@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-09-29T08:26:11+00:00",
+ "fetched_at": "2026-09-29T08:33:20+00:00",
  "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
  "valleys": [
   {
@@ -41,6 +41,25 @@
    }
   },
   {
+   "title": "Sellraintal",
+   "lat": 47.20222,
+   "lon": 11.1775,
+   "extract": "Das Sellraintal, ortsüblich Sellrain, ist ein Seitental des Inntals im Bezirk Innsbruck-Land im Bundesland Tirol, Österreich. Es wird von der Melach und dem in sie mündenden Zirmbach durchflossen und von der Sellraintalstraße durchquert.",
+   "article": "https://de.wikipedia.org/wiki/Sellraintal",
+   "photo": {
+    "file": "File:Luftaufnahme Sellraintal Tirol Heliflug 29.04.2025 - 7.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Luftaufnahme_Sellraintal_Tirol_Heliflug_29.04.2025_-_7.jpg/960px-Luftaufnahme_Sellraintal_Tirol_Heliflug_29.04.2025_-_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 640,
+    "page": "https://commons.wikimedia.org/wiki/File:Luftaufnahme_Sellraintal_Tirol_Heliflug_29.04.2025_-_7.jpg",
+    "author": "TheTokl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Luftaufnahme Tirol Heliflug 29.04.2025",
+    "date": "2025-04-29"
+   }
+  },
+  {
    "title": "Kühtai",
    "lat": 47.21333,
    "lon": 11.02333,
@@ -57,6 +76,101 @@
     "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
     "caption": "The winter sport resort Kühtai in Tyrol, Austria. The road through the mountain pass Kühtaisattel (2017 m) can be found in the left below corner, running through Kühtai and disappearing behind the mou",
     "date": "2007-07-13"
+   }
+  },
+  {
+   "title": "Wipptal",
+   "lat": 47.00333,
+   "lon": 11.5075,
+   "extract": "Das Wipptal ist ein in Nord-Süd-Richtung verlaufendes Tal in den zentralen Ostalpen im österreichischen Nordtirol und italienischen Südtirol. Es bildet hydrogeographisch keine Einheit: Die Nordhälfte wird von der Sill und weiter über das Flusssystem der Donau zum Schwarzen Meer hin entwässert, die Südhälfte vom Eisack und weiter über das Flusssystem der Etsch zur Adria.",
+   "article": "https://de.wikipedia.org/wiki/Wipptal",
+   "photo": {
+    "file": "File:Sterzing-Vipiteno and Elzenbaumer Wetterkreuz.JPG",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Sterzing-Vipiteno_and_Elzenbaumer_Wetterkreuz.JPG/960px-Sterzing-Vipiteno_and_Elzenbaumer_Wetterkreuz.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Sterzing-Vipiteno_and_Elzenbaumer_Wetterkreuz.JPG",
+    "author": "Fantasy",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "caption": "Sterzing as seen from the Elzenbaumer Wetterkreuz",
+    "date": "2004-09"
+   }
+  },
+  {
+   "title": "Gschnitztal",
+   "lat": 47.047,
+   "lon": 11.355,
+   "extract": "Das Gschnitztal ist ein westliches, linkes Seitental des Tiroler Wipptals in Österreich. Es zweigt bei Steinach am Brenner ab.",
+   "article": "https://de.wikipedia.org/wiki/Gschnitztal",
+   "photo": {
+    "file": "File:Gschnitztal 2006.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Gschnitztal_2006.jpg/960px-Gschnitztal_2006.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Gschnitztal_2006.jpg",
+    "author": "Ing. Richard Hilber (= user Rhilber)",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "caption": "Gschnitztal Talabschluss",
+    "date": "2006-10-14"
+   }
+  },
+  {
+   "title": "Serles",
+   "lat": 47.12333,
+   "lon": 11.38167,
+   "extract": "Die Serles, im Alpenvereinsführer auch Waldrastspitze genannt, ist ein 2717 m ü. A. hoher Berg zwischen Stubaital und Wipptal in Tirol/Österreich.",
+   "article": "https://de.wikipedia.org/wiki/Serles",
+   "photo": {
+    "file": "File:Serles -BT- 02.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Serles_-BT-_02.jpg/960px-Serles_-BT-_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Serles_-BT-_02.jpg",
+    "author": "Basotxerri",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Serles mountain as seen from the Koppeneck area. Mieders, Stubay Valley, Tyrol, Austria",
+    "date": "2018-07-24"
+   }
+  },
+  {
+   "title": "Karwendel",
+   "lat": 47.41139,
+   "lon": 11.4375,
+   "extract": "Das Karwendel ist eine Gebirgsgruppe der Nördlichen Kalkalpen. Es liegt zum größeren Teil (rund 80 %) in Tirol, zum kleineren in Bayern; die Grenze verläuft über die Nördliche Karwendelkette und durch das Vorkarwendel.",
+   "article": "https://de.wikipedia.org/wiki/Karwendel",
+   "photo": {
+    "file": "File:Karwendel map.png",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Karwendel_map.png/960px-Karwendel_map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 804,
+    "page": "https://commons.wikimedia.org/wiki/File:Karwendel_map.png",
+    "author": "Hauptkarte: Pechristener Austria location map.svg : NordNordWest, Lencer",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "caption": "Übersichtskarte des Karwendels.",
+    "date": "2016-12-12"
+   }
+  },
+  {
+   "title": "Inntalkette",
+   "lat": 47.3,
+   "lon": 11.35,
+   "extract": "Die Inntalkette, wegen ihrer Lage nördlich von Innsbruck allgemein Nordkette genannt, ist der südlichste und kürzeste der vier Gebirgszüge im Karwendel. Im Westen schließt er an die Erlspitzgruppe an, im Osten über das Stempeljoch (2215 m ü.",
+   "article": "https://de.wikipedia.org/wiki/Inntalkette",
+   "photo": {
+    "file": "File:Blick auf Innsbruck u Hafelerkamm v Gletscherkapel.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Blick_auf_Innsbruck_u_Hafelerkamm_v_Gletscherkapel.jpg/960px-Blick_auf_Innsbruck_u_Hafelerkamm_v_Gletscherkapel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 493,
+    "page": "https://commons.wikimedia.org/wiki/File:Blick_auf_Innsbruck_u_Hafelerkamm_v_Gletscherkapel.jpg",
+    "author": "Ricardalovesmonuments",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Blick auf die Stadt Innsbruck und den der Hafelekarspitze umgebende Karwendelkamm",
+    "date": "2019-04-25"
    }
   }
  ],
@@ -223,8 +337,157 @@
     "distM": 15
    }
   ],
-  "zischgeles": [],
-  "lampsenspitze": [],
+  "zischgeles": [
+   {
+    "file": "File:Kapelle beim Westfalenhaus.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Kapelle_beim_Westfalenhaus.jpg/960px-Kapelle_beim_Westfalenhaus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 773,
+    "page": "https://commons.wikimedia.org/wiki/File:Kapelle_beim_Westfalenhaus.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Kapelle beim Westfalenhaus in den Stubaier Alpen, Tirol",
+    "date": "2020-10-26",
+    "distM": 2625
+   },
+   {
+    "file": "File:Fotscher Windegg von SW.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fotscher_Windegg_von_SW.jpg/960px-Fotscher_Windegg_von_SW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 685,
+    "page": "https://commons.wikimedia.org/wiki/File:Fotscher_Windegg_von_SW.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Fotscher Windegg (2577m) seen from SW",
+    "date": "2014-01-25",
+    "distM": 2911
+   }
+  ],
+  "lampsenspitze": [
+   {
+    "file": "File:Schafgrübler 2.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Schafgr%C3%BCbler_2.jpg/960px-Schafgr%C3%BCbler_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 717,
+    "page": "https://commons.wikimedia.org/wiki/File:Schafgr%C3%BCbler_2.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Der Schafgrübler von Norden",
+    "date": "2021-01-10",
+    "distM": 1866
+   },
+   {
+    "file": "File:Schafgrübler.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Schafgr%C3%BCbler.jpg/960px-Schafgr%C3%BCbler.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 603,
+    "page": "https://commons.wikimedia.org/wiki/File:Schafgr%C3%BCbler.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Der Schafgrübler von Norden",
+    "date": "2014-01-25",
+    "distM": 1867
+   },
+   {
+    "file": "File:Lüsener Villerspitze.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/L%C3%BCsener_Villerspitze.jpg/960px-L%C3%BCsener_Villerspitze.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:L%C3%BCsener_Villerspitze.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Die Lüsener Villerspitze, aufgenommen von der Koglalm oberhalb von Praxmar",
+    "date": "2014-01-25",
+    "distM": 1873
+   },
+   {
+    "file": "File:Berge südöstlich des Lüsenstals.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Berge_s%C3%BCd%C3%B6stlich_des_L%C3%BCsenstals.jpg/960px-Berge_s%C3%BCd%C3%B6stlich_des_L%C3%BCsenstals.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 735,
+    "page": "https://commons.wikimedia.org/wiki/File:Berge_s%C3%BCd%C3%B6stlich_des_L%C3%BCsenstals.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Die Berge südöstlich des hinteren Lüsenstales in den Stubaier Alpen, im Zentrum die Lüsener Villerspitze. Aufgenommen von der Koglalm oberhalb von Praxmar",
+    "date": "2014-01-25",
+    "distM": 1874
+   }
+  ],
+  "rosskogel": [
+   {
+    "file": "File:Roßkogel Gipfelkreuz.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Ro%C3%9Fkogel_Gipfelkreuz.jpg/960px-Ro%C3%9Fkogel_Gipfelkreuz.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1440,
+    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogel_Gipfelkreuz.jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 136716. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2017-06-24",
+    "distM": 85
+   }
+  ],
+  "patscherkofel": [
+   {
+    "file": "File:Blick auf Innsbruck (IMG 20240706 104629).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Blick_auf_Innsbruck_%28IMG_20240706_104629%29.jpg/960px-Blick_auf_Innsbruck_%28IMG_20240706_104629%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Blick_auf_Innsbruck_(IMG_20240706_104629).jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Views from Patscherkofel ++ Views of Innsbruck",
+    "date": "2024-07-06",
+    "distM": 10
+   },
+   {
+    "file": "File:Innsbruck As Seen From Patscherkofel (172102945).jpeg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Innsbruck_As_Seen_From_Patscherkofel_%28172102945%29.jpeg/960px-Innsbruck_As_Seen_From_Patscherkofel_%28172102945%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 274,
+    "page": "https://commons.wikimedia.org/wiki/File:Innsbruck_As_Seen_From_Patscherkofel_(172102945).jpeg",
+    "author": "Thomas K",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "caption": "500px provided description: Innsbruck As Seen From Patscherkofel [#autumn ,#sky ,#landscape ,#city ,#mountains ,#clouds ,#cloudscape ,#fall ,#panorama ,#austria ,#alps ,#innsbruck ,#tyrol ,#patscherko",
+    "date": "before 11 ",
+    "distM": 10
+   },
+   {
+    "file": "File:Gipfelkreuz Patscherkofel.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Gipfelkreuz_Patscherkofel.jpg/960px-Gipfelkreuz_Patscherkofel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Patscherkofel.jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Gipfelkreuz Patscherkofel",
+    "date": "2018-01-28",
+    "distM": 11
+   },
+   {
+    "file": "File:Patscherkofel Bergstation ehemaliger Gipfellift.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Patscherkofel_Bergstation_ehemaliger_Gipfellift.jpg/960px-Patscherkofel_Bergstation_ehemaliger_Gipfellift.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 640,
+    "page": "https://commons.wikimedia.org/wiki/File:Patscherkofel_Bergstation_ehemaliger_Gipfellift.jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Summit station of a former 1-seat chairlift, which was in operation between 1961 and 2011. In 2013 the lift was demolished, but the building of the summit station still exists.",
+    "date": "2018-01-28",
+    "distM": 60
+   }
+  ],
   "hafelekar": [
    {
     "file": "File:Lila Gruner Igls mit Blick auf Hafelekar.jpg",
