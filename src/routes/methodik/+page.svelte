@@ -54,9 +54,10 @@
 		Der Puffer ist standardmäßig 30 Minuten und auf der Startseite einstellbar. Die Gehzeiten sind
 		Richtwerte ohne Pausen - wer langsamer geht, erhöht den Puffer.
 	</p>
-	<p class="grenze">
-		<strong>Noch nicht berücksichtigt:</strong> die Dunkelheit. Im Dezember ist es gegen 16:30 finster,
-		oft früher als der letzte Bus fährt.
+	<p>
+		<strong>Dunkelheit:</strong> Die Tourenseite nennt den Sonnenuntergang am Ausgangspunkt und warnt,
+		wenn man rechnerisch erst danach zurück ist. Gerechnet wird mit freiem Horizont – im Tal und am
+		Nordhang wird es früher finster. In die Umkehrzeit selbst geht das nicht ein.
 	</p>
 </section>
 
@@ -73,6 +74,34 @@
 </section>
 
 <section>
+	<h2>Hütten, Punkte und Bilder</h2>
+	<ul>
+		<li>
+			<strong>Heute offen:</strong> aus den OSM-Öffnungszeiten, im Browser für den heutigen Tag
+			ausgewertet. Freitext und ungewöhnliche Angaben ergeben „unklar“ statt einer Vermutung. Feiertage
+			kennt die Auswertung nicht, und ohne Saisonangabe weiß OSM nichts von Winterpausen.
+		</li>
+		<li>
+			<strong>Bargeld:</strong> aus den OSM-Angaben zur Zahlungsart. Fehlen sie, empfiehlt die App
+			Bargeld.
+		</li>
+		<li>
+			<strong>Markante Punkte:</strong> Sattel, Aussicht, Trinkwasser, Quellen, Unterstände,
+			Wasserfälle und Gipfelkreuze im 500-m-Streifen um die Luftlinie Haltestelle–Gipfel. Das ist keine
+			Route.
+		</li>
+		<li>
+			<strong>Fotos:</strong> nur frei lizenzierte Bilder von Wikimedia Commons, mit Urheber und
+			Lizenz. Sie zeigen nicht die heutigen Verhältnisse.
+		</li>
+		<li>
+			<strong>Google Earth:</strong> Link und KML-Datei mit Haltestelle, Gipfel und Hütten. Ohne echte
+			Aufzeichnung wird kein Verlauf gezeichnet – eine gerade Linie sähe in 3D wie eine Route aus.
+		</li>
+	</ul>
+</section>
+
+<section>
 	<h2>Datenquellen</h2>
 	<div class="tabelle">
 		<table>
@@ -81,7 +110,8 @@
 				<tr><td>Lawinenwarndienst Tirol / EAWS (CAAMLv6)</td><td>Gefahrenstufe, Lawinenprobleme, Hangrichtungen</td></tr>
 				<tr><td>GeoSphere Austria (AROME, Open Data)</td><td>Wind, Neuschnee, Temperatur</td></tr>
 				<tr><td>Transitous (transitous.org)</td><td>Busverbindungen zwischen Ausgangspunkt und Innsbruck</td></tr>
-				<tr><td>OpenStreetMap</td><td>Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Hütten, Seilbahnen</td></tr>
+				<tr><td>OpenStreetMap</td><td>Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Rad- und MTB-Routen, Hütten mit Öffnungszeiten und Zahlungsarten, Seilbahnen, markante Punkte</td></tr>
+				<tr><td>Wikimedia Commons, Wikipedia</td><td>Fotos rund um die Gipfel, Talbilder und -texte</td></tr>
 			</tbody>
 		</table>
 	</div>
