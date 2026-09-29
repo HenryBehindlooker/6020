@@ -1,23 +1,5 @@
 {
- "fetched_at": "2026-09-29T07:21:33+00:00",
- "region_links": [
-  "../micro-regions/AT-07_micro-regions.geojson.json",
-  "../micro-regions/latest/AT-07_micro-regions.geojson.json",
-  "../micro-regions_elevation/AT-07_micro-regions_elevation.geojson.json",
-  "../micro-regions_elevation/latest/AT-07_micro-regions_elevation.geojson.json",
-  "../micro-regions_elevation_properties/AT-07_micro-regions_elevation.json",
-  "../micro-regions_properties/AT-07_micro-regions.json",
-  "../outline/AT-07_outline.geojson.json"
- ],
- "regions": {
-  "url": "https://regions.avalanches.org/micro-regions/AT-07_micro-regions.geojson.json",
-  "features": 49,
-  "properties": [
-   "end_date",
-   "id",
-   "start_date"
-  ]
- },
+ "fetched_at": "2026-09-29T07:34:22+00:00",
  "date_dirs": {
   "count": 1905,
   "first": [
@@ -32,14 +14,110 @@
    "2026-09-30"
   ]
  },
- "checked_dirs_until_found": 60,
- "search_errors": [
-  "2026-05-12: <urlopen error timed out>",
-  "2026-05-11: <urlopen error timed out>",
-  "2026-05-09: <urlopen error timed out>",
-  "2026-05-08: <urlopen error timed out>",
-  "2026-05-04: <urlopen error timed out>",
-  "2026-05-03: <urlopen error timed out>",
-  "2026-05-02: <urlopen error timed out>"
- ]
+ "checked_until_found": 62,
+ "search_errors": [],
+ "latest": {
+  "date": "2026-05-03",
+  "file": "2026-05-03-AT-07.json",
+  "summary": {
+   "bulletin_count": 2,
+   "top_keys": [
+    "bulletins"
+   ],
+   "bulletins": [
+    {
+     "regions": [
+      "AT-07-05",
+      "AT-07-06",
+      "AT-07-18",
+      "AT-07-02-01",
+      "AT-07-17-02",
+      "AT-07-17-01"
+     ],
+     "region_count": 6,
+     "ratings": [
+      [
+       "low",
+       null,
+       "all_day"
+      ]
+     ],
+     "problems": [],
+     "keys": [
+      "avalancheActivity",
+      "bulletinID",
+      "customData",
+      "dangerRatings",
+      "lang",
+      "publicationTime",
+      "regions",
+      "snowpackStructure",
+      "source",
+      "tendency",
+      "unscheduled",
+      "validTime"
+     ],
+     "validTime": {
+      "startTime": "2026-05-02T15:00:00+00:00",
+      "endTime": "2026-05-03T15:00:00+00:00"
+     },
+     "publicationTime": "2026-05-02T15:00:00+00:00"
+    },
+    {
+     "regions": [
+      "AT-07-14-01",
+      "AT-07-10",
+      "AT-07-11",
+      "AT-07-12",
+      "AT-07-13",
+      "AT-07-15"
+     ],
+     "region_count": 60,
+     "ratings": [
+      [
+       "low",
+       null,
+       "all_day"
+      ]
+     ],
+     "problems": [
+      [
+       "wet_snow",
+       [
+        "S",
+        "W",
+        "E",
+        "SE",
+        "SW"
+       ],
+       {
+        "lowerBound": "2500"
+       },
+       "all_day"
+      ]
+     ],
+     "keys": [
+      "avalancheActivity",
+      "avalancheProblems",
+      "bulletinID",
+      "customData",
+      "dangerRatings",
+      "lang",
+      "publicationTime",
+      "regions",
+      "snowpackStructure",
+      "source",
+      "tendency",
+      "unscheduled",
+      "validTime"
+     ],
+     "validTime": {
+      "startTime": "2026-05-02T15:00:00+00:00",
+      "endTime": "2026-05-03T15:00:00+00:00"
+     },
+     "publicationTime": "2026-05-02T15:00:00+00:00"
+    }
+   ]
+  }
+ }
 }

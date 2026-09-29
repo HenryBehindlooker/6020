@@ -2,8 +2,8 @@
  "requestParameters": {},
  "debugOutput": {
   "algorithm": 1,
-  "direct": 3,
-  "execute_time": 27,
+  "direct": 2,
+  "execute_time": 31,
   "fares": 0,
   "fastest_direct": 0,
   "fp_update_prevented_by_lower_bound": 0,
