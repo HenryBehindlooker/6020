@@ -23,14 +23,15 @@
 			Gipfel. Stufe 3 setzt auf gelb, Stufe 4 und 5 auf rot.
 		</li>
 		<li>
-			<strong>Mehrere Regionen:</strong> Der Tiroler Bericht ist in Regionen geteilt. Solange die Touren
-			keiner Region zugeordnet sind, gilt die ungünstigste Einschätzung aller Tiroler Regionen.
+			<strong>Regionen:</strong> Der Tiroler Bericht ist in rund 40 Mikroregionen geteilt. Jede Tour
+			ist der Region ihres Gipfels zugeordnet und wird nach deren Einschätzung bewertet. Fehlt eine
+			Einschätzung für die Region, gilt die ungünstigste Tirols.
 		</li>
 		<li>
 			<strong>Lawinenprobleme:</strong> Trifft ein Problem die Hangrichtungen der Tour <em>und</em>
 			liegt die Tour in seinem Höhenband, steigt die Ampel - ab Stufe 3 direkt auf rot.
 		</li>
-		<li><strong>Steilheit:</strong> Ab Stufe 3 sind Schlüsselstellen über 35&deg; rot, über 30&deg; gelb.</li>
+		<li><strong>Steilheit:</strong> Bei Stufe 2 sind Schlüsselstellen ab 40&deg; gelb. Ab Stufe 3 sind sie ab 35&deg; rot, ab 30&deg; gelb - angelehnt an die Reduktionsmethode.</li>
 		<li><strong>Wind:</strong> Ab 40 km/h gelb, ab 60 km/h rot (frischer Triebschnee).</li>
 		<li><strong>Neuschnee:</strong> Ab 15 cm in 24 h gelb, ab 30 cm rot.</li>
 	</ul>

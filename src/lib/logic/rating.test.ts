@@ -186,6 +186,19 @@ describe('rateTour - Hoehenband', () => {
 		const b = bulletin({ rating: { above: 0, below: 0, elevationBoundary: null, aspects: [] } });
 		const result = rateTour(tour, b, calmWeather);
 		expect(result.signal).toBe('gruen');
-		expect(result.reasons[0].detail).toMatch(/kein Schnee/);
+		expect(result.reasons.find((r) => r.factor === 'Lawinenlage')?.detail).toMatch(/kein Schnee/);
+	});
+});
+
+describe('Steilheit bei Stufe 2', () => {
+	it('stuft Haenge ab 40 Grad auch bei Stufe 2 auf gelb', () => {
+		// Vorher gruen: das Hafelekar (40 Grad) am 21.3.2026 bei Stufe 2
+		const steil: Tour = { ...tour, steepnessMax: 40, aspects: ['S'] };
+		expect(rateTour(steil, bulletin(), calmWeather).signal).toBe('gelb');
+	});
+
+	it('laesst 38 Grad bei Stufe 2 gruen', () => {
+		const maessig: Tour = { ...tour, steepnessMax: 38, aspects: ['S'] };
+		expect(rateTour(maessig, bulletin(), calmWeather).signal).toBe('gruen');
 	});
 });

@@ -96,8 +96,23 @@ export function rateTour(
 		};
 	}
 
+	// Hat die Tour eine Lawinenregion und der Bericht eine Einschaetzung dafuer,
+	// gilt diese. Sonst die unguenstigste ueber ganz Tirol.
+	const regional = tour.eawsRegion ? bulletin.byRegion?.[tour.eawsRegion] : undefined;
+	if (regional) {
+		bulletin = { ...bulletin, rating: regional.rating, problems: regional.problems };
+	}
+
 	const level = dangerLevelForTour(bulletin, tour);
 	let signal: Signal = 'gruen';
+
+	reasons.push({
+		factor: 'Region',
+		detail: regional
+			? `Bewertet nach der Lawinenregion ${tour.eawsRegion}.`
+			: 'Keine Einschätzung für die Region dieser Tour - es gilt die ungünstigste Tirols.',
+		impact: 'neutral'
+	});
 
 	if (level === 0) {
 		reasons.push({
@@ -127,8 +142,9 @@ export function rateTour(
 		});
 	}
 
-	// Steilheit im Zusammenspiel mit der Gefahrenstufe: ab Stufe 3 sind
-	// Hangneigungen ueber 35 Grad das entscheidende Kriterium.
+	// Steilheit im Zusammenspiel mit der Gefahrenstufe, angelehnt an die
+	// Reduktionsmethode: bei Stufe 2 sind Haenge ab 40 Grad heikel, ab Stufe 3
+	// solche ab 35 Grad das entscheidende Kriterium.
 	if (tour.steepnessMax >= 35 && level >= 3) {
 		signal = escalate(signal, 'rot');
 		reasons.push({
@@ -141,6 +157,13 @@ export function rateTour(
 		reasons.push({
 			factor: 'Steilheit',
 			detail: `Passagen bis ${tour.steepnessMax}° bei Gefahrenstufe ${level}.`,
+			impact: 'warnung'
+		});
+	} else if (tour.steepnessMax >= 40 && level === 2) {
+		signal = escalate(signal, 'gelb');
+		reasons.push({
+			factor: 'Steilheit',
+			detail: `Schlüsselstelle bis ${tour.steepnessMax}° - auch bei Gefahrenstufe 2 heikel.`,
 			impact: 'warnung'
 		});
 	}

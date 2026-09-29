@@ -42,6 +42,7 @@ export async function getBulletin(now = new Date()): Promise<AvalancheBulletin |
 }
 
 interface RegionRating {
+	regions: string[];
 	above: DangerLevel;
 	below: DangerLevel;
 	boundary: number | null;
@@ -73,6 +74,7 @@ function readBulletin(bulletin: any): RegionRating {
 	const belowList = lower.length ? lower : aboveList;
 
 	return {
+		regions: (bulletin.regions ?? []).map((r: any) => String(r?.regionID ?? '')),
 		above: worst([...aboveList, ...whole]),
 		below: worst([...belowList, ...whole]),
 		boundary: parseElevation(upper[0]?.elevation?.lowerBound, 'lower') ?? parseElevation(lower[0]?.elevation?.upperBound, 'upper'),
@@ -122,6 +124,19 @@ export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
 			aspects: [...new Set(parts.flatMap((p) => p.aspects))]
 		},
 		problems: parts.flatMap((p) => p.problems),
+		byRegion: Object.fromEntries(
+			parts.flatMap((p) =>
+				p.regions
+					.filter((id) => id.startsWith(REGION_ID))
+					.map((id) => [
+						id,
+						{
+							rating: { above: p.above, below: p.below, elevationBoundary: p.boundary, aspects: p.aspects },
+							problems: p.problems
+						}
+					])
+			)
+		),
 		summary:
 			parts.find((p) => p.highlights)?.highlights ??
 			'Details siehe Originalbericht des Lawinenwarndienstes Tirol.',

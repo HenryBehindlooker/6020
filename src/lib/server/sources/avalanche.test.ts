@@ -91,3 +91,37 @@ describe('Entwarnungen stufen die Ampel nicht hoch', () => {
 		expect(rateTour(tour, b, ruhig).signal).toBe('gruen');
 	});
 });
+
+describe('Bewertung je Lawinenregion (echter Bericht 17.1.2026)', () => {
+	const b = parseCaaml(echt('2026-01-17'));
+	const ruhig: WeatherForecast = {
+		referenceAltitude: 1600, windSpeedKmh: 10, windGustsKmh: 15, windDirection: 'S',
+		newSnow24hCm: 0, temperatureC: -5, cloudCoverPct: 0, precipProbabilityPct: 0, source: ''
+	};
+	const tour: Tour = {
+		id: 't', name: 'T', trailhead: '', trailheadStop: '', lat: 47, lon: 11, summitAltitude: 3004,
+		trailheadAltitude: 1690, ascentMeters: 1300, ascentMinutes: 240, descentMinutes: 95,
+		aspects: ['N', 'NE'], steepnessMax: 35, type: 'skitour', description: ''
+	};
+
+	it('kennt die Regionen einzeln', () => {
+		expect(b.byRegion?.['AT-07-14-03']?.rating.above).toBe(2);
+		expect(b.byRegion?.['AT-07-04-01']?.rating.above).toBe(3);
+	});
+
+	it('bewertet eine Sellrain-Tour nach ihrer Region statt nach dem Tiroler Maximum', () => {
+		expect(rateTour({ ...tour, eawsRegion: undefined }, b, ruhig).signal).toBe('rot');
+		expect(rateTour({ ...tour, eawsRegion: 'AT-07-14-03' }, b, ruhig).signal).toBe('gelb');
+	});
+
+	it('nennt die Region in der Begruendung', () => {
+		const r = rateTour({ ...tour, eawsRegion: 'AT-07-14-03' }, b, ruhig);
+		expect(r.reasons.find((x) => x.factor === 'Region')?.detail).toContain('AT-07-14-03');
+	});
+
+	it('faellt bei unbekannter Region auf die unguenstigste Tirols zurueck', () => {
+		const r = rateTour({ ...tour, eawsRegion: 'AT-07-99' }, b, ruhig);
+		expect(r.signal).toBe('rot');
+		expect(r.reasons.find((x) => x.factor === 'Region')?.detail).toContain('ungünstigste');
+	});
+});
