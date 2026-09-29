@@ -34,9 +34,13 @@ interface PhotoFile {
 	tours: Record<string, Photo[]>;
 }
 
-/** Nur Bilder von upload.wikimedia.org - die Datei kommt aus dem Repo, aber sicher ist sicher. */
+/** Nur Bilder von Wikimedia-Servern - die Datei kommt aus dem Repo, aber sicher ist sicher. */
 function sicher(photo: Photo | undefined): photo is Photo {
-	return !!photo && typeof photo.thumb === 'string' && photo.thumb.startsWith('https://upload.wikimedia.org/');
+	return (
+		!!photo &&
+		typeof photo.thumb === 'string' &&
+		/^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(photo.thumb)
+	);
 }
 
 async function load(): Promise<PhotoFile> {

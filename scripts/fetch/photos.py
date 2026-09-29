@@ -38,6 +38,9 @@ VALLEYS = [
     "Seegrube", "Glungezer", "Serles", "Tuxer Alpen", "Karwendel",
 ]
 
+# Gemaelde und Zeichnungen sind keine Fotos der Verhaeltnisse
+ARTWORK = re.compile(r"(Mischtechnik|Öl auf|auf Papier|Leinwand|Aquarell|Radierung|Lithograph|painting|drawing|signiert)", re.I)
+
 FREE = re.compile(r"^(CC|Public domain|PD|CC0|GFDL|Attribution|FAL)", re.I)
 
 
@@ -137,7 +140,7 @@ def near(lat, lon, radius=1000, limit=4):
     for h in hits:
         info = infos.get(norm(h["title"]))
         # Querformat bevorzugt, sehr kleine Bilder weglassen
-        if info and (info.get("width") or 0) >= 600:
+        if info and (info.get("width") or 0) >= 600 and not ARTWORK.search(f'{info.get("caption") or ""} {info["file"]}'):
             out.append({**info, "distM": round(h.get("dist", 0))})
         if len(out) >= limit:
             break
