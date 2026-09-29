@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-09-29T07:34:22+00:00",
+ "fetched_at": "2026-09-29T07:40:07+00:00",
  "date_dirs": {
   "count": 1905,
   "first": [
@@ -14,11 +14,20 @@
    "2026-09-30"
   ]
  },
- "checked_until_found": 62,
- "search_errors": [],
+ "checked_until_found": 63,
+ "search_errors": [
+  "2026-05-12: <urlopen error timed out>",
+  "2026-05-11: <urlopen error timed out>",
+  "2026-05-10: <urlopen error [Errno 111] Connection refused>",
+  "2026-05-08: <urlopen error timed out>",
+  "2026-05-07: <urlopen error [Errno 111] Connection refused>",
+  "2026-05-06: <urlopen error [Errno 111] Connection refused>",
+  "2026-05-05: <urlopen error [Errno 111] Connection refused>",
+  "2026-05-03: <urlopen error [Errno 111] Connection refused>"
+ ],
  "latest": {
-  "date": "2026-05-03",
-  "file": "2026-05-03-AT-07.json",
+  "date": "2026-05-02",
+  "file": "2026-05-02-AT-07.json",
   "summary": {
    "bulletin_count": 2,
    "top_keys": [
@@ -30,11 +39,10 @@
       "AT-07-05",
       "AT-07-06",
       "AT-07-18",
-      "AT-07-02-01",
       "AT-07-17-02",
       "AT-07-17-01"
      ],
-     "region_count": 6,
+     "region_count": 5,
      "ratings": [
       [
        "low",
@@ -58,10 +66,10 @@
       "validTime"
      ],
      "validTime": {
-      "startTime": "2026-05-02T15:00:00+00:00",
-      "endTime": "2026-05-03T15:00:00+00:00"
+      "startTime": "2026-05-01T15:00:00+00:00",
+      "endTime": "2026-05-02T15:00:00+00:00"
      },
-     "publicationTime": "2026-05-02T15:00:00+00:00"
+     "publicationTime": "2026-05-01T15:00:00+00:00"
     },
     {
      "regions": [
@@ -72,7 +80,7 @@
       "AT-07-13",
       "AT-07-15"
      ],
-     "region_count": 60,
+     "region_count": 61,
      "ratings": [
       [
        "low",
@@ -112,12 +120,16 @@
       "validTime"
      ],
      "validTime": {
-      "startTime": "2026-05-02T15:00:00+00:00",
-      "endTime": "2026-05-03T15:00:00+00:00"
+      "startTime": "2026-05-01T15:00:00+00:00",
+      "endTime": "2026-05-02T15:00:00+00:00"
      },
-     "publicationTime": "2026-05-02T15:00:00+00:00"
+     "publicationTime": "2026-05-01T15:00:00+00:00"
     }
    ]
   }
+ },
+ "albina_archiv": {
+  "2026-01-17": "Fehler: <urlopen error [Errno 111] Connection refused>",
+  "2026-05-02": "Fehler: <urlopen error [Errno 111] Connection refused>"
  }
 }
