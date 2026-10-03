@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-09-26T10:26:14+00:00",
+  "fetched_at": "2026-10-03T11:52:38+00:00",
   "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
   "candidates": [
     {
@@ -86,25 +86,25 @@
         "MeerPlus"
       ],
       "agency_count": 43,
-      "valid_from": "20260925",
+      "valid_from": "20261001",
       "valid_to": "20261212",
       "trailheads_found": {
-        "Praxmar": 0,
-        "Kuehtai Dortmunder Huette": 0,
-        "Oberperfuss Sulztalalm": 0,
-        "Axamer Lizum": 0,
-        "Igls Patscherkofelbahn": 0,
+        "Praxmar Wendestelle": 0,
+        "Kühtai Dortmunderhütte": 0,
+        "Oberperfuss Rangger Köpfl Lift": 0,
+        "Axams Axamer Lizum": 0,
+        "Patscherkofel": 0,
         "Hungerburg": 0,
-        "Arzl Schoenblick": 0
+        "Theresienkirche": 0
       },
       "trailhead_stops": {
-        "Praxmar": [],
-        "Kuehtai Dortmunder Huette": [],
-        "Oberperfuss Sulztalalm": [],
-        "Axamer Lizum": [],
-        "Igls Patscherkofelbahn": [],
+        "Praxmar Wendestelle": [],
+        "Kühtai Dortmunderhütte": [],
+        "Oberperfuss Rangger Köpfl Lift": [],
+        "Axams Axamer Lizum": [],
+        "Patscherkofel": [],
         "Hungerburg": [],
-        "Arzl Schoenblick": []
+        "Theresienkirche": []
       },
       "central_stops": [
         {
@@ -131,52 +131,52 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 266.1
+      "size_mb": 252.9
     },
     {
       "agencies": [
+        "SNCF",
         "Dänische Staatsbahnen",
+        "ÖBB",
+        "DB Fernverkehr AG",
+        "DB Fernverkehr (Codesharing)",
         "SBB",
+        "HZZP",
         "Ceske Drahy",
         "MAV",
-        "DB Fernverkehr AG",
-        "BahnTouristikExpress",
-        "HZZP",
-        "DB Fernverkehr (Codesharing)",
-        "ÖBB",
-        "ZSSK",
         "PKP Intercity",
-        "SNCF",
+        "ZSSK",
+        "BahnTouristikExpress",
         "Nederlandse Spoorwegen"
       ],
       "agency_count": 13,
-      "valid_from": "20260919",
-      "valid_to": "20261019",
+      "valid_from": "20260926",
+      "valid_to": "20261026",
       "trailheads_found": {
-        "Praxmar": 0,
-        "Kuehtai Dortmunder Huette": 0,
-        "Oberperfuss Sulztalalm": 0,
-        "Axamer Lizum": 0,
-        "Igls Patscherkofelbahn": 0,
+        "Praxmar Wendestelle": 0,
+        "Kühtai Dortmunderhütte": 0,
+        "Oberperfuss Rangger Köpfl Lift": 0,
+        "Axams Axamer Lizum": 0,
+        "Patscherkofel": 0,
         "Hungerburg": 0,
-        "Arzl Schoenblick": 0
+        "Theresienkirche": 0
       },
       "trailhead_stops": {
-        "Praxmar": [],
-        "Kuehtai Dortmunder Huette": [],
-        "Oberperfuss Sulztalalm": [],
-        "Axamer Lizum": [],
-        "Igls Patscherkofelbahn": [],
+        "Praxmar Wendestelle": [],
+        "Kühtai Dortmunderhütte": [],
+        "Oberperfuss Rangger Köpfl Lift": [],
+        "Axams Axamer Lizum": [],
+        "Patscherkofel": [],
         "Hungerburg": [],
-        "Arzl Schoenblick": []
+        "Theresienkirche": []
       },
       "central_stops": [
         {
-          "stop_id": "541473",
+          "stop_id": "129576",
           "name": "Innsbruck Hauptbahnhof"
         },
         {
-          "stop_id": "290452",
+          "stop_id": "29229",
           "name": "Innsbruck Hbf"
         }
       ],
@@ -202,22 +202,22 @@
       "valid_from": "20251214",
       "valid_to": "20261212",
       "trailheads_found": {
-        "Praxmar": 0,
-        "Kuehtai Dortmunder Huette": 0,
-        "Oberperfuss Sulztalalm": 0,
-        "Axamer Lizum": 0,
-        "Igls Patscherkofelbahn": 0,
+        "Praxmar Wendestelle": 0,
+        "Kühtai Dortmunderhütte": 0,
+        "Oberperfuss Rangger Köpfl Lift": 0,
+        "Axams Axamer Lizum": 0,
+        "Patscherkofel": 0,
         "Hungerburg": 0,
-        "Arzl Schoenblick": 0
+        "Theresienkirche": 0
       },
       "trailhead_stops": {
-        "Praxmar": [],
-        "Kuehtai Dortmunder Huette": [],
-        "Oberperfuss Sulztalalm": [],
-        "Axamer Lizum": [],
-        "Igls Patscherkofelbahn": [],
+        "Praxmar Wendestelle": [],
+        "Kühtai Dortmunderhütte": [],
+        "Oberperfuss Rangger Köpfl Lift": [],
+        "Axams Axamer Lizum": [],
+        "Patscherkofel": [],
         "Hungerburg": [],
-        "Arzl Schoenblick": []
+        "Theresienkirche": []
       },
       "central_stops": [],
       "score": 0,
@@ -231,7 +231,7 @@
       "license": "",
       "covers_innsbruck": false,
       "relevant_name": false,
-      "size_mb": 93.0
+      "size_mb": 93.4
     },
     {
       "agencies": [
@@ -241,22 +241,22 @@
       "valid_from": "20260425",
       "valid_to": "20270313",
       "trailheads_found": {
-        "Praxmar": 0,
-        "Kuehtai Dortmunder Huette": 0,
-        "Oberperfuss Sulztalalm": 0,
-        "Axamer Lizum": 0,
-        "Igls Patscherkofelbahn": 0,
+        "Praxmar Wendestelle": 0,
+        "Kühtai Dortmunderhütte": 0,
+        "Oberperfuss Rangger Köpfl Lift": 0,
+        "Axams Axamer Lizum": 0,
+        "Patscherkofel": 0,
         "Hungerburg": 0,
-        "Arzl Schoenblick": 0
+        "Theresienkirche": 0
       },
       "trailhead_stops": {
-        "Praxmar": [],
-        "Kuehtai Dortmunder Huette": [],
-        "Oberperfuss Sulztalalm": [],
-        "Axamer Lizum": [],
-        "Igls Patscherkofelbahn": [],
+        "Praxmar Wendestelle": [],
+        "Kühtai Dortmunderhütte": [],
+        "Oberperfuss Rangger Köpfl Lift": [],
+        "Axams Axamer Lizum": [],
+        "Patscherkofel": [],
         "Hungerburg": [],
-        "Arzl Schoenblick": []
+        "Theresienkirche": []
       },
       "central_stops": [],
       "score": 0,
