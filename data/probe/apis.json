@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-07T13:47:52+00:00",
+ "checked_at": "2026-10-07T21:32:15+00:00",
  "apis": {
   "lawine_verzeichnis": {
    "label": "Lawinenlagebericht: Verzeichnis der EAWS-Bulletins",
@@ -7,9 +7,9 @@
    "ok": true,
    "status": 200,
    "content_type": "text/html; charset=utf-8",
-   "ms": 1755,
+   "ms": 1407,
    "sample": {
-    "text": "\n<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>eaws_bulletins</title>\n\t\t<link rel=\"canonical\" href=\"/eaws_bulletins/\"  />\n\t\t<meta charset=\"utf-8\">\n\t\t<meta name=\"color-scheme\" content=\"light dark\">\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style nonce=\"f82a0aa0-47d4-454b-b612-3b8f9f4e2b0e\">\n* { padding: 0; margin: 0; box-sizing: border-box; }\n\nbody {\n\tfont-family: Inter, system-ui, sans-serif;\n\tfont-size: 16px;\n\ttext-rendering: optimizespeed;\n\tbackground-color: #f3f6f7;\n\tmin-height: 100vh;\n}\n\nimg,\nsvg {\n\tvertical-align: middle;\n\tz-index: 1;\n}\n\nimg {\n\tmax-width: 100%;\n\tmax-height: 100%;\n\tborder-radius: 5px;\n}\n\ntd img {\n\tmax-width: 1.5em;\n\tmax-height: 2em;\n\tobject-fit: cover;\n}\n\nbody,\na,\nsvg,\n.layout.current,\n.layout.current svg,\n.go-up {\n\tcolor: #333;\n\ttext-decoration: none;\n}\n\n#layout-list, #layout-grid {\n\tcursor: pointer;\n}\n\n.wrapper {\n\tmax-width: 1200px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\nheader,\n.meta {\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n}\n\ntd a {\n\tcolor: #006ed3;\n\ttext-decoration: none;\n}\n\ntd a:hover {\n\tcolor: #0095e4;\n}\n\ntd a:visited {\n\tcolor: #800080;\n}\n\ntd a:visited:hover {\n\tcolor: #b900b9;\n}\n\nth:first-child,\ntd:first-child {\n\twidth: 5%;\n}\n\nth:last-child,\ntd:last-child {\n\twidth: 5%;\n}\n\n.size,\n.timestamp {\n\tfont-size: 14px;\n}\n\n.grid .size {\n\tfont-size: 12px;\n\tmargin-top: .5em;\n\tcolor: #496a84;\n}\n\nheader {\n\tpadding-top: 15px;\n\tpadding-bottom: 15px;\n\tbox-shadow: 0px 0px 20px 0px rgb(0 0 0 / 10%);\n}\n\n.breadcrumbs {\n\ttext-transform: upp"
+    "text": "\n<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>eaws_bulletins</title>\n\t\t<link rel=\"canonical\" href=\"/eaws_bulletins/\"  />\n\t\t<meta charset=\"utf-8\">\n\t\t<meta name=\"color-scheme\" content=\"light dark\">\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style nonce=\"aca9fd49-7824-4a37-b554-6437cc117efa\">\n* { padding: 0; margin: 0; box-sizing: border-box; }\n\nbody {\n\tfont-family: Inter, system-ui, sans-serif;\n\tfont-size: 16px;\n\ttext-rendering: optimizespeed;\n\tbackground-color: #f3f6f7;\n\tmin-height: 100vh;\n}\n\nimg,\nsvg {\n\tvertical-align: middle;\n\tz-index: 1;\n}\n\nimg {\n\tmax-width: 100%;\n\tmax-height: 100%;\n\tborder-radius: 5px;\n}\n\ntd img {\n\tmax-width: 1.5em;\n\tmax-height: 2em;\n\tobject-fit: cover;\n}\n\nbody,\na,\nsvg,\n.layout.current,\n.layout.current svg,\n.go-up {\n\tcolor: #333;\n\ttext-decoration: none;\n}\n\n#layout-list, #layout-grid {\n\tcursor: pointer;\n}\n\n.wrapper {\n\tmax-width: 1200px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\nheader,\n.meta {\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n}\n\ntd a {\n\tcolor: #006ed3;\n\ttext-decoration: none;\n}\n\ntd a:hover {\n\tcolor: #0095e4;\n}\n\ntd a:visited {\n\tcolor: #800080;\n}\n\ntd a:visited:hover {\n\tcolor: #b900b9;\n}\n\nth:first-child,\ntd:first-child {\n\twidth: 5%;\n}\n\nth:last-child,\ntd:last-child {\n\twidth: 5%;\n}\n\n.size,\n.timestamp {\n\tfont-size: 14px;\n}\n\n.grid .size {\n\tfont-size: 12px;\n\tmargin-top: .5em;\n\tcolor: #496a84;\n}\n\nheader {\n\tpadding-top: 15px;\n\tpadding-bottom: 15px;\n\tbox-shadow: 0px 0px 20px 0px rgb(0 0 0 / 10%);\n}\n\n.breadcrumbs {\n\ttext-transform: upp"
    }
   },
   "lawine_letzte_saison": {
@@ -18,9 +18,9 @@
    "ok": true,
    "status": 200,
    "content_type": "text/html; charset=utf-8",
-   "ms": 1029,
+   "ms": 1784,
    "sample": {
-    "text": "\n<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>2026-02-14</title>\n\t\t<link rel=\"canonical\" href=\"/eaws_bulletins/2026-02-14/\"  />\n\t\t<meta charset=\"utf-8\">\n\t\t<meta name=\"color-scheme\" content=\"light dark\">\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style nonce=\"d424fc11-8890-4a63-b5f7-b973e393eeb2\">\n* { padding: 0; margin: 0; box-sizing: border-box; }\n\nbody {\n\tfont-family: Inter, system-ui, sans-serif;\n\tfont-size: 16px;\n\ttext-rendering: optimizespeed;\n\tbackground-color: #f3f6f7;\n\tmin-height: 100vh;\n}\n\nimg,\nsvg {\n\tvertical-align: middle;\n\tz-index: 1;\n}\n\nimg {\n\tmax-width: 100%;\n\tmax-height: 100%;\n\tborder-radius: 5px;\n}\n\ntd img {\n\tmax-width: 1.5em;\n\tmax-height: 2em;\n\tobject-fit: cover;\n}\n\nbody,\na,\nsvg,\n.layout.current,\n.layout.current svg,\n.go-up {\n\tcolor: #333;\n\ttext-decoration: none;\n}\n\n#layout-list, #layout-grid {\n\tcursor: pointer;\n}\n\n.wrapper {\n\tmax-width: 1200px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\nheader,\n.meta {\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n}\n\ntd a {\n\tcolor: #006ed3;\n\ttext-decoration: none;\n}\n\ntd a:hover {\n\tcolor: #0095e4;\n}\n\ntd a:visited {\n\tcolor: #800080;\n}\n\ntd a:visited:hover {\n\tcolor: #b900b9;\n}\n\nth:first-child,\ntd:first-child {\n\twidth: 5%;\n}\n\nth:last-child,\ntd:last-child {\n\twidth: 5%;\n}\n\n.size,\n.timestamp {\n\tfont-size: 14px;\n}\n\n.grid .size {\n\tfont-size: 12px;\n\tmargin-top: .5em;\n\tcolor: #496a84;\n}\n\nheader {\n\tpadding-top: 15px;\n\tpadding-bottom: 15px;\n\tbox-shadow: 0px 0px 20px 0px rgb(0 0 0 / 10%);\n}\n\n.breadcrumbs {\n\ttext-transfo"
+    "text": "\n<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>2026-02-14</title>\n\t\t<link rel=\"canonical\" href=\"/eaws_bulletins/2026-02-14/\"  />\n\t\t<meta charset=\"utf-8\">\n\t\t<meta name=\"color-scheme\" content=\"light dark\">\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<style nonce=\"65358936-9ba3-487d-be19-11586d4bab66\">\n* { padding: 0; margin: 0; box-sizing: border-box; }\n\nbody {\n\tfont-family: Inter, system-ui, sans-serif;\n\tfont-size: 16px;\n\ttext-rendering: optimizespeed;\n\tbackground-color: #f3f6f7;\n\tmin-height: 100vh;\n}\n\nimg,\nsvg {\n\tvertical-align: middle;\n\tz-index: 1;\n}\n\nimg {\n\tmax-width: 100%;\n\tmax-height: 100%;\n\tborder-radius: 5px;\n}\n\ntd img {\n\tmax-width: 1.5em;\n\tmax-height: 2em;\n\tobject-fit: cover;\n}\n\nbody,\na,\nsvg,\n.layout.current,\n.layout.current svg,\n.go-up {\n\tcolor: #333;\n\ttext-decoration: none;\n}\n\n#layout-list, #layout-grid {\n\tcursor: pointer;\n}\n\n.wrapper {\n\tmax-width: 1200px;\n\tmargin-left: auto;\n\tmargin-right: auto;\n}\n\nheader,\n.meta {\n\tpadding-left: 5%;\n\tpadding-right: 5%;\n}\n\ntd a {\n\tcolor: #006ed3;\n\ttext-decoration: none;\n}\n\ntd a:hover {\n\tcolor: #0095e4;\n}\n\ntd a:visited {\n\tcolor: #800080;\n}\n\ntd a:visited:hover {\n\tcolor: #b900b9;\n}\n\nth:first-child,\ntd:first-child {\n\twidth: 5%;\n}\n\nth:last-child,\ntd:last-child {\n\twidth: 5%;\n}\n\n.size,\n.timestamp {\n\tfont-size: 14px;\n}\n\n.grid .size {\n\tfont-size: 12px;\n\tmargin-top: .5em;\n\tcolor: #496a84;\n}\n\nheader {\n\tpadding-top: 15px;\n\tpadding-bottom: 15px;\n\tbox-shadow: 0px 0px 20px 0px rgb(0 0 0 / 10%);\n}\n\n.breadcrumbs {\n\ttext-transfo"
    }
   },
   "lawine_regionen": {
@@ -29,7 +29,7 @@
    "ok": true,
    "status": 200,
    "content_type": "text/html; charset=utf-8",
-   "ms": 910,
+   "ms": 627,
    "sample": {
     "text": "<!DOCTYPE html>\n<html>\n<head>\n <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n <meta name=\"Author\" content=\"Made by 'tree'\">\n <meta name=\"GENERATOR\" content=\"tree v2.3.2 © 1996 - 2026 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro\">\n <title>eaws-regions – geodata of avalanche warning regions</title>\n <style type=\"text/css\">\n  BODY { font-family : monospace, sans-serif;  color: black;}\n  P { font-family : monospace, sans-serif; color: black; margin:0px; padding: 0px;}\n  A:visited { text-decoration : none; margin : 0px; padding : 0px;}\n  A:link    { text-decoration : none; margin : 0px; padding : 0px;}\n  A:hover   { text-decoration: underline; background-color : yellow; margin : 0px; padding : 0px;}\n  A:active  { margin : 0px; padding : 0px;}\n  .VERSION { font-size: small; font-family : arial, sans-serif; }\n  .NORM  { color: black;  }\n  .FIFO  { color: purple; }\n  .CHAR  { color: yellow; }\n  .DIR   { color: blue;   }\n  .BLOCK { color: yellow; }\n  .LINK  { color: aqua;   }\n  .SOCK  { color: fuchsia;}\n  .EXEC  { color: green;  }\n </style>\n</head>\n<body>\n\t<h1>eaws-regions – geodata of avalanche warning regions</h1><p>\n\t<a href=\"../\">.</a><br>\n\t├──&nbsp;<a href=\"../index.html\">index.html</a><br>\n\t├──&nbsp;<a href=\"../micro-regions/\">micro-regions</a><br>\n\t│  &nbsp;├──&nbsp;<a href=\"../micro-regions/AD_micro-regions.geojson.json\">AD_micro-regions.geojson.json</a><br>\n\t│  &nbsp;├──&nbsp;<a href=\""
    }
@@ -40,7 +40,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/geo+json",
-   "ms": 1519,
+   "ms": 1883,
    "sample": {
     "keys": [
      "features",
@@ -73,7 +73,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/geo+json",
-   "ms": 1244,
+   "ms": 1834,
    "sample": {
     "keys": [
      "features",
@@ -105,7 +105,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 1039,
+   "ms": 1275,
    "sample": {
     "keys": [
      "reference_time",
@@ -128,7 +128,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 847,
+   "ms": 741,
    "sample": {
     "keys": [
      "/grid/historical/apolis_short-v1-1d-100m",
@@ -155,7 +155,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json; charset=utf-8",
-   "ms": 553,
+   "ms": 508,
    "sample": {
     "keys": [
      "latitude",
@@ -176,7 +176,7 @@
    "ok": true,
    "status": 200,
    "content_type": "text/xml",
-   "ms": 2653,
+   "ms": 2971,
    "sample": {
     "text": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<WMS_Capabilities version=\"1.3.0\"\n  xmlns=\"http://www.opengis.net/wms\"\n  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n  xmlns:esri_wms=\"http://www.esri.com/wms\"\n  xsi:schemaLocation=\"http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.esri.com/wms https://gis.tirol.gv.at/arcgis/services/Service_Public/terrain/MapServer/WMSServer?version=1.3.0%26service=WMS%26request=GetSchemaExtension\">\n  <Service>\n    <Name><![CDATA[WMS]]></Name>\n    <Title><![CDATA[Service_Public_terrain]]></Title>\n    <Abstract><![CDATA[frei zugaenglicher WMS Dienst des Landes Tirol mit Gelaendeinhalten ; free Terrain WMS]]></Abstract>\n    <KeywordList><Keyword><![CDATA[]]></Keyword></KeywordList>\n    <OnlineResource xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:type=\"simple\" xlink:href=\"https://gis.tirol.gv.at/arcgis/services/Service_Public/terrain/MapServer/WMSServer?\"/>\n    <ContactInformation>\n      <ContactPersonPrimary>\n        <ContactPerson><![CDATA[]]></ContactPerson>\n        <ContactOrganization><![CDATA[Amt der Tiroler Landesregierung - Province of Tyrol]]></ContactOrganization>\n      </ContactPersonPrimary>\n      <ContactPosition><![CDATA[]]></ContactPosition>\n      <ContactAddress>\n        <AddressType><![CDATA[postal]]></AddressType>\n        <Address><![CDATA[Herrengasse 1-3]]></Address>\n        <City><![CDATA[Innsbruck]]></City>\n        <StateOrProvince><![CDATA[Tirol]]></StateOrProvince>\n       "
    }
@@ -187,7 +187,7 @@
    "ok": true,
    "status": 200,
    "content_type": "image/png",
-   "ms": 915,
+   "ms": 647,
    "sample": {
     "bytes": 51482
    }
@@ -198,7 +198,7 @@
    "ok": true,
    "status": 200,
    "content_type": "image/png",
-   "ms": 1273,
+   "ms": 1011,
    "sample": {
     "bytes": 114153
    }
@@ -209,7 +209,7 @@
    "ok": true,
    "status": 200,
    "content_type": "image/jpeg",
-   "ms": 910,
+   "ms": 765,
    "sample": {
     "bytes": 20800
    }
@@ -220,7 +220,7 @@
    "ok": true,
    "status": 200,
    "content_type": "text/html; charset=UTF-8",
-   "ms": 3174,
+   "ms": 2062,
    "sample": {
     "text": "<!doctype html>\n<html class=\"no-js\" lang=\"de\" prefix=\"og: https://ogp.me/ns#\" > <!--<![endif]-->\n\n\t<head>\n\t\t<meta charset=\"UTF-8\"/>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t\t<link rel=\"profile\" href=\"http://gmpg.org/xfn/11\"/>\n\t\t<link rel=\"pingback\" href=\"https://www.openslopemap.org/cms/xmlrpc.php\"/>\n\t\t\n<!-- Suchmaschinen-Optimierung durch Rank Math PRO - https://rankmath.com/ -->\n<title>Home - OpenSlopeMap.org</title>\n<meta name=\"description\" content=\"Die Hangneigungskarte für Alpinisten, Skitourengeher und Freerider\"/>\n<meta name=\"robots\" content=\"follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large\"/>\n<link rel=\"canonical\" href=\"https://www.openslopemap.org/\" />\n<meta property=\"og:locale\" content=\"de_DE\" />\n<meta property=\"og:type\" content=\"website\" />\n<meta property=\"og:title\" content=\"Home - OpenSlopeMap.org\" />\n<meta property=\"og:description\" content=\"Die Hangneigungskarte für Alpinisten, Skitourengeher und Freerider\" />\n<meta property=\"og:url\" content=\"https://www.openslopemap.org/\" />\n<meta property=\"og:site_name\" content=\"OpenSlopeMap.org\" />\n<meta property=\"og:updated_time\" content=\"2018-01-07T17:13:32+01:00\" />\n<meta property=\"article:published_time\" content=\"2016-12-01T22:13:07+01:00\" />\n<meta property=\"article:modified_time\" content=\"2018-01-07T17:13:32+01:00\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:title\" content=\"Home - OpenSlopeMap.org\" />\n<meta name=\"twitter:d"
    }
@@ -231,9 +231,9 @@
    "ok": true,
    "status": 200,
    "content_type": "image/jpeg",
-   "ms": 877,
+   "ms": 870,
    "sample": {
-    "bytes": 48404
+    "bytes": 49057
    }
   },
   "transitous": {
@@ -242,7 +242,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 926,
+   "ms": 1068,
    "sample": {
     "items": 10,
     "first": "{'type': 'PLACE', 'category': 'village', 'tokens': [[0.0, 7.0]], 'name': 'Praxmar', 'id': 'node/[62604405]', 'lat': 47.150435, 'lon': 11.1335845, 'country': 'AT', 'zip': '6184', 'tz': 'Europe/Vienna', 'areas': [{'name': 'Österreich', 'adminLevel': 2.0, 'matched': False, 'unique': False, 'default': F"
