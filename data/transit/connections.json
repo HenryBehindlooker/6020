@@ -1,11 +1,11 @@
 {
- "fetched_at": "2026-10-09T21:05:21+00:00",
+ "fetched_at": "2026-10-10T12:49:57+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
  "days": {
   "samstag": {
-   "date": "2026-10-10",
+   "date": "2026-10-17",
    "trailheads": {
     "Praxmar Wendestelle": {
      "outbound": [],
@@ -993,9 +993,9 @@
       },
       {
        "departure": "14:35",
-       "arrival": "15:09",
+       "arrival": "15:07",
        "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
+       "walk_from_stop_min": 1,
        "transfers": 1,
        "legs": [
         {
@@ -24313,9 +24313,9 @@
       },
       {
        "departure": "14:35",
-       "arrival": "15:09",
+       "arrival": "15:07",
        "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
+       "walk_from_stop_min": 1,
        "transfers": 1,
        "legs": [
         {

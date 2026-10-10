@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-03T11:52:38+00:00",
+  "fetched_at": "2026-10-10T12:49:49+00:00",
   "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
   "candidates": [
     {
@@ -25,6 +25,18 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": false
+    },
+    {
+      "id": "mdb-2036",
+      "provider": "Bean Shuttle",
+      "name": "",
+      "subdivision": "Upper Austria",
+      "latest": "https://files.mobilitydatabase.org/mdb-2036/latest.zip",
+      "direct": "https://www.beanshuttle.com/gtfs.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": false,
+      "relevant_name": true
     },
     {
       "id": "mdb-648",
@@ -86,7 +98,7 @@
         "MeerPlus"
       ],
       "agency_count": 43,
-      "valid_from": "20261001",
+      "valid_from": "20261007",
       "valid_to": "20261212",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
@@ -131,27 +143,27 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 252.9
+      "size_mb": 235.2
     },
     {
       "agencies": [
-        "SNCF",
-        "Dänische Staatsbahnen",
-        "ÖBB",
-        "DB Fernverkehr AG",
-        "DB Fernverkehr (Codesharing)",
-        "SBB",
-        "HZZP",
-        "Ceske Drahy",
-        "MAV",
-        "PKP Intercity",
-        "ZSSK",
         "BahnTouristikExpress",
-        "Nederlandse Spoorwegen"
+        "ZSSK",
+        "DB Fernverkehr (Codesharing)",
+        "Dänische Staatsbahnen",
+        "SBB",
+        "ÖBB",
+        "Nederlandse Spoorwegen",
+        "HZZP",
+        "SNCF",
+        "MAV",
+        "DB Fernverkehr AG",
+        "Ceske Drahy",
+        "PKP Intercity"
       ],
       "agency_count": 13,
-      "valid_from": "20260926",
-      "valid_to": "20261026",
+      "valid_from": "20261003",
+      "valid_to": "20261102",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
         "Kühtai Dortmunderhütte": 0,
@@ -172,11 +184,11 @@
       },
       "central_stops": [
         {
-          "stop_id": "129576",
+          "stop_id": "326941",
           "name": "Innsbruck Hauptbahnhof"
         },
         {
-          "stop_id": "29229",
+          "stop_id": "493048",
           "name": "Innsbruck Hbf"
         }
       ],
@@ -192,6 +204,46 @@
       "covers_innsbruck": true,
       "relevant_name": false,
       "size_mb": 0.4
+    },
+    {
+      "agencies": [
+        "Bean Shuttle",
+        "CK Shuttle"
+      ],
+      "agency_count": 2,
+      "valid_from": "20240401",
+      "valid_to": "20301231",
+      "trailheads_found": {
+        "Praxmar Wendestelle": 0,
+        "Kühtai Dortmunderhütte": 0,
+        "Oberperfuss Rangger Köpfl Lift": 0,
+        "Axams Axamer Lizum": 0,
+        "Patscherkofel": 0,
+        "Hungerburg": 0,
+        "Theresienkirche": 0
+      },
+      "trailhead_stops": {
+        "Praxmar Wendestelle": [],
+        "Kühtai Dortmunderhütte": [],
+        "Oberperfuss Rangger Köpfl Lift": [],
+        "Axams Axamer Lizum": [],
+        "Patscherkofel": [],
+        "Hungerburg": [],
+        "Theresienkirche": []
+      },
+      "central_stops": [],
+      "score": 0,
+      "id": "mdb-2036",
+      "provider": "Bean Shuttle",
+      "name": "",
+      "subdivision": "Upper Austria",
+      "latest": "https://files.mobilitydatabase.org/mdb-2036/latest.zip",
+      "direct": "https://www.beanshuttle.com/gtfs.zip",
+      "auth": "0",
+      "license": "",
+      "covers_innsbruck": false,
+      "relevant_name": true,
+      "size_mb": 0.0
     },
     {
       "agencies": [
