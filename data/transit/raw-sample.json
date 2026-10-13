@@ -2,7 +2,7 @@
  "requestParameters": {},
  "debugOutput": {
   "algorithm": 1,
-  "direct": 8,
+  "direct": 11,
   "execute_time": 26,
   "fares": 0,
   "fastest_direct": 0,
