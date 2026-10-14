@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T12:22:10+00:00",
+ "fetched_at": "2026-10-14T20:20:39+00:00",
  "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
  "valleys": [
   {
@@ -337,7 +337,34 @@
     "distM": 15
    }
   ],
-  "zischgeles": [],
+  "zischgeles": [
+   {
+    "file": "File:Kapelle beim Westfalenhaus.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Kapelle_beim_Westfalenhaus.jpg/960px-Kapelle_beim_Westfalenhaus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 773,
+    "page": "https://commons.wikimedia.org/wiki/File:Kapelle_beim_Westfalenhaus.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Kapelle beim Westfalenhaus in den Stubaier Alpen, Tirol",
+    "date": "2020-10-26",
+    "distM": 2625
+   },
+   {
+    "file": "File:Fotscher Windegg von SW.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fotscher_Windegg_von_SW.jpg/960px-Fotscher_Windegg_von_SW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 685,
+    "page": "https://commons.wikimedia.org/wiki/File:Fotscher_Windegg_von_SW.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Fotscher Windegg (2577m) seen from SW",
+    "date": "2014-01-25",
+    "distM": 2911
+   }
+  ],
   "lampsenspitze": [
    {
     "file": "File:Schafgrübler 2.jpg",
