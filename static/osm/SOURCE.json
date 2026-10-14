@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-06T21:24:36+00:00",
+  "fetched_at": "2026-10-14T12:18:11+00:00",
   "bbox_s_w_n_e": [
     47.08,
     10.95,
@@ -10,44 +10,44 @@
   "license_url": "https://www.openstreetmap.org/copyright",
   "files": {
     "routes-hiking": {
-      "count": 252,
-      "kb": 418,
-      "osm_timestamp": "2026-10-06T21:04:25Z"
+      "count": 246,
+      "kb": 403,
+      "osm_timestamp": "2026-05-06T03:25:00Z"
     },
     "routes-skitour": {
       "count": 273,
       "kb": 159,
-      "osm_timestamp": "2026-10-06T21:04:25Z"
+      "osm_timestamp": "2026-10-14T12:14:06Z"
     },
     "huts": {
       "count": 186,
       "kb": 48,
-      "osm_timestamp": "2026-10-06T21:05:24Z"
+      "osm_timestamp": "2026-10-14T12:14:06Z"
     },
     "routes-bike": {
-      "count": 191,
-      "kb": 406,
-      "osm_timestamp": "2026-07-28T02:16:18Z"
+      "count": 190,
+      "kb": 408,
+      "osm_timestamp": "2026-10-14T12:14:06Z"
     },
     "pois": {
-      "count": 1875,
-      "kb": 311,
-      "osm_timestamp": "2026-10-06T21:12:28Z"
+      "count": 1876,
+      "kb": 312,
+      "osm_timestamp": "2026-10-14T12:15:07Z"
     },
     "aerialways": {
       "count": 78,
       "kb": 27,
-      "osm_timestamp": "2026-10-06T21:12:28Z"
+      "osm_timestamp": "2026-10-14T12:15:07Z"
     },
     "peaks": {
-      "count": 447,
-      "kb": 87,
-      "osm_timestamp": "2026-06-01T08:52:28Z"
+      "count": 455,
+      "kb": 89,
+      "osm_timestamp": "2026-10-14T12:16:08Z"
     },
     "bus-stops": {
-      "count": 1653,
-      "kb": 329,
-      "osm_timestamp": "2026-10-06T21:22:36Z"
+      "count": 1648,
+      "kb": 328,
+      "osm_timestamp": "2026-10-14T12:17:10Z"
     }
   }
 }
