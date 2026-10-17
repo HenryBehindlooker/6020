@@ -1,11 +1,11 @@
 {
- "fetched_at": "2026-10-16T19:37:21+00:00",
+ "fetched_at": "2026-10-17T11:01:42+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
  "days": {
   "samstag": {
-   "date": "2026-10-17",
+   "date": "2026-10-24",
    "trailheads": {
     "Praxmar Wendestelle": {
      "outbound": [],
@@ -6024,14 +6024,14 @@
          "headsign": "Innsbruck Allerheiligenhöfe"
         },
         {
-         "mode": "BUS",
-         "line": "R",
+         "mode": "TRAM",
+         "line": "2",
          "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
+         "from": "Innsbruck Landesmuseum",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "19:24",
+         "departure": "19:23",
          "arrival": "19:26",
-         "headsign": "Innsbruck Rehgasse"
+         "headsign": "Innsbruck Stubaitalbahnhof"
         }
        ]
       },
@@ -9164,14 +9164,14 @@
          "headsign": "Innsbruck Allerheiligenhöfe"
         },
         {
-         "mode": "BUS",
-         "line": "R",
+         "mode": "TRAM",
+         "line": "2",
          "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
+         "from": "Innsbruck Landesmuseum",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "19:24",
+         "departure": "19:23",
          "arrival": "19:26",
-         "headsign": "Innsbruck Rehgasse"
+         "headsign": "Innsbruck Stubaitalbahnhof"
         }
        ]
       },
