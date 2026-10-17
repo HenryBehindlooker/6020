@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-10T12:49:49+00:00",
+  "fetched_at": "2026-10-17T18:40:59+00:00",
   "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
   "candidates": [
     {
@@ -98,7 +98,7 @@
         "MeerPlus"
       ],
       "agency_count": 43,
-      "valid_from": "20261007",
+      "valid_from": "20261016",
       "valid_to": "20261212",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
@@ -143,27 +143,27 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 235.2
+      "size_mb": 252.7
     },
     {
       "agencies": [
-        "BahnTouristikExpress",
-        "ZSSK",
-        "DB Fernverkehr (Codesharing)",
-        "Dänische Staatsbahnen",
-        "SBB",
-        "ÖBB",
-        "Nederlandse Spoorwegen",
-        "HZZP",
-        "SNCF",
         "MAV",
+        "SBB",
+        "DB Fernverkehr (Codesharing)",
         "DB Fernverkehr AG",
+        "HZZP",
+        "Nederlandse Spoorwegen",
+        "ÖBB",
         "Ceske Drahy",
-        "PKP Intercity"
+        "Dänische Staatsbahnen",
+        "SNCF",
+        "ZSSK",
+        "PKP Intercity",
+        "BahnTouristikExpress"
       ],
       "agency_count": 13,
-      "valid_from": "20261003",
-      "valid_to": "20261102",
+      "valid_from": "20261010",
+      "valid_to": "20261109",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
         "Kühtai Dortmunderhütte": 0,
@@ -184,11 +184,11 @@
       },
       "central_stops": [
         {
-          "stop_id": "326941",
+          "stop_id": "552842",
           "name": "Innsbruck Hauptbahnhof"
         },
         {
-          "stop_id": "493048",
+          "stop_id": "646821",
           "name": "Innsbruck Hbf"
         }
       ],
@@ -247,8 +247,8 @@
     },
     {
       "agencies": [
-        "Wiener Linien GmbH & Co KG",
-        "Wiener Lokalbahnen GmbH"
+        "Wiener Lokalbahnen GmbH",
+        "Wiener Linien GmbH & Co KG"
       ],
       "agency_count": 2,
       "valid_from": "20251214",
@@ -283,7 +283,7 @@
       "license": "",
       "covers_innsbruck": false,
       "relevant_name": false,
-      "size_mb": 93.4
+      "size_mb": 93.5
     },
     {
       "agencies": [
