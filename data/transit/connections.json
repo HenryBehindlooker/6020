@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-20T20:03:30+00:00",
+ "fetched_at": "2026-10-21T12:09:28+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -9364,7 +9364,7 @@
    }
   },
   "werktag": {
-   "date": "2026-10-21",
+   "date": "2026-10-28",
    "trailheads": {
     "Praxmar Wendestelle": {
      "outbound": [],
@@ -10175,8 +10175,8 @@
        ]
       },
       {
-       "departure": "12:57",
-       "arrival": "13:39",
+       "departure": "13:17",
+       "arrival": "13:59",
        "walk_to_stop_min": 3,
        "walk_from_stop_min": 1,
        "transfers": 0,
@@ -10187,28 +10187,9 @@
          "agency": "Österreichische Postbus AG",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Oberperfuss Rangger Köpfl Lift",
-         "departure": "13:00",
-         "arrival": "13:38",
+         "departure": "13:20",
+         "arrival": "13:58",
          "headsign": "Oberperfussberg Wendestelle"
-        }
-       ]
-      },
-      {
-       "departure": "13:02",
-       "arrival": "13:42",
-       "walk_to_stop_min": 3,
-       "walk_from_stop_min": 1,
-       "transfers": 0,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "462",
-         "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Oberperfuss Rangger Köpfl Lift",
-         "departure": "13:05",
-         "arrival": "13:41",
-         "headsign": "Oberperfuss Rangger Köpfl Lift"
         }
        ]
       }
@@ -11452,6 +11433,35 @@
        ]
       },
       {
+       "departure": "07:03",
+       "arrival": "07:34",
+       "walk_to_stop_min": 2,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "560",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Igls Altes Rathaus",
+         "departure": "07:05",
+         "arrival": "07:19",
+         "headsign": "Steinach a. Br. Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Igls Altes Rathaus",
+         "to": "Innsbruck Patscherkofel",
+         "departure": "07:22",
+         "arrival": "07:33",
+         "headsign": "Innsbruck Patscherkofel"
+        }
+       ]
+      },
+      {
        "departure": "07:11",
        "arrival": "07:44",
        "walk_to_stop_min": 9,
@@ -11995,6 +12005,35 @@
        ]
       },
       {
+       "departure": "11:03",
+       "arrival": "11:34",
+       "walk_to_stop_min": 2,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "560",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Igls Altes Rathaus",
+         "departure": "11:05",
+         "arrival": "11:19",
+         "headsign": "Steinach a. Br. Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Igls Altes Rathaus",
+         "to": "Innsbruck Patscherkofel",
+         "departure": "11:22",
+         "arrival": "11:33",
+         "headsign": "Innsbruck Patscherkofel"
+        }
+       ]
+      },
+      {
        "departure": "11:11",
        "arrival": "11:44",
        "walk_to_stop_min": 9,
@@ -12071,46 +12110,8 @@
        ]
       },
       {
-       "departure": "11:51",
+       "departure": "12:03",
        "arrival": "12:24",
-       "walk_to_stop_min": 9,
-       "walk_from_stop_min": 1,
-       "transfers": 0,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Sillpark",
-         "to": "Innsbruck Patscherkofel",
-         "departure": "12:00",
-         "arrival": "12:23",
-         "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "12:01",
-       "arrival": "12:34",
-       "walk_to_stop_min": 9,
-       "walk_from_stop_min": 1,
-       "transfers": 0,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Sillpark",
-         "to": "Innsbruck Patscherkofel",
-         "departure": "12:10",
-         "arrival": "12:33",
-         "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "12:18",
-       "arrival": "12:39",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 1,
        "transfers": 0,
@@ -12121,9 +12122,28 @@
          "agency": "Österreichische Postbus AG",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Innsbruck Patscherkofel",
-         "departure": "12:20",
-         "arrival": "12:38",
+         "departure": "12:05",
+         "arrival": "12:23",
          "headsign": "Steinach a. Br. Bergeralm"
+        }
+       ]
+      },
+      {
+       "departure": "12:11",
+       "arrival": "12:44",
+       "walk_to_stop_min": 9,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Sillpark",
+         "to": "Innsbruck Patscherkofel",
+         "departure": "12:20",
+         "arrival": "12:43",
+         "headsign": "Innsbruck Patscherkofel"
         }
        ]
       },
@@ -12335,35 +12355,6 @@
          "departure": "12:52",
          "arrival": "13:15",
          "headsign": "Innsbruck Nordkette"
-        }
-       ]
-      },
-      {
-       "departure": "13:01",
-       "arrival": "13:32",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 2,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Patscherkofel",
-         "to": "Innsbruck Tivoli Stadion",
-         "departure": "13:02",
-         "arrival": "13:20",
-         "headsign": "Innsbruck Nordkette"
-        },
-        {
-         "mode": "BUS",
-         "line": "560",
-         "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Tivoli Stadion",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:24",
-         "arrival": "13:30",
-         "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
       },
@@ -13421,6 +13412,35 @@
        ]
       },
       {
+       "departure": "06:48",
+       "arrival": "07:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "06:51",
+         "arrival": "06:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "06:57",
+         "arrival": "07:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "06:57",
        "arrival": "07:24",
        "walk_to_stop_min": 8,
@@ -13517,7 +13537,7 @@
        ]
       },
       {
-       "departure": "07:15",
+       "departure": "07:17",
        "arrival": "07:38",
        "walk_to_stop_min": 3,
        "walk_from_stop_min": 1,
@@ -13525,21 +13545,21 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "540",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
-         "to": "Innsbruck Congress/Hofburg",
-         "departure": "07:18",
-         "arrival": "07:22",
-         "headsign": "Innsbruck Wohnheim Saggen"
+         "to": "Innsbruck ORF Tirol",
+         "departure": "07:20",
+         "arrival": "07:29",
+         "headsign": "Eichat Föhrenwald"
         },
         {
          "mode": "FUNICULAR",
          "line": "HBB",
          "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Altstadt",
+         "from": "Innsbruck Station ORF Tirol",
          "to": "Innsbruck Station Hungerburg",
-         "departure": "07:30",
+         "departure": "07:32",
          "arrival": "07:37",
          "headsign": "Innsbruck Station Hungerburg"
         }
@@ -13559,6 +13579,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "07:25",
+         "arrival": "07:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "07:18",
+       "arrival": "07:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "07:21",
+         "arrival": "07:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "07:27",
          "arrival": "07:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -13709,6 +13758,35 @@
        ]
       },
       {
+       "departure": "07:48",
+       "arrival": "08:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "07:51",
+         "arrival": "07:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "07:57",
+         "arrival": "08:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "07:57",
        "arrival": "08:24",
        "walk_to_stop_min": 8,
@@ -13847,6 +13925,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "08:25",
+         "arrival": "08:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "08:18",
+       "arrival": "08:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "08:21",
+         "arrival": "08:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "08:27",
          "arrival": "08:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -13997,6 +14104,35 @@
        ]
       },
       {
+       "departure": "08:48",
+       "arrival": "09:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "08:51",
+         "arrival": "08:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "08:57",
+         "arrival": "09:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "08:57",
        "arrival": "09:24",
        "walk_to_stop_min": 8,
@@ -14135,6 +14271,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "09:25",
+         "arrival": "09:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "09:18",
+       "arrival": "09:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "09:21",
+         "arrival": "09:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "09:27",
          "arrival": "09:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -14285,6 +14450,35 @@
        ]
       },
       {
+       "departure": "09:48",
+       "arrival": "10:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "09:51",
+         "arrival": "09:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "09:57",
+         "arrival": "10:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "09:57",
        "arrival": "10:24",
        "walk_to_stop_min": 8,
@@ -14423,6 +14617,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "10:25",
+         "arrival": "10:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "10:18",
+       "arrival": "10:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "10:21",
+         "arrival": "10:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "10:27",
          "arrival": "10:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -14573,6 +14796,35 @@
        ]
       },
       {
+       "departure": "10:48",
+       "arrival": "11:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "10:51",
+         "arrival": "10:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "10:57",
+         "arrival": "11:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "10:57",
        "arrival": "11:24",
        "walk_to_stop_min": 8,
@@ -14711,6 +14963,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "11:25",
+         "arrival": "11:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "11:18",
+       "arrival": "11:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "11:21",
+         "arrival": "11:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "11:27",
          "arrival": "11:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -14861,6 +15142,35 @@
        ]
       },
       {
+       "departure": "11:48",
+       "arrival": "12:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "11:51",
+         "arrival": "11:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "11:57",
+         "arrival": "12:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "11:57",
        "arrival": "12:24",
        "walk_to_stop_min": 8,
@@ -14957,31 +15267,21 @@
        ]
       },
       {
-       "departure": "12:13",
+       "departure": "12:17",
        "arrival": "12:38",
-       "walk_to_stop_min": 2,
+       "walk_to_stop_min": 3,
        "walk_from_stop_min": 1,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Innsbruck Mühlauer Brücke",
-         "departure": "12:15",
-         "arrival": "12:22",
-         "headsign": "Hall in Tirol Milserstraße"
-        },
         {
          "mode": "BUS",
          "line": "502",
          "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Mühlauer Brücke",
+         "from": "Innsbruck Hauptbahnhof",
          "to": "Innsbruck ORF Tirol",
-         "departure": "12:25",
-         "arrival": "12:26",
-         "headsign": "Innsbruck Hauptbahnhof"
+         "departure": "12:20",
+         "arrival": "12:29",
+         "headsign": "Eichat Föhrenwald über Andreas-Hofer-Kaserne"
         },
         {
          "mode": "FUNICULAR",
@@ -15009,6 +15309,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "12:25",
+         "arrival": "12:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "12:18",
+       "arrival": "12:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "12:21",
+         "arrival": "12:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "12:27",
          "arrival": "12:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -15111,31 +15440,21 @@
        ]
       },
       {
-       "departure": "12:43",
+       "departure": "12:47",
        "arrival": "13:08",
-       "walk_to_stop_min": 2,
+       "walk_to_stop_min": 3,
        "walk_from_stop_min": 1,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Innsbruck Mühlauer Brücke",
-         "departure": "12:45",
-         "arrival": "12:52",
-         "headsign": "Hall in Tirol Milserstraße"
-        },
         {
          "mode": "BUS",
          "line": "502",
          "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Mühlauer Brücke",
+         "from": "Innsbruck Hauptbahnhof",
          "to": "Innsbruck ORF Tirol",
-         "departure": "12:55",
-         "arrival": "12:56",
-         "headsign": "Innsbruck Hauptbahnhof"
+         "departure": "12:50",
+         "arrival": "12:59",
+         "headsign": "Eichat Föhrenwald"
         },
         {
          "mode": "FUNICULAR",
@@ -15163,6 +15482,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "12:55",
+         "arrival": "13:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "12:48",
+       "arrival": "13:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "12:51",
+         "arrival": "12:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "12:57",
          "arrival": "13:12",
          "headsign": "Innsbruck Nordkette"
         }
@@ -15335,35 +15683,6 @@
       },
       {
        "departure": "12:26",
-       "arrival": "12:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "12:28",
-         "arrival": "12:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "12:50",
-         "arrival": "12:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "12:26",
        "arrival": "12:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -15400,13 +15719,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "12:37",
-         "arrival": "12:38",
-         "headsign": "Eichat Föhrenwald über Andreas-Hofer-Kaserne"
+         "departure": "12:38",
+         "arrival": "12:40",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -15518,35 +15837,6 @@
       },
       {
        "departure": "12:56",
-       "arrival": "13:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "12:58",
-         "arrival": "13:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:20",
-         "arrival": "13:22",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "12:56",
        "arrival": "13:26",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -15583,13 +15873,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "13:07",
-         "arrival": "13:08",
-         "headsign": "Eichat Föhrenwald"
+         "departure": "13:09",
+         "arrival": "13:11",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -15599,35 +15889,6 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "13:15",
          "arrival": "13:23",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "12:59",
-       "arrival": "13:33",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station ORF Tirol",
-         "departure": "13:00",
-         "arrival": "13:05",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:19",
-         "arrival": "13:30",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -15655,8 +15916,8 @@
        "departure": "13:14",
        "arrival": "13:41",
        "walk_to_stop_min": 1,
-       "walk_from_stop_min": 1,
-       "transfers": 2,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -15670,22 +15931,12 @@
         },
         {
          "mode": "BUS",
-         "line": "650",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Rum Bahnhof",
-         "departure": "13:24",
-         "arrival": "13:33",
-         "headsign": "Schwaz EKZ Interspar"
-        },
-        {
-         "mode": "SUBURBAN",
-         "line": "REX 5324",
-         "agency": "OEBB Personenverkehr AG Kundenservice",
-         "from": "Rum Bahnhof",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:35",
-         "arrival": "13:40",
+         "departure": "13:26",
+         "arrival": "13:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -15740,35 +15991,6 @@
       },
       {
        "departure": "13:26",
-       "arrival": "13:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 2,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "13:28",
-         "arrival": "13:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "TRAM",
-         "line": "5",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Landesmuseum",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:49",
-         "arrival": "13:53",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "13:26",
        "arrival": "13:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -15805,13 +16027,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "13:37",
-         "arrival": "13:38",
-         "headsign": "Eichat Föhrenwald"
+         "departure": "13:38",
+         "arrival": "13:40",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -15822,35 +16044,6 @@
          "departure": "13:45",
          "arrival": "13:53",
          "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "13:29",
-       "arrival": "14:02",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station Altstadt",
-         "departure": "13:30",
-         "arrival": "13:37",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "540",
-         "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Congress/Hofburg",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:53",
-         "arrival": "13:59",
-         "headsign": "Tulfes Gemeindeamt via Hauptbahnhof"
         }
        ]
       },
@@ -15878,7 +16071,7 @@
        "arrival": "14:11",
        "walk_to_stop_min": 1,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -15895,18 +16088,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "13:52",
-         "arrival": "13:55",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:58",
+         "departure": "13:56",
          "arrival": "14:08",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -15957,35 +16140,6 @@
          "departure": "13:48",
          "arrival": "14:07",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "13:56",
-       "arrival": "14:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "13:58",
-         "arrival": "14:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "14:20",
-         "arrival": "14:22",
-         "headsign": "Innsbruck Rehgasse"
         }
        ]
       },
@@ -16048,35 +16202,6 @@
        ]
       },
       {
-       "departure": "13:59",
-       "arrival": "14:33",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station ORF Tirol",
-         "departure": "14:00",
-         "arrival": "14:05",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "14:19",
-         "arrival": "14:30",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
        "departure": "14:06",
        "arrival": "14:36",
        "walk_to_stop_min": 2,
@@ -16092,6 +16217,35 @@
          "departure": "14:08",
          "arrival": "14:27",
          "headsign": "Innsbruck Patscherkofel"
+        }
+       ]
+      },
+      {
+       "departure": "14:14",
+       "arrival": "14:41",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "FUNICULAR",
+         "line": "HBB",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Station Hungerburg",
+         "to": "Innsbruck Station ORF Tirol",
+         "departure": "14:15",
+         "arrival": "14:20",
+         "headsign": "Innsbruck Station Altstadt"
+        },
+        {
+         "mode": "BUS",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Innsbruck ORF Tirol",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:26",
+         "arrival": "14:38",
+         "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
       },
@@ -16140,35 +16294,6 @@
          "departure": "14:18",
          "arrival": "14:37",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "14:26",
-       "arrival": "14:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "14:28",
-         "arrival": "14:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "14:50",
-         "arrival": "14:52",
-         "headsign": "Innsbruck Rehgasse"
         }
        ]
       },
@@ -16231,35 +16356,6 @@
        ]
       },
       {
-       "departure": "14:29",
-       "arrival": "15:03",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station ORF Tirol",
-         "departure": "14:30",
-         "arrival": "14:35",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "14:49",
-         "arrival": "15:00",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
        "departure": "14:36",
        "arrival": "15:06",
        "walk_to_stop_min": 2,
@@ -16275,6 +16371,35 @@
          "departure": "14:38",
          "arrival": "14:57",
          "headsign": "Innsbruck Patscherkofel"
+        }
+       ]
+      },
+      {
+       "departure": "14:44",
+       "arrival": "15:11",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "FUNICULAR",
+         "line": "HBB",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Station Hungerburg",
+         "to": "Innsbruck Station ORF Tirol",
+         "departure": "14:45",
+         "arrival": "14:50",
+         "headsign": "Innsbruck Station Altstadt"
+        },
+        {
+         "mode": "BUS",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Innsbruck ORF Tirol",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:56",
+         "arrival": "15:08",
+         "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
       },
@@ -16323,35 +16448,6 @@
          "departure": "14:48",
          "arrival": "15:07",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "14:56",
-       "arrival": "15:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "14:58",
-         "arrival": "15:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "15:20",
-         "arrival": "15:22",
-         "headsign": "Innsbruck Rehgasse"
         }
        ]
       },
@@ -16511,35 +16607,6 @@
       },
       {
        "departure": "15:26",
-       "arrival": "15:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "15:28",
-         "arrival": "15:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "15:50",
-         "arrival": "15:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "15:26",
        "arrival": "15:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -16689,35 +16756,6 @@
          "departure": "15:48",
          "arrival": "16:07",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "15:56",
-       "arrival": "16:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "15:58",
-         "arrival": "16:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "16:20",
-         "arrival": "16:22",
-         "headsign": "Innsbruck Rehgasse"
         }
        ]
       },
@@ -16877,35 +16915,6 @@
       },
       {
        "departure": "16:26",
-       "arrival": "16:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "16:28",
-         "arrival": "16:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "16:50",
-         "arrival": "16:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "16:26",
        "arrival": "16:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -16942,13 +16951,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "16:37",
-         "arrival": "16:38",
-         "headsign": "Eichat Föhrenwald über Andreas-Hofer-Kaserne"
+         "departure": "16:38",
+         "arrival": "16:40",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -17060,35 +17069,6 @@
       },
       {
        "departure": "16:56",
-       "arrival": "17:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "16:58",
-         "arrival": "17:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:20",
-         "arrival": "17:22",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "16:56",
        "arrival": "17:26",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -17125,13 +17105,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "17:07",
-         "arrival": "17:08",
-         "headsign": "Eichat Föhrenwald"
+         "departure": "17:09",
+         "arrival": "17:11",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -17141,35 +17121,6 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "17:15",
          "arrival": "17:23",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "16:59",
-       "arrival": "17:33",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station ORF Tirol",
-         "departure": "17:00",
-         "arrival": "17:05",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:19",
-         "arrival": "17:30",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -17198,7 +17149,7 @@
        "arrival": "17:41",
        "walk_to_stop_min": 1,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -17215,18 +17166,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "17:22",
-         "arrival": "17:25",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:28",
+         "departure": "17:26",
          "arrival": "17:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -17282,35 +17223,6 @@
       },
       {
        "departure": "17:26",
-       "arrival": "17:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "17:28",
-         "arrival": "17:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:50",
-         "arrival": "17:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "17:26",
        "arrival": "17:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -17347,13 +17259,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "17:37",
-         "arrival": "17:38",
-         "headsign": "Eichat Föhrenwald"
+         "departure": "17:38",
+         "arrival": "17:40",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -17363,35 +17275,6 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "17:45",
          "arrival": "17:53",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "17:29",
-       "arrival": "18:03",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station ORF Tirol",
-         "departure": "17:30",
-         "arrival": "17:35",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:49",
-         "arrival": "18:00",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -17420,7 +17303,7 @@
        "arrival": "18:11",
        "walk_to_stop_min": 1,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -17437,18 +17320,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "17:52",
-         "arrival": "17:55",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:58",
+         "departure": "17:56",
          "arrival": "18:08",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -17504,35 +17377,6 @@
       },
       {
        "departure": "17:56",
-       "arrival": "18:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "17:58",
-         "arrival": "18:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:20",
-         "arrival": "18:22",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "17:56",
        "arrival": "18:26",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -17569,13 +17413,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "18:07",
-         "arrival": "18:08",
-         "headsign": "Eichat Föhrenwald"
+         "departure": "18:09",
+         "arrival": "18:11",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -17585,35 +17429,6 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "18:15",
          "arrival": "18:23",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "17:59",
-       "arrival": "18:33",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station ORF Tirol",
-         "departure": "18:00",
-         "arrival": "18:05",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:19",
-         "arrival": "18:30",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -17642,7 +17457,7 @@
        "arrival": "18:41",
        "walk_to_stop_min": 1,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -17659,18 +17474,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "18:22",
-         "arrival": "18:25",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:28",
+         "departure": "18:26",
          "arrival": "18:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -17726,35 +17531,6 @@
       },
       {
        "departure": "18:26",
-       "arrival": "18:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "18:28",
-         "arrival": "18:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:50",
-         "arrival": "18:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "18:26",
        "arrival": "18:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -17791,13 +17567,13 @@
         },
         {
          "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
+         "line": "456",
+         "agency": "Österreichische Postbus AG",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Mühlauer Brücke",
-         "departure": "18:37",
-         "arrival": "18:38",
-         "headsign": "Eichat Föhrenwald"
+         "departure": "18:40",
+         "arrival": "18:42",
+         "headsign": "Schwaz EKZ Interspar"
         },
         {
          "mode": "BUS",
@@ -17807,35 +17583,6 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "18:45",
          "arrival": "18:53",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "18:29",
-       "arrival": "19:03",
-       "walk_to_stop_min": 1,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "FUNICULAR",
-         "line": "HBB",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Hungerburg",
-         "to": "Innsbruck Station ORF Tirol",
-         "departure": "18:30",
-         "arrival": "18:35",
-         "headsign": "Innsbruck Station Altstadt"
-        },
-        {
-         "mode": "BUS",
-         "line": "502",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:49",
-         "arrival": "19:00",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -17861,9 +17608,9 @@
       },
       {
        "departure": "18:44",
-       "arrival": "19:12",
+       "arrival": "19:11",
        "walk_to_stop_min": 1,
-       "walk_from_stop_min": 2,
+       "walk_from_stop_min": 3,
        "transfers": 1,
        "legs": [
         {
@@ -17878,12 +17625,12 @@
         },
         {
          "mode": "BUS",
-         "line": "650",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:59",
-         "arrival": "19:10",
+         "departure": "18:56",
+         "arrival": "19:08",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -17996,9 +17743,9 @@
       },
       {
        "departure": "19:14",
-       "arrival": "19:42",
+       "arrival": "19:41",
        "walk_to_stop_min": 1,
-       "walk_from_stop_min": 2,
+       "walk_from_stop_min": 3,
        "transfers": 1,
        "legs": [
         {
@@ -18013,12 +17760,12 @@
         },
         {
          "mode": "BUS",
-         "line": "650",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "19:29",
-         "arrival": "19:40",
+         "departure": "19:26",
+         "arrival": "19:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -18135,35 +17882,6 @@
          "departure": "19:44",
          "arrival": "20:01",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "19:57",
-       "arrival": "20:24",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "19:59",
-         "arrival": "20:16",
-         "headsign": "Innsbruck Tivoli Stadion"
-        },
-        {
-         "mode": "TRAM",
-         "line": "2",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Landesmuseum",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "20:18",
-         "arrival": "20:21",
-         "headsign": "Innsbruck Stubaitalbahnhof"
         }
        ]
       },
@@ -18403,6 +18121,35 @@
        ]
       },
       {
+       "departure": "06:48",
+       "arrival": "07:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "06:51",
+         "arrival": "06:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "06:57",
+         "arrival": "07:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "06:57",
        "arrival": "07:24",
        "walk_to_stop_min": 8,
@@ -18499,7 +18246,7 @@
        ]
       },
       {
-       "departure": "07:15",
+       "departure": "07:17",
        "arrival": "07:41",
        "walk_to_stop_min": 3,
        "walk_from_stop_min": 4,
@@ -18507,21 +18254,21 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "540",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
-         "to": "Innsbruck Congress/Hofburg",
-         "departure": "07:18",
-         "arrival": "07:22",
-         "headsign": "Innsbruck Wohnheim Saggen"
+         "to": "Innsbruck ORF Tirol",
+         "departure": "07:20",
+         "arrival": "07:29",
+         "headsign": "Eichat Föhrenwald"
         },
         {
          "mode": "FUNICULAR",
          "line": "HBB",
          "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Station Altstadt",
+         "from": "Innsbruck Station ORF Tirol",
          "to": "Innsbruck Station Hungerburg",
-         "departure": "07:30",
+         "departure": "07:32",
          "arrival": "07:37",
          "headsign": "Innsbruck Station Hungerburg"
         }
@@ -18541,6 +18288,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "07:25",
+         "arrival": "07:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "07:18",
+       "arrival": "07:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "07:21",
+         "arrival": "07:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "07:27",
          "arrival": "07:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -18691,6 +18467,35 @@
        ]
       },
       {
+       "departure": "07:48",
+       "arrival": "08:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "07:51",
+         "arrival": "07:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "07:57",
+         "arrival": "08:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "07:57",
        "arrival": "08:24",
        "walk_to_stop_min": 8,
@@ -18829,6 +18634,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "08:25",
+         "arrival": "08:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "08:18",
+       "arrival": "08:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "08:21",
+         "arrival": "08:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "08:27",
          "arrival": "08:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -18979,6 +18813,35 @@
        ]
       },
       {
+       "departure": "08:48",
+       "arrival": "09:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "08:51",
+         "arrival": "08:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "08:57",
+         "arrival": "09:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "08:57",
        "arrival": "09:24",
        "walk_to_stop_min": 8,
@@ -19117,6 +18980,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "09:25",
+         "arrival": "09:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "09:18",
+       "arrival": "09:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "09:21",
+         "arrival": "09:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "09:27",
          "arrival": "09:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -19267,6 +19159,35 @@
        ]
       },
       {
+       "departure": "09:48",
+       "arrival": "10:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "09:51",
+         "arrival": "09:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "09:57",
+         "arrival": "10:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "09:57",
        "arrival": "10:24",
        "walk_to_stop_min": 8,
@@ -19405,6 +19326,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "10:25",
+         "arrival": "10:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "10:18",
+       "arrival": "10:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "10:21",
+         "arrival": "10:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "10:27",
          "arrival": "10:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -19555,6 +19505,35 @@
        ]
       },
       {
+       "departure": "10:48",
+       "arrival": "11:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "10:51",
+         "arrival": "10:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "10:57",
+         "arrival": "11:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "10:57",
        "arrival": "11:24",
        "walk_to_stop_min": 8,
@@ -19693,6 +19672,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "11:25",
+         "arrival": "11:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "11:18",
+       "arrival": "11:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "11:21",
+         "arrival": "11:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "11:27",
          "arrival": "11:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -19843,6 +19851,35 @@
        ]
       },
       {
+       "departure": "11:48",
+       "arrival": "12:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "11:51",
+         "arrival": "11:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "11:57",
+         "arrival": "12:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
        "departure": "11:57",
        "arrival": "12:24",
        "walk_to_stop_min": 8,
@@ -19939,31 +19976,21 @@
        ]
       },
       {
-       "departure": "12:13",
+       "departure": "12:17",
        "arrival": "12:41",
-       "walk_to_stop_min": 2,
+       "walk_to_stop_min": 3,
        "walk_from_stop_min": 4,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Innsbruck Mühlauer Brücke",
-         "departure": "12:15",
-         "arrival": "12:22",
-         "headsign": "Hall in Tirol Milserstraße"
-        },
         {
          "mode": "BUS",
          "line": "502",
          "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Mühlauer Brücke",
+         "from": "Innsbruck Hauptbahnhof",
          "to": "Innsbruck ORF Tirol",
-         "departure": "12:25",
-         "arrival": "12:26",
-         "headsign": "Innsbruck Hauptbahnhof"
+         "departure": "12:20",
+         "arrival": "12:29",
+         "headsign": "Eichat Föhrenwald über Andreas-Hofer-Kaserne"
         },
         {
          "mode": "FUNICULAR",
@@ -19991,6 +20018,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "12:25",
+         "arrival": "12:42",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "12:18",
+       "arrival": "12:44",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "12:21",
+         "arrival": "12:23",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "12:27",
          "arrival": "12:42",
          "headsign": "Innsbruck Nordkette"
         }
@@ -20093,31 +20149,21 @@
        ]
       },
       {
-       "departure": "12:43",
+       "departure": "12:47",
        "arrival": "13:11",
-       "walk_to_stop_min": 2,
+       "walk_to_stop_min": 3,
        "walk_from_stop_min": 4,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Innsbruck Mühlauer Brücke",
-         "departure": "12:45",
-         "arrival": "12:52",
-         "headsign": "Hall in Tirol Milserstraße"
-        },
         {
          "mode": "BUS",
          "line": "502",
          "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Mühlauer Brücke",
+         "from": "Innsbruck Hauptbahnhof",
          "to": "Innsbruck ORF Tirol",
-         "departure": "12:55",
-         "arrival": "12:56",
-         "headsign": "Innsbruck Hauptbahnhof"
+         "departure": "12:50",
+         "arrival": "12:59",
+         "headsign": "Eichat Föhrenwald"
         },
         {
          "mode": "FUNICULAR",
@@ -20145,6 +20191,35 @@
          "from": "Innsbruck Sillpark",
          "to": "Innsbruck Nordkette",
          "departure": "12:55",
+         "arrival": "13:12",
+         "headsign": "Innsbruck Nordkette"
+        }
+       ]
+      },
+      {
+       "departure": "12:48",
+       "arrival": "13:14",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 2,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "R",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Innsbruck Meinhardstraße",
+         "departure": "12:51",
+         "arrival": "12:53",
+         "headsign": "Innsbruck DEZ Süd"
+        },
+        {
+         "mode": "BUS",
+         "line": "J",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Landesmuseum",
+         "to": "Innsbruck Nordkette",
+         "departure": "12:57",
          "arrival": "13:12",
          "headsign": "Innsbruck Nordkette"
         }
@@ -20317,35 +20392,6 @@
       },
       {
        "departure": "12:26",
-       "arrival": "12:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "12:28",
-         "arrival": "12:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "12:50",
-         "arrival": "12:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "12:26",
        "arrival": "12:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -20461,35 +20507,6 @@
       },
       {
        "departure": "12:56",
-       "arrival": "13:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "12:58",
-         "arrival": "13:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:20",
-         "arrival": "13:22",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "12:56",
        "arrival": "13:26",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -20530,8 +20547,8 @@
        "departure": "13:11",
        "arrival": "13:41",
        "walk_to_stop_min": 4,
-       "walk_from_stop_min": 1,
-       "transfers": 2,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -20545,22 +20562,12 @@
         },
         {
          "mode": "BUS",
-         "line": "650",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Rum Bahnhof",
-         "departure": "13:24",
-         "arrival": "13:33",
-         "headsign": "Schwaz EKZ Interspar"
-        },
-        {
-         "mode": "SUBURBAN",
-         "line": "REX 5324",
-         "agency": "OEBB Personenverkehr AG Kundenservice",
-         "from": "Rum Bahnhof",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:35",
-         "arrival": "13:40",
+         "departure": "13:26",
+         "arrival": "13:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -20615,35 +20622,6 @@
       },
       {
        "departure": "13:26",
-       "arrival": "13:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 2,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "13:28",
-         "arrival": "13:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "TRAM",
-         "line": "5",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Landesmuseum",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:49",
-         "arrival": "13:53",
-         "headsign": "Innsbruck Hauptbahnhof"
-        }
-       ]
-      },
-      {
-       "departure": "13:26",
        "arrival": "13:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -20685,7 +20663,7 @@
        "arrival": "14:11",
        "walk_to_stop_min": 4,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -20702,18 +20680,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "13:52",
-         "arrival": "13:55",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "13:58",
+         "departure": "13:56",
          "arrival": "14:08",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -20769,35 +20737,6 @@
       },
       {
        "departure": "13:56",
-       "arrival": "14:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "13:58",
-         "arrival": "14:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "14:20",
-         "arrival": "14:22",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "13:56",
        "arrival": "14:26",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -20831,6 +20770,35 @@
          "departure": "14:08",
          "arrival": "14:27",
          "headsign": "Innsbruck Patscherkofel"
+        }
+       ]
+      },
+      {
+       "departure": "14:11",
+       "arrival": "14:41",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "FUNICULAR",
+         "line": "HBB",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Station Hungerburg",
+         "to": "Innsbruck Station ORF Tirol",
+         "departure": "14:15",
+         "arrival": "14:20",
+         "headsign": "Innsbruck Station Altstadt"
+        },
+        {
+         "mode": "BUS",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Innsbruck ORF Tirol",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:26",
+         "arrival": "14:38",
+         "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
       },
@@ -20884,35 +20852,6 @@
       },
       {
        "departure": "14:26",
-       "arrival": "14:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "14:28",
-         "arrival": "14:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "14:50",
-         "arrival": "14:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "14:26",
        "arrival": "14:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -20946,6 +20885,35 @@
          "departure": "14:38",
          "arrival": "14:57",
          "headsign": "Innsbruck Patscherkofel"
+        }
+       ]
+      },
+      {
+       "departure": "14:41",
+       "arrival": "15:11",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "FUNICULAR",
+         "line": "HBB",
+         "agency": "IVB und Stubaitalbahn GmbH",
+         "from": "Innsbruck Station Hungerburg",
+         "to": "Innsbruck Station ORF Tirol",
+         "departure": "14:45",
+         "arrival": "14:50",
+         "headsign": "Innsbruck Station Altstadt"
+        },
+        {
+         "mode": "BUS",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Innsbruck ORF Tirol",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:56",
+         "arrival": "15:08",
+         "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
       },
@@ -20994,35 +20962,6 @@
          "departure": "14:48",
          "arrival": "15:07",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "14:56",
-       "arrival": "15:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "14:58",
-         "arrival": "15:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "15:20",
-         "arrival": "15:22",
-         "headsign": "Innsbruck Rehgasse"
         }
        ]
       },
@@ -21143,35 +21082,6 @@
       },
       {
        "departure": "15:26",
-       "arrival": "15:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "15:28",
-         "arrival": "15:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "15:50",
-         "arrival": "15:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "15:26",
        "arrival": "15:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -21282,35 +21192,6 @@
          "departure": "15:48",
          "arrival": "16:07",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "15:56",
-       "arrival": "16:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "15:58",
-         "arrival": "16:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "16:20",
-         "arrival": "16:22",
-         "headsign": "Innsbruck Rehgasse"
         }
        ]
       },
@@ -21431,35 +21312,6 @@
       },
       {
        "departure": "16:26",
-       "arrival": "16:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "16:28",
-         "arrival": "16:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "16:50",
-         "arrival": "16:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "16:26",
        "arrival": "16:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -21575,35 +21427,6 @@
       },
       {
        "departure": "16:56",
-       "arrival": "17:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "16:58",
-         "arrival": "17:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:20",
-         "arrival": "17:22",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "16:56",
        "arrival": "17:26",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -21645,7 +21468,7 @@
        "arrival": "17:41",
        "walk_to_stop_min": 4,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -21662,18 +21485,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "17:22",
-         "arrival": "17:25",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:28",
+         "departure": "17:26",
          "arrival": "17:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -21729,35 +21542,6 @@
       },
       {
        "departure": "17:26",
-       "arrival": "17:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "17:28",
-         "arrival": "17:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:50",
-         "arrival": "17:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "17:26",
        "arrival": "17:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -21799,7 +21583,7 @@
        "arrival": "18:11",
        "walk_to_stop_min": 4,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -21816,18 +21600,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "17:52",
-         "arrival": "17:55",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "17:58",
+         "departure": "17:56",
          "arrival": "18:08",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -21883,35 +21657,6 @@
       },
       {
        "departure": "17:56",
-       "arrival": "18:25",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "17:58",
-         "arrival": "18:17",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:20",
-         "arrival": "18:22",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "17:56",
        "arrival": "18:26",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -21953,7 +21698,7 @@
        "arrival": "18:41",
        "walk_to_stop_min": 4,
        "walk_from_stop_min": 3,
-       "transfers": 2,
+       "transfers": 1,
        "legs": [
         {
          "mode": "FUNICULAR",
@@ -21970,18 +21715,8 @@
          "line": "502",
          "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
-         "to": "Innsbruck Ferdinand-Weyrer-Straße",
-         "departure": "18:22",
-         "arrival": "18:25",
-         "headsign": "Eichat Föhrenwald"
-        },
-        {
-         "mode": "BUS",
-         "line": "504",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Ferdinand-Weyrer-Straße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:28",
+         "departure": "18:26",
          "arrival": "18:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
@@ -22037,35 +21772,6 @@
       },
       {
        "departure": "18:26",
-       "arrival": "18:55",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "18:28",
-         "arrival": "18:47",
-         "headsign": "Innsbruck Patscherkofel"
-        },
-        {
-         "mode": "BUS",
-         "line": "R",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:50",
-         "arrival": "18:52",
-         "headsign": "Innsbruck Rehgasse"
-        }
-       ]
-      },
-      {
-       "departure": "18:26",
        "arrival": "18:56",
        "walk_to_stop_min": 2,
        "walk_from_stop_min": 9,
@@ -22104,9 +21810,9 @@
       },
       {
        "departure": "18:41",
-       "arrival": "19:12",
+       "arrival": "19:11",
        "walk_to_stop_min": 4,
-       "walk_from_stop_min": 2,
+       "walk_from_stop_min": 3,
        "transfers": 1,
        "legs": [
         {
@@ -22121,12 +21827,12 @@
         },
         {
          "mode": "BUS",
-         "line": "650",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "18:59",
-         "arrival": "19:10",
+         "departure": "18:56",
+         "arrival": "19:08",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -22239,9 +21945,9 @@
       },
       {
        "departure": "19:11",
-       "arrival": "19:42",
+       "arrival": "19:41",
        "walk_to_stop_min": 4,
-       "walk_from_stop_min": 2,
+       "walk_from_stop_min": 3,
        "transfers": 1,
        "legs": [
         {
@@ -22256,12 +21962,12 @@
         },
         {
          "mode": "BUS",
-         "line": "650",
-         "agency": "Österreichische Postbus AG",
+         "line": "502",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck ORF Tirol",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "19:29",
-         "arrival": "19:40",
+         "departure": "19:26",
+         "arrival": "19:38",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -22378,35 +22084,6 @@
          "departure": "19:44",
          "arrival": "20:01",
          "headsign": "Innsbruck Patscherkofel"
-        }
-       ]
-      },
-      {
-       "departure": "19:57",
-       "arrival": "20:24",
-       "walk_to_stop_min": 2,
-       "walk_from_stop_min": 3,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "J",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Nordkette",
-         "to": "Innsbruck Landesmuseum",
-         "departure": "19:59",
-         "arrival": "20:16",
-         "headsign": "Innsbruck Tivoli Stadion"
-        },
-        {
-         "mode": "TRAM",
-         "line": "2",
-         "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Landesmuseum",
-         "to": "Innsbruck Hauptbahnhof",
-         "departure": "20:18",
-         "arrival": "20:21",
-         "headsign": "Innsbruck Stubaitalbahnhof"
         }
        ]
       },
