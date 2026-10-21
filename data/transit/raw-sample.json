@@ -2,8 +2,8 @@
  "requestParameters": {},
  "debugOutput": {
   "algorithm": 1,
-  "direct": 6,
-  "execute_time": 27,
+  "direct": 9,
+  "execute_time": 25,
   "fares": 0,
   "fastest_direct": 0,
   "fp_update_prevented_by_lower_bound": 0,
@@ -21,12 +21,12 @@
   "n_footpaths_visited": 0,
   "n_routes_visited": 0,
   "n_routing_time": 0,
-  "n_start_offsets": 68,
+  "n_start_offsets": 76,
   "n_td_dest_offsets": 0,
   "n_td_start_offsets": 0,
-  "prepare": 4,
+  "prepare": 9,
   "prepare_backward_WALK": 0,
-  "prepare_forward_WALK": 3,
+  "prepare_forward_WALK": 8,
   "route_update_prevented_by_lower_bound": 0,
   "search_interval_reduction_by_early_termination": 0
  },
@@ -90,7 +90,7 @@
      "scheduledEndTime": "2026-10-22T07:10:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 618.0,
+     "distance": 614.0,
      "legGeometry": {
       "points": "y|ucyAslzvT|P~C??KzA??h@H??bEt@??hB\\??|@gL??t@eL??p@qJ??qB]??}Du@??UC??eAUrAiU??ss@cNqCkCaCwCSW??aK_EW_@{AsB}CyK??c@y@??eAkAoA_AkAa@kAOaCAyBDoBJaBTmB^{Cp@eBl@}B~@mBdAqBhAiCbBqI|FoCpBwC|B{CfB}Bh@aCAeB[aB}@??oIsI??oBqD??jByA??dFcFzDmEfFgHtBgDbBeDVi@??WW??OM??QQ??SU??w@_A??k@o@??_@c@??u@zAu@lA",
       "precision": 6,
@@ -99,7 +99,7 @@
      "steps": [
       {
        "relativeDirection": "CONTINUE",
-       "distance": 34.0,
+       "distance": 32.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "toOsmNode": 3026287167,
@@ -664,7 +664,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 10.0,
+       "distance": 8.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 12871694358,
@@ -701,6 +701,8 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "TRAM",
        "BUS"
@@ -720,6 +722,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -747,6 +750,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -765,6 +769,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -801,6 +806,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -821,6 +828,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -843,6 +852,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -863,6 +874,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -883,6 +896,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -903,6 +918,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -923,6 +940,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -943,6 +962,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -963,6 +984,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -983,6 +1006,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1003,6 +1028,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1023,6 +1050,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1043,6 +1072,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1074,6 +1105,7 @@
       "scheduledDeparture": "2026-10-22T07:33:00Z",
       "vertexType": "TRANSIT",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -1095,7 +1127,7 @@
      "scheduledEndTime": "2026-10-22T07:34:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 22.0,
+     "distance": 21.0,
      "legGeometry": {
       "points": "}zeayA}~jxTGWWP??Kg@TS??^Y??nA_A??b@[??Vt@??XdA??Nv@",
       "precision": 6,
@@ -1249,7 +1281,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 3.0,
+       "distance": 2.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 14228252834,
@@ -1293,7 +1325,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-PTA-Tyrol-2026_at:47:1187:0:25",
       "parentId": "at-PTA-Tyrol-2026_Pat:47:1187",
-      "importance": 0.0050024655647575855,
+      "importance": 0.004662354476749897,
       "lat": 47.26260800000001,
       "lon": 11.400088,
       "level": 0.0,
@@ -1320,7 +1352,7 @@
      "scheduledEndTime": "2026-10-22T07:05:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 140.0,
+     "distance": 137.0,
      "legGeometry": {
       "points": "y|ucyAslzvT|P~C??KzA??h@H??bEt@??hB\\??w@xK??t@H??bEv@??l@J??Gd@_BCQnBwA~R??vC@??zAX",
       "precision": 6,
@@ -1329,7 +1361,7 @@
      "steps": [
       {
        "relativeDirection": "CONTINUE",
-       "distance": 34.0,
+       "distance": 32.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "toOsmNode": 3026287167,
@@ -1558,7 +1590,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 6.0,
+       "distance": 5.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 2049898687,
@@ -1583,7 +1615,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-PTA-Tyrol-2026_at:47:1187:0:25",
       "parentId": "at-PTA-Tyrol-2026_Pat:47:1187",
-      "importance": 0.0050024655647575855,
+      "importance": 0.004662354476749897,
       "lat": 47.26260800000001,
       "lon": 11.400088,
       "level": 0.0,
@@ -1596,6 +1628,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "HIGHSPEED_RAIL",
        "LONG_DISTANCE",
@@ -1620,6 +1653,8 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -1637,7 +1672,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-PTA-Tyrol-2026_at:47:1187:0:25",
       "parentId": "at-PTA-Tyrol-2026_Pat:47:1187",
-      "importance": 0.0050024655647575855,
+      "importance": 0.004662354476749897,
       "lat": 47.26260800000001,
       "lon": 11.400088,
       "level": 0.0,
@@ -1650,6 +1685,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "HIGHSPEED_RAIL",
        "LONG_DISTANCE",
@@ -1677,6 +1713,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "REGIONAL_RAIL",
        "SUBURBAN",
@@ -1715,6 +1752,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1735,6 +1774,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1757,6 +1798,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1777,6 +1820,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1797,6 +1842,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1817,6 +1864,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1837,6 +1886,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -1868,6 +1919,8 @@
       "scheduledDeparture": "2026-10-22T07:23:00Z",
       "vertexType": "TRANSIT",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -1894,44 +1947,25 @@
      "scheduledEndTime": "2026-10-22T07:25:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 229.0,
+     "distance": 138.0,
      "legGeometry": {
-      "points": "ixq`yAs_ywT~SbJzRdD~RdClMjD~MhHtE|C??uE}C_NiH??",
+      "points": "ixq`yAs_ywT~SbJzRdD~RdClMjD",
       "precision": 6,
-      "length": 11
+      "length": 5
      },
      "steps": [
       {
        "relativeDirection": "CONTINUE",
-       "distance": 185.0,
+       "distance": 138.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
-       "toOsmNode": 2754511199,
+       "osmWay": 61343211,
        "polyline": {
-        "points": "ixq`yAs_ywT~SbJzRdD~RdClMjD~MhHtE|C",
+        "points": "ixq`yAs_ywT~SbJzRdD~RdClMjD",
         "precision": 6,
-        "length": 7
+        "length": 5
        },
-       "streetName": "",
-       "exit": "",
-       "stayOn": false,
-       "area": false,
-       "toll": false,
-       "elevationUp": 0,
-       "elevationDown": 0
-      },
-      {
-       "relativeDirection": "CONTINUE",
-       "distance": 44.0,
-       "fromLevel": 0.0,
-       "toLevel": 0.0,
-       "fromOsmNode": 2754511199,
-       "polyline": {
-        "points": "iwn`yAowwwTuE}C_NiH??",
-        "precision": 6,
-        "length": 4
-       },
-       "streetName": "",
+       "streetName": "Römerstraße",
        "exit": "",
        "stayOn": false,
        "area": false,
@@ -1957,6 +1991,8 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -1975,6 +2011,8 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -2005,6 +2043,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "REGIONAL_RAIL",
        "SUBURBAN",
@@ -2015,7 +2054,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-PTA-Tyrol-2026_at:47:1187:0:25",
       "parentId": "at-PTA-Tyrol-2026_Pat:47:1187",
-      "importance": 0.0050024655647575855,
+      "importance": 0.004662354476749897,
       "lat": 47.26260800000001,
       "lon": 11.400088,
       "level": 0.0,
@@ -2028,6 +2067,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "HIGHSPEED_RAIL",
        "LONG_DISTANCE",
@@ -2080,6 +2120,8 @@
       "scheduledDeparture": "2026-10-22T07:27:00Z",
       "vertexType": "TRANSIT",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -2101,7 +2143,7 @@
      "scheduledEndTime": "2026-10-22T07:28:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 22.0,
+     "distance": 21.0,
      "legGeometry": {
       "points": "}zeayA}~jxTGWWP??Kg@TS??^Y??nA_A??b@[??Vt@??XdA??Nv@",
       "precision": 6,
@@ -2255,7 +2297,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 3.0,
+       "distance": 2.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 14228252834,
@@ -2320,7 +2362,7 @@
      "scheduledEndTime": "2026-10-22T07:20:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 618.0,
+     "distance": 614.0,
      "legGeometry": {
       "points": "y|ucyAslzvT|P~C??KzA??h@H??bEt@??hB\\??|@gL??t@eL??p@qJ??qB]??}Du@??UC??eAUrAiU??ss@cNqCkCaCwCSW??aK_EW_@{AsB}CyK??c@y@??eAkAoA_AkAa@kAOaCAyBDoBJaBTmB^{Cp@eBl@}B~@mBdAqBhAiCbBqI|FoCpBwC|B{CfB}Bh@aCAeB[aB}@??oIsI??oBqD??jByA??dFcFzDmEfFgHtBgDbBeDVi@??WW??OM??QQ??SU??w@_A??k@o@??_@c@??u@zAu@lA",
       "precision": 6,
@@ -2329,7 +2371,7 @@
      "steps": [
       {
        "relativeDirection": "CONTINUE",
-       "distance": 34.0,
+       "distance": 32.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "toOsmNode": 3026287167,
@@ -2894,7 +2936,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 10.0,
+       "distance": 8.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 12871694358,
@@ -2931,6 +2973,8 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "TRAM",
        "BUS"
@@ -2950,6 +2994,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -2977,6 +3022,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -2995,6 +3041,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -3031,6 +3078,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3051,6 +3100,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3073,6 +3124,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3093,6 +3146,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3113,6 +3168,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3133,6 +3190,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3153,6 +3212,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3173,6 +3234,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3193,6 +3256,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3213,6 +3278,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3233,6 +3300,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3253,6 +3322,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3273,6 +3344,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -3304,6 +3377,7 @@
       "scheduledDeparture": "2026-10-22T07:43:00Z",
       "vertexType": "TRANSIT",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -3325,7 +3399,7 @@
      "scheduledEndTime": "2026-10-22T07:44:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 22.0,
+     "distance": 21.0,
      "legGeometry": {
       "points": "}zeayA}~jxTGWWP??Kg@TS??^Y??nA_A??b@[??Vt@??XdA??Nv@",
       "precision": 6,
@@ -3479,7 +3553,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 3.0,
+       "distance": 2.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 14228252834,
@@ -3544,7 +3618,7 @@
      "scheduledEndTime": "2026-10-22T07:30:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 618.0,
+     "distance": 614.0,
      "legGeometry": {
       "points": "y|ucyAslzvT|P~C??KzA??h@H??bEt@??hB\\??|@gL??t@eL??p@qJ??qB]??}Du@??UC??eAUrAiU??ss@cNqCkCaCwCSW??aK_EW_@{AsB}CyK??c@y@??eAkAoA_AkAa@kAOaCAyBDoBJaBTmB^{Cp@eBl@}B~@mBdAqBhAiCbBqI|FoCpBwC|B{CfB}Bh@aCAeB[aB}@??oIsI??oBqD??jByA??dFcFzDmEfFgHtBgDbBeDVi@??WW??OM??QQ??SU??w@_A??k@o@??_@c@??u@zAu@lA",
       "precision": 6,
@@ -3553,7 +3627,7 @@
      "steps": [
       {
        "relativeDirection": "CONTINUE",
-       "distance": 34.0,
+       "distance": 32.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "toOsmNode": 3026287167,
@@ -4118,7 +4192,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 10.0,
+       "distance": 8.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 12871694358,
@@ -4155,6 +4229,8 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "TRAM",
        "BUS"
@@ -4174,6 +4250,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -4201,6 +4278,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -4219,6 +4297,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -4255,6 +4334,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4275,6 +4356,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4297,6 +4380,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4317,6 +4402,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4337,6 +4424,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4357,6 +4446,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4377,6 +4468,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4397,6 +4490,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4417,6 +4512,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4437,6 +4534,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4457,6 +4556,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4477,6 +4578,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4497,6 +4600,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -4528,6 +4633,7 @@
       "scheduledDeparture": "2026-10-22T07:53:00Z",
       "vertexType": "TRANSIT",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -4549,7 +4655,7 @@
      "scheduledEndTime": "2026-10-22T07:54:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 22.0,
+     "distance": 21.0,
      "legGeometry": {
       "points": "}zeayA}~jxTGWWP??Kg@TS??^Y??nA_A??b@[??Vt@??XdA??Nv@",
       "precision": 6,
@@ -4703,7 +4809,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 3.0,
+       "distance": 2.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 14228252834,
@@ -4768,7 +4874,7 @@
      "scheduledEndTime": "2026-10-22T07:40:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 618.0,
+     "distance": 614.0,
      "legGeometry": {
       "points": "y|ucyAslzvT|P~C??KzA??h@H??bEt@??hB\\??|@gL??t@eL??p@qJ??qB]??}Du@??UC??eAUrAiU??ss@cNqCkCaCwCSW??aK_EW_@{AsB}CyK??c@y@??eAkAoA_AkAa@kAOaCAyBDoBJaBTmB^{Cp@eBl@}B~@mBdAqBhAiCbBqI|FoCpBwC|B{CfB}Bh@aCAeB[aB}@??oIsI??oBqD??jByA??dFcFzDmEfFgHtBgDbBeDVi@??WW??OM??QQ??SU??w@_A??k@o@??_@c@??u@zAu@lA",
       "precision": 6,
@@ -4777,7 +4883,7 @@
      "steps": [
       {
        "relativeDirection": "CONTINUE",
-       "distance": 34.0,
+       "distance": 32.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "toOsmNode": 3026287167,
@@ -5342,7 +5448,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 10.0,
+       "distance": 8.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 12871694358,
@@ -5379,6 +5485,8 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "TRAM",
        "BUS"
@@ -5398,6 +5506,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -5425,6 +5534,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "departureTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -5443,6 +5553,7 @@
       "pickupType": "NORMAL",
       "dropoffType": "NORMAL",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -5479,6 +5590,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5499,6 +5612,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5521,6 +5636,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5541,6 +5658,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5561,6 +5680,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5581,6 +5702,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5601,6 +5724,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5621,6 +5746,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5641,6 +5768,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5661,6 +5790,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5681,6 +5812,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5701,6 +5834,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5721,6 +5856,8 @@
        "pickupType": "NORMAL",
        "dropoffType": "NORMAL",
        "cancelled": false,
+       "arrivalTimestampReason": "NO_RT_DATA",
+       "departureTimestampReason": "NO_RT_DATA",
        "modes": [
         "BUS"
        ]
@@ -5752,6 +5889,7 @@
       "scheduledDeparture": "2026-10-22T08:03:00Z",
       "vertexType": "TRANSIT",
       "cancelled": false,
+      "arrivalTimestampReason": "NO_RT_DATA",
       "modes": [
        "BUS"
       ]
@@ -5773,7 +5911,7 @@
      "scheduledEndTime": "2026-10-22T08:04:00Z",
      "realTime": false,
      "scheduled": false,
-     "distance": 22.0,
+     "distance": 21.0,
      "legGeometry": {
       "points": "}zeayA}~jxTGWWP??Kg@TS??^Y??nA_A??b@[??Vt@??XdA??Nv@",
       "precision": 6,
@@ -5927,7 +6065,7 @@
       },
       {
        "relativeDirection": "CONTINUE",
-       "distance": 3.0,
+       "distance": 2.0,
        "fromLevel": 0.0,
        "toLevel": 0.0,
        "fromOsmNode": 14228252834,
