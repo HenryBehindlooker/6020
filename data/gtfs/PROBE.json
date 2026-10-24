@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-17T18:40:59+00:00",
+  "fetched_at": "2026-10-24T18:54:42+00:00",
   "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
   "candidates": [
     {
@@ -11,6 +11,18 @@
       "direct": "http://gtfs.ovapi.nl/gtfs-nl.zip",
       "auth": "0",
       "license": "",
+      "covers_innsbruck": true,
+      "relevant_name": true
+    },
+    {
+      "id": "mdb-3573",
+      "provider": "STA - Südtiroler Transportstrukturen AG",
+      "name": "BusOne",
+      "subdivision": "Lower Austria",
+      "latest": "https://files.mobilitydatabase.org/mdb-3573/latest.zip",
+      "direct": "https://proxy.busone.app/sta/gtfs.zip",
+      "auth": "0",
+      "license": "https://proxy.busone.app/sta/readme",
       "covers_innsbruck": true,
       "relevant_name": true
     },
@@ -98,7 +110,7 @@
         "MeerPlus"
       ],
       "agency_count": 43,
-      "valid_from": "20261016",
+      "valid_from": "20261023",
       "valid_to": "20261212",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
@@ -143,27 +155,66 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 252.7
+      "size_mb": 242.4
     },
     {
       "agencies": [
-        "MAV",
-        "SBB",
-        "DB Fernverkehr (Codesharing)",
-        "DB Fernverkehr AG",
-        "HZZP",
-        "Nederlandse Spoorwegen",
-        "ÖBB",
+        "altoadigemobilità"
+      ],
+      "agency_count": 1,
+      "valid_from": "20251214",
+      "valid_to": "20261212",
+      "trailheads_found": {
+        "Praxmar Wendestelle": 0,
+        "Kühtai Dortmunderhütte": 0,
+        "Oberperfuss Rangger Köpfl Lift": 0,
+        "Axams Axamer Lizum": 0,
+        "Patscherkofel": 0,
+        "Hungerburg": 0,
+        "Theresienkirche": 0
+      },
+      "trailhead_stops": {
+        "Praxmar Wendestelle": [],
+        "Kühtai Dortmunderhütte": [],
+        "Oberperfuss Rangger Köpfl Lift": [],
+        "Axams Axamer Lizum": [],
+        "Patscherkofel": [],
+        "Hungerburg": [],
+        "Theresienkirche": []
+      },
+      "central_stops": [],
+      "score": 0,
+      "id": "mdb-3573",
+      "provider": "STA - Südtiroler Transportstrukturen AG",
+      "name": "BusOne",
+      "subdivision": "Lower Austria",
+      "latest": "https://files.mobilitydatabase.org/mdb-3573/latest.zip",
+      "direct": "https://proxy.busone.app/sta/gtfs.zip",
+      "auth": "0",
+      "license": "https://proxy.busone.app/sta/readme",
+      "covers_innsbruck": true,
+      "relevant_name": true,
+      "size_mb": 55.0
+    },
+    {
+      "agencies": [
         "Ceske Drahy",
-        "Dänische Staatsbahnen",
-        "SNCF",
         "ZSSK",
-        "PKP Intercity",
-        "BahnTouristikExpress"
+        "HZZP",
+        "MAV",
+        "ÖBB",
+        "SBB",
+        "DB Fernverkehr AG",
+        "BahnTouristikExpress",
+        "DB Fernverkehr (Codesharing)",
+        "SNCF",
+        "Nederlandse Spoorwegen",
+        "Dänische Staatsbahnen",
+        "PKP Intercity"
       ],
       "agency_count": 13,
-      "valid_from": "20261010",
-      "valid_to": "20261109",
+      "valid_from": "20261020",
+      "valid_to": "20261118",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
         "Kühtai Dortmunderhütte": 0,
@@ -184,11 +235,11 @@
       },
       "central_stops": [
         {
-          "stop_id": "552842",
+          "stop_id": "95273",
           "name": "Innsbruck Hauptbahnhof"
         },
         {
-          "stop_id": "646821",
+          "stop_id": "596438",
           "name": "Innsbruck Hbf"
         }
       ],
@@ -283,7 +334,7 @@
       "license": "",
       "covers_innsbruck": false,
       "relevant_name": false,
-      "size_mb": 93.5
+      "size_mb": 95.8
     },
     {
       "agencies": [
