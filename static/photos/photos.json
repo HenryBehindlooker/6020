@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-26T13:28:32+00:00",
+ "fetched_at": "2026-10-26T21:10:51+00:00",
  "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
  "valleys": [
   {
@@ -175,7 +175,60 @@
   }
  ],
  "tours": {
-  "nockspitze": [],
+  "nockspitze": [
+   {
+    "file": "File:Habicht-Ampferstein-Marchreisenspitze.JPG",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Habicht-Ampferstein-Marchreisenspitze.JPG/960px-Habicht-Ampferstein-Marchreisenspitze.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Habicht-Ampferstein-Marchreisenspitze.JPG",
+    "author": "Svickova",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "caption": "Mountains Habicht 3277m, Ampferstein 2556m and Marchreisenspitze 2620, seen from NE, Saile (Nockspitze)2404m",
+    "date": "2008-06-22",
+    "distM": 14
+   },
+   {
+    "file": "File:Gipfelkreuz Saile.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Gipfelkreuz_Saile.jpg/960px-Gipfelkreuz_Saile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Saile.jpg",
+    "author": "Werner Singer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 135336. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2014-08-13",
+    "distM": 17
+   },
+   {
+    "file": "File:Gipfelkreuz Saile Vorgipfel.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Gipfelkreuz_Saile_Vorgipfel.jpg/960px-Gipfelkreuz_Saile_Vorgipfel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Saile_Vorgipfel.jpg",
+    "author": "Werner Singer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 137342. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2014-08-24",
+    "distM": 250
+   },
+   {
+    "file": "File:Zwischen Birgitzköpflalm und Hoadl - panoramio.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg/960px-Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg",
+    "author": "Martin Kolp",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "Zwischen Birgitzköpflalm und Hoadl",
+    "date": "Taken on 1",
+    "distM": 607
+   }
+  ],
   "rangger-koepfl": [
    {
     "file": "File:Roßkogelhütte (IMG 20201001 163047).jpg",
