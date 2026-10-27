@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-27T12:35:12+00:00",
+ "fetched_at": "2026-10-27T20:54:01+00:00",
  "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
  "valleys": [
   {
@@ -175,61 +175,61 @@
   }
  ],
  "tours": {
-  "nockspitze": [],
-  "rangger-koepfl": [
+  "nockspitze": [
    {
-    "file": "File:Roßkogelhütte (IMG 20201001 163047).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163047%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163047%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "file": "File:Habicht-Ampferstein-Marchreisenspitze.JPG",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Habicht-Ampferstein-Marchreisenspitze.JPG/960px-Habicht-Ampferstein-Marchreisenspitze.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "width": 960,
     "height": 720,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163047).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 596
+    "page": "https://commons.wikimedia.org/wiki/File:Habicht-Ampferstein-Marchreisenspitze.JPG",
+    "author": "Svickova",
+    "license": "Public domain",
+    "licenseUrl": null,
+    "caption": "Mountains Habicht 3277m, Ampferstein 2556m and Marchreisenspitze 2620, seen from NE, Saile (Nockspitze)2404m",
+    "date": "2008-06-22",
+    "distM": 14
    },
    {
-    "file": "File:Roßkogelhütte (IMG 20201001 163203).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163203%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163203%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "file": "File:Gipfelkreuz Saile.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Gipfelkreuz_Saile.jpg/960px-Gipfelkreuz_Saile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Saile.jpg",
+    "author": "Werner Singer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 135336. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2014-08-13",
+    "distM": 17
+   },
+   {
+    "file": "File:Gipfelkreuz Saile Vorgipfel.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Gipfelkreuz_Saile_Vorgipfel.jpg/960px-Gipfelkreuz_Saile_Vorgipfel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1280,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Saile_Vorgipfel.jpg",
+    "author": "Werner Singer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 137342. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2014-08-24",
+    "distM": 250
+   },
+   {
+    "file": "File:Zwischen Birgitzköpflalm und Hoadl - panoramio.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg/960px-Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "width": 960,
     "height": 720,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163203).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 646
-   },
-   {
-    "file": "File:Roßkogelhütte (IMG 20201001 163240).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163240%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163240%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 719,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163240).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 646
-   },
-   {
-    "file": "File:Roßkogelhütte (IMG 20201001 163249).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163249%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163249%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 720,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163249).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 646
+    "page": "https://commons.wikimedia.org/wiki/File:Zwischen_Birgitzk%C3%B6pflalm_und_Hoadl_-_panoramio.jpg",
+    "author": "Martin Kolp",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "Zwischen Birgitzköpflalm und Hoadl",
+    "date": "Taken on 1",
+    "distM": 607
    }
   ],
+  "rangger-koepfl": [],
   "pirchkogel": [
    {
     "file": "File:Pirchkogel 5.jpg",
@@ -284,7 +284,34 @@
     "distM": 15
    }
   ],
-  "zischgeles": [],
+  "zischgeles": [
+   {
+    "file": "File:Kapelle beim Westfalenhaus.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Kapelle_beim_Westfalenhaus.jpg/960px-Kapelle_beim_Westfalenhaus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 773,
+    "page": "https://commons.wikimedia.org/wiki/File:Kapelle_beim_Westfalenhaus.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Kapelle beim Westfalenhaus in den Stubaier Alpen, Tirol",
+    "date": "2020-10-26",
+    "distM": 2625
+   },
+   {
+    "file": "File:Fotscher Windegg von SW.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fotscher_Windegg_von_SW.jpg/960px-Fotscher_Windegg_von_SW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 685,
+    "page": "https://commons.wikimedia.org/wiki/File:Fotscher_Windegg_von_SW.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Fotscher Windegg (2577m) seen from SW",
+    "date": "2014-01-25",
+    "distM": 2911
+   }
+  ],
   "lampsenspitze": [
    {
     "file": "File:Schafgrübler 2.jpg",
@@ -408,60 +435,7 @@
     "distM": 60
    }
   ],
-  "hafelekar": [
-   {
-    "file": "File:Hafelekar, Tyrol, Austria - panoramio.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg/960px-Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 643,
-    "page": "https://commons.wikimedia.org/wiki/File:Hafelekar,_Tyrol,_Austria_-_panoramio.jpg",
-    "author": "Pavel.Shulekin",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "caption": "Hafelekar, Tyrol, Austria",
-    "date": "Taken on 2",
-    "distM": 1
-   },
-   {
-    "file": "File:Innsbruck look from Hafelekar, Tyrol, Austria - panoramio.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Innsbruck_look_from_Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg/960px-Innsbruck_look_from_Hafelekar%2C_Tyrol%2C_Austria_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 597,
-    "page": "https://commons.wikimedia.org/wiki/File:Innsbruck_look_from_Hafelekar,_Tyrol,_Austria_-_panoramio.jpg",
-    "author": "Pavel.Shulekin",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "caption": "Innsbruck look from Hafelekar, Tyrol, Austria",
-    "date": "Taken on 2",
-    "distM": 1
-   },
-   {
-    "file": "File:Hafelekar, Tyrol, Austria - panoramio (1).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Hafelekar%2C_Tyrol%2C_Austria_-_panoramio_%281%29.jpg/960px-Hafelekar%2C_Tyrol%2C_Austria_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 631,
-    "page": "https://commons.wikimedia.org/wiki/File:Hafelekar,_Tyrol,_Austria_-_panoramio_(1).jpg",
-    "author": "Pavel.Shulekin",
-    "license": "CC BY 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "caption": "Hafelekar, Tyrol, Austria",
-    "date": "Taken on 2",
-    "distM": 4
-   },
-   {
-    "file": "File:Tiroler Mittelland 2013-07 Mattes (155).JPG",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Tiroler_Mittelland_2013-07_Mattes_%28155%29.JPG/960px-Tiroler_Mittelland_2013-07_Mattes_%28155%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 1280,
-    "page": "https://commons.wikimedia.org/wiki/File:Tiroler_Mittelland_2013-07_Mattes_(155).JPG",
-    "author": "User:Mattes",
-    "license": "CC BY 2.0 de",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/de/deed.en",
-    "caption": "Hafelekar, Flugsicherungsanlage",
-    "date": "Taken on 9",
-    "distM": 7
-   }
-  ],
+  "hafelekar": [],
   "sulzkogel": [
    {
     "file": "File:Kraspesspitze, Weitkarspitze and Zwieselbacher Rosskogel.jpg",
