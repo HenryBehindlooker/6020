@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-28T13:23:24+00:00",
+ "fetched_at": "2026-10-28T21:28:21+00:00",
  "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
  "valleys": [
   {
@@ -337,10 +337,157 @@
     "distM": 15
    }
   ],
-  "zischgeles": [],
-  "lampsenspitze": [],
-  "rosskogel": [],
-  "patscherkofel": [],
+  "zischgeles": [
+   {
+    "file": "File:Kapelle beim Westfalenhaus.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Kapelle_beim_Westfalenhaus.jpg/960px-Kapelle_beim_Westfalenhaus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 773,
+    "page": "https://commons.wikimedia.org/wiki/File:Kapelle_beim_Westfalenhaus.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Kapelle beim Westfalenhaus in den Stubaier Alpen, Tirol",
+    "date": "2020-10-26",
+    "distM": 2625
+   },
+   {
+    "file": "File:Fotscher Windegg von SW.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fotscher_Windegg_von_SW.jpg/960px-Fotscher_Windegg_von_SW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 685,
+    "page": "https://commons.wikimedia.org/wiki/File:Fotscher_Windegg_von_SW.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Fotscher Windegg (2577m) seen from SW",
+    "date": "2014-01-25",
+    "distM": 2911
+   }
+  ],
+  "lampsenspitze": [
+   {
+    "file": "File:Schafgrübler 2.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Schafgr%C3%BCbler_2.jpg/960px-Schafgr%C3%BCbler_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 717,
+    "page": "https://commons.wikimedia.org/wiki/File:Schafgr%C3%BCbler_2.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Der Schafgrübler von Norden",
+    "date": "2021-01-10",
+    "distM": 1866
+   },
+   {
+    "file": "File:Schafgrübler.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Schafgr%C3%BCbler.jpg/960px-Schafgr%C3%BCbler.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 603,
+    "page": "https://commons.wikimedia.org/wiki/File:Schafgr%C3%BCbler.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Der Schafgrübler von Norden",
+    "date": "2014-01-25",
+    "distM": 1867
+   },
+   {
+    "file": "File:Lüsener Villerspitze.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/L%C3%BCsener_Villerspitze.jpg/960px-L%C3%BCsener_Villerspitze.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:L%C3%BCsener_Villerspitze.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Die Lüsener Villerspitze, aufgenommen von der Koglalm oberhalb von Praxmar",
+    "date": "2014-01-25",
+    "distM": 1873
+   },
+   {
+    "file": "File:Berge südöstlich des Lüsenstals.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Berge_s%C3%BCd%C3%B6stlich_des_L%C3%BCsenstals.jpg/960px-Berge_s%C3%BCd%C3%B6stlich_des_L%C3%BCsenstals.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 735,
+    "page": "https://commons.wikimedia.org/wiki/File:Berge_s%C3%BCd%C3%B6stlich_des_L%C3%BCsenstals.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Die Berge südöstlich des hinteren Lüsenstales in den Stubaier Alpen, im Zentrum die Lüsener Villerspitze. Aufgenommen von der Koglalm oberhalb von Praxmar",
+    "date": "2014-01-25",
+    "distM": 1874
+   }
+  ],
+  "rosskogel": [
+   {
+    "file": "File:Roßkogel Gipfelkreuz.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Ro%C3%9Fkogel_Gipfelkreuz.jpg/960px-Ro%C3%9Fkogel_Gipfelkreuz.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 1440,
+    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogel_Gipfelkreuz.jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "This media shows the remarkable cultural object in the Austrian state of Tyrol listed by the Tyrolean Art Cadastre with the ID 136716. (on tirisMaps, pdf, Fotoarchiv Tiroler Kunstkataster, more images",
+    "date": "2017-06-24",
+    "distM": 85
+   }
+  ],
+  "patscherkofel": [
+   {
+    "file": "File:Blick auf Innsbruck (IMG 20240706 104629).jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Blick_auf_Innsbruck_%28IMG_20240706_104629%29.jpg/960px-Blick_auf_Innsbruck_%28IMG_20240706_104629%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Blick_auf_Innsbruck_(IMG_20240706_104629).jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Views from Patscherkofel ++ Views of Innsbruck",
+    "date": "2024-07-06",
+    "distM": 10
+   },
+   {
+    "file": "File:Innsbruck As Seen From Patscherkofel (172102945).jpeg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Innsbruck_As_Seen_From_Patscherkofel_%28172102945%29.jpeg/960px-Innsbruck_As_Seen_From_Patscherkofel_%28172102945%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 274,
+    "page": "https://commons.wikimedia.org/wiki/File:Innsbruck_As_Seen_From_Patscherkofel_(172102945).jpeg",
+    "author": "Thomas K",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "caption": "500px provided description: Innsbruck As Seen From Patscherkofel [#autumn ,#sky ,#landscape ,#city ,#mountains ,#clouds ,#cloudscape ,#fall ,#panorama ,#austria ,#alps ,#innsbruck ,#tyrol ,#patscherko",
+    "date": "before 11 ",
+    "distM": 10
+   },
+   {
+    "file": "File:Gipfelkreuz Patscherkofel.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Gipfelkreuz_Patscherkofel.jpg/960px-Gipfelkreuz_Patscherkofel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 720,
+    "page": "https://commons.wikimedia.org/wiki/File:Gipfelkreuz_Patscherkofel.jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Gipfelkreuz Patscherkofel",
+    "date": "2018-01-28",
+    "distM": 11
+   },
+   {
+    "file": "File:Patscherkofel Bergstation ehemaliger Gipfellift.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Patscherkofel_Bergstation_ehemaliger_Gipfellift.jpg/960px-Patscherkofel_Bergstation_ehemaliger_Gipfellift.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 640,
+    "page": "https://commons.wikimedia.org/wiki/File:Patscherkofel_Bergstation_ehemaliger_Gipfellift.jpg",
+    "author": "Simon Legner (User:simon04)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Summit station of a former 1-seat chairlift, which was in operation between 1961 and 2011. In 2013 the lift was demolished, but the building of the summit station still exists.",
+    "date": "2018-01-28",
+    "distM": 60
+   }
+  ],
   "hafelekar": [
    {
     "file": "File:Hafelekar, Tyrol, Austria - panoramio.jpg",
@@ -396,59 +543,6 @@
    }
   ],
   "sulzkogel": [],
-  "arzler-alm": [
-   {
-    "file": "File:Sunlit roots in the woods (Unsplash).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Sunlit_roots_in_the_woods_%28Unsplash%29.jpg/960px-Sunlit_roots_in_the_woods_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 640,
-    "page": "https://commons.wikimedia.org/wiki/File:Sunlit_roots_in_the_woods_(Unsplash).jpg",
-    "author": "Fabian Irsara firsara",
-    "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "caption": "Arzler Alm, Innsbruck, Austria",
-    "date": "2016-10-09",
-    "distM": 5
-   },
-   {
-    "file": "File:Arzler Alm Innsbruck 2023-09-25 01.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Arzler_Alm_Innsbruck_2023-09-25_01.jpg/960px-Arzler_Alm_Innsbruck_2023-09-25_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 641,
-    "page": "https://commons.wikimedia.org/wiki/File:Arzler_Alm_Innsbruck_2023-09-25_01.jpg",
-    "author": "Leonhard Lenz",
-    "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "caption": "Arzler Alm in Innsbruck.",
-    "date": "2023-09-25",
-    "distM": 19
-   },
-   {
-    "file": "File:Arzler Alm Innsbruck 2023-09-25 05.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Arzler_Alm_Innsbruck_2023-09-25_05.jpg/960px-Arzler_Alm_Innsbruck_2023-09-25_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 641,
-    "page": "https://commons.wikimedia.org/wiki/File:Arzler_Alm_Innsbruck_2023-09-25_05.jpg",
-    "author": "Leonhard Lenz",
-    "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "caption": "Arzler Alm in Innsbruck.",
-    "date": "2023-09-25",
-    "distM": 20
-   },
-   {
-    "file": "File:Arzler Alm Innsbruck 2023-09-25 04.jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Arzler_Alm_Innsbruck_2023-09-25_04.jpg/960px-Arzler_Alm_Innsbruck_2023-09-25_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 641,
-    "page": "https://commons.wikimedia.org/wiki/File:Arzler_Alm_Innsbruck_2023-09-25_04.jpg",
-    "author": "Leonhard Lenz",
-    "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "caption": "Arzler Alm in Innsbruck.",
-    "date": "2023-09-25",
-    "distM": 20
-   }
-  ]
+  "arzler-alm": []
  }
 }
