@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-28T21:24:23+00:00",
+ "fetched_at": "2026-10-29T13:28:38+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -5908,14 +5908,14 @@
          "headsign": "Innsbruck Allerheiligenhöfe"
         },
         {
-         "mode": "BUS",
-         "line": "R",
+         "mode": "TRAM",
+         "line": "2",
          "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Meinhardstraße",
+         "from": "Innsbruck Landesmuseum",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "19:24",
+         "departure": "19:23",
          "arrival": "19:26",
-         "headsign": "Innsbruck Rehgasse"
+         "headsign": "Innsbruck Stubaitalbahnhof"
         }
        ]
       },
@@ -29603,8 +29603,8 @@
   "Praxmar Wendestelle": [
    {
     "name": "Praxmar Wendestelle",
-    "lat": 47.149390000000004,
-    "lon": 11.133495,
+    "lat": 47.14939304000001,
+    "lon": 11.13349505,
     "type": "STOP"
    },
    {
@@ -29623,48 +29623,48 @@
   "Kühtai Dortmunderhütte": [
    {
     "name": "Kühtai Dortmunder Hütte",
-    "lat": 47.211452,
-    "lon": 11.008296999999999,
+    "lat": 47.211452140000006,
+    "lon": 11.00829685,
     "type": "STOP"
    },
    {
     "name": "Kühtai Ort",
-    "lat": 47.213550000000005,
-    "lon": 11.022974999999999,
+    "lat": 47.21355126,
+    "lon": 11.022975319999999,
     "type": "STOP"
    },
    {
     "name": "Kühtai Mittergrathütte",
-    "lat": 47.21755,
-    "lon": 10.989863,
+    "lat": 47.2175479,
+    "lon": 10.989863419999999,
     "type": "STOP"
    }
   ],
   "Oberperfuss Rangger Köpfl Lift": [
    {
     "name": "Oberperfuss Rangger Köpfl Lift",
-    "lat": 47.245804,
-    "lon": 11.237941999999999,
+    "lat": 47.24580254000001,
+    "lon": 11.237942169999998,
+    "type": "STOP"
+   },
+   {
+    "name": "Oberperfuss Muchn",
+    "lat": 47.235105120000014,
+    "lon": 11.241113229999998,
     "type": "STOP"
    },
    {
     "name": "Oberperfuss Aigen",
-    "lat": 47.245430000000006,
-    "lon": 11.242056999999999,
-    "type": "STOP"
-   },
-   {
-    "name": "Oberperfuss Huebe",
-    "lat": 47.24758,
-    "lon": 11.244534999999999,
+    "lat": 47.24543055,
+    "lon": 11.242056459999999,
     "type": "STOP"
    }
   ],
   "Axams Axamer Lizum": [
    {
     "name": "Axamer Lizum",
-    "lat": 47.195786000000005,
-    "lon": 11.302999000000002,
+    "lat": 47.19578546,
+    "lon": 11.30299817,
     "type": "STOP"
    },
    {
@@ -29683,8 +29683,8 @@
   "Patscherkofel": [
    {
     "name": "Innsbruck Patscherkofel",
-    "lat": 47.22221000000001,
-    "lon": 11.425789000000002,
+    "lat": 47.22220924000001,
+    "lon": 11.42578888,
     "type": "STOP"
    },
    {
@@ -29709,8 +29709,8 @@
    },
    {
     "name": "Innsbruck Station Hungerburg",
-    "lat": 47.286170000000006,
-    "lon": 11.400115,
+    "lat": 47.28616979,
+    "lon": 11.40011503,
     "type": "STOP"
    },
    {
@@ -29729,8 +29729,8 @@
    },
    {
     "name": "Innsbruck Theresienkirche",
-    "lat": 47.286377,
-    "lon": 11.398057999999999,
+    "lat": 47.286376970000006,
+    "lon": 11.39805789,
     "type": "STOP"
    },
    {
