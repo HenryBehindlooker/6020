@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-29T21:16:45+00:00",
+ "fetched_at": "2026-10-30T13:16:28+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -8932,14 +8932,14 @@
          "headsign": "Innsbruck Allerheiligenhöfe"
         },
         {
-         "mode": "TRAM",
-         "line": "2",
+         "mode": "BUS",
+         "line": "R",
          "agency": "IVB und Stubaitalbahn GmbH",
-         "from": "Innsbruck Landesmuseum",
+         "from": "Innsbruck Meinhardstraße",
          "to": "Innsbruck Hauptbahnhof",
-         "departure": "19:23",
+         "departure": "19:24",
          "arrival": "19:26",
-         "headsign": "Innsbruck Stubaitalbahnhof"
+         "headsign": "Innsbruck Rehgasse"
         }
        ]
       },
