@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-31T12:58:43+00:00",
+ "fetched_at": "2026-10-31T20:13:39+00:00",
  "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
  "valleys": [
   {
@@ -229,60 +229,7 @@
     "distM": 607
    }
   ],
-  "rangger-koepfl": [
-   {
-    "file": "File:Roßkogelhütte (IMG 20201001 163047).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163047%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163047%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 720,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163047).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 596
-   },
-   {
-    "file": "File:Roßkogelhütte (IMG 20201001 163203).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163203%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163203%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 720,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163203).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 646
-   },
-   {
-    "file": "File:Roßkogelhütte (IMG 20201001 163240).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163240%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163240%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 719,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163240).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 646
-   },
-   {
-    "file": "File:Roßkogelhütte (IMG 20201001 163249).jpg",
-    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163249%29.jpg/960px-Ro%C3%9Fkogelh%C3%BCtte_%28IMG_20201001_163249%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "width": 960,
-    "height": 720,
-    "page": "https://commons.wikimedia.org/wiki/File:Ro%C3%9Fkogelh%C3%BCtte_(IMG_20201001_163249).jpg",
-    "author": "Simon Legner (User:simon04)",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "caption": "Roßkogelhütte",
-    "date": "2020-10-01",
-    "distM": 646
-   }
-  ],
+  "rangger-koepfl": [],
   "pirchkogel": [
    {
     "file": "File:Pirchkogel 5.jpg",
@@ -337,7 +284,34 @@
     "distM": 15
    }
   ],
-  "zischgeles": [],
+  "zischgeles": [
+   {
+    "file": "File:Kapelle beim Westfalenhaus.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Kapelle_beim_Westfalenhaus.jpg/960px-Kapelle_beim_Westfalenhaus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 773,
+    "page": "https://commons.wikimedia.org/wiki/File:Kapelle_beim_Westfalenhaus.jpg",
+    "author": "Hermann Hammer",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Kapelle beim Westfalenhaus in den Stubaier Alpen, Tirol",
+    "date": "2020-10-26",
+    "distM": 2625
+   },
+   {
+    "file": "File:Fotscher Windegg von SW.jpg",
+    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fotscher_Windegg_von_SW.jpg/960px-Fotscher_Windegg_von_SW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 960,
+    "height": 685,
+    "page": "https://commons.wikimedia.org/wiki/File:Fotscher_Windegg_von_SW.jpg",
+    "author": "Hermann Hammer (User:Haneburger)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "caption": "Fotscher Windegg (2577m) seen from SW",
+    "date": "2014-01-25",
+    "distM": 2911
+   }
+  ],
   "lampsenspitze": [],
   "rosskogel": [
    {
