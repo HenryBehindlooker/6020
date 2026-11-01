@@ -1,19 +1,21 @@
 {
- "fetched_at": "2026-10-31T20:13:33+00:00",
+ "fetched_at": "2026-11-01T13:44:27+00:00",
  "date_dirs": {
-  "count": 1937,
+  "count": 1938,
   "first": [
    "2021-01-25",
    "2021-01-26"
   ],
   "last": [
-   "2026-10-28",
    "2026-10-29",
    "2026-10-30",
    "2026-10-31",
-   "2026-11-01"
+   "2026-11-01",
+   "2026-11-02"
   ]
  },
- "checked_until_found": 3,
- "search_errors": []
+ "checked_until_found": 34,
+ "search_errors": [
+  "2026-05-31: <urlopen error timed out>"
+ ]
 }
