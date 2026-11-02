@@ -147,8 +147,27 @@ def near(lat, lon, radius=1000, limit=4):
     return out
 
 
+MAX_AGE_DAYS = 7
+
+
+def fresh_enough(path):
+    """Fotos aendern sich kaum, und Commons drosselt haeufige Abfragen: Daten,
+    die juenger als eine Woche sind, bleiben (FORCE_PHOTOS=1 erzwingt)."""
+    import os
+    if os.environ.get("FORCE_PHOTOS") == "1" or not path.exists():
+        return False
+    try:
+        fetched = datetime.fromisoformat(json.loads(path.read_text())["fetched_at"])
+    except (KeyError, ValueError):
+        return False
+    return (datetime.now(timezone.utc) - fetched).days < MAX_AGE_DAYS
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    if fresh_enough(OUT / "photos.json"):
+        print(f"Fotos juenger als {MAX_AGE_DAYS} Tage - uebersprungen (FORCE_PHOTOS=1 erzwingt).")
+        return
     result = {"fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
               "attribution": "Fotos: Wikimedia Commons, Urheber und Lizenz je Bild; Texte: Wikipedia (CC BY-SA 4.0)",
               "valleys": [], "tours": {}}

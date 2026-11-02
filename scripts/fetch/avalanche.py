@@ -173,9 +173,17 @@ def main():
     # Die Saison rueckwaerts nur durchsuchen, wenn noch kein Bericht abgelegt
     # ist oder Saison ist - im Sommer waeren das zweimal taeglich ~150 Anfragen
     # fuer einen Bericht, der sich nicht mehr aendert.
+    # Nie weiter zurueck als bis zum Bericht, der schon abgelegt ist - aelter
+    # kann der neueste nicht sein. Das spart im November und Dezember, bis der
+    # erste Bericht erscheint, zweimal taeglich ~150 Anfragen.
+    try:
+        bekannt = json.loads((OUT / "latest.json").read_text())["date"]
+    except (OSError, KeyError, ValueError):
+        bekannt = ""
     saison = heute.month in (11, 12, 1, 2, 3, 4, 5)
-    if saison or not (OUT / "latest.json").exists():
-        kandidaten += [d for d in reversed(days) if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6) and d not in kandidaten][:200]
+    if saison or not bekannt:
+        kandidaten += [d for d in reversed(days)
+                       if int(d[5:7]) in (11, 12, 1, 2, 3, 4, 5, 6) and d not in kandidaten and d > bekannt][:200]
     for day in kandidaten:
         checked += 1
         if checked > 1:

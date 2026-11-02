@@ -2,13 +2,16 @@ name: Echte Daten holen (OSM + Fahrplan)
 
 # Holt Wege, Huetten und Seilbahnen aus OpenStreetMap, Fahrplaene und den
 # Lawinenlagebericht. Laeuft auf GitHub, weil nur dort freies Internet ist, und
-# committet die Ergebnisse nach static/osm/ und data/ zurueck.
+# committet die Ergebnisse nach static/osm/ und data/ zurueck. Auf main wird
+# danach die Pages-Fassung neu gebaut.
 on:
-  # Der Lagebericht erscheint gegen 17 Uhr, manchmal mit Aktualisierung am
-  # Morgen: 06:30 und 16:30 UTC = 07:30 und 17:30 Wiener Winterzeit.
+  # Der Lagebericht erscheint um 17 Uhr, Aktualisierungen um 8 Uhr (Wiener
+  # Zeit). GitHub startet geplante Laeufe oft Stunden spaeter, besonders zur
+  # vollen und halben Stunde - darum krumme Minuten und ein dritter Lauf am
+  # Abend als Rueckfall. 07:23/16:23/20:23 UTC = 08:23/17:23/21:23 Winterzeit.
   # Zeitplaene laufen immer auf dem Standardzweig (main).
   schedule:
-    - cron: '30 6,16 * * *'
+    - cron: '23 7,16,20 * * *'
   push:
     branches: [claude/innsbruck-webapp-proposal-qnyvew]
     paths:
@@ -33,8 +36,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -88,3 +91,14 @@ jobs:
             git pull --rebase -X theirs
             git push
           fi
+
+  # Neu bauen, auch wenn der Commit-Schritt scheitert: dann mit dem letzten
+  # guten Datenstand. Auf dem Arbeitszweig wird nichts veroeffentlicht.
+  pages:
+    needs: fetch
+    if: ${{ !cancelled() && github.ref == 'refs/heads/main' }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml
