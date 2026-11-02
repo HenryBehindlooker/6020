@@ -325,10 +325,120 @@ def hoehenmodell():
     return {**meta, "hoehen": dict(zip([p[0] for p in PUNKTE], doc.get("elevation", [])))}
 
 
+# --- Zweite Runde ------------------------------------------------------------
+
+def warnungen_inhalt():
+    tid, lat, lon = PUNKTE[0]
+    doc, meta = get_json(f"https://warnungen.zamg.at/wsapp/api/getWarningsForCoords?lon={lon}&lat={lat}&lang=de")
+    props = doc.get("properties", {}) if isinstance(doc, dict) else {}
+    return {**meta, "property_keys": sorted(props.keys()), "properties": kurz(props, 2500)}
+
+
+def lawis_suche():
+    """Die richtige API-Adresse aus der Webseite von LAWIS lesen."""
+    out = {}
+    try:
+        html, meta = get("https://lawis.at/", limit=500_000)
+        out["start"] = meta
+        skripte = re.findall(r'src="([^"]+\.js)"', html)
+        out["skripte"] = skripte[:10]
+        fund = set(re.findall(r"lawis_api/[A-Za-z0-9_./-]+", html))
+        for s in skripte[:6]:
+            url = s if s.startswith("http") else "https://lawis.at/" + s.lstrip("/")
+            try:
+                js, _ = get(url, limit=4_000_000)
+                fund |= set(re.findall(r"lawis_api/[A-Za-z0-9_./{}$-]+", js))
+                fund |= set(re.findall(r'"(/?(?:public|api)/[a-z_]+/?)"', js))
+            except Exception as err:  # noqa: BLE001
+                out.setdefault("js_fehler", []).append(str(err)[:100])
+        out["pfade"] = sorted(fund)[:60]
+    except Exception as err:  # noqa: BLE001
+        out["fehler"] = str(err)[:200]
+    heute = date.today()
+    vor = heute - timedelta(days=30)
+    for name, url in {
+        "incident_slash": f"https://lawis.at/lawis_api/public/incident/?startDate={vor}&endDate={heute}",
+        "incident_iso": f"https://lawis.at/lawis_api/public/incident?startDate={vor}T00:00:00&endDate={heute}T23:59:59",
+        "profile_slash": f"https://lawis.at/lawis_api/public/profile/?startDate={vor}&endDate={heute}",
+        "incident_ohne": "https://lawis.at/lawis_api/public/incident/",
+        "station": "https://lawis.at/lawis_api/public/station/",
+    }.items():
+        try:
+            text, meta = get(url, limit=300_000)
+            out[name] = {**meta, "anfang": text[:400]}
+        except Exception as err:  # noqa: BLE001
+            out[name] = {"fehler": str(err)[:150]}
+        time.sleep(1)
+    return out
+
+
+def tiris_ebenen():
+    """Ebenen der Landesdienste ueber die REST-Schnittstelle."""
+    out = {}
+    for dienst in ("terrain", "ogd_sport", "ogd_naturgefahren", "ogd_gelaende_solar", "euregio"):
+        url = f"https://gis.tirol.gv.at/arcgis/rest/services/Service_Public/{dienst}/MapServer?f=json"
+        try:
+            doc, meta = get_json(url)
+            out[dienst] = {"status": meta["status"],
+                           "beschreibung": (doc.get("serviceDescription") or doc.get("description") or "")[:300],
+                           "copyright": doc.get("copyrightText"),
+                           "ebenen": [(l.get("id"), l.get("name")) for l in doc.get("layers", [])][:60],
+                           "wms": f"https://gis.tirol.gv.at/arcgis/services/Service_Public/{dienst}/MapServer/WMSServer"}
+        except Exception as err:  # noqa: BLE001
+            out[dienst] = {"fehler": str(err)[:150]}
+    return out
+
+
+def snowgrid():
+    """Modellierte Schneehoehe (SNOWGRID, 1 km, taeglich) an den Ausgangspunkten."""
+    meta_doc, _ = get_json(f"{GS}/timeseries/historical/snowgrid_cl-v2-1d-1km/metadata")
+    params = [p.get("name") for p in meta_doc.get("parameters", [])]
+    ende = meta_doc.get("end_time") or ""
+    tag = (ende[:10] if ende else (date.today() - timedelta(days=1)).isoformat())
+    start = (date.fromisoformat(tag) - timedelta(days=3)).isoformat()
+    q = [("parameters", p) for p in params[:3]]
+    q += [("lat_lon", f"{t['lat']},{t['lon']}") for t in TOURS[:4]]
+    q += [("start", start), ("end", tag), ("output_format", "geojson")]
+    doc, meta = get_json(f"{GS}/timeseries/historical/snowgrid_cl-v2-1d-1km?{urllib.parse.urlencode(q)}")
+    werte = [{k: v.get("data") for k, v in f.get("properties", {}).get("parameters", {}).items()}
+             for f in doc.get("features", [])]
+    return {**meta, "parameter": [(p.get("name"), p.get("long_name"), p.get("unit")) for p in meta_doc.get("parameters", [])],
+            "ende": ende, "zeit": doc.get("timestamps"), "werte_ausgangspunkte": werte}
+
+
+def lwd_einheiten():
+    """Beschreibung des LWD-Datensatzes auf data.gv.at - welche Einheiten?"""
+    url = ("https://www.data.gv.at/katalog/api/3/action/package_search?"
+           + urllib.parse.urlencode({"q": "Lawinenwarndienst Wetterstationen", "rows": 3}))
+    doc, meta = get_json(url)
+    res = doc.get("result", {}).get("results", [])
+    return {**meta, "treffer": [{"titel": r.get("title"), "lizenz": r.get("license_id"),
+                                 "beschreibung": (r.get("notes") or "")[:2500]} for r in res]}
+
+
+def ensemble_v2():
+    doc, meta = get_json(f"{GS}/timeseries/forecast/ensemble-v2-1h-1km/metadata")
+    return {**meta, "parameter": [(p.get("name"), (p.get("long_name") or "")[:60], p.get("unit"))
+                                  for p in doc.get("parameters", [])][:40]}
+
+
+def albina_nochmal():
+    return albina_stationen()
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     ergebnis = {"checked_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "pruefungen": {}}
-    schritte = [
+    zweite_runde = [
+        ("warnungen_inhalt", warnungen_inhalt),
+        ("lawis_suche", lawis_suche),
+        ("tiris_ebenen", tiris_ebenen),
+        ("snowgrid", snowgrid),
+        ("lwd_einheiten", lwd_einheiten),
+        ("ensemble_v2", ensemble_v2),
+        ("albina_nochmal", albina_nochmal),
+    ]
+    schritte = zweite_runde + [
         ("lwd_stationen", lwd_stationen),
         ("albina_stationen", albina_stationen),
         ("geosphere_datensaetze", geosphere_datensaetze),
