@@ -494,9 +494,56 @@ def cors_pruefen():
     return out
 
 
+# --- Vierte Runde: Legenden und ArcGIS-Export ---------------------------------
+
+def tiris_legende_export():
+    """Legenden (Klassen und Farben) und Export-Kacheln fuer Dienste ohne WMS."""
+    out = {}
+    base = "https://gis.tirol.gv.at/arcgis/rest/services/Service_Public"
+    for dienst in ("terrain", "ogd_sport"):
+        try:
+            doc, meta = get_json(f"{base}/{dienst}/MapServer/legend?f=json")
+            ebenen = []
+            for l in doc.get("layers", []):
+                name = l.get("layerName", "")
+                if any(w in name for w in ("Wintersport", "Wildschutz", "Exposition", "Rettung", "Rodel")):
+                    ebenen.append({"id": l.get("layerId"), "name": name,
+                                   "klassen": [{"label": x.get("label"), "contentType": x.get("contentType"),
+                                                "bild_base64_laenge": len(x.get("imageData") or ""),
+                                                "bild": (x.get("imageData") or "")[:2000]}
+                                               for x in l.get("legend", [])][:12]})
+            out[f"{dienst}_legende"] = {**meta, "ebenen": ebenen}
+        except Exception as err:  # noqa: BLE001
+            out[f"{dienst}_legende"] = {"fehler": str(err)[:150]}
+    # Export als Kachel (Web-Mercator), wie ihn die Karte anfordern wuerde
+    bbox = "1253000,5973000,1258000,5978000"
+    for name, layer in (("wildschutz", "10"), ("neigung_wintersport", "14"), ("rettungspunkte", "1"), ("rodelbahnen", "9")):
+        url = (f"{base}/ogd_sport/MapServer/export?bbox={bbox}&bboxSR=3857&imageSR=3857&size=256,256"
+               f"&layers=show:{layer}&format=png32&transparent=true&f=image")
+        try:
+            body, m = get(url, binary=True, limit=2_000_000)
+            out[f"export_{name}"] = {"layer": layer, "content_type": m["content_type"], "bytes": len(body)}
+        except Exception as err:  # noqa: BLE001
+            out[f"export_{name}"] = {"layer": layer, "fehler": str(err)[:150]}
+    # Wo gibt es ueberhaupt Wildschutzzonen? Abfrage im Umkreis der Touren
+    try:
+        q = urllib.parse.urlencode({"where": "1=1", "geometry": "11.0,47.1,11.5,47.35", "geometryType": "esriGeometryEnvelope",
+                                    "inSR": "4326", "spatialRel": "esriSpatialRelIntersects", "outFields": "*",
+                                    "returnGeometry": "false", "f": "json"})
+        doc, meta = get_json(f"{base}/ogd_sport/MapServer/10/query?{q}")
+        feats = doc.get("features", [])
+        out["wildschutz_abfrage"] = {**meta, "anzahl": len(feats),
+                                     "felder": [f.get("name") for f in doc.get("fields", [])][:20],
+                                     "beispiele": [f.get("attributes") for f in feats[:5]], "fehler": doc.get("error")}
+    except Exception as err:  # noqa: BLE001
+        out["wildschutz_abfrage"] = {"fehler": str(err)[:150]}
+    return out
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     ergebnis = {"checked_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "pruefungen": {}}
+    vierte_runde = [("tiris_legende_export", tiris_legende_export)]
     dritte_runde = [
         ("lwd_lizenz", lwd_lizenz),
         ("tiris_wms_ebenen", tiris_wms_ebenen),
@@ -511,7 +558,7 @@ def main():
         ("ensemble_v2", ensemble_v2),
         ("albina_nochmal", albina_nochmal),
     ]
-    schritte = dritte_runde + zweite_runde + [
+    schritte = vierte_runde + dritte_runde + zweite_runde + [
         ("lwd_stationen", lwd_stationen),
         ("albina_stationen", albina_stationen),
         ("geosphere_datensaetze", geosphere_datensaetze),
