@@ -97,7 +97,11 @@
 
 			<a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a>
 
-			(Urheber je Bild) ·
+			(Urheber je Bild) · Messwerte:
+			<a href="https://lawine.tirol.gv.at/" rel="noreferrer">Lawinenwarndienst Tirol</a>
+			· Gelände:
+			<a href="https://www.tirol.gv.at/tiris" rel="noreferrer">Land Tirol – tiris</a>
+			·
 
 			<a href="https://github.com/HenryBehindlooker/6020" rel="noreferrer">Quellcode</a>
 		</p>

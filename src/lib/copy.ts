@@ -36,6 +36,7 @@ export const TEXT = {
 	warum: 'Warum de Ampel?',
 	zeitplan: 'Zeitplan',
 	bergwetter: 'Bergwetter',
+	gemessen: 'Gmessn',
 	lage: "Wo's is",
 	einkehr: 'Einkehrn',
 	hoamfahrn: 'Hoamfahrn',

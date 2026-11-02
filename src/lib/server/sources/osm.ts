@@ -93,3 +93,18 @@ export async function getBikeRoutes(): Promise<BikeRoute[]> {
 		return out.sort((a, b) => a.name.localeCompare(b.name, 'de'));
 	});
 }
+
+/** Messstationen des Lawinenwarndienstes (scripts/fetch/stations.py). */
+export async function getStationFeatures(): Promise<{ features: RawFeature[]; fetchedAt: string | null }> {
+	return cached('lwd:stationen', config.cacheTtlMs, async () => {
+		try {
+			const doc = JSON.parse(await readFile('static/stationen/lwd.geojson', 'utf8')) as {
+				features?: RawFeature[];
+				fetched_at?: string;
+			};
+			return { features: doc.features ?? [], fetchedAt: doc.fetched_at ?? null };
+		} catch {
+			return { features: [], fetchedAt: null };
+		}
+	});
+}

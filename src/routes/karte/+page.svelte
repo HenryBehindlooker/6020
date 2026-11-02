@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import DataNotice from '#lib/components/DataNotice.svelte';
 	import TourMap from '#lib/components/TourMap.svelte';
+	import TirisLegende from '#lib/components/TirisLegende.svelte';
 	import type { MapMarker, MapTrack } from '#lib/components/mapTypes.js';
 	import SignalBadge from '#lib/components/SignalBadge.svelte';
 	import { hhmm } from '#lib/logic/turnaround.js';
@@ -112,9 +113,11 @@
 	<li><span class="punkt grau"></span>Hütte, Einkehr</li>
 </ul>
 <p class="hinweis">
-	Wege, Hütten und Seilbahnen stammen aus OpenStreetMap und lassen sich oben rechts ein- und ausschalten. Wanderwege
-	sind Sommerwege - im Winter keine Aufstiegsroute.
+	Wege, Hütten und Seilbahnen stammen aus OpenStreetMap und lassen sich oben rechts ein- und ausschalten, ebenso
+	Hangneigung, Exposition, Wald- und Wildschutzzonen (Land Tirol) und die Messstationen des Lawinenwarndienstes.
+	Wanderwege sind Sommerwege – im Winter keine Aufstiegsroute.
 </p>
+<TirisLegende />
 
 <ol class="liste">
 	{#each groups as group (group.stop)}
