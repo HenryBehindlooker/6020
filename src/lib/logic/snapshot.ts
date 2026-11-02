@@ -1,5 +1,6 @@
 import type { Departure } from '#lib/types.js';
 import { viennaMonth, viennaTime, viennaWeekday } from '#lib/logic/time.js';
+import { austrianHoliday } from '#lib/logic/holidays.js';
 
 /** Eine Reise aus data/transit/connections.json (scripts/fetch/transitous.py). */
 export interface SnapshotItinerary {
@@ -35,21 +36,37 @@ export interface Snapshot {
 const WINTER_MONTHS = new Set([12, 1, 2, 3, 4]);
 
 /**
- * Welcher Beispieltag passt zum gewuenschten Datum? Wochenende -> Samstag,
- * sonst Werktag. Im Winter am Wochenende der Wintersamstag, falls abgefragt -
- * unter der Woche NICHT, sonst fehlten Pendler- und Schulbusse.
+ * Welcher Beispieltag passt zum gewuenschten Datum?
+ *
+ * - Sonn- und Feiertag: Sonntag, sonst Samstag (naeher dran als der Werktag)
+ * - Samstag: Samstag
+ * - Werktag: Werktag - NIE der Samstag, sonst fehlten Pendler- und Schulbusse
+ *
+ * Im Winter jeweils zuerst der Wintertag, falls abgefragt. Der Abholer fragt
+ * ihn nur vor der Saison ab; in der Saison sind Samstag und Sonntag selbst
+ * Wintertage.
  */
-export function pickSnapshotDay(snapshot: Snapshot, date: Date): { label: string; day: SnapshotDay } | null {
+export function pickSnapshotDay(
+	snapshot: Snapshot,
+	date: Date
+): { label: string; day: SnapshotDay; feiertag: string | null } | null {
 	const weekday = viennaWeekday(date);
-	const weekend = weekday === 0 || weekday === 6;
+	const feiertag = weekday === 0 ? null : austrianHoliday(date);
 	const winter = WINTER_MONTHS.has(viennaMonth(date));
-	const order = weekend
-		? [...(winter ? ['winter_samstag'] : []), 'samstag', 'werktag']
-		: ['werktag', 'samstag', ...(winter ? ['winter_samstag'] : [])];
+	const w = (label: string) => (winter ? [`winter_${label}`, label] : [label]);
+	// Rueckfall nur zur vorsichtigen Seite: am Werktag notfalls der Samstag
+	// (weniger Busse), am Wochenende und Feiertag NIE der Werktag - der kennt
+	// Busse, die dann nicht fahren. Lieber "Fahrplan fehlt" als ein Phantombus.
+	const order =
+		weekday === 0 || feiertag
+			? [...w('sonntag'), ...w('samstag')]
+			: weekday === 6
+				? [...w('samstag'), ...w('sonntag')]
+				: ['werktag', ...w('samstag')];
 
 	for (const label of order) {
 		const day = snapshot.days[label];
-		if (day) return { label, day };
+		if (day) return { label, day, feiertag };
 	}
 	return null;
 }

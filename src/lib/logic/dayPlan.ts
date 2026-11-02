@@ -207,7 +207,9 @@ export function connectionFor(inputs: PlanInputs, stop: string, date: Date): Tra
 	const entry = picked?.day.trailheads[stop];
 	if (snapshot && picked && entry) {
 		const tag = new Date(picked.day.date + 'T12:00:00Z');
-		const stand = `${WOCHENTAG[viennaWeekday(tag)]} ${tag.toLocaleDateString('de-AT', { timeZone: TIME_ZONE })}`;
+		const stand =
+			`${WOCHENTAG[viennaWeekday(tag)]} ${tag.toLocaleDateString('de-AT', { timeZone: TIME_ZONE })}` +
+			(picked.feiertag ? ` (Feiertag ${picked.feiertag}: Sonntagsfahrplan)` : '');
 		const convert = (direction: 'outbound' | 'inbound') =>
 			entry[direction].map((it) => toDeparture(it, date, direction)).filter((d): d is Departure => d !== null);
 		const outbound = convert('outbound');

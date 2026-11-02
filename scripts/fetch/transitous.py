@@ -171,14 +171,21 @@ def main():
         print(f"geocode {key:32} -> {[m['name'] for m in (result['stops_known'][key] or [])]}")
         time.sleep(1)
 
-    # Ein Samstag Anfang Dezember: Wintersaison in Kuehtai und der Axamer Lizum,
-    # aber noch im laufenden Fahrplanjahr.
-    days = [("samstag", next_weekday(5)), ("werktag", next_weekday(2))]
-    winter = date(date.today().year, 12, 5)
-    while winter.weekday() != 5:
-        winter += timedelta(days=1)
-    if winter > date.today():
-        days.append(("winter_samstag", winter))
+    # Werktag, Samstag und Sonntag - an Sonn- und Feiertagen fahren viele
+    # Linien seltener, das kann der Samstag nicht ersetzen.
+    days = [("samstag", next_weekday(5)), ("sonntag", next_weekday(6)), ("werktag", next_weekday(2))]
+    # Vor der Saison zusaetzlich ein Wochenende Anfang Dezember: Wintersaison in
+    # Kuehtai und der Axamer Lizum, aber noch im laufenden Fahrplanjahr. In der
+    # Saison (Dezember bis April) sind Samstag und Sonntag selbst Wintertage -
+    # vorher wurde dann der 5. Dezember des NAECHSTEN Jahres abgefragt, fuer den
+    # es noch keinen Fahrplan gibt, und die App haette "kein Bus" gemeldet.
+    heute = date.today()
+    if heute.month in (5, 6, 7, 8, 9, 10, 11):
+        winter = date(heute.year, 12, 5)
+        while winter.weekday() != 5:
+            winter += timedelta(days=1)
+        if winter > heute:
+            days += [("winter_samstag", winter), ("winter_sonntag", winter + timedelta(days=1))]
 
     for label, day in days:
         result["days"][label] = {"date": day.isoformat(), "trailheads": {}}

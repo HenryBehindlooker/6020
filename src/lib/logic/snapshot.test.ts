@@ -43,9 +43,35 @@ describe('pickSnapshotDay', () => {
 		expect(pickSnapshotDay(snapshot, new Date('2027-01-12T08:00:00Z'))?.label).toBe('werktag');
 	});
 
-	it('faellt auf den anderen Tag zurueck, wenn einer fehlt', () => {
+	it('faellt nur zur vorsichtigen Seite zurueck', () => {
+		// Am Werktag notfalls der Samstag - weniger Busse, also eher zu frueh umkehren
+		const nurSamstag: Snapshot = { ...snapshot, days: { samstag: snapshot.days.samstag } };
+		expect(pickSnapshotDay(nurSamstag, new Date('2026-10-07T08:00:00Z'))?.label).toBe('samstag');
+		// Am Wochenende nie der Werktag: der kennt Busse, die dann nicht fahren
 		const nurWerktag: Snapshot = { ...snapshot, days: { werktag: snapshot.days.werktag } };
-		expect(pickSnapshotDay(nurWerktag, new Date('2026-10-10T08:00:00Z'))?.label).toBe('werktag');
+		expect(pickSnapshotDay(nurWerktag, new Date('2026-10-10T08:00:00Z'))).toBeNull();
+	});
+
+	it('nimmt am Sonntag den Sonntag, sonst den Samstag', () => {
+		const mitSonntag: Snapshot = {
+			...snapshot,
+			days: { ...snapshot.days, sonntag: { date: '2026-10-04', trailheads: {} } }
+		};
+		expect(pickSnapshotDay(mitSonntag, new Date('2026-10-11T08:00:00Z'))?.label).toBe('sonntag');
+		expect(pickSnapshotDay(snapshot, new Date('2026-10-11T08:00:00Z'))?.label).toBe('samstag');
+	});
+
+	it('nimmt am Feiertag unter der Woche den Sonntagsfahrplan', () => {
+		const mitSonntag: Snapshot = {
+			...snapshot,
+			days: { ...snapshot.days, sonntag: { date: '2026-10-04', trailheads: {} } }
+		};
+		// Di 8.12.2026, Mariae Empfaengnis - mitten in der Skisaison
+		const r = pickSnapshotDay(mitSonntag, new Date('2026-12-08T08:00:00Z'));
+		expect(r?.label).toBe('sonntag');
+		expect(r?.feiertag).toBe('Mariä Empfängnis');
+		// Mo 26.10.2026, Nationalfeiertag - ohne Sonntag im Abzug der Samstag, nie der Werktag
+		expect(pickSnapshotDay(snapshot, new Date('2026-10-26T08:00:00Z'))?.label).toBe('samstag');
 	});
 
 	it('liefert null ohne Tage', () => {
