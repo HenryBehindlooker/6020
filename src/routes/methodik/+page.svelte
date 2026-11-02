@@ -144,7 +144,7 @@
 				<tr><td>Lawinenwarndienst Tirol / EAWS (CAAMLv6)</td><td>Gefahrenstufe, Lawinenprobleme, Hangrichtungen</td></tr
 				>
 				<tr
-					><td>GeoSphere Austria (AROME 1 km, Open Data, CC BY 4.0)</td><td
+					><td>GeoSphere Austria (AROME 2,5 km, Open Data, CC BY 4.0)</td><td
 						>Wind, Böen, Neuschnee, Temperatur, Bewölkung am Gipfel</td
 					></tr
 				>
@@ -156,6 +156,14 @@
 					></tr
 				>
 				<tr><td>Wikimedia Commons, Wikipedia</td><td>Fotos rund um die Gipfel, Talbilder und -texte</td></tr>
+				<tr>
+					<td>Lawinenwarndienst Tirol, automatische Stationen</td>
+					<td>Gemessene Schneehöhe, Änderung in 24/72 h, Wind, Böen, Temperatur – stündlich, nur angezeigt</td>
+				</tr>
+				<tr>
+					<td>Land Tirol – tiris</td>
+					<td>Kartenebenen Hangneigung für Wintersportler, Exposition, Wald- und Wildschutzzonen</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>

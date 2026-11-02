@@ -5,7 +5,8 @@ import { buildDayPlan } from '#lib/server/plan.js';
 import { getTrack } from '#lib/server/sources/tracks.js';
 import { simplify } from '#lib/logic/gpx.js';
 import { nearby } from '#lib/logic/nearby.js';
-import { getHuts, getPois } from '#lib/server/sources/osm.js';
+import { getHuts, getPois, getStationFeatures } from '#lib/server/sources/osm.js';
+import { stationsForTour } from '#lib/logic/stations.js';
 import { getTourPhotos, getValleys } from '#lib/server/sources/photos.js';
 import { landmarksAlong } from '#lib/logic/landmarks.js';
 import { distanceKm } from '#lib/logic/gpx.js';
@@ -30,6 +31,8 @@ export const load: PageServerLoad = async ({ params: route, url }) => {
 	const tour = tourPlan.tour;
 	const huts = nearby(await getHuts(), tour.lat, tour.lon);
 	const landmarks = tour.summit ? landmarksAlong(await getPois(), tour, tour.summit) : [];
+	const stationen = await getStationFeatures();
+	const stations = stationsForTour(stationen.features as Parameters<typeof stationsForTour>[0], tour);
 
 	// Fotos: rund um den Gipfel, dazu das naechstgelegene Tal (hoechstens 8 km)
 	const photos = await getTourPhotos(tour.id);
@@ -48,6 +51,8 @@ export const load: PageServerLoad = async ({ params: route, url }) => {
 		params,
 		huts,
 		landmarks,
+		stations,
+		stationenStand: stationen.fetchedAt,
 		photos,
 		valley,
 		track: track

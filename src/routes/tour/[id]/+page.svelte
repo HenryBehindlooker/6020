@@ -3,6 +3,8 @@
 	import DataNotice from '#lib/components/DataNotice.svelte';
 	import HutInfo from '#lib/components/HutInfo.svelte';
 	import PhotoGallery from '#lib/components/PhotoGallery.svelte';
+	import StationPanel from '#lib/components/StationPanel.svelte';
+	import TirisLegende from '#lib/components/TirisLegende.svelte';
 	import { LANDMARK_LABEL } from '#lib/logic/landmarks.js';
 	import SignalBadge from '#lib/components/SignalBadge.svelte';
 	import TourMap from '#lib/components/TourMap.svelte';
@@ -234,13 +236,25 @@
 	</section>
 {/if}
 
+{#if data.stations.length > 0}
+	<section class="panel">
+		<h2>{TEXT.gemessen} <span class="unter">an den Stationen in der Nähe</span></h2>
+		<StationPanel stations={data.stations} {tour} />
+		<p class="quelle">
+			Automatische Stationen des <a href="https://lawine.tirol.gv.at/" rel="noreferrer">Lawinenwarndienstes Tirol</a>,
+			stündlich gemessen. Die Änderung der Schneehöhe ist nicht der Neuschnee: Setzung und Windverfrachtung stecken mit
+			drin. Die Werte fließen nicht in die Ampel ein – sie zeigen, ob die Prognose zur Wirklichkeit passt.
+		</p>
+	</section>
+{/if}
+
 <section class="panel">
 	<h2>{TEXT.lage}</h2>
 	<TourMap
 		markers={marker}
 		tracks={track}
 		osm
-		osmVisible={{ pois: true }}
+		osmVisible={{ pois: true, stations: true }}
 		height="22rem"
 		zoom={12}
 		center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]}
@@ -259,9 +273,11 @@
 		<a href={resolve(`tour/${tour.id}/tour.kml`)} download="{tour.id}.kml">KML für Google Earth laden</a>
 	</p>
 	<p class="quelle">
-		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'} · Linien: Wege und Seilbahnen aus OpenStreetMap,
-		oben rechts umschaltbar. Wanderwege sind Sommerwege, keine Skitouren-Aufstiege.
+		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'} · Linien: Wege und Seilbahnen aus OpenStreetMap.
+		Oben rechts zuschaltbar: Hangneigung, Exposition, Wald- und Wildschutzzonen, Messstationen. Wanderwege sind Sommerwege,
+		keine Skitouren-Aufstiege.
 	</p>
+	<TirisLegende />
 </section>
 
 {#if data.photos.length > 0 || data.valley}

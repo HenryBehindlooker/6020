@@ -2,6 +2,7 @@ import type * as Leaflet from 'leaflet';
 import { openingOn, viennaDay } from '#lib/logic/openingHours.js';
 import { paymentInfo } from '#lib/logic/payment.js';
 import { LANDMARK_LABEL, landmarkKind } from '#lib/logic/landmarks.js';
+import { degreesToAspect, signedCm } from '#lib/logic/stations.js';
 
 /**
  * Zusatzebenen aus OpenStreetMap: Wege, Skitouren, Seilbahnen, Huetten.
@@ -20,6 +21,7 @@ export interface OsmLayerStyle {
 	route: string;
 	bike?: string;
 	poi?: string;
+	station?: string;
 	skitour: string;
 	aerialway: string;
 	hut: string;
@@ -134,6 +136,39 @@ export function poiPopup(props: Props): string {
 	return `${name}${hoehe}${wasser}${links(props)}`;
 }
 
+export function stationPopup(props: Props, now: Date = new Date()): string {
+	const n = (k: string) => (typeof props[k] === 'number' && Number.isFinite(props[k]) ? (props[k] as number) : null);
+	const zeilen: string[] = [];
+	const hs = n('HS');
+	if (hs !== null) zeilen.push(`Schneehöhe ${Math.round(hs)} cm`);
+	const d24 = signedCm(n('HSD24'));
+	const d72 = signedCm(n('HSD72'));
+	if (d24 || d72)
+		zeilen.push(`Änderung ${[d24 && `${d24} in 24 h`, d72 && `${d72} in 72 h`].filter(Boolean).join(', ')}`);
+	const wg = n('WG');
+	if (wg !== null) {
+		const aus = degreesToAspect(n('WR'));
+		const boe = n('WG_BOE');
+		zeilen.push(
+			`Wind ${Math.round(wg)} km/h${aus ? ` aus ${aus}` : ''}${boe !== null ? `, Böen ${Math.round(boe)} km/h` : ''}`
+		);
+	}
+	const lt = n('LT');
+	if (lt !== null) zeilen.push(`${lt.toLocaleString('de-AT')} °C`);
+	const date = typeof props.date === 'string' ? new Date(props.date) : null;
+	const zeit =
+		date && !Number.isNaN(date.getTime())
+			? `Gemessen ${date.toLocaleString('de-AT', { weekday: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Vienna' })}` +
+				(now.getTime() - date.getTime() > 6 * 3_600_000 ? ' – älter als 6 Stunden' : '')
+			: '';
+	const hoehe = props.ele ? ` · ${escapeHtml(props.ele)} m` : '';
+	return (
+		`<strong>${escapeHtml(props.name ?? 'Station')}</strong><div class="sub">Messstation Lawinenwarndienst${hoehe}</div>` +
+		zeilen.map((z) => `<div>${escapeHtml(z)}</div>`).join('') +
+		(zeit ? `<div class="sub">${escapeHtml(zeit)}</div>` : '')
+	);
+}
+
 export function aerialwayPopup(props: Props): string {
 	const name = escapeHtml(props.name ?? 'Seilbahn');
 	const typ: Record<string, string> = {
@@ -147,24 +182,58 @@ export function aerialwayPopup(props: Props): string {
 	return `<strong>${name}</strong><div class="sub">${art}</div>${links(props)}`;
 }
 
+/** Pfade unter static/ */
 const FILES = {
-	hiking: 'routes-hiking.geojson',
-	skitour: 'routes-skitour.geojson',
-	aerialways: 'aerialways.geojson',
-	huts: 'huts.geojson',
-	bike: 'routes-bike.geojson',
-	pois: 'pois.geojson'
+	hiking: 'osm/routes-hiking.geojson',
+	skitour: 'osm/routes-skitour.geojson',
+	aerialways: 'osm/aerialways.geojson',
+	huts: 'osm/huts.geojson',
+	bike: 'osm/routes-bike.geojson',
+	pois: 'osm/pois.geojson',
+	stations: 'stationen/lwd.geojson'
 } as const;
 
 async function load(assetUrl: (path: string) => string, file: string): Promise<GeoJSON.FeatureCollection | null> {
 	try {
-		const res = await fetch(assetUrl(`osm/${file}`));
+		const res = await fetch(assetUrl(file));
 		if (!res.ok) return null;
 		const data = (await res.json()) as GeoJSON.FeatureCollection;
 		return data.features?.length ? data : null;
 	} catch {
 		return null;
 	}
+}
+
+/**
+ * Kachelebene fuer einen ArcGIS-Kartendienst ohne WMS (export-Schnittstelle).
+ * Leaflet kennt nur WMS; die Kachel-Grenzen in Web-Mercator rechnet diese
+ * Ebene selbst und laesst den Dienst ein Bild genau dafuer zeichnen.
+ */
+export function arcgisExportLayer(
+	L: typeof Leaflet,
+	serviceUrl: string,
+	layerIds: string,
+	options: Leaflet.TileLayerOptions
+): Leaflet.TileLayer {
+	class ArcGisExport extends L.TileLayer {
+		getTileUrl(coords: Leaflet.Coords): string {
+			const size = this.getTileSize();
+			return (
+				`${serviceUrl}/export?bbox=${tileBbox3857(coords.x, coords.y, coords.z).join(',')}` +
+				`&bboxSR=3857&imageSR=3857&size=${size.x},${size.y}` +
+				`&layers=show:${layerIds}&format=png32&transparent=true&f=image`
+			);
+		}
+	}
+	return new ArcGisExport('', options);
+}
+
+/** Grenzen einer XYZ-Kachel in Web-Mercator (EPSG:3857): minX, minY, maxX, maxY in Metern. */
+export function tileBbox3857(x: number, y: number, z: number): [number, number, number, number] {
+	const R = 20037508.342789244;
+	const s = (2 * R) / 2 ** z;
+	const r = (v: number) => Math.round(v * 10) / 10;
+	return [r(-R + x * s), r(R - (y + 1) * s), r(-R + (x + 1) * s), r(R - y * s)];
 }
 
 /**
@@ -184,15 +253,20 @@ export async function addOsmLayers(
 		huts?: boolean;
 		bike?: boolean;
 		pois?: boolean;
+		stations?: boolean;
+		slope?: boolean;
+		aspect?: boolean;
+		wildlife?: boolean;
 	} = {}
 ): Promise<Record<string, number>> {
-	const [hiking, skitour, aerialways, huts, bike, pois] = await Promise.all([
+	const [hiking, skitour, aerialways, huts, bike, pois, stations] = await Promise.all([
 		load(assetUrl, FILES.hiking),
 		load(assetUrl, FILES.skitour),
 		load(assetUrl, FILES.aerialways),
 		load(assetUrl, FILES.huts),
 		load(assetUrl, FILES.bike),
-		load(assetUrl, FILES.pois)
+		load(assetUrl, FILES.pois),
+		load(assetUrl, FILES.stations)
 	]);
 
 	const attribution = '&copy; OpenStreetMap-Mitwirkende (ODbL)';
@@ -251,6 +325,51 @@ export async function addOsmLayers(
 		});
 		counts.pois = pois.features.length;
 	}
+	// Gelaende des Landes Tirol (tiris): Hangneigung in den Klassen fuer
+	// Wintersportler und die Exposition. WMS in Web-Mercator, wie die Karte.
+	const tiris = 'https://gis.tirol.gv.at/arcgis/services/Service_Public/terrain/MapServer/WMSServer';
+	const tirisAttribution = 'Gelände: <a href="https://www.tirol.gv.at/tiris" rel="noreferrer">Land Tirol – tiris</a>';
+	overlays['Hangneigung (Wintersport)'] = L.tileLayer.wms(tiris, {
+		layers: 'Image_Gelaendeneigung_Wintersport',
+		format: 'image/png',
+		transparent: true,
+		version: '1.3.0',
+		opacity: 0.55,
+		attribution: tirisAttribution
+	});
+	overlays['Exposition'] = L.tileLayer.wms(tiris, {
+		layers: 'Image_Exposition',
+		format: 'image/png',
+		transparent: true,
+		version: '1.3.0',
+		opacity: 0.5,
+		attribution: tirisAttribution
+	});
+
+	// Wald- und Wildschutzzonen: dort ist Skitourengehen verboten oder nur auf
+	// markierten Routen erlaubt. Der Dienst hat kein WMS - darum ueber export.
+	overlays['Wald- und Wildschutzzonen'] = arcgisExportLayer(
+		L,
+		'https://gis.tirol.gv.at/arcgis/rest/services/Service_Public/ogd_sport/MapServer',
+		'10',
+		{ opacity: 0.8, attribution: tirisAttribution }
+	);
+
+	if (stations) {
+		overlays['Messstationen'] = L.geoJSON(stations, {
+			attribution: 'Messwerte: Lawinenwarndienst Tirol',
+			pointToLayer: (_f, latlng) =>
+				L.circleMarker(latlng, {
+					radius: 5,
+					color: style.station ?? '#1d5c88',
+					weight: 2,
+					fillColor: '#ffffff',
+					fillOpacity: 1
+				}),
+			onEachFeature: (f, layer) => layer.bindPopup(stationPopup(f.properties ?? {}))
+		});
+		counts.stations = stations.features.length;
+	}
 	if (huts) {
 		overlays['Hütten & Einkehr'] = L.geoJSON(huts, {
 			attribution,
@@ -269,20 +388,39 @@ export async function addOsmLayers(
 	}
 
 	// Sommer-Radl und die vielen kleinen Punkte nur auf Wunsch
-	const defaults = { hiking: true, skitour: true, aerialways: true, huts: true, bike: false, pois: false, ...visible };
+	const defaults = {
+		hiking: true,
+		skitour: true,
+		aerialways: true,
+		huts: true,
+		bike: false,
+		pois: false,
+		stations: false,
+		slope: false,
+		aspect: false,
+		wildlife: false,
+		...visible
+	};
 	const keyOf: Record<string, keyof typeof defaults> = {
 		'Wanderwege (Sommer)': 'hiking',
 		Skitouren: 'skitour',
 		Seilbahnen: 'aerialways',
 		'Hütten & Einkehr': 'huts',
 		'Radl & MTB': 'bike',
-		'Markante Punkte': 'pois'
+		'Markante Punkte': 'pois',
+		Messstationen: 'stations',
+		'Hangneigung (Wintersport)': 'slope',
+		Exposition: 'aspect',
+		'Wald- und Wildschutzzonen': 'wildlife'
 	};
 
 	for (const [label, layer] of Object.entries(overlays)) {
 		if (defaults[keyOf[label]]) layer.addTo(map);
-		// Wege unter die Marker der Ausgangspunkte legen
-		if ('bringToBack' in layer && typeof layer.bringToBack === 'function') layer.bringToBack();
+		// Wege unter die Marker der Ausgangspunkte legen - aber keine Kachelebene:
+		// die laege dann unter der Grundkarte und waere unsichtbar
+		if (!(layer instanceof L.TileLayer) && 'bringToBack' in layer && typeof layer.bringToBack === 'function') {
+			layer.bringToBack();
+		}
 	}
 
 	if (Object.keys(overlays).length > 0) {
