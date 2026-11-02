@@ -1,5 +1,5 @@
-import { distanceKm } from '$lib/logic/gpx';
-import { paymentInfo, type PaymentInfo } from '$lib/logic/payment';
+import { distanceKm } from '#lib/logic/gpx.js';
+import { paymentInfo, type PaymentInfo } from '#lib/logic/payment.js';
 
 export interface PointFeature {
 	name: string;

@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
-import { cached } from '$lib/server/cache';
-import { config } from '$lib/server/config';
+import { cached } from '#lib/server/cache.js';
+import { config } from '#lib/server/config.js';
 
 /** Von scripts/fetch/photos.py befuellt: Wikimedia-Fotos mit Urheber und Lizenz. */
 const PATH = 'static/photos/photos.json';

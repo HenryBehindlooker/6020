@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import { TEXT } from '$lib/copy';
+	import { resolve } from '$app/paths';
+	import { TEXT } from '#lib/copy.js';
 </script>
 
 <svelte:head><title>Wia grechnet wird - Bergampel Innsbruck</title></svelte:head>
 
-<p class="zurueck"><a href="{base}/">&larr; {TEXT.zurueck}</a></p>
+<p class="zurueck"><a href={resolve('')}>← {TEXT.zurueck}</a></p>
 
 <h1>Wia grechnet wird</h1>
 
@@ -32,8 +32,8 @@
 			liegt die Tour in seinem Höhenband, steigt die Ampel - ab Stufe 3 direkt auf rot.
 		</li>
 		<li>
-			<strong>Steilheit:</strong> Bei Stufe 2 sind Schlüsselstellen ab 40&deg; gelb. Ab Stufe 3 sind sie ab 35&deg; rot, ab
-			30&deg; gelb - angelehnt an die Reduktionsmethode.
+			<strong>Steilheit:</strong>
+			Bei Stufe 2 sind Schlüsselstellen ab 40° gelb. Ab Stufe 3 sind sie ab 35° rot, ab 30° gelb - angelehnt an die Reduktionsmethode.
 		</li>
 		<li>
 			<strong>Wind:</strong> Stärkster Wind zwischen 7 und 16 Uhr am Gipfel-Gitterpunkt der Prognose. Ab 40 km/h gelb, ab

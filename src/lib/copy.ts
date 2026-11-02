@@ -1,4 +1,4 @@
-import type { Signal } from '$lib/logic/rating';
+import type { Signal } from '#lib/logic/rating.js';
 
 /**
  * Texte der Oberflaeche - mit Innsbrucker Einschlag.

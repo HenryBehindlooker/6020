@@ -1,7 +1,7 @@
 import type * as Leaflet from 'leaflet';
-import { openingOn, viennaDay } from '$lib/logic/openingHours';
-import { paymentInfo } from '$lib/logic/payment';
-import { LANDMARK_LABEL, landmarkKind } from '$lib/logic/landmarks';
+import { openingOn, viennaDay } from '#lib/logic/openingHours.js';
+import { paymentInfo } from '#lib/logic/payment.js';
+import { LANDMARK_LABEL, landmarkKind } from '#lib/logic/landmarks.js';
 
 /**
  * Zusatzebenen aus OpenStreetMap: Wege, Skitouren, Seilbahnen, Huetten.
@@ -156,9 +156,9 @@ const FILES = {
 	pois: 'pois.geojson'
 } as const;
 
-async function load(basePath: string, file: string): Promise<GeoJSON.FeatureCollection | null> {
+async function load(assetUrl: (path: string) => string, file: string): Promise<GeoJSON.FeatureCollection | null> {
 	try {
-		const res = await fetch(`${basePath}/osm/${file}`);
+		const res = await fetch(assetUrl(`osm/${file}`));
 		if (!res.ok) return null;
 		const data = (await res.json()) as GeoJSON.FeatureCollection;
 		return data.features?.length ? data : null;
@@ -174,7 +174,8 @@ async function load(basePath: string, file: string): Promise<GeoJSON.FeatureColl
 export async function addOsmLayers(
 	L: typeof Leaflet,
 	map: Leaflet.Map,
-	basePath: string,
+	/** Pfad unter static/ zur Adresse, in der App: asset() aus $app/paths */
+	assetUrl: (path: string) => string,
 	style: OsmLayerStyle,
 	visible: {
 		hiking?: boolean;
@@ -186,12 +187,12 @@ export async function addOsmLayers(
 	} = {}
 ): Promise<Record<string, number>> {
 	const [hiking, skitour, aerialways, huts, bike, pois] = await Promise.all([
-		load(basePath, FILES.hiking),
-		load(basePath, FILES.skitour),
-		load(basePath, FILES.aerialways),
-		load(basePath, FILES.huts),
-		load(basePath, FILES.bike),
-		load(basePath, FILES.pois)
+		load(assetUrl, FILES.hiking),
+		load(assetUrl, FILES.skitour),
+		load(assetUrl, FILES.aerialways),
+		load(assetUrl, FILES.huts),
+		load(assetUrl, FILES.bike),
+		load(assetUrl, FILES.pois)
 	]);
 
 	const attribution = '&copy; OpenStreetMap-Mitwirkende (ODbL)';

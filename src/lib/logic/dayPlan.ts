@@ -1,9 +1,9 @@
-import type { AvalancheBulletin, Departure, Tour, TransitConnection, WeatherForecast } from '$lib/types';
-import { rateTour, SIGNAL_ORDER, type TourRating } from '$lib/logic/rating';
-import { planTurnaround, type TurnaroundPlan } from '$lib/logic/turnaround';
-import { pickSnapshotDay, toDeparture, type Snapshot } from '$lib/logic/snapshot';
-import { demoWeather, weatherForDay, type WeatherSnapshot } from '$lib/logic/weather';
-import { TIME_ZONE, viennaParts, viennaTime, viennaWeekday } from '$lib/logic/time';
+import type { AvalancheBulletin, Departure, Tour, TransitConnection, WeatherForecast } from '#lib/types.js';
+import { rateTour, SIGNAL_ORDER, type TourRating } from '#lib/logic/rating.js';
+import { planTurnaround, type TurnaroundPlan } from '#lib/logic/turnaround.js';
+import { pickSnapshotDay, toDeparture, type Snapshot } from '#lib/logic/snapshot.js';
+import { demoWeather, weatherForDay, type WeatherSnapshot } from '#lib/logic/weather.js';
+import { TIME_ZONE, viennaParts, viennaTime, viennaWeekday } from '#lib/logic/time.js';
 
 /**
  * Der Tagesplan als reine Funktion: dieselbe Rechnung laeuft beim Vorrendern,

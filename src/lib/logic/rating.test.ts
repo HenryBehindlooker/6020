@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { AvalancheBulletin, Tour, WeatherForecast } from '$lib/types';
+import type { AvalancheBulletin, Tour, WeatherForecast } from '#lib/types.js';
 import {
 	dangerLevelForAltitude,
 	dangerLevelForTour,

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { DataStatus } from '$lib/logic/dayPlan';
-	import { TEXT } from '$lib/copy';
+	import type { DataStatus } from '#lib/logic/dayPlan.js';
+	import { TEXT } from '#lib/copy.js';
 
 	/**
 	 * Sagt oben auf jeder Seite, was an den Daten echt ist. Sicherheitsrelevant

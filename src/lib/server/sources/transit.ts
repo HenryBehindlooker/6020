@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises';
-import timetable from '$fixtures/timetable.json' with { type: 'json' };
-import type { DemoTimetable } from '$lib/logic/dayPlan';
-import type { Snapshot, SnapshotItinerary } from '$lib/logic/snapshot';
-import { cached } from '$lib/server/cache';
-import { config } from '$lib/server/config';
+import timetable from '#fixtures/timetable.json' with { type: 'json' };
+import type { DemoTimetable } from '#lib/logic/dayPlan.js';
+import type { Snapshot, SnapshotItinerary } from '#lib/logic/snapshot.js';
+import { cached } from '#lib/server/cache.js';
+import { config } from '#lib/server/config.js';
 
 /** Von scripts/fetch/transitous.py auf dem GitHub-Runner geschrieben. */
 const SNAPSHOT_PATH = 'data/transit/connections.json';

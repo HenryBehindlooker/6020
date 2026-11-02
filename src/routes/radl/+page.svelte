@@ -1,5 +1,5 @@
 <script lang="ts">
-	import TourMap from '$lib/components/TourMap.svelte';
+	import TourMap from '#lib/components/TourMap.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();

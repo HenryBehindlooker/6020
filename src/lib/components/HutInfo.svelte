@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { openingOn, viennaDay, type OpeningResult } from '$lib/logic/openingHours';
-	import type { PaymentInfo } from '$lib/logic/payment';
+	import { openingOn, viennaDay, type OpeningResult } from '#lib/logic/openingHours.js';
+	import type { PaymentInfo } from '#lib/logic/payment.js';
 
 	let {
 		openingHours,

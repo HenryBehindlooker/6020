@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import type { TourPlan } from '$lib/logic/dayPlan';
-import type { Signal } from '$lib/logic/rating';
+import type { TourPlan } from '#lib/logic/dayPlan.js';
+import type { Signal } from '#lib/logic/rating.js';
 import { boundsOf, groupByTrailhead } from './trailheads';
 
 function plan(id: string, stop: string, signal: Signal, feasible: boolean, lat = 47.1, lon = 11.1): TourPlan {

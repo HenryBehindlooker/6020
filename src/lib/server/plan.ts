@@ -1,9 +1,9 @@
-import { computeDayPlan, type DayPlan, type PlanInputs } from '$lib/logic/dayPlan';
-import { lastBulletinDate, loadBulletins } from '$lib/server/sources/avalanche';
-import { demoTimetable, loadTransitSnapshot } from '$lib/server/sources/transit';
-import { loadWeatherSnapshot } from '$lib/server/sources/weather';
-import { listTours } from '$lib/server/sources/tours';
-import { config } from '$lib/server/config';
+import { computeDayPlan, type DayPlan, type PlanInputs } from '#lib/logic/dayPlan.js';
+import { lastBulletinDate, loadBulletins } from '#lib/server/sources/avalanche.js';
+import { demoTimetable, loadTransitSnapshot } from '#lib/server/sources/transit.js';
+import { loadWeatherSnapshot } from '#lib/server/sources/weather.js';
+import { listTours } from '#lib/server/sources/tours.js';
+import { config } from '#lib/server/config.js';
 
 /**
  * Alle Eingangsdaten des Tagesplans. Beim Vorrendern landen sie zusaetzlich als

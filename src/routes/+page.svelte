@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import DataNotice from '$lib/components/DataNotice.svelte';
-	import TourCard from '$lib/components/TourCard.svelte';
-	import { problemLabel } from '$lib/logic/rating';
-	import { planQuery } from '$lib/planParams';
-	import { planner } from '$lib/planner.svelte';
-	import { TEXT } from '$lib/copy';
+	import { resolve } from '$app/paths';
+	import DataNotice from '#lib/components/DataNotice.svelte';
+	import TourCard from '#lib/components/TourCard.svelte';
+	import { problemLabel } from '#lib/logic/rating.js';
+	import { planQuery } from '#lib/planParams.js';
+	import { planner } from '#lib/planner.svelte.js';
+	import { TEXT } from '#lib/copy.js';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -199,7 +199,7 @@
 	</section>
 {/if}
 
-<p class="weiter"><a href="{base}/karte{query}">Alle Touren auf der Karte &rarr;</a></p>
+<p class="weiter"><a href="{resolve('karte')}{query}">Alle Touren auf der Karte →</a></p>
 
 <style>
 	.lage {

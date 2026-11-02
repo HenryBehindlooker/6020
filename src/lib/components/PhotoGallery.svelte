@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Photo } from '$lib/server/sources/photos';
+	import type { Photo } from '#lib/server/sources/photos.js';
 
 	let { photos, alt }: { photos: Photo[]; alt: string } = $props();
 

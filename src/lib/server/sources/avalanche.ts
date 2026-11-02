@@ -1,8 +1,8 @@
-import type { Aspect, AvalancheBulletin, AvalancheProblem, DangerLevel } from '$lib/types';
-import { cached } from '$lib/server/cache';
-import { config } from '$lib/server/config';
+import type { Aspect, AvalancheBulletin, AvalancheProblem, DangerLevel } from '#lib/types.js';
+import { cached } from '#lib/server/cache.js';
+import { config } from '#lib/server/config.js';
 import { readFile } from 'node:fs/promises';
-import { TIME_ZONE } from '$lib/logic/time';
+import { TIME_ZONE } from '#lib/logic/time.js';
 
 const LEVEL_BY_NAME: Record<string, DangerLevel> = {
 	no_snow: 0,

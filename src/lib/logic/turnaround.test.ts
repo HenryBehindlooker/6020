@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { Departure, Tour, TransitConnection } from '$lib/types';
+import type { Departure, Tour, TransitConnection } from '#lib/types.js';
 import { formatReserve, pickLastInbound, pickOutbound, planTurnaround, realDeparture } from './turnaround';
 
 const tour: Tour = {

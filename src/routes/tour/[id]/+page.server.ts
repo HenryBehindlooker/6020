@@ -1,16 +1,16 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { building } from '$app/environment';
-import { buildDayPlan } from '$lib/server/plan';
-import { getTrack } from '$lib/server/sources/tracks';
-import { simplify } from '$lib/logic/gpx';
-import { nearby } from '$lib/logic/nearby';
-import { getHuts, getPois } from '$lib/server/sources/osm';
-import { getTourPhotos, getValleys } from '$lib/server/sources/photos';
-import { landmarksAlong } from '$lib/logic/landmarks';
-import { distanceKm } from '$lib/logic/gpx';
-import { planningDate } from '$lib/logic/dayPlan';
-import { parsePlanParams } from '$lib/planParams';
+import { building } from '$app/env';
+import { buildDayPlan } from '#lib/server/plan.js';
+import { getTrack } from '#lib/server/sources/tracks.js';
+import { simplify } from '#lib/logic/gpx.js';
+import { nearby } from '#lib/logic/nearby.js';
+import { getHuts, getPois } from '#lib/server/sources/osm.js';
+import { getTourPhotos, getValleys } from '#lib/server/sources/photos.js';
+import { landmarksAlong } from '#lib/logic/landmarks.js';
+import { distanceKm } from '#lib/logic/gpx.js';
+import { planningDate } from '#lib/logic/dayPlan.js';
+import { parsePlanParams } from '#lib/planParams.js';
 
 export const load: PageServerLoad = async ({ params: route, url }) => {
 	// Dieselben Werte wie auf der Liste - sonst zeigt die Tourenseite eine

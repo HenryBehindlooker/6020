@@ -1,10 +1,10 @@
 import type { PageServerLoad } from './$types';
-import { base } from '$app/paths';
-import { building } from '$app/environment';
-import { buildDayPlan } from '$lib/server/plan';
-import { planningDate } from '$lib/logic/dayPlan';
-import { getSimplifiedTracks } from '$lib/server/sources/tracks';
-import { parsePlanParams } from '$lib/planParams';
+import { resolve } from '$app/paths';
+import { building } from '$app/env';
+import { buildDayPlan } from '#lib/server/plan.js';
+import { planningDate } from '#lib/logic/dayPlan.js';
+import { getSimplifiedTracks } from '#lib/server/sources/tracks.js';
+import { parsePlanParams } from '#lib/planParams.js';
 
 export const load: PageServerLoad = async ({ url, setHeaders }) => {
 	const params = parsePlanParams(building ? null : url.searchParams);
@@ -28,7 +28,7 @@ export const load: PageServerLoad = async ({ url, setHeaders }) => {
 				signal: signalByTour.get(track.tourId)!,
 				label: nameByTour.get(track.tourId) ?? track.name,
 				schematic: track.schematic,
-				href: `${base}/tour/${track.tourId}`
+				href: resolve(`tour/${track.tourId}`)
 			})),
 		params
 	};

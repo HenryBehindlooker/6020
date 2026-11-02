@@ -1,4 +1,4 @@
-import type { Aspect, AvalancheBulletin, DangerLevel, Tour, WeatherForecast } from '$lib/types';
+import type { Aspect, AvalancheBulletin, DangerLevel, Tour, WeatherForecast } from '#lib/types.js';
 
 export type Signal = 'gruen' | 'gelb' | 'rot' | 'unbekannt';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Signal } from '$lib/logic/rating';
-	import { SIGNAL_TEXT } from '$lib/copy';
+	import type { Signal } from '#lib/logic/rating.js';
+	import { SIGNAL_TEXT } from '#lib/copy.js';
 
 	let { signal, size = 'normal' }: { signal: Signal; size?: 'normal' | 'gross' } = $props();
 	const text = $derived(SIGNAL_TEXT[signal]);

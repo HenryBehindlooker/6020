@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import type { TourPlan } from '$lib/logic/dayPlan';
-	import { formatReserve, hhmm } from '$lib/logic/turnaround';
-	import { TEXT } from '$lib/copy';
+	import { resolve } from '$app/paths';
+	import type { TourPlan } from '#lib/logic/dayPlan.js';
+	import { formatReserve, hhmm } from '#lib/logic/turnaround.js';
+	import { TEXT } from '#lib/copy.js';
 	import SignalBadge from './SignalBadge.svelte';
 
 	let { plan, query = '' }: { plan: TourPlan; query?: string } = $props();
@@ -17,13 +17,11 @@
 	const aufstieg = $derived(nb(formatReserve(tour.ascentMinutes)));
 </script>
 
-<a class="card {rating.signal}" href="{base}/tour/{tour.id}{query}">
+<a class="card {rating.signal}" href="{resolve(`tour/${tour.id}`)}{query}">
 	<header>
 		<div>
 			<h3>{tour.name}</h3>
-			<p class="meta">
-				{tour.trailhead} · {tour.summitAltitude}&nbsp;m · {tour.ascentMeters}&nbsp;Hm · {aufstieg} Aufstieg
-			</p>
+			<p class="meta">{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} Hm · {aufstieg} Aufstieg</p>
 		</div>
 		<SignalBadge signal={rating.signal} />
 	</header>

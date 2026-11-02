@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
-	import { env } from '$env/dynamic/public';
-	import type { Signal } from '$lib/logic/rating';
+	import { browser } from '$app/env';
+	import type { AssetPath } from '$app/types';
+	import { PUBLIC_TILE_URL, PUBLIC_TILE_ATTRIBUTION } from '$app/env/public';
+	import type { Signal } from '#lib/logic/rating.js';
 	import type { MapMarker, MapTrack } from './mapTypes';
-	import { base } from '$app/paths';
+	import { asset } from '$app/paths';
 	import { addOsmLayers, escapeHtml } from './osmLayers';
 
 	let {
@@ -15,21 +16,22 @@
 		zoom = 10,
 		center,
 		osmVisible = {}
+
+		/** Wege, Huetten und Seilbahnen aus OpenStreetMap dazuladen. */
+		/** Welche OSM-Ebenen anfangs sichtbar sind, etwa { bike: true, skitour: false } */
 	}: {
 		markers: MapMarker[];
 		tracks?: MapTrack[];
-		/** Wege, Huetten und Seilbahnen aus OpenStreetMap dazuladen. */
 		osm?: boolean;
 		height?: string;
 		zoom?: number;
 		center?: [number, number];
-		/** Welche OSM-Ebenen anfangs sichtbar sind, etwa { bike: true, skitour: false } */
 		osmVisible?: Parameters<typeof addOsmLayers>[4];
 	} = $props();
 
-	const TILE_URL = env.PUBLIC_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+	const TILE_URL = PUBLIC_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 	const TILE_ATTRIBUTION =
-		env.PUBLIC_TILE_ATTRIBUTION || '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>';
+		PUBLIC_TILE_ATTRIBUTION || '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>';
 
 	/**
 	 * Leaflet braucht die Ampelfarben als Zeichenkette. Sie werden aus denselben
@@ -148,7 +150,7 @@
 					await addOsmLayers(
 						L,
 						map,
-						base,
+						(path) => asset(path as AssetPath),
 						{
 							route: token('--sky', '#2b7fb8'),
 							skitour: token('--forest', '#2f6b41'),

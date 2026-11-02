@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import GoldenesDachl from '$lib/components/GoldenesDachl.svelte';
-	import { TEXT } from '$lib/copy';
-	import { planner } from '$lib/planner.svelte';
+	import GoldenesDachl from '#lib/components/GoldenesDachl.svelte';
+	import { TEXT } from '#lib/copy.js';
+	import { planner } from '#lib/planner.svelte.js';
 	import { onMount } from 'svelte';
 	let { children } = $props();
 
@@ -13,14 +13,35 @@
 	const links = [
 		{
 			plan: true,
-			href: `${base}/`,
+			href: resolve(''),
 			label: TEXT.nav.touren,
-			match: (p: string) => p === `${base}/` || p.startsWith(`${base}/tour/`)
+			match: (p: string) => p === resolve('') || p.startsWith(resolve(`tour/`))
 		},
-		{ plan: true, href: `${base}/karte`, label: TEXT.nav.karte, match: (p: string) => p.startsWith(`${base}/karte`) },
-		{ href: `${base}/radl`, label: TEXT.nav.radl, match: (p: string) => p.startsWith(`${base}/radl`) },
-		{ href: `${base}/taeler`, label: TEXT.nav.taeler, match: (p: string) => p.startsWith(`${base}/taeler`) },
-		{ href: `${base}/methodik`, label: TEXT.nav.methodik, match: (p: string) => p.startsWith(`${base}/methodik`) }
+
+		{
+			plan: true,
+			href: resolve(`karte`),
+			label: TEXT.nav.karte,
+			match: (p: string) => p.startsWith(resolve(`karte`))
+		},
+
+		{
+			href: resolve(`radl`),
+			label: TEXT.nav.radl,
+			match: (p: string) => p.startsWith(resolve(`radl`))
+		},
+
+		{
+			href: resolve(`taeler`),
+			label: TEXT.nav.taeler,
+			match: (p: string) => p.startsWith(resolve(`taeler`))
+		},
+
+		{
+			href: resolve(`methodik`),
+			label: TEXT.nav.methodik,
+			match: (p: string) => p.startsWith(resolve(`methodik`))
+		}
 	];
 </script>
 
@@ -32,7 +53,7 @@
 
 <div class="shell">
 	<header>
-		<a class="brand" href="{base}/" aria-label="Bergampel Innsbruck - Startseite">
+		<a class="brand" href={resolve('')} aria-label="Bergampel Innsbruck - Startseite">
 			<GoldenesDachl size={36} />
 			<span>
 				<strong>{TEXT.titel}</strong>
@@ -62,13 +83,22 @@
 			<a href="https://lawinen.report" rel="noreferrer">Lawinenwarndienstes Tirol</a>.
 		</p>
 		<p class="quellen">
-			Karten- und Wegdaten &copy; <a href="https://www.openstreetmap.org/copyright" rel="noreferrer"
-				>OpenStreetMap-Mitwirkende</a
-			>
-			(ODbL) · Fahrpläne über <a href="https://transitous.org" rel="noreferrer">Transitous</a> · Wetter:
+			Karten- und Wegdaten ©
+
+			<a href="https://www.openstreetmap.org/copyright" rel="noreferrer">OpenStreetMap-Mitwirkende</a>
+
+			(ODbL) · Fahrpläne über
+			<a href="https://transitous.org" rel="noreferrer">Transitous</a>
+			· Wetter:
+
 			<a href="https://data.hub.geosphere.at" rel="noreferrer">GeoSphere Austria</a>
-			(CC BY 4.0) · Fotos von <a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a> (Urheber je
-			Bild) ·
+
+			(CC BY 4.0) · Fotos von
+
+			<a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a>
+
+			(Urheber je Bild) ·
+
 			<a href="https://github.com/HenryBehindlooker/6020" rel="noreferrer">Quellcode</a>
 		</p>
 	</footer>

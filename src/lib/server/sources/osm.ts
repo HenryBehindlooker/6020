@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { toPointFeature, type PointFeature } from '$lib/logic/nearby';
-import { cached } from '$lib/server/cache';
-import { config } from '$lib/server/config';
-import { safeUrl } from '$lib/components/osmLayers';
+import { toPointFeature, type PointFeature } from '#lib/logic/nearby.js';
+import { cached } from '#lib/server/cache.js';
+import { config } from '#lib/server/config.js';
+import { safeUrl } from '#lib/components/osmLayers.js';
 
 /** Von scripts/fetch/osm.py befuellt; dieselben Dateien laedt die Karte nach. */
 const OSM_DIR = 'static/osm';

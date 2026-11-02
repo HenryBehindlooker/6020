@@ -1,19 +1,19 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import DataNotice from '$lib/components/DataNotice.svelte';
-	import HutInfo from '$lib/components/HutInfo.svelte';
-	import PhotoGallery from '$lib/components/PhotoGallery.svelte';
-	import { LANDMARK_LABEL } from '$lib/logic/landmarks';
-	import SignalBadge from '$lib/components/SignalBadge.svelte';
-	import TourMap from '$lib/components/TourMap.svelte';
-	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
-	import { formatReserve, hhmm } from '$lib/logic/turnaround';
-	import { googleEarthUrl } from '$lib/logic/kml';
-	import { planQuery } from '$lib/planParams';
-	import { TEXT } from '$lib/copy';
-	import { planner } from '$lib/planner.svelte';
-	import { sunTimes } from '$lib/logic/sun';
-	import type { Departure } from '$lib/types';
+	import { resolve } from '$app/paths';
+	import DataNotice from '#lib/components/DataNotice.svelte';
+	import HutInfo from '#lib/components/HutInfo.svelte';
+	import PhotoGallery from '#lib/components/PhotoGallery.svelte';
+	import { LANDMARK_LABEL } from '#lib/logic/landmarks.js';
+	import SignalBadge from '#lib/components/SignalBadge.svelte';
+	import TourMap from '#lib/components/TourMap.svelte';
+	import type { MapMarker, MapTrack } from '#lib/components/mapTypes.js';
+	import { formatReserve, hhmm } from '#lib/logic/turnaround.js';
+	import { googleEarthUrl } from '#lib/logic/kml.js';
+	import { planQuery } from '#lib/planParams.js';
+	import { TEXT } from '#lib/copy.js';
+	import { planner } from '#lib/planner.svelte.js';
+	import { sunTimes } from '#lib/logic/sun.js';
+	import type { Departure } from '#lib/types.js';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -84,11 +84,8 @@
 	const huettenArt = { schutzhuette: 'Schutzhütte', selbstversorger: 'Selbstversorgerhütte', einkehr: 'Einkehr' };
 </script>
 
-<svelte:head>
-	<title>{tour.name} - Bergampel Innsbruck</title>
-</svelte:head>
-
-<p class="zurueck"><a href="{base}/{query}">&larr; {TEXT.zurueck}</a></p>
+<svelte:head><title>{tour.name} - Bergampel Innsbruck</title></svelte:head>
+<p class="zurueck"><a href="{resolve('')}{query}">← {TEXT.zurueck}</a></p>
 
 <DataNotice {status} builtAt={live?.builtAt ?? data.builtAt} />
 
@@ -96,11 +93,11 @@
 	<div>
 		<h1>{tour.name}</h1>
 		<p class="meta">
-			{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} Hm · Exposition {tour.aspects.join('/')} · bis {tour.steepnessMax}&deg;
+			{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} Hm · Exposition {tour.aspects.join('/')} · bis {tour.steepnessMax}°
 		</p>
 		<p class="fuer">
 			Plan für {tagText} · Aufbruch ab {params.notBefore} Uhr · {params.bufferMinutes} min Puffer ·
-			<a href="{base}/{query}">ändern</a>
+			<a href="{resolve('')}{query}">ändern</a>
 		</p>
 	</div>
 	<SignalBadge signal={rating.signal} size="gross" />
@@ -219,7 +216,7 @@
 			</div>
 			<div>
 				<dt>Temperatur</dt>
-				<dd>{weather.temperatureC} &deg;C auf {weather.referenceAltitude} m</dd>
+				<dd>{weather.temperatureC} °C auf {weather.referenceAltitude} m</dd>
 			</div>
 			<div>
 				<dt>Bewölkung</dt>
@@ -258,7 +255,8 @@
 			target="_blank"
 			rel="noopener noreferrer">In 3D anschauen (Google Earth)</a
 		>
-		<a href="{base}/tour/{tour.id}/tour.kml" download="{tour.id}.kml">KML für Google Earth laden</a>
+
+		<a href={resolve(`tour/${tour.id}/tour.kml`)} download="{tour.id}.kml">KML für Google Earth laden</a>
 	</p>
 	<p class="quelle">
 		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'} · Linien: Wege und Seilbahnen aus OpenStreetMap,
@@ -277,7 +275,9 @@
 				<a href={data.valley.article} target="_blank" rel="noopener noreferrer">Wikipedia</a>
 			</p>
 		{/if}
+
 		<PhotoGallery photos={[...(data.valley ? [data.valley.photo] : []), ...data.photos]} alt={tour.name} />
+
 		<p class="quelle">
 			Fotos von Wikimedia Commons, rund um den Gipfel aufgenommen (bis 3 km entfernt) – Jahreszeit und Verhältnisse auf
 			dem Bild sagen nichts über heute. Text: Wikipedia, CC BY-SA 4.0.
@@ -324,9 +324,13 @@
 				<li>
 					<div>
 						<strong>{huette.name}</strong>
-						<span class="art"
-							>{huettenArt[huette.kind]}{#if huette.ele}&nbsp;· {huette.ele} m{/if}</span
-						>
+
+						<span class="art">
+							{huettenArt[huette.kind]}{#if huette.ele}
+								· {huette.ele} m
+							{/if}
+						</span>
+
 						<HutInfo
 							openingHours={huette.openingHours}
 							payment={huette.payment}
@@ -374,7 +378,8 @@
 {#snippet verbindung(fahrt: Departure)}
 	<li>
 		<div>
-			<strong>{hhmm(fahrt.departure)}</strong> &rarr; {hhmm(fahrt.arrival)}
+			<strong>{hhmm(fahrt.departure)}</strong>
+			→ {hhmm(fahrt.arrival)}
 			<span class="linie">{fahrt.line}</span>
 			{#if fahrt.delayMinutes}<span class="delay">+{fahrt.delayMinutes} min</span>{/if}
 		</div>
@@ -387,7 +392,7 @@
 			{#if fahrt.legs && fahrt.legs.length > 1}
 				({fahrt.legs.map((l) => `${l.line} ab ${l.from} ${l.departure}`).join(', ')})
 			{/if}
-			&rarr; {fahrt.headsign}
+			→ {fahrt.headsign}
 		</div>
 	</li>
 {/snippet}

@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { bulletinFor, computeDayPlan, planningDate, type PlanInputs } from './dayPlan';
-import { parseCaaml } from '$lib/server/sources/avalanche';
-import type { Tour } from '$lib/types';
+import { parseCaaml } from '#lib/server/sources/avalanche.js';
+import type { Tour } from '#lib/types.js';
 
 // Echter Bericht: gilt vom 16.1.2026 16:00 bis 17.1. 16:00 UTC
 const echt17 = parseCaaml(JSON.parse(readFileSync('src/fixtures/lawine/2026-01-17.json', 'utf8')));

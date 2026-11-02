@@ -1,4 +1,4 @@
-import type { Signal } from '$lib/logic/rating';
+import type { Signal } from '#lib/logic/rating.js';
 
 export interface MapMarker {
 	lat: number;

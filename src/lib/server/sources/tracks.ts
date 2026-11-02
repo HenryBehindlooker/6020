@@ -1,13 +1,13 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import { env } from '$env/dynamic/private';
-import type { Track } from '$lib/logic/gpx';
-import { ascentMeters, lengthKm, parseGpx, simplify } from '$lib/logic/gpx';
-import { cached } from '$lib/server/cache';
-import { config } from '$lib/server/config';
+import { TRACKS_DIR } from '$app/env/private';
+import type { Track } from '#lib/logic/gpx.js';
+import { ascentMeters, lengthKm, parseGpx, simplify } from '#lib/logic/gpx.js';
+import { cached } from '#lib/server/cache.js';
+import { config } from '#lib/server/config.js';
 
 /** Ablage der GPX-Dateien; Dateiname ohne Endung ist die Tour-ID. */
-const TRACKS_DIR = env.TRACKS_DIR || 'data/tracks';
+const TRACKS_PATH = TRACKS_DIR || 'data/tracks';
 
 /**
  * Laedt alle vorhandenen Tourenverlaeufe, nach Tour-ID.
@@ -22,7 +22,7 @@ export async function getTracks(): Promise<Map<string, Track>> {
 
 		let files: string[];
 		try {
-			files = await readdir(TRACKS_DIR);
+			files = await readdir(TRACKS_PATH);
 		} catch {
 			return tracks;
 		}
@@ -32,7 +32,7 @@ export async function getTracks(): Promise<Map<string, Track>> {
 			const tourId = file.replace(/\.gpx$/i, '');
 
 			try {
-				const xml = await readFile(join(TRACKS_DIR, file), 'utf8');
+				const xml = await readFile(join(TRACKS_PATH, file), 'utf8');
 				const parsed = parseGpx(xml);
 				if (parsed.points.length < 2) continue;
 

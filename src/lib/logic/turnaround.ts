@@ -1,4 +1,4 @@
-import type { Departure, Tour, TransitConnection } from '$lib/types';
+import type { Departure, Tour, TransitConnection } from '#lib/types.js';
 
 export interface TurnaroundPlan {
 	/** Gewaehlte Hinfahrt. */

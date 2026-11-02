@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import DataNotice from '$lib/components/DataNotice.svelte';
-	import TourMap from '$lib/components/TourMap.svelte';
-	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
-	import SignalBadge from '$lib/components/SignalBadge.svelte';
-	import { hhmm } from '$lib/logic/turnaround';
-	import { groupByTrailhead } from '$lib/logic/trailheads';
-	import { planQuery } from '$lib/planParams';
-	import { planner } from '$lib/planner.svelte';
+	import { resolve } from '$app/paths';
+	import DataNotice from '#lib/components/DataNotice.svelte';
+	import TourMap from '#lib/components/TourMap.svelte';
+	import type { MapMarker, MapTrack } from '#lib/components/mapTypes.js';
+	import SignalBadge from '#lib/components/SignalBadge.svelte';
+	import { hhmm } from '#lib/logic/turnaround.js';
+	import { groupByTrailhead } from '#lib/logic/trailheads.js';
+	import { planQuery } from '#lib/planParams.js';
+	import { planner } from '#lib/planner.svelte.js';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -20,7 +20,8 @@
 	const kartenSchluessel = $derived(
 		plan.tours.map((t) => `${t.tour.id}:${t.rating.signal}:${t.turnaround.feasible}`).join('|')
 	);
-	const tourHref = (id: string) => `${base}/tour/${id}${query}`;
+
+	const tourHref = (id: string) => resolve(`tour/${id}${query}`);
 
 	function anzahl(count: number, einzahl: string, mehrzahl: string): string {
 		return `${count} ${count === 1 ? einzahl : mehrzahl}`;
@@ -36,7 +37,13 @@
 					signal: t.rating.signal,
 					label: t.tour.summit!.name,
 					sub: t.tour.summit!.ele ? `${t.tour.summit!.ele} m` : undefined,
-					links: [{ text: t.tour.name, href: tourHref(t.tour.id), signal: t.rating.signal }],
+					links: [
+						{
+							text: t.tour.name,
+							href: tourHref(t.tour.id),
+							signal: t.rating.signal
+						}
+					],
 					shape: 'gipfel' as const
 				}))
 		)
@@ -50,7 +57,11 @@
 			label: group.name,
 			sub: `${anzahl(group.tours.length, 'Tour', 'Touren')} · ${group.feasibleCount} ${group.feasibleCount === 1 ? 'geht' : 'gehen'} sich zeitlich aus`,
 			count: group.tours.length,
-			links: group.tours.map((t) => ({ text: t.tour.name, href: tourHref(t.tour.id), signal: t.rating.signal }))
+			links: group.tours.map((t) => ({
+				text: t.tour.name,
+				href: tourHref(t.tour.id),
+				signal: t.rating.signal
+			}))
 		}))
 	);
 
@@ -75,13 +86,14 @@
 			{#if plan.bulletin}
 				{plan.bulletin.kind === 'demo' ? 'Beispiel-Lage: ' : ''}Gefahrenstufe {plan.bulletin.rating
 					.above}{#if plan.bulletin.rating.elevationBoundary}
-					&nbsp;oberhalb {plan.bulletin.rating.elevationBoundary} m{/if}.
+					oberhalb {plan.bulletin.rating.elevationBoundary} m
+				{/if}.
 			{:else}
 				Lagebericht nicht verfügbar.
 			{/if}
 		</p>
 	</div>
-	<a class="wechsel" href="{base}/{query}">Als Liste</a>
+	<a class="wechsel" href="{resolve('')}{query}">Als Liste</a>
 </header>
 
 {#key kartenSchluessel}

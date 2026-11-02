@@ -1,8 +1,8 @@
 <script lang="ts">
-	import PhotoGallery from '$lib/components/PhotoGallery.svelte';
-	import TourMap from '$lib/components/TourMap.svelte';
-	import type { MapMarker } from '$lib/components/mapTypes';
-	import { googleEarthUrl } from '$lib/logic/kml';
+	import PhotoGallery from '#lib/components/PhotoGallery.svelte';
+	import TourMap from '#lib/components/TourMap.svelte';
+	import type { MapMarker } from '#lib/components/mapTypes.js';
+	import { googleEarthUrl } from '#lib/logic/kml.js';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();

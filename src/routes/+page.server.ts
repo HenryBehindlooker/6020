@@ -1,8 +1,8 @@
 import type { PageServerLoad } from './$types';
-import { building } from '$app/environment';
-import { buildDayPlan } from '$lib/server/plan';
-import { planningDate } from '$lib/logic/dayPlan';
-import { parsePlanParams } from '$lib/planParams';
+import { building } from '$app/env';
+import { buildDayPlan } from '#lib/server/plan.js';
+import { planningDate } from '#lib/logic/dayPlan.js';
+import { parsePlanParams } from '#lib/planParams.js';
 
 export const load: PageServerLoad = async ({ url, setHeaders }) => {
 	// Beim Vorrendern gibt es keine Abfrageparameter.

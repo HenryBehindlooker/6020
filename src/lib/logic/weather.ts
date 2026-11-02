@@ -1,5 +1,5 @@
-import type { Aspect, WeatherForecast } from '$lib/types';
-import { viennaTime } from '$lib/logic/time';
+import type { Aspect, WeatherForecast } from '#lib/types.js';
+import { viennaTime } from '#lib/logic/time.js';
 
 /**
  * Bergwetter je Planungstag aus der stuendlichen GeoSphere-Prognose

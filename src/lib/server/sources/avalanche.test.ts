@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { parseCaaml, parseElevation } from './avalanche';
-import { rateTour } from '$lib/logic/rating';
-import type { Tour, WeatherForecast } from '$lib/types';
+import { rateTour } from '#lib/logic/rating.js';
+import type { Tour, WeatherForecast } from '#lib/types.js';
 
 /**
  * Echte Tiroler Lawinenberichte der Saison 2025/26 von avalanche.report.

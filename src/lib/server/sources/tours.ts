@@ -1,5 +1,5 @@
-import type { Tour } from '$lib/types';
-import toursFixture from '$fixtures/tours.json' with { type: 'json' };
+import type { Tour } from '#lib/types.js';
+import toursFixture from '#fixtures/tours.json' with { type: 'json' };
 
 /**
  * Tourenliste rund um Innsbruck.

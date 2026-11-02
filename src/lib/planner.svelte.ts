@@ -1,8 +1,8 @@
-import { base } from '$app/paths';
-import { replaceState } from '$app/navigation';
+import { resolve } from '$app/paths';
+import { goto } from '$app/navigation';
 import { page } from '$app/state';
-import { computeDayPlan, planningDate, type DayPlan, type PlanInputs } from '$lib/logic/dayPlan';
-import { parsePlanParams, planQuery, type PlanParams, type PlanTag } from '$lib/planParams';
+import { computeDayPlan, planningDate, type DayPlan, type PlanInputs } from '#lib/logic/dayPlan.js';
+import { parsePlanParams, planQuery, type PlanParams, type PlanTag } from '#lib/planParams.js';
 
 /**
  * Planung im Browser: Tag, Aufbruch und Puffer gelten fuer alle Seiten und
@@ -40,7 +40,8 @@ class Planner {
 			// "heute" haengt an der Uhrzeit: nach 17 Uhr gilt der Bericht fuer morgen
 			setInterval(() => (this.now = new Date()), 60_000);
 		}
-		this.#loading ??= fetch(`${base}/daten/plan.json`)
+
+		this.#loading ??= fetch(resolve(`daten/plan.json`))
 			.then((res) => {
 				if (!res.ok) throw new Error(`HTTP ${res.status}`);
 				return res.json() as Promise<PlanInputs>;
@@ -82,7 +83,7 @@ class Planner {
 	syncUrl() {
 		const url = new URL(page.url.href);
 		url.search = this.query;
-		if (url.href !== page.url.href) replaceState(url, page.state);
+		if (url.href !== page.url.href) goto(url, { shallow: true, replace: true, state: page.state });
 	}
 }
 

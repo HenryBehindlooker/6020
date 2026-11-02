@@ -1,13 +1,13 @@
 import { error } from '@sveltejs/kit';
-import { env } from '$env/dynamic/private';
+import { BUILD_TARGET } from '$app/env/private';
 import type { RequestHandler } from './$types';
-import { buildKml, type KmlPoint } from '$lib/logic/kml';
-import { nearby } from '$lib/logic/nearby';
-import { getHuts } from '$lib/server/sources/osm';
-import { getTrack } from '$lib/server/sources/tracks';
-import { findTour } from '$lib/server/sources/tours';
+import { buildKml, type KmlPoint } from '#lib/logic/kml.js';
+import { nearby } from '#lib/logic/nearby.js';
+import { getHuts } from '#lib/server/sources/osm.js';
+import { getTrack } from '#lib/server/sources/tracks.js';
+import { findTour } from '#lib/server/sources/tours.js';
 
-export const prerender = env.BUILD_TARGET === 'pages';
+export const prerender = BUILD_TARGET === 'pages';
 
 export const GET: RequestHandler = async ({ params }) => {
 	const tour = findTour(params.id);

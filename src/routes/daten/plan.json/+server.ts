@@ -1,9 +1,9 @@
 import type { RequestHandler } from './$types';
-import { env } from '$env/dynamic/private';
-import { loadPlanInputs } from '$lib/server/plan';
+import { BUILD_TARGET } from '$app/env/private';
+import { loadPlanInputs } from '#lib/server/plan.js';
 
 // In der statischen Fassung eine feste Datei, die der Browser einmal laedt.
-export const prerender = env.BUILD_TARGET === 'pages';
+export const prerender = BUILD_TARGET === 'pages';
 
 /**
  * Die Eingangsdaten des Tagesplans: Touren, Lageberichte, Fahrplanabzug,

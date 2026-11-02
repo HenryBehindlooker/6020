@@ -1,5 +1,5 @@
-import type { Departure } from '$lib/types';
-import { viennaMonth, viennaTime, viennaWeekday } from '$lib/logic/time';
+import type { Departure } from '#lib/types.js';
+import { viennaMonth, viennaTime, viennaWeekday } from '#lib/logic/time.js';
 
 /** Eine Reise aus data/transit/connections.json (scripts/fetch/transitous.py). */
 export interface SnapshotItinerary {

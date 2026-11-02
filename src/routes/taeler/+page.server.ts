@@ -1,8 +1,8 @@
 import type { PageServerLoad } from './$types';
-import { base } from '$app/paths';
-import { getValleys } from '$lib/server/sources/photos';
-import { listTours } from '$lib/server/sources/tours';
-import { distanceKm } from '$lib/logic/gpx';
+import { resolve } from '$app/paths';
+import { getValleys } from '#lib/server/sources/photos.js';
+import { listTours } from '#lib/server/sources/tours.js';
+import { distanceKm } from '#lib/logic/gpx.js';
 
 export const load: PageServerLoad = async () => {
 	const tours = listTours();
@@ -15,7 +15,7 @@ export const load: PageServerLoad = async () => {
 					(p) => distanceKm({ lat: v.lat, lon: v.lon, ele: null }, { lat: p.lat, lon: p.lon, ele: null }) <= 8
 				)
 			)
-			.map((t) => ({ name: t.name, href: `${base}/tour/${t.id}` }))
+			.map((t) => ({ name: t.name, href: resolve(`tour/${t.id}`) }))
 	}));
 	return { valleys };
 };

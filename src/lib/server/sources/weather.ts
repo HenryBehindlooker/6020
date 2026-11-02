@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
-import type { WeatherSnapshot } from '$lib/logic/weather';
-import { cached } from '$lib/server/cache';
-import { config } from '$lib/server/config';
+import type { WeatherSnapshot } from '#lib/logic/weather.js';
+import { cached } from '#lib/server/cache.js';
+import { config } from '#lib/server/config.js';
 
 /** Von scripts/fetch/weather.py geschrieben: stuendliche GeoSphere-Prognose je Gipfel. */
 const SNAPSHOT_PATH = 'data/wetter/prognose.json';
