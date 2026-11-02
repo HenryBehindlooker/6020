@@ -254,7 +254,7 @@
 		markers={marker}
 		tracks={track}
 		osm
-		osmVisible={{ pois: true, stations: true }}
+		osmVisible={{ pois: true, stations: true, slope: true }}
 		height="22rem"
 		zoom={12}
 		center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]}
@@ -274,7 +274,7 @@
 	</p>
 	<p class="quelle">
 		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'} · Linien: Wege und Seilbahnen aus OpenStreetMap.
-		Oben rechts zuschaltbar: Hangneigung, Exposition, Wald- und Wildschutzzonen, Messstationen. Wanderwege sind Sommerwege,
+		Farbig: Hangneigung ab 30°. Oben rechts umschaltbar, dazu Exposition und Wald- und Wildschutzzonen. Wanderwege sind Sommerwege,
 		keine Skitouren-Aufstiege.
 	</p>
 	<TirisLegende />
