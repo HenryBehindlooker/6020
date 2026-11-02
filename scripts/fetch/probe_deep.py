@@ -426,9 +426,82 @@ def albina_nochmal():
     return albina_stationen()
 
 
+# --- Dritte Runde: Kartenebenen und Live-Abruf -------------------------------
+
+def tiris_wms_ebenen():
+    """WMS-Ebenen (Namen stehen in CDATA), Projektionen und je eine Probekachel."""
+    out = {}
+    # Ausschnitt um die Axamer Lizum in EPSG:3857 (Web-Mercator), 256 px
+    bbox = "1253000,5973000,1258000,5978000"
+    for dienst in ("terrain", "ogd_sport"):
+        base = f"https://gis.tirol.gv.at/arcgis/services/Service_Public/{dienst}/MapServer/WMSServer"
+        try:
+            text, meta = get(f"{base}?request=GetCapabilities&service=WMS", limit=5_000_000)
+            ebenen = re.findall(r"<Layer[^>]*>\s*<Name>(?:<!\[CDATA\[)?([^<\]]+)(?:\]\]>)?</Name>\s*"
+                                r"<Title>(?:<!\[CDATA\[)?([^<\]]*)(?:\]\]>)?</Title>", text)
+            crs = sorted(set(re.findall(r"<CRS>([^<]+)</CRS>", text)))[:20]
+            proben = {}
+            for name, titel in ebenen:
+                if any(w in titel for w in ("Wintersport", "Wildschutz", "Exposition", "Rettungspunkte", "Rodel")):
+                    url = (f"{base}?service=WMS&version=1.3.0&request=GetMap&layers={urllib.parse.quote(name)}"
+                           f"&styles=&crs=EPSG:3857&bbox={bbox}&width=256&height=256&format=image/png&transparent=true")
+                    try:
+                        body, m = get(url, binary=True, limit=2_000_000)
+                        proben[titel] = {"name": name, "content_type": m["content_type"], "bytes": len(body)}
+                    except Exception as err:  # noqa: BLE001
+                        proben[titel] = {"name": name, "fehler": str(err)[:120]}
+                    time.sleep(0.5)
+            out[dienst] = {**meta, "ebenen": [{"name": n, "titel": t} for n, t in ebenen][:80],
+                           "crs": crs, "probekacheln": proben}
+        except Exception as err:  # noqa: BLE001
+            out[dienst] = {"fehler": str(err)[:200]}
+    return out
+
+
+def lwd_lizenz():
+    """Lizenz des Stationsdatensatzes im Katalog data.gv.at."""
+    out = {}
+    for q in ("Wetterstationen Lawinenwarndienst", "LWD Tirol", "wiski ogd.geojson", "Lawinenwarndienst Tirol"):
+        url = "https://www.data.gv.at/katalog/api/3/action/package_search?" + urllib.parse.urlencode({"q": q, "rows": 5})
+        try:
+            doc, meta = get_json(url)
+            out[q] = [{"titel": r.get("title"), "lizenz": r.get("license_id") or r.get("license_title"),
+                       "organisation": (r.get("organization") or {}).get("title"),
+                       "ressourcen": [x.get("url") for x in r.get("resources", [])][:4]}
+                      for r in doc.get("result", {}).get("results", [])]
+        except Exception as err:  # noqa: BLE001
+            out[q] = {"fehler": str(err)[:150]}
+    return out
+
+
+def cors_pruefen():
+    """Darf der Browser die Messwerte direkt holen (CORS)?"""
+    out = {}
+    for name, url in {
+        "lwd_ogd": "https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson",
+        "albina_stationen": "https://static.avalanche.report/weather_stations/stations.geojson",
+        "geosphere": f"{GS}/datasets",
+    }.items():
+        req = urllib.request.Request(url, headers={**UA, "Origin": "https://henrybehindlooker.github.io"})
+        try:
+            with urllib.request.urlopen(req, timeout=40) as res:
+                out[name] = {"status": res.status,
+                             "allow_origin": res.headers.get("Access-Control-Allow-Origin"),
+                             "cache_control": res.headers.get("Cache-Control"),
+                             "last_modified": res.headers.get("Last-Modified")}
+        except Exception as err:  # noqa: BLE001
+            out[name] = {"fehler": str(err)[:150]}
+    return out
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     ergebnis = {"checked_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "pruefungen": {}}
+    dritte_runde = [
+        ("lwd_lizenz", lwd_lizenz),
+        ("tiris_wms_ebenen", tiris_wms_ebenen),
+        ("cors_pruefen", cors_pruefen),
+    ]
     zweite_runde = [
         ("warnungen_inhalt", warnungen_inhalt),
         ("lawis_suche", lawis_suche),
@@ -438,7 +511,7 @@ def main():
         ("ensemble_v2", ensemble_v2),
         ("albina_nochmal", albina_nochmal),
     ]
-    schritte = zweite_runde + [
+    schritte = dritte_runde + zweite_runde + [
         ("lwd_stationen", lwd_stationen),
         ("albina_stationen", albina_stationen),
         ("geosphere_datensaetze", geosphere_datensaetze),

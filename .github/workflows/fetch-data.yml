@@ -63,6 +63,11 @@ jobs:
         timeout-minutes: 5
         run: python scripts/fetch/avalanche.py
 
+      - name: Messstationen Lawinenwarndienst Tirol
+        continue-on-error: true
+        timeout-minutes: 3
+        run: python scripts/fetch/stations.py
+
       - name: Bergwetter (GeoSphere AROME)
         continue-on-error: true
         timeout-minutes: 5
@@ -90,7 +95,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Jeden Pfad einzeln: fehlt einer, soll das nicht die anderen verschlucken.
-          for pfad in static/osm static/photos data/gtfs data/transit data/probe data/lawine data/wetter; do
+          for pfad in static/osm static/stationen static/photos data/gtfs data/transit data/probe data/lawine data/wetter; do
             if [ -e "$pfad" ]; then git add "$pfad"; fi
           done
           if git diff --cached --quiet; then
