@@ -41,12 +41,18 @@ function inputs(over: Partial<PlanInputs> = {}): PlanInputs {
 
 describe('bulletinFor', () => {
 	it('nimmt den echten Bericht, der zum Zeitpunkt gilt', () => {
-		const r = bulletinFor(inputs({ bulletins: [echt17], lastBulletinDate: '2026-01-17' }), new Date('2026-01-17T08:00:00Z'));
+		const r = bulletinFor(
+			inputs({ bulletins: [echt17], lastBulletinDate: '2026-01-17' }),
+			new Date('2026-01-17T08:00:00Z')
+		);
 		expect(r.bulletin?.kind).toBe('echt');
 	});
 
 	it('gilt schon am Vorabend, sobald er erschienen ist', () => {
-		const r = bulletinFor(inputs({ bulletins: [echt17], lastBulletinDate: '2026-01-17' }), new Date('2026-01-16T18:00:00Z'));
+		const r = bulletinFor(
+			inputs({ bulletins: [echt17], lastBulletinDate: '2026-01-17' }),
+			new Date('2026-01-16T18:00:00Z')
+		);
 		expect(r.bulletin?.kind).toBe('echt');
 	});
 
@@ -61,7 +67,10 @@ describe('bulletinFor', () => {
 	});
 
 	it('in der Saison auch im Demo-Modus nie erfundene Daten', () => {
-		const r = bulletinFor(inputs({ bulletins: [], lastBulletinDate: '2026-01-16', mode: 'demo' }), new Date('2026-01-17T08:00:00Z'));
+		const r = bulletinFor(
+			inputs({ bulletins: [], lastBulletinDate: '2026-01-16', mode: 'demo' }),
+			new Date('2026-01-17T08:00:00Z')
+		);
 		expect(r.bulletin).toBeNull();
 	});
 

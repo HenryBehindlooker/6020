@@ -41,26 +41,32 @@
 
 <h1>Aufi aufs Radl</h1>
 <p class="lead">
-	Beschilderte Mountainbike- und Radrouten rund um Innsbruck aus OpenStreetMap – für den Sommer, wenn
-	die Skitouren Pause haben.
+	Beschilderte Mountainbike- und Radrouten rund um Innsbruck aus OpenStreetMap – für den Sommer, wenn die Skitouren
+	Pause haben.
 </p>
 
 {#if data.routes.length === 0}
-	<p class="leer">
-		Die Radrouten sind noch nicht abgeholt. Sie kommen mit dem nächsten Lauf des Daten-Abholers.
-	</p>
+	<p class="leer">Die Radrouten sind noch nicht abgeholt. Sie kommen mit dem nächsten Lauf des Daten-Abholers.</p>
 {:else}
 	<section class="panel">
-		<TourMap markers={[]} osm osmVisible={{ bike: true, hiking: false, skitour: false, aerialways: true, huts: true }} height="26rem" zoom={11} />
+		<TourMap
+			markers={[]}
+			osm
+			osmVisible={{ bike: true, hiking: false, skitour: false, aerialways: true, huts: true }}
+			height="26rem"
+			zoom={11}
+		/>
 		<p class="quelle">
-			Lila: Radl- und MTB-Routen (MTB durchgezogen, Radrouten gestrichelt). Hütten und Seilbahnen oben
-			rechts zuschaltbar.
+			Lila: Radl- und MTB-Routen (MTB durchgezogen, Radrouten gestrichelt). Hütten und Seilbahnen oben rechts
+			zuschaltbar.
 		</p>
 	</section>
 
 	<section class="panel">
 		<div class="filter" role="group" aria-label="Routen filtern">
-			<button type="button" aria-pressed={art === 'alle'} onclick={() => (art = 'alle')}>Alle ({data.routes.length})</button>
+			<button type="button" aria-pressed={art === 'alle'} onclick={() => (art = 'alle')}
+				>Alle ({data.routes.length})</button
+			>
 			<button type="button" aria-pressed={art === 'mtb'} onclick={() => (art = 'mtb')}>MTB ({anzahl.mtb})</button>
 			<button type="button" aria-pressed={art === 'rad'} onclick={() => (art = 'rad')}>Radwege ({anzahl.rad})</button>
 			<input type="search" bind:value={suche} placeholder="Suchen, z.B. Mutters" aria-label="Routen suchen" />
@@ -79,13 +85,21 @@
 						<strong>{route.name}</strong>{#if route.ref}<span class="ref">{route.ref}</span>{/if}
 						<span class="art">
 							{route.kind === 'mtb' ? 'Mountainbike' : 'Radroute'}
-							{#if route.mtbScale} · {MTB_SCALE[route.mtbScale] ?? route.mtbScale}{/if}
-							{#if route.ascent} · {route.ascent} Hm{/if}
-							{#if route.roundtrip} · Rundtour{/if}
-							{#if route.network} · Netz {route.network}{/if}
+							{#if route.mtbScale}
+								· {MTB_SCALE[route.mtbScale] ?? route.mtbScale}{/if}
+							{#if route.ascent}
+								· {route.ascent} Hm{/if}
+							{#if route.roundtrip}
+								· Rundtour{/if}
+							{#if route.network}
+								· Netz {route.network}{/if}
 						</span>
 						<span class="links">
-							{#if route.osm}<a href="https://www.openstreetmap.org/{route.osm}" target="_blank" rel="noopener noreferrer">OSM</a>{/if}
+							{#if route.osm}<a
+									href="https://www.openstreetmap.org/{route.osm}"
+									target="_blank"
+									rel="noopener noreferrer">OSM</a
+								>{/if}
 							{#if route.website}<a href={route.website} target="_blank" rel="noopener noreferrer">Website</a>{/if}
 						</span>
 					</div>
@@ -99,18 +113,26 @@
 			<button type="button" class="mehr" onclick={() => (alle = true)}>Olle zoagn ({liste.length})</button>
 		{/if}
 		<p class="quelle">
-			Länge = Anteil der Route im Kartenausschnitt rund um Innsbruck; lange Radwege wie der Innradweg
-			gehen darüber hinaus. Schwierigkeit (Singletrail-Skala) nur, wo sie in OSM steht. Radmitnahme in
-			Bus und Bahn vorher beim VVT prüfen. Daten © OpenStreetMap-Mitwirkende (ODbL){#if data.osmStand},
-			Stand {data.osmStand.slice(0, 10)}{/if}.
+			Länge = Anteil der Route im Kartenausschnitt rund um Innsbruck; lange Radwege wie der Innradweg gehen darüber
+			hinaus. Schwierigkeit (Singletrail-Skala) nur, wo sie in OSM steht. Radmitnahme in Bus und Bahn vorher beim VVT
+			prüfen. Daten © OpenStreetMap-Mitwirkende (ODbL){#if data.osmStand}, Stand {data.osmStand.slice(0, 10)}{/if}.
 		</p>
 	</section>
 {/if}
 
 <style>
-	h1 { margin: 0; color: var(--sky-deep); letter-spacing: -0.02em; }
-	.lead { color: var(--muted); margin: 0.3rem 0 1rem; }
-	.leer { color: var(--muted); }
+	h1 {
+		margin: 0;
+		color: var(--sky-deep);
+		letter-spacing: -0.02em;
+	}
+	.lead {
+		color: var(--muted);
+		margin: 0.3rem 0 1rem;
+	}
+	.leer {
+		color: var(--muted);
+	}
 	.panel {
 		background: var(--surface);
 		border-radius: 1rem;
@@ -118,7 +140,13 @@
 		margin-top: 1rem;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 	}
-	.filter { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.9rem; }
+	.filter {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		align-items: center;
+		margin-bottom: 0.9rem;
+	}
 	.filter button {
 		border: 1px solid var(--border);
 		background: var(--surface);
@@ -129,9 +157,27 @@
 		font: inherit;
 		font-size: 0.87rem;
 	}
-	.filter button[aria-pressed='true'] { background: var(--sky-deep); border-color: var(--sky-deep); color: var(--snow); }
-	.filter label { margin-left: auto; font-size: 0.85rem; color: var(--muted); display: flex; gap: 0.4rem; align-items: center; }
-	.filter select { font: inherit; padding: 0.25rem; border-radius: 0.4rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+	.filter button[aria-pressed='true'] {
+		background: var(--sky-deep);
+		border-color: var(--sky-deep);
+		color: var(--snow);
+	}
+	.filter label {
+		margin-left: auto;
+		font-size: 0.85rem;
+		color: var(--muted);
+		display: flex;
+		gap: 0.4rem;
+		align-items: center;
+	}
+	.filter select {
+		font: inherit;
+		padding: 0.25rem;
+		border-radius: 0.4rem;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		color: var(--text);
+	}
 	.filter input[type='search'] {
 		font: inherit;
 		font-size: 0.87rem;
@@ -152,12 +198,48 @@
 		font: inherit;
 		cursor: pointer;
 	}
-	.routen { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; font-size: 0.9rem; }
-	.routen li { display: flex; justify-content: space-between; gap: 1rem; padding-left: 0.7rem; border-left: 3px solid #8e44ad; }
-	.ref { margin-left: 0.4rem; color: var(--sky-deep); font-weight: 650; font-size: 0.82rem; }
-	.art { display: block; color: var(--muted); font-size: 0.8rem; }
-	.links { display: flex; gap: 0.8rem; font-size: 0.8rem; }
-	.links a { color: var(--sky-deep); }
-	.km { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
-	.quelle { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.76rem; }
+	.routen {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+		font-size: 0.9rem;
+	}
+	.routen li {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-left: 0.7rem;
+		border-left: 3px solid #8e44ad;
+	}
+	.ref {
+		margin-left: 0.4rem;
+		color: var(--sky-deep);
+		font-weight: 650;
+		font-size: 0.82rem;
+	}
+	.art {
+		display: block;
+		color: var(--muted);
+		font-size: 0.8rem;
+	}
+	.links {
+		display: flex;
+		gap: 0.8rem;
+		font-size: 0.8rem;
+	}
+	.links a {
+		color: var(--sky-deep);
+	}
+	.km {
+		color: var(--muted);
+		white-space: nowrap;
+		font-variant-numeric: tabular-nums;
+	}
+	.quelle {
+		margin: 0.9rem 0 0;
+		color: var(--muted);
+		font-size: 0.76rem;
+	}
 </style>

@@ -28,7 +28,9 @@
 	});
 
 	/** Ohne Monatsangabe weiss OSM nichts von Winter- oder Sommerpausen. */
-	const ohneSaison = $derived(!!openingHours && !/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b|\d{4}/.test(openingHours));
+	const ohneSaison = $derived(
+		!!openingHours && !/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b|\d{4}/.test(openingHours)
+	);
 	const tel = $derived(phone ? phone.replace(/[^\d+]/g, '') : null);
 </script>
 
@@ -46,7 +48,9 @@
 </span>
 {#if heute && heute.status !== 'unklar' && (ohneSaison || seasonal)}
 	<span class="hinweis">
-		laut OSM{#if checkDate}, geprüft {checkDate}{/if}{#if seasonal} · Saison: {seasonal}{:else} · ohne Saisonangabe, viele Almen haben im Winter zu{/if}
+		laut OSM{#if checkDate}, geprüft {checkDate}{/if}{#if seasonal}
+			· Saison: {seasonal}{:else}
+			· ohne Saisonangabe, viele Almen haben im Winter zu{/if}
 	</span>
 {:else if heute?.status === 'unklar' && openingHours}
 	<span class="hinweis">Laut OSM: „{openingHours}“ – {heute.reason}</span>
@@ -56,16 +60,39 @@
 {/if}
 
 <style>
-	.zeile { display: flex; flex-wrap: wrap; gap: 0.3rem 0.6rem; font-size: 0.8rem; margin-top: 0.15rem; }
-	.offen { color: var(--forest); font-weight: 600; }
-	.zu { color: var(--text-kritisch); font-weight: 600; }
+	.zeile {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem 0.6rem;
+		font-size: 0.8rem;
+		margin-top: 0.15rem;
+	}
+	.offen {
+		color: var(--forest);
+		font-weight: 600;
+	}
+	.zu {
+		color: var(--text-kritisch);
+		font-weight: 600;
+	}
 	.bar {
 		border-radius: 999px;
 		padding: 0 0.5rem;
 		background: var(--surface-2);
 		color: var(--muted);
 	}
-	.bar.nurbar { color: var(--text-warnung); }
-	.hinweis { display: block; color: var(--muted); font-size: 0.74rem; }
-	.tel { display: inline-block; font-size: 0.8rem; margin-top: 0.15rem; color: var(--sky-deep); }
+	.bar.nurbar {
+		color: var(--text-warnung);
+	}
+	.hinweis {
+		display: block;
+		color: var(--muted);
+		font-size: 0.74rem;
+	}
+	.tel {
+		display: inline-block;
+		font-size: 0.8rem;
+		margin-top: 0.15rem;
+		color: var(--sky-deep);
+	}
 </style>

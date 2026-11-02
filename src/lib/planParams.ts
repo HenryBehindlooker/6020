@@ -30,8 +30,7 @@ export function parsePlanParams(search: URLSearchParams | null): PlanParams {
 	const notBefore = match ? ab : DEFAULT_START;
 
 	const n = Number.parseInt(puffer, 10);
-	const bufferMinutes =
-		/^\d{1,3}$/.test(puffer) && n >= MIN_BUFFER && n <= MAX_BUFFER ? n : DEFAULT_BUFFER;
+	const bufferMinutes = /^\d{1,3}$/.test(puffer) && n >= MIN_BUFFER && n <= MAX_BUFFER ? n : DEFAULT_BUFFER;
 
 	return {
 		tag,

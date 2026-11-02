@@ -24,7 +24,12 @@ const ASSETS = [...build, ...files].filter((f) => !SKIP.some((skip) => f.endsWit
 const sw = self as unknown as ServiceWorkerGlobalScope;
 
 sw.addEventListener('install', (event) => {
-	event.waitUntil(caches.open(APP_CACHE).then((cache) => cache.addAll(ASSETS)).then(() => sw.skipWaiting()));
+	event.waitUntil(
+		caches
+			.open(APP_CACHE)
+			.then((cache) => cache.addAll(ASSETS))
+			.then(() => sw.skipWaiting())
+	);
 });
 
 sw.addEventListener('activate', (event) => {
@@ -33,9 +38,7 @@ sw.addEventListener('activate', (event) => {
 			.keys()
 			.then((keys) =>
 				Promise.all(
-					keys
-						.filter((k) => k !== APP_CACHE && k !== DATA_CACHE && k !== TILE_CACHE)
-						.map((k) => caches.delete(k))
+					keys.filter((k) => k !== APP_CACHE && k !== DATA_CACHE && k !== TILE_CACHE).map((k) => caches.delete(k))
 				)
 			)
 			.then(() => sw.clients.claim())

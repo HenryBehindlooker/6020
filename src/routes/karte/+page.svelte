@@ -17,7 +17,9 @@
 	const query = $derived(planQuery(planner.inputs ? planner.params : data.params));
 	const signalByTour = $derived(new Map(plan.tours.map((t) => [t.tour.id, t.rating.signal])));
 	/** Leaflet zeichnet einmal - aendern sich die Ampeln, wird die Karte neu aufgebaut. */
-	const kartenSchluessel = $derived(plan.tours.map((t) => `${t.tour.id}:${t.rating.signal}:${t.turnaround.feasible}`).join('|'));
+	const kartenSchluessel = $derived(
+		plan.tours.map((t) => `${t.tour.id}:${t.rating.signal}:${t.turnaround.feasible}`).join('|')
+	);
 	const tourHref = (id: string) => `${base}/tour/${id}${query}`;
 
 	function anzahl(count: number, einzahl: string, mehrzahl: string): string {
@@ -71,7 +73,8 @@
 		<p class="meta">
 			Ein Kreis je Ausgangspunkt, gefärbt nach der <em>besten</em> Tour von dort.
 			{#if plan.bulletin}
-				{plan.bulletin.kind === 'demo' ? 'Beispiel-Lage: ' : ''}Gefahrenstufe {plan.bulletin.rating.above}{#if plan.bulletin.rating.elevationBoundary}
+				{plan.bulletin.kind === 'demo' ? 'Beispiel-Lage: ' : ''}Gefahrenstufe {plan.bulletin.rating
+					.above}{#if plan.bulletin.rating.elevationBoundary}
 					&nbsp;oberhalb {plan.bulletin.rating.elevationBoundary} m{/if}.
 			{:else}
 				Lagebericht nicht verfügbar.
@@ -97,8 +100,8 @@
 	<li><span class="punkt grau"></span>Hütte, Einkehr</li>
 </ul>
 <p class="hinweis">
-	Wege, Hütten und Seilbahnen stammen aus OpenStreetMap und lassen sich oben rechts ein- und
-	ausschalten. Wanderwege sind Sommerwege - im Winter keine Aufstiegsroute.
+	Wege, Hütten und Seilbahnen stammen aus OpenStreetMap und lassen sich oben rechts ein- und ausschalten. Wanderwege
+	sind Sommerwege - im Winter keine Aufstiegsroute.
 </p>
 
 <ol class="liste">
@@ -139,9 +142,18 @@
 		margin-bottom: 0.9rem;
 	}
 
-	h1 { margin: 0; font-size: 1.6rem; letter-spacing: -0.02em; color: var(--sky-deep); }
+	h1 {
+		margin: 0;
+		font-size: 1.6rem;
+		letter-spacing: -0.02em;
+		color: var(--sky-deep);
+	}
 
-	.meta { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.87rem; }
+	.meta {
+		margin: 0.25rem 0 0;
+		color: var(--muted);
+		font-size: 0.87rem;
+	}
 
 	.wechsel {
 		background: var(--surface);
@@ -152,7 +164,9 @@
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 	}
 
-	.wechsel:hover { color: var(--sky-deep); }
+	.wechsel:hover {
+		color: var(--sky-deep);
+	}
 
 	.legende {
 		list-style: none;
@@ -165,23 +179,68 @@
 		color: var(--muted);
 	}
 
-	.legende li { display: flex; align-items: center; gap: 0.35rem; }
+	.legende li {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
 
-	.punkt { width: 0.62rem; height: 0.62rem; border-radius: 50%; display: inline-block; }
-	.punkt.gruen { background: var(--gruen); }
-	.punkt.gelb { background: var(--gelb); }
-	.punkt.rot { background: var(--rot); }
-	.punkt.grau { background: var(--muted); }
+	.punkt {
+		width: 0.62rem;
+		height: 0.62rem;
+		border-radius: 50%;
+		display: inline-block;
+	}
+	.punkt.gruen {
+		background: var(--gruen);
+	}
+	.punkt.gelb {
+		background: var(--gelb);
+	}
+	.punkt.rot {
+		background: var(--rot);
+	}
+	.punkt.grau {
+		background: var(--muted);
+	}
 
-	.form.kreis { width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 2px solid var(--muted); display: inline-block; }
-	.form.dreieck { width: 0.8rem; height: 0.7rem; background: var(--muted); clip-path: polygon(50% 0, 100% 100%, 0 100%); display: inline-block; }
+	.form.kreis {
+		width: 0.8rem;
+		height: 0.8rem;
+		border-radius: 50%;
+		border: 2px solid var(--muted);
+		display: inline-block;
+	}
+	.form.dreieck {
+		width: 0.8rem;
+		height: 0.7rem;
+		background: var(--muted);
+		clip-path: polygon(50% 0, 100% 100%, 0 100%);
+		display: inline-block;
+	}
 
-	.linie { width: 1.4rem; height: 0; display: inline-block; border-top: 3px solid; }
-	.linie.blau { border-color: var(--sky); }
-	.linie.gruen-dunkel { border-color: var(--forest); }
-	.linie.punktiert { border-top-style: dotted; border-color: var(--text); }
+	.linie {
+		width: 1.4rem;
+		height: 0;
+		display: inline-block;
+		border-top: 3px solid;
+	}
+	.linie.blau {
+		border-color: var(--sky);
+	}
+	.linie.gruen-dunkel {
+		border-color: var(--forest);
+	}
+	.linie.punktiert {
+		border-top-style: dotted;
+		border-color: var(--text);
+	}
 
-	.hinweis { margin: 0.3rem 0 0; font-size: 0.78rem; color: var(--muted); }
+	.hinweis {
+		margin: 0.3rem 0 0;
+		font-size: 0.78rem;
+		color: var(--muted);
+	}
 
 	.liste {
 		list-style: none;
@@ -192,13 +251,33 @@
 		grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
 	}
 
-	.liste > li { background: var(--surface); border-radius: 1rem; padding: 0.95rem 1.05rem; }
+	.liste > li {
+		background: var(--surface);
+		border-radius: 1rem;
+		padding: 0.95rem 1.05rem;
+	}
 
-	.zeile { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem; }
+	.zeile {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		margin-bottom: 0.6rem;
+	}
 
-	.halt { display: block; color: var(--muted); font-size: 0.75rem; }
+	.halt {
+		display: block;
+		color: var(--muted);
+		font-size: 0.75rem;
+	}
 
-	.touren { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.87rem; }
+	.touren {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.35rem;
+		font-size: 0.87rem;
+	}
 
 	.touren li {
 		display: flex;
@@ -208,12 +287,27 @@
 		border-left: 3px solid var(--unbekannt);
 	}
 
-	.touren li.gruen { border-left-color: var(--gruen); }
-	.touren li.gelb { border-left-color: var(--gelb); }
-	.touren li.rot { border-left-color: var(--rot); }
+	.touren li.gruen {
+		border-left-color: var(--gruen);
+	}
+	.touren li.gelb {
+		border-left-color: var(--gelb);
+	}
+	.touren li.rot {
+		border-left-color: var(--rot);
+	}
 
-	.touren a { text-decoration: none; }
-	.touren a:hover { text-decoration: underline; color: var(--sky-deep); }
+	.touren a {
+		text-decoration: none;
+	}
+	.touren a:hover {
+		text-decoration: underline;
+		color: var(--sky-deep);
+	}
 
-	.zeit { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
+	.zeit {
+		color: var(--muted);
+		font-size: 0.78rem;
+		white-space: nowrap;
+	}
 </style>

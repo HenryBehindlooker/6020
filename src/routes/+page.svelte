@@ -73,8 +73,7 @@
 			<p class="summary">
 				{bulletin.summary}
 				<span class="herkunft">
-					Erfundener Beispielbericht, damit man sieht, wie die Ampel rechnet – keine Auskunft über
-					die heutige Lage.
+					Erfundener Beispielbericht, damit man sieht, wie die Ampel rechnet – keine Auskunft über die heutige Lage.
 				</span>
 			</p>
 		{/if}
@@ -91,19 +90,18 @@
 		{/if}
 	{:else if plan.status.lawineGrund === 'noch-nicht'}
 		<p class="fehlt">
-			<strong>Der Lagebericht für diesen Tag ist noch nicht erschienen.</strong> Der
-			Lawinenwarndienst Tirol veröffentlicht ihn um 17 Uhr am Vortag. Bis dahin bewertet die
-			Bergampel keine Tour.
+			<strong>Der Lagebericht für diesen Tag ist noch nicht erschienen.</strong> Der Lawinenwarndienst Tirol veröffentlicht
+			ihn um 17 Uhr am Vortag. Bis dahin bewertet die Bergampel keine Tour.
 		</p>
 	{:else if plan.status.lawineGrund === 'saisonpause'}
 		<p class="fehlt">
-			<strong>Saisonpause:</strong> Der Lawinenwarndienst Tirol berichtet etwa von Dezember bis Mai.
-			Ohne Bericht bewertet die Bergampel keine Tour.
+			<strong>Saisonpause:</strong> Der Lawinenwarndienst Tirol berichtet etwa von Dezember bis Mai. Ohne Bericht bewertet
+			die Bergampel keine Tour.
 		</p>
 	{:else}
 		<p class="fehlt">
-			<strong>Der Lawinenlagebericht ist gerade nicht verfügbar.</strong> Ohne ihn bewertet die
-			Bergampel keine Tour. Bitte direkt auf
+			<strong>Der Lawinenlagebericht ist gerade nicht verfügbar.</strong> Ohne ihn bewertet die Bergampel keine Tour.
+			Bitte direkt auf
 			<a href="https://lawinen.report" rel="noreferrer">lawinen.report</a> nachschauen.
 		</p>
 	{/if}
@@ -116,8 +114,15 @@
 			<label><input type="radio" name="tag" value="heute" bind:group={planner.tag} /><span>{TEXT.heute}</span></label>
 			<label><input type="radio" name="tag" value="morgen" bind:group={planner.tag} /><span>{TEXT.morgen}</span></label>
 		{:else}
-			<label><input type="radio" name="tag" value="heute" checked={data.params.tag === 'heute'} /><span>{TEXT.heute}</span></label>
-			<label><input type="radio" name="tag" value="morgen" checked={data.params.tag === 'morgen'} /><span>{TEXT.morgen}</span></label>
+			<label
+				><input type="radio" name="tag" value="heute" checked={data.params.tag === 'heute'} /><span>{TEXT.heute}</span
+				></label
+			>
+			<label
+				><input type="radio" name="tag" value="morgen" checked={data.params.tag === 'morgen'} /><span
+					>{TEXT.morgen}</span
+				></label
+			>
 		{/if}
 	</fieldset>
 	<label>
@@ -132,9 +137,26 @@
 		<span>{TEXT.puffer}</span>
 		<span class="mit-einheit">
 			{#if planner.inputs}
-				<input type="number" name="puffer" min="0" max="180" step="5" bind:value={planner.bufferMinutes} inputmode="numeric" required />
+				<input
+					type="number"
+					name="puffer"
+					min="0"
+					max="180"
+					step="5"
+					bind:value={planner.bufferMinutes}
+					inputmode="numeric"
+					required
+				/>
 			{:else}
-				<input type="number" name="puffer" min="0" max="180" step="5" value={data.params.bufferMinutes} inputmode="numeric" />
+				<input
+					type="number"
+					name="puffer"
+					min="0"
+					max="180"
+					step="5"
+					value={data.params.bufferMinutes}
+					inputmode="numeric"
+				/>
 			{/if}
 			min
 		</span>
@@ -145,8 +167,8 @@
 </form>
 {#if planner.failed && data.staticPreview}
 	<p class="statisch">
-		Offline: Die Daten zum Neurechnen ließen sich nicht laden. Angezeigt wird der Plan vom
-		Bauzeitpunkt mit Aufbruch {data.params.notBefore} Uhr und {data.params.bufferMinutes} min Puffer.
+		Offline: Die Daten zum Neurechnen ließen sich nicht laden. Angezeigt wird der Plan vom Bauzeitpunkt mit Aufbruch {data
+			.params.notBefore} Uhr und {data.params.bufferMinutes} min Puffer.
 	</p>
 {/if}
 
@@ -228,11 +250,24 @@
 	}
 
 	/* Farben der europaeischen Lawinengefahrenskala */
-	.stufe-1 { background: #ccff66; color: #17232e; }
-	.stufe-2 { background: #ffff00; color: #17232e; }
-	.stufe-3 { background: #ff9900; color: #17232e; }
-	.stufe-4 { background: #ff0000; }
-	.stufe-5 { background: #a00000; }
+	.stufe-1 {
+		background: #ccff66;
+		color: #17232e;
+	}
+	.stufe-2 {
+		background: #ffff00;
+		color: #17232e;
+	}
+	.stufe-3 {
+		background: #ff9900;
+		color: #17232e;
+	}
+	.stufe-4 {
+		background: #ff0000;
+	}
+	.stufe-5 {
+		background: #a00000;
+	}
 
 	.summary {
 		margin: 0;

@@ -56,7 +56,7 @@ export function pickLastInbound(connection: TransitConnection): Departure | null
 export function planTurnaround(
 	tour: Tour,
 	connection: TransitConnection,
-	options: { notBefore: string; bufferMinutes?: number } 
+	options: { notBefore: string; bufferMinutes?: number }
 ): TurnaroundPlan {
 	const buffer = options.bufferMinutes ?? DEFAULT_BUFFER_MINUTES;
 	const outbound = pickOutbound(connection, options.notBefore);

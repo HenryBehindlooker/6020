@@ -68,7 +68,9 @@ export function routePopup(props: Props, kind: 'Wanderweg' | 'Skitour'): string 
 		kind === 'Wanderweg'
 			? '<div class="sub warn">Sommerweg laut OSM - im Winter keine Aufstiegsroute</div>'
 			: '<div class="sub">Skitour laut OSM</div>';
-	const laenge = props.length_km_in_region ? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>` : '';
+	const laenge = props.length_km_in_region
+		? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>`
+		: '';
 	return `<strong>${name}</strong>${ref}${hinweis}${laenge}${links(props)}`;
 }
 
@@ -109,18 +111,26 @@ export function bikePopup(props: Props): string {
 	const name = escapeHtml(props.name ?? 'Radroute');
 	const ref = props.ref ? ` <span class="sub">(${escapeHtml(props.ref)})</span>` : '';
 	const art = props.route === 'mtb' ? 'Mountainbike-Route' : 'Radroute';
-	const scale = props['mtb:scale'] ? ` · ${escapeHtml(MTB_SCALE[String(props['mtb:scale'])] ?? props['mtb:scale'])}` : '';
-	const laenge = props.length_km_in_region ? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>` : '';
+	const scale = props['mtb:scale']
+		? ` · ${escapeHtml(MTB_SCALE[String(props['mtb:scale'])] ?? props['mtb:scale'])}`
+		: '';
+	const laenge = props.length_km_in_region
+		? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>`
+		: '';
 	return `<strong>${name}</strong>${ref}<div class="sub">${art} laut OSM${scale}</div>${laenge}${links(props)}`;
 }
 
 export function poiPopup(props: Props): string {
 	const kind = landmarkKind(props);
 	const art = kind ? LANDMARK_LABEL[kind] : 'Punkt';
-	const name = props.name ? `<strong>${escapeHtml(props.name)}</strong><div class="sub">${art}</div>` : `<strong>${art}</strong>`;
+	const name = props.name
+		? `<strong>${escapeHtml(props.name)}</strong><div class="sub">${art}</div>`
+		: `<strong>${art}</strong>`;
 	const hoehe = props.ele ? `<div class="sub">${escapeHtml(props.ele)} m</div>` : '';
 	const wasser =
-		kind === 'wasser' || kind === 'quelle' ? '<div class="sub warn">Im Winter oft eingeschneit oder abgedreht</div>' : '';
+		kind === 'wasser' || kind === 'quelle'
+			? '<div class="sub warn">Im Winter oft eingeschneit oder abgedreht</div>'
+			: '';
 	return `${name}${hoehe}${wasser}${links(props)}`;
 }
 
@@ -166,7 +176,14 @@ export async function addOsmLayers(
 	map: Leaflet.Map,
 	basePath: string,
 	style: OsmLayerStyle,
-	visible: { hiking?: boolean; skitour?: boolean; aerialways?: boolean; huts?: boolean; bike?: boolean; pois?: boolean } = {}
+	visible: {
+		hiking?: boolean;
+		skitour?: boolean;
+		aerialways?: boolean;
+		huts?: boolean;
+		bike?: boolean;
+		pois?: boolean;
+	} = {}
 ): Promise<Record<string, number>> {
 	const [hiking, skitour, aerialways, huts, bike, pois] = await Promise.all([
 		load(basePath, FILES.hiking),

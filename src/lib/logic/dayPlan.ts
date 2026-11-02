@@ -31,7 +31,10 @@ export interface PlanInputs {
 
 export interface DemoTimetable {
 	origin: string;
-	stops: Record<string, { line: string; headsign: string; travelMinutes: number; outbound: string[]; inbound: string[] }>;
+	stops: Record<
+		string,
+		{ line: string; headsign: string; travelMinutes: number; outbound: string[]; inbound: string[] }
+	>;
 }
 
 export interface PlanOptions {
@@ -265,9 +268,7 @@ function dataStatus(
 	tours: TourPlan[]
 ): DataStatus {
 	const wetterArten = new Set(
-		tours.map((t) =>
-			t.weather === null ? 'fehlt' : t.weather.source.startsWith('Beispiel') ? 'demo' : 'echt'
-		)
+		tours.map((t) => (t.weather === null ? 'fehlt' : t.weather.source.startsWith('Beispiel') ? 'demo' : 'echt'))
 	);
 	const fahrplan = tours.map((t) => (t.transit.kind === 'unvollstaendig' ? 'fehlt' : t.transit.kind));
 	const fahrplanArten = new Set(fahrplan);

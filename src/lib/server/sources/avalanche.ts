@@ -119,7 +119,9 @@ function readBulletin(bulletin: any): RegionRating {
 	// hinein - darum zaehlt je Hoehenband die hoehere Stufe.
 	const upper = ratings.filter((r) => r?.elevation?.lowerBound !== undefined);
 	const lower = ratings.filter((r) => r?.elevation?.upperBound !== undefined);
-	const whole = ratings.filter((r) => !r?.elevation || (r.elevation.lowerBound === undefined && r.elevation.upperBound === undefined));
+	const whole = ratings.filter(
+		(r) => !r?.elevation || (r.elevation.lowerBound === undefined && r.elevation.upperBound === undefined)
+	);
 	const worst = (list: any[]) => Math.max(...list.map((r) => level(r?.mainValue))) as DangerLevel;
 
 	const aboveList = upper.length ? upper : whole.length ? whole : ratings;
@@ -129,16 +131,16 @@ function readBulletin(bulletin: any): RegionRating {
 		regions: (bulletin.regions ?? []).map((r: any) => String(r?.regionID ?? '')),
 		above: worst([...aboveList, ...whole]),
 		below: worst([...belowList, ...whole]),
-		boundary: parseElevation(upper[0]?.elevation?.lowerBound, 'lower') ?? parseElevation(lower[0]?.elevation?.upperBound, 'upper'),
+		boundary:
+			parseElevation(upper[0]?.elevation?.lowerBound, 'lower') ??
+			parseElevation(lower[0]?.elevation?.upperBound, 'upper'),
 		aspects: [...new Set(aboveList.flatMap((r) => (r?.aspects ?? []) as Aspect[]))],
-		problems: (bulletin.avalancheProblems ?? []).map(
-			(p: any): AvalancheProblem => ({
-				type: p?.problemType ?? 'unknown',
-				aspects: (p?.aspects ?? []) as Aspect[],
-				elevationAbove: parseElevation(p?.elevation?.lowerBound, 'lower'),
-				elevationBelow: parseElevation(p?.elevation?.upperBound, 'upper')
-			})
-		),
+		problems: (bulletin.avalancheProblems ?? []).map((p: any): AvalancheProblem => ({
+			type: p?.problemType ?? 'unknown',
+			aspects: (p?.aspects ?? []) as Aspect[],
+			elevationAbove: parseElevation(p?.elevation?.lowerBound, 'lower'),
+			elevationBelow: parseElevation(p?.elevation?.upperBound, 'upper')
+		})),
 		highlights: bulletin.highlights ?? bulletin.avalancheActivity?.highlights ?? null
 	};
 }
@@ -191,8 +193,7 @@ export function parseCaaml(raw: unknown): AvalancheBulletin {
 			)
 		),
 		summary:
-			parts.find((p) => p.highlights)?.highlights ??
-			'Details siehe Originalbericht des Lawinenwarndienstes Tirol.',
+			parts.find((p) => p.highlights)?.highlights ?? 'Details siehe Originalbericht des Lawinenwarndienstes Tirol.',
 		source: 'Lawinenwarndienst Tirol / EAWS (CAAMLv6)'
 	};
 }

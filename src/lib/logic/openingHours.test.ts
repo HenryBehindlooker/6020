@@ -19,7 +19,10 @@ describe('openingOn', () => {
 	});
 
 	it('Listen von Tagen und mehreren Regeln', () => {
-		expect(openingOn('Mo-We, Sa 10:00-19:00; Su, Fr 10:00-18:00', so)).toEqual({ status: 'offen', spans: ['10:00–18:00'] });
+		expect(openingOn('Mo-We, Sa 10:00-19:00; Su, Fr 10:00-18:00', so)).toEqual({
+			status: 'offen',
+			spans: ['10:00–18:00']
+		});
 		expect(openingOn('Mo-Su 09:00-18:00; We off', mi)).toEqual({ status: 'zu' });
 		expect(openingOn('Mo-Fr 11:30-15:00, 17:30-20:00; Sa-Su 11:30-20:00, PH 11:30-20:00', mi)).toEqual({
 			status: 'offen',
@@ -43,8 +46,7 @@ describe('openingOn', () => {
 	});
 
 	it('Sommer- und Winterzeiten mit eigenen Regeln', () => {
-		const oh =
-			'May-Oct: Mo, Tu, Th-Sa 09:00-18:00; Su 09:00-18:00; We off; Nov-Apr: Mo-Tu, Th-Su 09:00-17:00; We off';
+		const oh = 'May-Oct: Mo, Tu, Th-Sa 09:00-18:00; Su 09:00-18:00; We off; Nov-Apr: Mo-Tu, Th-Su 09:00-17:00; We off';
 		expect(openingOn(oh, sa)).toEqual({ status: 'offen', spans: ['09:00–17:00'] });
 		expect(openingOn(oh, so)).toEqual({ status: 'offen', spans: ['09:00–18:00'] });
 		expect(openingOn(oh, mi)).toEqual({ status: 'zu' });

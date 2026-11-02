@@ -18,15 +18,10 @@ export interface WeatherSnapshot {
 	reference_time?: string | null;
 	timestamps: string[];
 	units: Record<string, string | null | undefined>;
-	points: Record<
-		string,
-		{ lat: number; lon: number; ele: number | null; series: Record<string, (number | null)[]> }
-	>;
+	points: Record<string, { lat: number; lon: number; ele: number | null; series: Record<string, (number | null)[]> }>;
 }
 
-export type WeatherResult =
-	| { ok: true; forecast: WeatherForecast }
-	| { ok: false; reason: string };
+export type WeatherResult = { ok: true; forecast: WeatherForecast } | { ok: false; reason: string };
 
 const FENSTER = { von: '07:00', bis: '16:00', mittag: '12:00', vorabend: '18:00' };
 
@@ -40,7 +35,10 @@ export function weatherForDay(snapshot: WeatherSnapshot, tourId: string, day: Da
 	const mittag = viennaTime(day, FENSTER.mittag).getTime();
 	const vorabend = viennaTime(new Date(day.getTime() - 86_400_000), FENSTER.vorabend).getTime();
 
-	const fenster = times.map((t, i) => [t, i] as const).filter(([t]) => t >= von && t <= bis).map(([, i]) => i);
+	const fenster = times
+		.map((t, i) => [t, i] as const)
+		.filter(([t]) => t >= von && t <= bis)
+		.map(([, i]) => i);
 	const letzte = times.length ? times[times.length - 1] : 0;
 	if (fenster.length === 0) {
 		const bisWann = letzte

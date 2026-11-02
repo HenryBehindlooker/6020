@@ -30,16 +30,14 @@ export function sunTimes(day: Date, lat: number, lon: number): { sunrise: Date; 
 
 	const y = Math.tan((eps / 2) * RAD) ** 2;
 	const eqTime =
-		4 /
-		RAD *
+		(4 / RAD) *
 		(y * Math.sin(2 * l0 * RAD) -
 			2 * e * Math.sin(m * RAD) +
 			4 * e * y * Math.sin(m * RAD) * Math.cos(2 * l0 * RAD) -
 			0.5 * y * y * Math.sin(4 * l0 * RAD) -
 			1.25 * e * e * Math.sin(2 * m * RAD));
 
-	const cosH =
-		(Math.cos(90.833 * RAD) - Math.sin(lat * RAD) * Math.sin(decl)) / (Math.cos(lat * RAD) * Math.cos(decl));
+	const cosH = (Math.cos(90.833 * RAD) - Math.sin(lat * RAD) * Math.sin(decl)) / (Math.cos(lat * RAD) * Math.cos(decl));
 	if (cosH < -1 || cosH > 1) return null; // Polartag/-nacht - nicht in Tirol
 	const ha = Math.acos(cosH) / RAD;
 

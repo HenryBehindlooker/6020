@@ -25,7 +25,16 @@
 		text-align: center;
 	}
 
-	h1 { margin: 0 0 0.5rem; color: var(--sky-deep); letter-spacing: -0.02em; }
-	p { color: var(--muted); }
-	a { color: var(--sky-deep); font-weight: 600; }
+	h1 {
+		margin: 0 0 0.5rem;
+		color: var(--sky-deep);
+		letter-spacing: -0.02em;
+	}
+	p {
+		color: var(--muted);
+	}
+	a {
+		color: var(--sky-deep);
+		font-weight: 600;
+	}
 </style>

@@ -33,7 +33,12 @@
 	// Am Ausgangspunkt gerechnet, freier Horizont
 	const sunset = $derived(sunTimes(new Date(planDate), tour.lat, tour.lon)?.sunset.toISOString() ?? null);
 	const tagText = $derived(
-		new Date(planDate).toLocaleDateString('de-AT', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Vienna' })
+		new Date(planDate).toLocaleDateString('de-AT', {
+			weekday: 'long',
+			day: 'numeric',
+			month: 'long',
+			timeZone: 'Europe/Vienna'
+		})
 	);
 
 	/** Die letzten Rueckfahrten zaehlen fuer die Umkehrzeit - die zeigen wir zuerst. */
@@ -70,7 +75,9 @@
 
 	/** Rechnerisch zurueck am Ausgangspunkt, wenn man bis zum Gipfel geht. */
 	const zurueckAm = $derived(
-		turnaround.summitAt ? new Date(new Date(turnaround.summitAt).getTime() + tour.descentMinutes * 60_000).toISOString() : null
+		turnaround.summitAt
+			? new Date(new Date(turnaround.summitAt).getTime() + tour.descentMinutes * 60_000).toISOString()
+			: null
 	);
 	const imDunkeln = $derived(!!(sunset && zurueckAm && zurueckAm > sunset));
 
@@ -106,7 +113,9 @@
 		<strong>{turnaround.turnaroundAt ? hhmm(turnaround.turnaroundAt) : '-'}</strong>
 		<span class="klein">
 			{#if turnaround.slackMinutes !== null}
-				{turnaround.slackMinutes >= 0 ? `${formatReserve(turnaround.slackMinutes)} Reserve` : `${formatReserve(-turnaround.slackMinutes)} zu knapp`}
+				{turnaround.slackMinutes >= 0
+					? `${formatReserve(turnaround.slackMinutes)} Reserve`
+					: `${formatReserve(-turnaround.slackMinutes)} zu knapp`}
 			{:else}
 				keine Rückfahrt bekannt
 			{/if}
@@ -115,7 +124,13 @@
 	<div class="kachel">
 		<span class="label">{TEXT.letzterBus}</span>
 		<strong>{turnaround.lastInbound ? hhmm(turnaround.lastInbound.departure) : '-'}</strong>
-		<span class="klein">{turnaround.lastInbound ? turnaround.lastInbound.line : transit.kind === 'echt' ? 'fährt heute nicht' : 'Fahrplan fehlt'}</span>
+		<span class="klein"
+			>{turnaround.lastInbound
+				? turnaround.lastInbound.line
+				: transit.kind === 'echt'
+					? 'fährt heute nicht'
+					: 'Fahrplan fehlt'}</span
+		>
 	</div>
 	<div class="kachel">
 		<span class="label">Am Gipfel</span>
@@ -127,8 +142,8 @@
 <p class="note" class:eng={!turnaround.feasible}>{turnaround.note}</p>
 {#if imDunkeln && zurueckAm && sunset}
 	<p class="note eng">
-		Rechnerisch bist du erst um {hhmm(zurueckAm)} zurück am Ausgangspunkt – nach Sonnenuntergang
-		({hhmm(sunset)}). Früher aufbrechen oder umkehren, Stirnlampe einpacken.
+		Rechnerisch bist du erst um {hhmm(zurueckAm)} zurück am Ausgangspunkt – nach Sonnenuntergang ({hhmm(sunset)}).
+		Früher aufbrechen oder umkehren, Stirnlampe einpacken.
 	</p>
 {/if}
 
@@ -136,7 +151,8 @@
 
 {#if tour.verification}
 	<p class="belegt">
-		<strong>Belegt:</strong> {tour.verification.osm}. <strong>Richtwerte:</strong>
+		<strong>Belegt:</strong>
+		{tour.verification.osm}. <strong>Richtwerte:</strong>
 		{tour.verification.estimate} - und genau sie gehen in die Ampel ein.
 	</p>
 {/if}
@@ -185,8 +201,7 @@
 		</p>
 	{/if}
 	<p class="quelle">
-		Umkehrzeit = letzter Bus - {params.bufferMinutes} min Puffer - {tour.descentMinutes} min Abstieg.
-		Gehzeiten ohne Pausen.
+		Umkehrzeit = letzter Bus - {params.bufferMinutes} min Puffer - {tour.descentMinutes} min Abstieg. Gehzeiten ohne Pausen.
 	</p>
 </section>
 
@@ -194,37 +209,68 @@
 	<section class="panel">
 		<h2>{TEXT.bergwetter}</h2>
 		<dl class="werte">
-			<div><dt>Wind</dt><dd>{weather.windSpeedKmh} km/h aus {weather.windDirection}, Böen {weather.windGustsKmh} km/h</dd></div>
-			<div><dt>Neuschnee 24 h</dt><dd>{weather.newSnow24hCm} cm</dd></div>
-			<div><dt>Temperatur</dt><dd>{weather.temperatureC} &deg;C auf {weather.referenceAltitude} m</dd></div>
-			<div><dt>Bewölkung</dt><dd>{weather.cloudCoverPct} %</dd></div>
+			<div>
+				<dt>Wind</dt>
+				<dd>{weather.windSpeedKmh} km/h aus {weather.windDirection}, Böen {weather.windGustsKmh} km/h</dd>
+			</div>
+			<div>
+				<dt>Neuschnee 24 h</dt>
+				<dd>{weather.newSnow24hCm} cm</dd>
+			</div>
+			<div>
+				<dt>Temperatur</dt>
+				<dd>{weather.temperatureC} &deg;C auf {weather.referenceAltitude} m</dd>
+			</div>
+			<div>
+				<dt>Bewölkung</dt>
+				<dd>{weather.cloudCoverPct} %</dd>
+			</div>
 		</dl>
 		<p class="quelle">{weather.source}</p>
 	</section>
 {:else}
 	<section class="panel">
 		<h2>{TEXT.bergwetter}</h2>
-		<p class="leer">{tourPlan.weatherNote ?? 'Keine Wetterprognose verfügbar.'} Die Ampel ist deshalb vorsichtshalber strenger.</p>
+		<p class="leer">
+			{tourPlan.weatherNote ?? 'Keine Wetterprognose verfügbar.'} Die Ampel ist deshalb vorsichtshalber strenger.
+		</p>
 	</section>
 {/if}
 
 <section class="panel">
 	<h2>{TEXT.lage}</h2>
-	<TourMap markers={marker} tracks={track} osm osmVisible={{ pois: true }} height="22rem" zoom={12} center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]} />
+	<TourMap
+		markers={marker}
+		tracks={track}
+		osm
+		osmVisible={{ pois: true }}
+		height="22rem"
+		zoom={12}
+		center={data.track || tour.summit ? undefined : [tour.lat, tour.lon]}
+	/>
 	<p class="earth">
-		<a href={googleEarthUrl(tour.summit?.lat ?? tour.lat, tour.summit?.lon ?? tour.lon, tour.summit?.ele ?? tour.summitAltitude)} target="_blank" rel="noopener noreferrer">In 3D anschauen (Google Earth)</a>
+		<a
+			href={googleEarthUrl(
+				tour.summit?.lat ?? tour.lat,
+				tour.summit?.lon ?? tour.lon,
+				tour.summit?.ele ?? tour.summitAltitude
+			)}
+			target="_blank"
+			rel="noopener noreferrer">In 3D anschauen (Google Earth)</a
+		>
 		<a href="{base}/tour/{tour.id}/tour.kml" download="{tour.id}.kml">KML für Google Earth laden</a>
 	</p>
 	<p class="quelle">
-		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'} · Linien: Wege und
-		Seilbahnen aus OpenStreetMap, oben rechts umschaltbar. Wanderwege sind Sommerwege, keine
-		Skitouren-Aufstiege.
+		Kreis: Haltestelle {tour.trailheadStop} · Dreieck: {tour.summit?.name ?? 'Ziel'} · Linien: Wege und Seilbahnen aus OpenStreetMap,
+		oben rechts umschaltbar. Wanderwege sind Sommerwege, keine Skitouren-Aufstiege.
 	</p>
 </section>
 
 {#if data.photos.length > 0 || data.valley}
 	<section class="panel">
-		<h2>Bilder <span class="unter">{data.valley ? `${data.valley.title} und Umgebung` : 'rund um den Gipfel'}</span></h2>
+		<h2>
+			Bilder <span class="unter">{data.valley ? `${data.valley.title} und Umgebung` : 'rund um den Gipfel'}</span>
+		</h2>
 		{#if data.valley}
 			<p class="tal">
 				{data.valley.extract}
@@ -233,8 +279,8 @@
 		{/if}
 		<PhotoGallery photos={[...(data.valley ? [data.valley.photo] : []), ...data.photos]} alt={tour.name} />
 		<p class="quelle">
-			Fotos von Wikimedia Commons, rund um den Gipfel aufgenommen (bis 3 km entfernt) – Jahreszeit und
-			Verhältnisse auf dem Bild sagen nichts über heute. Text: Wikipedia, CC BY-SA 4.0.
+			Fotos von Wikimedia Commons, rund um den Gipfel aufgenommen (bis 3 km entfernt) – Jahreszeit und Verhältnisse auf
+			dem Bild sagen nichts über heute. Text: Wikipedia, CC BY-SA 4.0.
 		</p>
 	</section>
 {/if}
@@ -249,17 +295,23 @@
 					<div>
 						<strong>{punkt.name ?? LANDMARK_LABEL[punkt.kind]}</strong>
 						<span class="art">
-							{#if punkt.name}{LANDMARK_LABEL[punkt.kind]} · {/if}{#if punkt.ele}{punkt.ele} m · {/if}{punkt.offM} m neben der Luftlinie
-							{#if punkt.osm}· <a href="https://www.openstreetmap.org/{punkt.osm}" target="_blank" rel="noopener noreferrer">OSM</a>{/if}
+							{#if punkt.name}{LANDMARK_LABEL[punkt.kind]} ·
+							{/if}{#if punkt.ele}{punkt.ele} m ·
+							{/if}{punkt.offM} m neben der Luftlinie
+							{#if punkt.osm}· <a
+									href="https://www.openstreetmap.org/{punkt.osm}"
+									target="_blank"
+									rel="noopener noreferrer">OSM</a
+								>{/if}
 						</span>
 					</div>
 				</li>
 			{/each}
 		</ol>
 		<p class="quelle">
-			Aus OpenStreetMap, im Streifen von 500 m um die Luftlinie Haltestelle–Gipfel. Das ist keine
-			Route: Ein Punkt kann hinter einem Grat liegen. Trinkwasser und Quellen im Winter nicht
-			verlassen – sie sind oft eingeschneit oder abgedreht.
+			Aus OpenStreetMap, im Streifen von 500 m um die Luftlinie Haltestelle–Gipfel. Das ist keine Route: Ein Punkt kann
+			hinter einem Grat liegen. Trinkwasser und Quellen im Winter nicht verlassen – sie sind oft eingeschneit oder
+			abgedreht.
 		</p>
 	</section>
 {/if}
@@ -272,7 +324,9 @@
 				<li>
 					<div>
 						<strong>{huette.name}</strong>
-						<span class="art">{huettenArt[huette.kind]}{#if huette.ele}&nbsp;· {huette.ele} m{/if}</span>
+						<span class="art"
+							>{huettenArt[huette.kind]}{#if huette.ele}&nbsp;· {huette.ele} m{/if}</span
+						>
 						<HutInfo
 							openingHours={huette.openingHours}
 							payment={huette.payment}
@@ -286,9 +340,8 @@
 			{/each}
 		</ul>
 		<p class="quelle">
-			Luftlinie vom Ausgangspunkt, nicht Gehweg. Öffnungszeiten und Zahlungsarten aus OpenStreetMap,
-			von Freiwilligen eingetragen und oft veraltet – vor dem Aufstieg bei der Hütte anrufen. Am Berg
-			gibt's keinen Bankomaten.
+			Luftlinie vom Ausgangspunkt, nicht Gehweg. Öffnungszeiten und Zahlungsarten aus OpenStreetMap, von Freiwilligen
+			eingetragen und oft veraltet – vor dem Aufstieg bei der Hütte anrufen. Am Berg gibt's keinen Bankomaten.
 		</p>
 	</section>
 {/if}
@@ -326,8 +379,11 @@
 			{#if fahrt.delayMinutes}<span class="delay">+{fahrt.delayMinutes} min</span>{/if}
 		</div>
 		<div class="detail">
-			{#if fahrt.walkMinutes}{fahrt.walkMinutes} min zu Fuß zur Haltestelle · {/if}
-			{#if fahrt.transfers === 0}direkt{:else if fahrt.transfers}{fahrt.transfers} Umstieg{fahrt.transfers > 1 ? 'e' : ''}{/if}
+			{#if fahrt.walkMinutes}{fahrt.walkMinutes} min zu Fuß zur Haltestelle ·
+			{/if}
+			{#if fahrt.transfers === 0}direkt{:else if fahrt.transfers}{fahrt.transfers} Umstieg{fahrt.transfers > 1
+					? 'e'
+					: ''}{/if}
 			{#if fahrt.legs && fahrt.legs.length > 1}
 				({fahrt.legs.map((l) => `${l.line} ab ${l.from} ${l.departure}`).join(', ')})
 			{/if}
@@ -337,9 +393,17 @@
 {/snippet}
 
 <style>
-	.zurueck { font-size: 0.87rem; margin: 0 0 0.9rem; }
-	.zurueck a { text-decoration: none; color: var(--sky-deep); }
-	.zurueck a:hover { text-decoration: underline; }
+	.zurueck {
+		font-size: 0.87rem;
+		margin: 0 0 0.9rem;
+	}
+	.zurueck a {
+		text-decoration: none;
+		color: var(--sky-deep);
+	}
+	.zurueck a:hover {
+		text-decoration: underline;
+	}
 
 	.kopf {
 		display: flex;
@@ -349,11 +413,26 @@
 		flex-wrap: wrap;
 	}
 
-	h1 { margin: 0; font-size: clamp(1.6rem, 4.5vw, 2.1rem); letter-spacing: -0.02em; color: var(--sky-deep); }
+	h1 {
+		margin: 0;
+		font-size: clamp(1.6rem, 4.5vw, 2.1rem);
+		letter-spacing: -0.02em;
+		color: var(--sky-deep);
+	}
 
-	.meta { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.87rem; }
-	.fuer { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.82rem; }
-	.fuer a { color: var(--sky-deep); }
+	.meta {
+		margin: 0.3rem 0 0;
+		color: var(--muted);
+		font-size: 0.87rem;
+	}
+	.fuer {
+		margin: 0.25rem 0 0;
+		color: var(--muted);
+		font-size: 0.82rem;
+	}
+	.fuer a {
+		color: var(--sky-deep);
+	}
 
 	.blick {
 		display: grid;
@@ -363,8 +442,12 @@
 	}
 
 	@media (max-width: 30rem) {
-		.blick { grid-template-columns: 1fr 1fr; }
-		.blick .kachel:first-child { grid-column: 1 / -1; }
+		.blick {
+			grid-template-columns: 1fr 1fr;
+		}
+		.blick .kachel:first-child {
+			grid-column: 1 / -1;
+		}
 	}
 
 	.kachel {
@@ -376,19 +459,45 @@
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 	}
 
-	.kachel:first-child { border: 2px solid var(--sky); }
-	.kachel.eng { border-color: var(--rot); }
+	.kachel:first-child {
+		border: 2px solid var(--sky);
+	}
+	.kachel.eng {
+		border-color: var(--rot);
+	}
 
-	.kachel strong { font-size: 1.7rem; letter-spacing: -0.02em; line-height: 1.15; }
-	.kachel.eng strong { color: var(--text-kritisch); }
+	.kachel strong {
+		font-size: 1.7rem;
+		letter-spacing: -0.02em;
+		line-height: 1.15;
+	}
+	.kachel.eng strong {
+		color: var(--text-kritisch);
+	}
 
-	.label { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
-	.klein { color: var(--muted); font-size: 0.8rem; }
+	.label {
+		color: var(--muted);
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	.klein {
+		color: var(--muted);
+		font-size: 0.8rem;
+	}
 
-	.note { margin: 0.2rem 0 0; font-size: 0.92rem; }
-	.note.eng { color: var(--text-kritisch); font-weight: 600; }
+	.note {
+		margin: 0.2rem 0 0;
+		font-size: 0.92rem;
+	}
+	.note.eng {
+		color: var(--text-kritisch);
+		font-weight: 600;
+	}
 
-	.beschreibung { color: var(--muted); }
+	.beschreibung {
+		color: var(--muted);
+	}
 
 	.belegt {
 		font-size: 0.82rem;
@@ -405,10 +514,24 @@
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 	}
 
-	.panel h2 { margin: 0 0 0.8rem; font-size: 1.08rem; color: var(--sky-deep); }
-	.unter { font-weight: 400; color: var(--muted); font-size: 0.87rem; }
+	.panel h2 {
+		margin: 0 0 0.8rem;
+		font-size: 1.08rem;
+		color: var(--sky-deep);
+	}
+	.unter {
+		font-weight: 400;
+		color: var(--muted);
+		font-size: 0.87rem;
+	}
 
-	.gruende { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+	.gruende {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+	}
 
 	.gruende li {
 		display: grid;
@@ -419,14 +542,27 @@
 		border-left: 3px solid var(--border);
 	}
 
-	.gruende li.warnung { border-left-color: var(--gelb); }
-	.gruende li.kritisch { border-left-color: var(--rot); }
-
-	@media (max-width: 40rem) {
-		.gruende li { grid-template-columns: 1fr; gap: 0.15rem; }
+	.gruende li.warnung {
+		border-left-color: var(--gelb);
+	}
+	.gruende li.kritisch {
+		border-left-color: var(--rot);
 	}
 
-	.ablauf { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.1rem; }
+	@media (max-width: 40rem) {
+		.gruende li {
+			grid-template-columns: 1fr;
+			gap: 0.15rem;
+		}
+	}
+
+	.ablauf {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.1rem;
+	}
 
 	.ablauf li {
 		display: grid;
@@ -437,47 +573,160 @@
 		border-left: 2px solid var(--border);
 	}
 
-	.ablauf li.wichtig { border-left: 4px solid var(--text-warnung); font-weight: 650; }
-	.ablauf li.wichtig .uhr { color: var(--text-warnung); }
-	.sonne { margin: 0.8rem 0 0; font-size: 0.88rem; color: var(--muted); }
-	.sonne.dunkel { color: var(--text-kritisch); font-weight: 600; }
-	.uhr { font-variant-numeric: tabular-nums; font-weight: 650; }
-
-	.werte { margin: 0; display: grid; gap: 0.55rem; }
-	.werte div { display: grid; grid-template-columns: 9rem 1fr; gap: 0.75rem; font-size: 0.9rem; }
-	dt { color: var(--muted); }
-	dd { margin: 0; }
-
-	@media (max-width: 40rem) {
-		.werte div { grid-template-columns: 1fr; gap: 0.1rem; }
+	.ablauf li.wichtig {
+		border-left: 4px solid var(--text-warnung);
+		font-weight: 650;
+	}
+	.ablauf li.wichtig .uhr {
+		color: var(--text-warnung);
+	}
+	.sonne {
+		margin: 0.8rem 0 0;
+		font-size: 0.88rem;
+		color: var(--muted);
+	}
+	.sonne.dunkel {
+		color: var(--text-kritisch);
+		font-weight: 600;
+	}
+	.uhr {
+		font-variant-numeric: tabular-nums;
+		font-weight: 650;
 	}
 
-	.huetten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; font-size: 0.9rem; }
-	.huetten li { display: flex; justify-content: space-between; gap: 1rem; padding-left: 0.7rem; border-left: 3px solid var(--muted); }
-	.art { display: block; color: var(--muted); font-size: 0.8rem; }
-	.entfernung { color: var(--muted); white-space: nowrap; }
+	.werte {
+		margin: 0;
+		display: grid;
+		gap: 0.55rem;
+	}
+	.werte div {
+		display: grid;
+		grid-template-columns: 9rem 1fr;
+		gap: 0.75rem;
+		font-size: 0.9rem;
+	}
+	dt {
+		color: var(--muted);
+	}
+	dd {
+		margin: 0;
+	}
 
-	.vorspann { margin: 0 0 0.6rem; font-size: 0.87rem; color: var(--muted); }
-	.leer { margin: 0; color: var(--text-kritisch); }
+	@media (max-width: 40rem) {
+		.werte div {
+			grid-template-columns: 1fr;
+			gap: 0.1rem;
+		}
+	}
 
-	.fahrten { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; font-size: 0.9rem; }
-	.linie { margin-left: 0.4rem; color: var(--sky-deep); font-weight: 650; }
-	.detail { color: var(--muted); font-size: 0.8rem; }
-	.delay { color: var(--text-kritisch); margin-left: 0.4rem; }
+	.huetten {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+		font-size: 0.9rem;
+	}
+	.huetten li {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-left: 0.7rem;
+		border-left: 3px solid var(--muted);
+	}
+	.art {
+		display: block;
+		color: var(--muted);
+		font-size: 0.8rem;
+	}
+	.entfernung {
+		color: var(--muted);
+		white-space: nowrap;
+	}
 
-	details { margin-top: 0.9rem; }
-	summary { cursor: pointer; color: var(--sky-deep); font-size: 0.88rem; padding: 0.3rem 0; }
-	details .fahrten { margin-top: 0.6rem; }
+	.vorspann {
+		margin: 0 0 0.6rem;
+		font-size: 0.87rem;
+		color: var(--muted);
+	}
+	.leer {
+		margin: 0;
+		color: var(--text-kritisch);
+	}
 
-	.earth { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0.7rem 0 0; font-size: 0.88rem; }
-	.earth a { color: var(--sky-deep); font-weight: 600; }
+	.fahrten {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+		font-size: 0.9rem;
+	}
+	.linie {
+		margin-left: 0.4rem;
+		color: var(--sky-deep);
+		font-weight: 650;
+	}
+	.detail {
+		color: var(--muted);
+		font-size: 0.8rem;
+	}
+	.delay {
+		color: var(--text-kritisch);
+		margin-left: 0.4rem;
+	}
 
-	.tal { font-size: 0.88rem; color: var(--muted); margin: 0 0 0.8rem; }
-	.tal a { color: var(--sky-deep); }
+	details {
+		margin-top: 0.9rem;
+	}
+	summary {
+		cursor: pointer;
+		color: var(--sky-deep);
+		font-size: 0.88rem;
+		padding: 0.3rem 0;
+	}
+	details .fahrten {
+		margin-top: 0.6rem;
+	}
 
-	.punkte { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.9rem; }
-	.punkte li { display: grid; grid-template-columns: 2.4rem 1fr; gap: 0.6rem; align-items: center; }
-	.punkte a { color: var(--sky-deep); }
+	.earth {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 1.2rem;
+		margin: 0.7rem 0 0;
+		font-size: 0.88rem;
+	}
+	.earth a {
+		color: var(--sky-deep);
+		font-weight: 600;
+	}
+
+	.tal {
+		font-size: 0.88rem;
+		color: var(--muted);
+		margin: 0 0 0.8rem;
+	}
+	.tal a {
+		color: var(--sky-deep);
+	}
+
+	.punkte {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.55rem;
+		font-size: 0.9rem;
+	}
+	.punkte li {
+		display: grid;
+		grid-template-columns: 2.4rem 1fr;
+		gap: 0.6rem;
+		align-items: center;
+	}
+	.punkte a {
+		color: var(--sky-deep);
+	}
 	/* Kleiner Balken: wie weit Richtung Gipfel der Punkt liegt */
 	.anteil {
 		height: 0.4rem;
@@ -485,5 +734,9 @@
 		background: linear-gradient(90deg, var(--sky) calc(var(--anteil) * 100%), var(--surface-2) 0);
 	}
 
-	.quelle { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.76rem; }
+	.quelle {
+		margin: 0.9rem 0 0;
+		color: var(--muted);
+		font-size: 0.76rem;
+	}
 </style>

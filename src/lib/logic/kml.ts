@@ -13,7 +13,10 @@ export interface KmlPoint {
 }
 
 function esc(value: string): string {
-	return value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]!);
+	return value.replace(
+		/[&<>"']/g,
+		(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]!
+	);
 }
 
 const ICONS: Record<KmlPoint['style'], { href: string; color: string }> = {

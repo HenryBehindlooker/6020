@@ -87,9 +87,7 @@
 						dashArray: track.schematic ? '6 7' : undefined
 					}).addTo(map);
 
-					const hinweis = track.schematic
-						? '<div class="sub">Schematischer Verlauf, keine Aufzeichnung</div>'
-						: '';
+					const hinweis = track.schematic ? '<div class="sub">Schematischer Verlauf, keine Aufzeichnung</div>' : '';
 					const titel = track.href
 						? `<a href="${escapeHtml(track.href)}">${escapeHtml(track.label)}</a>`
 						: escapeHtml(track.label);
@@ -129,9 +127,7 @@
 									popupAnchor: [0, -14]
 								});
 
-					L.marker([marker.lat, marker.lon], { icon, title: marker.label })
-						.addTo(map)
-						.bindPopup(popupHtml(marker));
+					L.marker([marker.lat, marker.lon], { icon, title: marker.label }).addTo(map).bindPopup(popupHtml(marker));
 					points.push([marker.lat, marker.lon]);
 				}
 
@@ -149,15 +145,21 @@
 				if (osm) {
 					const css = getComputedStyle(document.documentElement);
 					const token = (name: string, fallback: string) => css.getPropertyValue(name).trim() || fallback;
-					await addOsmLayers(L, map, base, {
-						route: token('--sky', '#2b7fb8'),
-						skitour: token('--forest', '#2f6b41'),
-						aerialway: token('--text', '#17232e'),
-						// Grau statt Gold: Gold laege zu nah am Ampel-Gelb "Heikel".
-						hut: token('--muted', '#56697a'),
-						bike: '#8e44ad',
-						poi: token('--muted', '#56697a')
-					}, osmVisible);
+					await addOsmLayers(
+						L,
+						map,
+						base,
+						{
+							route: token('--sky', '#2b7fb8'),
+							skitour: token('--forest', '#2f6b41'),
+							aerialway: token('--text', '#17232e'),
+							// Grau statt Gold: Gold laege zu nah am Ampel-Gelb "Heikel".
+							hut: token('--muted', '#56697a'),
+							bike: '#8e44ad',
+							poi: token('--muted', '#56697a')
+						},
+						osmVisible
+					);
 				}
 			} catch (err) {
 				console.error('[karte] Leaflet konnte nicht geladen werden:', err);
@@ -224,7 +226,10 @@
 		color: #ffffff;
 		border: 2px solid var(--marker-ring);
 		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-		font: 600 0.75rem/1 ui-sans-serif, system-ui, sans-serif;
+		font:
+			600 0.75rem/1 ui-sans-serif,
+			system-ui,
+			sans-serif;
 	}
 
 	/* Gipfel als Dreieck in der Ampelfarbe der Tour */
@@ -249,7 +254,10 @@
 
 	:global(.leaflet-popup-content) {
 		margin: 0.7rem 0.9rem;
-		font: 0.85rem/1.5 ui-sans-serif, system-ui, sans-serif;
+		font:
+			0.85rem/1.5 ui-sans-serif,
+			system-ui,
+			sans-serif;
 	}
 
 	:global(.leaflet-popup-content .sub) {

@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import type { AvalancheBulletin, Tour, WeatherForecast } from '$lib/types';
-import { dangerLevelForAltitude, dangerLevelForTour, overlappingAspects, rateTour, tourInElevationBand } from './rating';
+import {
+	dangerLevelForAltitude,
+	dangerLevelForTour,
+	overlappingAspects,
+	rateTour,
+	tourInElevationBand
+} from './rating';
 
 const tour: Tour = {
 	id: 'test',
@@ -94,9 +100,7 @@ describe('rateTour', () => {
 	it('schaltet rot, wenn das Gefahrenmuster die Hangrichtungen der Tour trifft', () => {
 		const b = bulletin({
 			rating: { above: 3, below: 2, elevationBoundary: 2200, aspects: [] },
-			problems: [
-				{ type: 'wind_slab', aspects: ['N', 'NE'], elevationAbove: 2200, elevationBelow: null }
-			]
+			problems: [{ type: 'wind_slab', aspects: ['N', 'NE'], elevationAbove: 2200, elevationBelow: null }]
 		});
 		const result = rateTour(tour, b, calmWeather);
 		expect(result.signal).toBe('rot');

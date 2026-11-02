@@ -14,13 +14,31 @@ export const GET: RequestHandler = async ({ params }) => {
 	if (!tour) error(404, 'Tour nicht gefunden');
 
 	const points: KmlPoint[] = [
-		{ name: `${tour.trailheadStop} (Haltestelle)`, lat: tour.lat, lon: tour.lon, style: 'start', description: `Ausgangspunkt ${tour.trailhead}` }
+		{
+			name: `${tour.trailheadStop} (Haltestelle)`,
+			lat: tour.lat,
+			lon: tour.lon,
+			style: 'start',
+			description: `Ausgangspunkt ${tour.trailhead}`
+		}
 	];
 	if (tour.summit) {
-		points.push({ name: tour.summit.name, lat: tour.summit.lat, lon: tour.summit.lon, style: 'gipfel', description: `${tour.summit.ele ?? tour.summitAltitude} m laut OpenStreetMap` });
+		points.push({
+			name: tour.summit.name,
+			lat: tour.summit.lat,
+			lon: tour.summit.lon,
+			style: 'gipfel',
+			description: `${tour.summit.ele ?? tour.summitAltitude} m laut OpenStreetMap`
+		});
 	}
 	for (const h of nearby(await getHuts(), tour.lat, tour.lon)) {
-		points.push({ name: h.name, lat: h.lat, lon: h.lon, style: 'huette', description: [h.ele ? `${h.ele} m` : '', h.payment.text].filter(Boolean).join(' · ') });
+		points.push({
+			name: h.name,
+			lat: h.lat,
+			lon: h.lon,
+			style: 'huette',
+			description: [h.ele ? `${h.ele} m` : '', h.payment.text].filter(Boolean).join(' · ')
+		});
 	}
 	const track = await getTrack(tour.id);
 

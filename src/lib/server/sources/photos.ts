@@ -36,11 +36,7 @@ interface PhotoFile {
 
 /** Nur Bilder von Wikimedia-Servern - die Datei kommt aus dem Repo, aber sicher ist sicher. */
 function sicher(photo: Photo | undefined): photo is Photo {
-	return (
-		!!photo &&
-		typeof photo.thumb === 'string' &&
-		/^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(photo.thumb)
-	);
+	return !!photo && typeof photo.thumb === 'string' && /^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(photo.thumb);
 }
 
 async function load(): Promise<PhotoFile> {

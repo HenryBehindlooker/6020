@@ -31,7 +31,9 @@
 				{#if offen.caption}<span>{offen.caption}</span>{/if}
 				<span class="credit">
 					Foto: {offen.author}{#if offen.date}, {offen.date}{/if} ·
-					{#if offen.licenseUrl}<a href={offen.licenseUrl} target="_blank" rel="noopener noreferrer license">{offen.license}</a>{:else}{offen.license}{/if}
+					{#if offen.licenseUrl}<a href={offen.licenseUrl} target="_blank" rel="noopener noreferrer license"
+							>{offen.license}</a
+						>{:else}{offen.license}{/if}
 					· <a href={offen.page} target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
 				</span>
 			</figcaption>
@@ -59,9 +61,23 @@
 		cursor: zoom-in;
 		background: var(--surface-2);
 	}
-	.galerie img { display: block; width: 100%; height: 7rem; object-fit: cover; transition: transform 0.2s; }
-	.galerie button:hover img { transform: scale(1.04); }
-	.credit { display: block; color: var(--muted); font-size: 0.7rem; margin-top: 0.2rem; overflow-wrap: anywhere; }
+	.galerie img {
+		display: block;
+		width: 100%;
+		height: 7rem;
+		object-fit: cover;
+		transition: transform 0.2s;
+	}
+	.galerie button:hover img {
+		transform: scale(1.04);
+	}
+	.credit {
+		display: block;
+		color: var(--muted);
+		font-size: 0.7rem;
+		margin-top: 0.2rem;
+		overflow-wrap: anywhere;
+	}
 
 	dialog {
 		max-width: min(60rem, 94vw);
@@ -71,11 +87,28 @@
 		background: var(--surface);
 		color: var(--text);
 	}
-	dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
-	figure { margin: 0; }
-	figure img { display: block; max-width: 100%; max-height: 75vh; margin: 0 auto; border-radius: 0.5rem; }
-	figcaption { display: grid; gap: 0.2rem; font-size: 0.85rem; margin-top: 0.5rem; }
-	figcaption a { color: var(--sky-deep); }
+	dialog::backdrop {
+		background: rgba(0, 0, 0, 0.7);
+	}
+	figure {
+		margin: 0;
+	}
+	figure img {
+		display: block;
+		max-width: 100%;
+		max-height: 75vh;
+		margin: 0 auto;
+		border-radius: 0.5rem;
+	}
+	figcaption {
+		display: grid;
+		gap: 0.2rem;
+		font-size: 0.85rem;
+		margin-top: 0.5rem;
+	}
+	figcaption a {
+		color: var(--sky-deep);
+	}
 	.zu {
 		margin-top: 0.6rem;
 		padding: 0.4rem 1rem;
@@ -86,6 +119,8 @@
 		cursor: pointer;
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.galerie img { transition: none; }
+		.galerie img {
+			transition: none;
+		}
 	}
 </style>

@@ -31,7 +31,9 @@ export async function loadPlanInputs(now = new Date()): Promise<PlanInputs> {
 	};
 }
 
-export async function buildDayPlan(options: { date?: Date; notBefore?: string; bufferMinutes?: number } = {}): Promise<DayPlan> {
+export async function buildDayPlan(
+	options: { date?: Date; notBefore?: string; bufferMinutes?: number } = {}
+): Promise<DayPlan> {
 	const date = options.date ?? new Date();
 	return computeDayPlan(await loadPlanInputs(date), {
 		date,

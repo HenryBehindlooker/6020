@@ -11,7 +11,9 @@ export const load: PageServerLoad = async () => {
 		// Touren, deren Gipfel oder Ausgangspunkt nahe liegt
 		tours: tours
 			.filter((t) =>
-				[t.summit ?? t, t].some((p) => distanceKm({ lat: v.lat, lon: v.lon, ele: null }, { lat: p.lat, lon: p.lon, ele: null }) <= 8)
+				[t.summit ?? t, t].some(
+					(p) => distanceKm({ lat: v.lat, lon: v.lon, ele: null }, { lat: p.lat, lon: p.lon, ele: null }) <= 8
+				)
 			)
 			.map((t) => ({ name: t.name, href: `${base}/tour/${t.id}` }))
 	}));

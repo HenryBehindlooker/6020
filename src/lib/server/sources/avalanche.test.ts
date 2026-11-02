@@ -84,13 +84,32 @@ describe('parseElevation', () => {
 
 describe('Entwarnungen stufen die Ampel nicht hoch', () => {
 	const tour: Tour = {
-		id: 't', name: 'T', trailhead: '', trailheadStop: '', lat: 47, lon: 11, summitAltitude: 2500,
-		trailheadAltitude: 1600, ascentMeters: 900, ascentMinutes: 180, descentMinutes: 70,
-		aspects: ['N'], steepnessMax: 25, type: 'skitour', description: ''
+		id: 't',
+		name: 'T',
+		trailhead: '',
+		trailheadStop: '',
+		lat: 47,
+		lon: 11,
+		summitAltitude: 2500,
+		trailheadAltitude: 1600,
+		ascentMeters: 900,
+		ascentMinutes: 180,
+		descentMinutes: 70,
+		aspects: ['N'],
+		steepnessMax: 25,
+		type: 'skitour',
+		description: ''
 	};
 	const ruhig: WeatherForecast = {
-		referenceAltitude: 1600, windSpeedKmh: 5, windGustsKmh: 10, windDirection: 'S',
-		newSnow24hCm: 0, temperatureC: -5, cloudCoverPct: 0, precipProbabilityPct: 0, source: ''
+		referenceAltitude: 1600,
+		windSpeedKmh: 5,
+		windGustsKmh: 10,
+		windDirection: 'S',
+		newSnow24hCm: 0,
+		temperatureC: -5,
+		cloudCoverPct: 0,
+		precipProbabilityPct: 0,
+		source: ''
 	};
 
 	it.each(['favourable_situation', 'no_distinct_avalanche_problem'])('%s', (typ) => {
@@ -105,13 +124,32 @@ describe('Entwarnungen stufen die Ampel nicht hoch', () => {
 describe('Bewertung je Lawinenregion (echter Bericht 17.1.2026)', () => {
 	const b = parseCaaml(echt('2026-01-17'));
 	const ruhig: WeatherForecast = {
-		referenceAltitude: 1600, windSpeedKmh: 10, windGustsKmh: 15, windDirection: 'S',
-		newSnow24hCm: 0, temperatureC: -5, cloudCoverPct: 0, precipProbabilityPct: 0, source: ''
+		referenceAltitude: 1600,
+		windSpeedKmh: 10,
+		windGustsKmh: 15,
+		windDirection: 'S',
+		newSnow24hCm: 0,
+		temperatureC: -5,
+		cloudCoverPct: 0,
+		precipProbabilityPct: 0,
+		source: ''
 	};
 	const tour: Tour = {
-		id: 't', name: 'T', trailhead: '', trailheadStop: '', lat: 47, lon: 11, summitAltitude: 3004,
-		trailheadAltitude: 1690, ascentMeters: 1300, ascentMinutes: 240, descentMinutes: 95,
-		aspects: ['N', 'NE'], steepnessMax: 35, type: 'skitour', description: ''
+		id: 't',
+		name: 'T',
+		trailhead: '',
+		trailheadStop: '',
+		lat: 47,
+		lon: 11,
+		summitAltitude: 3004,
+		trailheadAltitude: 1690,
+		ascentMeters: 1300,
+		ascentMinutes: 240,
+		descentMinutes: 95,
+		aspects: ['N', 'NE'],
+		steepnessMax: 35,
+		type: 'skitour',
+		description: ''
 	};
 
 	it('kennt die Regionen einzeln', () => {

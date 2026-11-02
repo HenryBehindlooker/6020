@@ -11,7 +11,12 @@
 	onMount(() => planner.start(new URL(location.href).searchParams));
 
 	const links = [
-		{ plan: true, href: `${base}/`, label: TEXT.nav.touren, match: (p: string) => p === `${base}/` || p.startsWith(`${base}/tour/`) },
+		{
+			plan: true,
+			href: `${base}/`,
+			label: TEXT.nav.touren,
+			match: (p: string) => p === `${base}/` || p.startsWith(`${base}/tour/`)
+		},
 		{ plan: true, href: `${base}/karte`, label: TEXT.nav.karte, match: (p: string) => p.startsWith(`${base}/karte`) },
 		{ href: `${base}/radl`, label: TEXT.nav.radl, match: (p: string) => p.startsWith(`${base}/radl`) },
 		{ href: `${base}/taeler`, label: TEXT.nav.taeler, match: (p: string) => p.startsWith(`${base}/taeler`) },
@@ -37,7 +42,10 @@
 		<nav aria-label="Hauptmenü">
 			{#each links as link}
 				<!-- Tag, Aufbruch und Puffer mitnehmen - nur Touren und Karte rechnen damit -->
-				<a href={link.plan ? link.href + planner.query : link.href} aria-current={link.match(page.url.pathname) ? 'page' : undefined}>{link.label}</a>
+				<a
+					href={link.plan ? link.href + planner.query : link.href}
+					aria-current={link.match(page.url.pathname) ? 'page' : undefined}>{link.label}</a
+				>
 			{/each}
 		</nav>
 	</header>
@@ -49,15 +57,18 @@
 	<footer>
 		<p class="pfiati">{TEXT.pfiati}</p>
 		<p>
-			Die Bergampel ist eine Planungshilfe, keine Sicherheitsgarantie. Die Entscheidung im Gelände
-			liegt bei dir. Lies immer den Originalbericht des
+			Die Bergampel ist eine Planungshilfe, keine Sicherheitsgarantie. Die Entscheidung im Gelände liegt bei dir. Lies
+			immer den Originalbericht des
 			<a href="https://lawinen.report" rel="noreferrer">Lawinenwarndienstes Tirol</a>.
 		</p>
 		<p class="quellen">
-			Karten- und Wegdaten &copy; <a href="https://www.openstreetmap.org/copyright" rel="noreferrer">OpenStreetMap-Mitwirkende</a> (ODbL) ·
-			Fahrpläne über <a href="https://transitous.org" rel="noreferrer">Transitous</a> ·
-			Wetter: <a href="https://data.hub.geosphere.at" rel="noreferrer">GeoSphere Austria</a> (CC BY 4.0) ·
-			Fotos von <a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a> (Urheber je Bild) ·
+			Karten- und Wegdaten &copy; <a href="https://www.openstreetmap.org/copyright" rel="noreferrer"
+				>OpenStreetMap-Mitwirkende</a
+			>
+			(ODbL) · Fahrpläne über <a href="https://transitous.org" rel="noreferrer">Transitous</a> · Wetter:
+			<a href="https://data.hub.geosphere.at" rel="noreferrer">GeoSphere Austria</a>
+			(CC BY 4.0) · Fotos von <a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a> (Urheber je
+			Bild) ·
 			<a href="https://github.com/HenryBehindlooker/6020" rel="noreferrer">Quellcode</a>
 		</p>
 	</footer>
@@ -144,7 +155,12 @@
 		margin: 0;
 		background: var(--bg);
 		color: var(--text);
-		font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+		font-family:
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			'Segoe UI',
+			sans-serif;
 		line-height: 1.55;
 		-webkit-font-smoothing: antialiased;
 		text-rendering: optimizeLegibility;
@@ -200,7 +216,9 @@
 		text-decoration: none;
 		padding: 0.45rem 0.75rem;
 		border-radius: 999px;
-		transition: background 0.15s, color 0.15s;
+		transition:
+			background 0.15s,
+			color 0.15s;
 	}
 
 	nav a:hover {
