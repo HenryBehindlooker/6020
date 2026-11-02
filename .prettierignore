@@ -1,0 +1,9 @@
+# Abzuege des Abholers und Fixtures: maschinell geschrieben, nicht von Hand
+data/
+static/
+src/fixtures/
+build/
+.svelte-kit/
+package-lock.json
+package.json
+*.md

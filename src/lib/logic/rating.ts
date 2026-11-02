@@ -1,4 +1,4 @@
-import type { Aspect, AvalancheBulletin, DangerLevel, Tour, WeatherForecast } from '$lib/types';
+import type { Aspect, AvalancheBulletin, DangerLevel, Tour, WeatherForecast } from '#lib/types.js';
 
 export type Signal = 'gruen' | 'gelb' | 'rot' | 'unbekannt';
 
@@ -75,11 +75,7 @@ export function overlappingAspects(tourAspects: Aspect[], problemAspects: Aspect
  * Das ist eine Heuristik als Planungshilfe - sie ersetzt weder den Lawinen-
  * lagebericht noch die Beurteilung vor Ort.
  */
-export function rateTour(
-	tour: Tour,
-	bulletin: AvalancheBulletin | null,
-	weather: WeatherForecast | null
-): TourRating {
+export function rateTour(tour: Tour, bulletin: AvalancheBulletin | null, weather: WeatherForecast | null): TourRating {
 	const reasons: RatingReason[] = [];
 
 	if (!bulletin) {

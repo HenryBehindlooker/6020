@@ -59,10 +59,7 @@ describe('parseGpx', () => {
 describe('distanceKm', () => {
 	it('rechnet eine bekannte Distanz', () => {
 		// Innsbruck Hbf -> Hungerburg, rund 2.4 km Luftlinie.
-		const distance = distanceKm(
-			{ lat: 47.2632, lon: 11.4009, ele: null },
-			{ lat: 47.3125, lon: 11.3836, ele: null }
-		);
+		const distance = distanceKm({ lat: 47.2632, lon: 11.4009, ele: null }, { lat: 47.3125, lon: 11.3836, ele: null });
 		expect(distance).toBeGreaterThan(5.0);
 		expect(distance).toBeLessThan(6.0);
 	});

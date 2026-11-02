@@ -1,14 +1,20 @@
 <script lang="ts">
-	import PhotoGallery from '$lib/components/PhotoGallery.svelte';
-	import TourMap from '$lib/components/TourMap.svelte';
-	import type { MapMarker } from '$lib/components/mapTypes';
-	import { googleEarthUrl } from '$lib/logic/kml';
+	import PhotoGallery from '#lib/components/PhotoGallery.svelte';
+	import TourMap from '#lib/components/TourMap.svelte';
+	import type { MapMarker } from '#lib/components/mapTypes.js';
+	import { googleEarthUrl } from '#lib/logic/kml.js';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
 	const marker = $derived<MapMarker[]>(
-		data.valleys.map((v) => ({ lat: v.lat, lon: v.lon, signal: 'unbekannt', label: v.title, sub: 'Tal oder Gebiet laut Wikipedia' }))
+		data.valleys.map((v) => ({
+			lat: v.lat,
+			lon: v.lon,
+			signal: 'unbekannt',
+			label: v.title,
+			sub: 'Tal oder Gebiet laut Wikipedia'
+		}))
 	);
 </script>
 
@@ -40,7 +46,9 @@
 				{/if}
 				<p class="links">
 					<a href={tal.article} target="_blank" rel="noopener noreferrer">Wikipedia</a>
-					<a href={googleEarthUrl(tal.lat, tal.lon, 1200, 12000)} target="_blank" rel="noopener noreferrer">Google Earth (3D)</a>
+					<a href={googleEarthUrl(tal.lat, tal.lon, 1200, 12000)} target="_blank" rel="noopener noreferrer"
+						>Google Earth (3D)</a
+					>
 				</p>
 			</li>
 		{/each}
@@ -51,9 +59,18 @@
 {/if}
 
 <style>
-	h1 { margin: 0; color: var(--sky-deep); letter-spacing: -0.02em; }
-	.lead { color: var(--muted); margin: 0.3rem 0 1rem; }
-	.leer { color: var(--muted); }
+	h1 {
+		margin: 0;
+		color: var(--sky-deep);
+		letter-spacing: -0.02em;
+	}
+	.lead {
+		color: var(--muted);
+		margin: 0.3rem 0 1rem;
+	}
+	.leer {
+		color: var(--muted);
+	}
 	.panel {
 		background: var(--surface);
 		border-radius: 1rem;
@@ -68,12 +85,35 @@
 		grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
 		gap: 1rem;
 	}
-	.taeler :global(.galerie) { grid-template-columns: 1fr; }
-	.taeler :global(.galerie img) { height: 11rem; }
-	h2 { margin: 0.6rem 0 0.3rem; font-size: 1.08rem; color: var(--sky-deep); }
-	.taeler p { font-size: 0.88rem; margin: 0.3rem 0; }
-	.touren { color: var(--muted); }
-	.taeler a { color: var(--sky-deep); }
-	.links { display: flex; gap: 1rem; font-weight: 600; }
-	.quelle { margin: 1rem 0 0; color: var(--muted); font-size: 0.76rem; }
+	.taeler :global(.galerie) {
+		grid-template-columns: 1fr;
+	}
+	.taeler :global(.galerie img) {
+		height: 11rem;
+	}
+	h2 {
+		margin: 0.6rem 0 0.3rem;
+		font-size: 1.08rem;
+		color: var(--sky-deep);
+	}
+	.taeler p {
+		font-size: 0.88rem;
+		margin: 0.3rem 0;
+	}
+	.touren {
+		color: var(--muted);
+	}
+	.taeler a {
+		color: var(--sky-deep);
+	}
+	.links {
+		display: flex;
+		gap: 1rem;
+		font-weight: 600;
+	}
+	.quelle {
+		margin: 1rem 0 0;
+		color: var(--muted);
+		font-size: 0.76rem;
+	}
 </style>

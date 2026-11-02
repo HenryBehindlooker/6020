@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import { TEXT } from '$lib/copy';
+	import { TEXT } from '#lib/copy.js';
 </script>
 
 <svelte:head><title>Verstiegn - Bergampel Innsbruck</title></svelte:head>
@@ -14,7 +14,7 @@
 		<h1>Do is wos schiafgangen.</h1>
 		<p>Beim Laden ist ein Fehler aufgetreten ({page.status}). Bitte versuch es in einem Moment noch einmal.</p>
 	{/if}
-	<p><a href="{base}/">{TEXT.zurueck}</a></p>
+	<p><a href={resolve('')}>{TEXT.zurueck}</a></p>
 </section>
 
 <style>
@@ -25,7 +25,16 @@
 		text-align: center;
 	}
 
-	h1 { margin: 0 0 0.5rem; color: var(--sky-deep); letter-spacing: -0.02em; }
-	p { color: var(--muted); }
-	a { color: var(--sky-deep); font-weight: 600; }
+	h1 {
+		margin: 0 0 0.5rem;
+		color: var(--sky-deep);
+		letter-spacing: -0.02em;
+	}
+	p {
+		color: var(--muted);
+	}
+	a {
+		color: var(--sky-deep);
+		font-weight: 600;
+	}
 </style>

@@ -1,22 +1,26 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { building } from '$app/environment';
-import { buildDayPlan } from '$lib/server/plan';
-import { getTrack } from '$lib/server/sources/tracks';
-import { simplify } from '$lib/logic/gpx';
-import { nearby } from '$lib/logic/nearby';
-import { getHuts, getPois } from '$lib/server/sources/osm';
-import { getTourPhotos, getValleys } from '$lib/server/sources/photos';
-import { landmarksAlong } from '$lib/logic/landmarks';
-import { distanceKm } from '$lib/logic/gpx';
-import { sunTimes } from '$lib/logic/sun';
-import { parsePlanParams } from '$lib/planParams';
+import { building } from '$app/env';
+import { buildDayPlan } from '#lib/server/plan.js';
+import { getTrack } from '#lib/server/sources/tracks.js';
+import { simplify } from '#lib/logic/gpx.js';
+import { nearby } from '#lib/logic/nearby.js';
+import { getHuts, getPois } from '#lib/server/sources/osm.js';
+import { getTourPhotos, getValleys } from '#lib/server/sources/photos.js';
+import { landmarksAlong } from '#lib/logic/landmarks.js';
+import { distanceKm } from '#lib/logic/gpx.js';
+import { planningDate } from '#lib/logic/dayPlan.js';
+import { parsePlanParams } from '#lib/planParams.js';
 
 export const load: PageServerLoad = async ({ params: route, url }) => {
 	// Dieselben Werte wie auf der Liste - sonst zeigt die Tourenseite eine
 	// andere Umkehrzeit als die Karte, von der man gerade kam.
 	const params = parsePlanParams(building ? null : url.searchParams);
-	const plan = await buildDayPlan({ notBefore: params.notBefore, bufferMinutes: params.bufferMinutes });
+	const plan = await buildDayPlan({
+		date: planningDate(params.tag),
+		notBefore: params.notBefore,
+		bufferMinutes: params.bufferMinutes
+	});
 
 	const tourPlan = plan.tours.find((t) => t.tour.id === route.id);
 	if (!tourPlan) error(404, 'Tour nicht gefunden');
@@ -24,8 +28,6 @@ export const load: PageServerLoad = async ({ params: route, url }) => {
 	// Auf der Detailkarte darf der Verlauf genauer sein als in der Uebersicht.
 	const track = await getTrack(route.id);
 	const tour = tourPlan.tour;
-	// Am Ausgangspunkt gerechnet, freier Horizont
-	const sonne = sunTimes(new Date(plan.date), tour.lat, tour.lon);
 	const huts = nearby(await getHuts(), tour.lat, tour.lon);
 	const landmarks = tour.summit ? landmarksAlong(await getPois(), tour, tour.summit) : [];
 
@@ -40,13 +42,12 @@ export const load: PageServerLoad = async ({ params: route, url }) => {
 
 	return {
 		tourPlan,
-		bulletin: plan.bulletin,
 		status: plan.status,
-		mode: plan.mode,
+		date: plan.date,
+		builtAt: plan.builtAt,
 		params,
 		huts,
 		landmarks,
-		sunset: sonne?.sunset.toISOString() ?? null,
 		photos,
 		valley,
 		track: track

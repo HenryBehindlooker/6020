@@ -26,9 +26,7 @@ export interface Day {
 }
 
 export type OpeningResult =
-	| { status: 'offen'; spans: string[] }
-	| { status: 'zu' }
-	| { status: 'unklar'; reason: string };
+	{ status: 'offen'; spans: string[] } | { status: 'zu' } | { status: 'unklar'; reason: string };
 
 const WEEKDAYS = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

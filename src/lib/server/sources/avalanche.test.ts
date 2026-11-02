@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { currentBulletin, parseCaaml, parseElevation } from './avalanche';
-import { rateTour } from '$lib/logic/rating';
-import type { Tour, WeatherForecast } from '$lib/types';
+import { parseCaaml, parseElevation } from './avalanche';
+import { rateTour } from '#lib/logic/rating.js';
+import type { Tour, WeatherForecast } from '#lib/types.js';
 
 /**
  * Echte Tiroler Lawinenberichte der Saison 2025/26 von avalanche.report.
@@ -38,7 +38,17 @@ describe('parseCaaml mit echten Berichten', () => {
 });
 
 function bulletin(dangerRatings: unknown[], avalancheProblems: unknown[] = []) {
-	return { bulletins: [{ regions: [{ regionID: 'AT-07-14-01' }], dangerRatings, avalancheProblems }] };
+	return {
+		bulletins: [
+			{
+				regions: [{ regionID: 'AT-07-14-01' }],
+				publicationTime: '2026-01-16T16:00:00Z',
+				validTime: { startTime: '2026-01-16T16:00:00Z', endTime: '2026-01-17T16:00:00Z' },
+				dangerRatings,
+				avalancheProblems
+			}
+		]
+	};
 }
 
 describe('parseCaaml - Sonderfaelle', () => {
@@ -74,13 +84,32 @@ describe('parseElevation', () => {
 
 describe('Entwarnungen stufen die Ampel nicht hoch', () => {
 	const tour: Tour = {
-		id: 't', name: 'T', trailhead: '', trailheadStop: '', lat: 47, lon: 11, summitAltitude: 2500,
-		trailheadAltitude: 1600, ascentMeters: 900, ascentMinutes: 180, descentMinutes: 70,
-		aspects: ['N'], steepnessMax: 25, type: 'skitour', description: ''
+		id: 't',
+		name: 'T',
+		trailhead: '',
+		trailheadStop: '',
+		lat: 47,
+		lon: 11,
+		summitAltitude: 2500,
+		trailheadAltitude: 1600,
+		ascentMeters: 900,
+		ascentMinutes: 180,
+		descentMinutes: 70,
+		aspects: ['N'],
+		steepnessMax: 25,
+		type: 'skitour',
+		description: ''
 	};
 	const ruhig: WeatherForecast = {
-		referenceAltitude: 1600, windSpeedKmh: 5, windGustsKmh: 10, windDirection: 'S',
-		newSnow24hCm: 0, temperatureC: -5, cloudCoverPct: 0, precipProbabilityPct: 0, source: ''
+		referenceAltitude: 1600,
+		windSpeedKmh: 5,
+		windGustsKmh: 10,
+		windDirection: 'S',
+		newSnow24hCm: 0,
+		temperatureC: -5,
+		cloudCoverPct: 0,
+		precipProbabilityPct: 0,
+		source: ''
 	};
 
 	it.each(['favourable_situation', 'no_distinct_avalanche_problem'])('%s', (typ) => {
@@ -95,13 +124,32 @@ describe('Entwarnungen stufen die Ampel nicht hoch', () => {
 describe('Bewertung je Lawinenregion (echter Bericht 17.1.2026)', () => {
 	const b = parseCaaml(echt('2026-01-17'));
 	const ruhig: WeatherForecast = {
-		referenceAltitude: 1600, windSpeedKmh: 10, windGustsKmh: 15, windDirection: 'S',
-		newSnow24hCm: 0, temperatureC: -5, cloudCoverPct: 0, precipProbabilityPct: 0, source: ''
+		referenceAltitude: 1600,
+		windSpeedKmh: 10,
+		windGustsKmh: 15,
+		windDirection: 'S',
+		newSnow24hCm: 0,
+		temperatureC: -5,
+		cloudCoverPct: 0,
+		precipProbabilityPct: 0,
+		source: ''
 	};
 	const tour: Tour = {
-		id: 't', name: 'T', trailhead: '', trailheadStop: '', lat: 47, lon: 11, summitAltitude: 3004,
-		trailheadAltitude: 1690, ascentMeters: 1300, ascentMinutes: 240, descentMinutes: 95,
-		aspects: ['N', 'NE'], steepnessMax: 35, type: 'skitour', description: ''
+		id: 't',
+		name: 'T',
+		trailhead: '',
+		trailheadStop: '',
+		lat: 47,
+		lon: 11,
+		summitAltitude: 3004,
+		trailheadAltitude: 1690,
+		ascentMeters: 1300,
+		ascentMinutes: 240,
+		descentMinutes: 95,
+		aspects: ['N', 'NE'],
+		steepnessMax: 35,
+		type: 'skitour',
+		description: ''
 	};
 
 	it('kennt die Regionen einzeln', () => {
@@ -126,20 +174,16 @@ describe('Bewertung je Lawinenregion (echter Bericht 17.1.2026)', () => {
 	});
 });
 
-describe('currentBulletin - nur gueltige Berichte zaehlen', () => {
-	// Der echte Bericht vom 17.1.2026 gilt vom 16.1. 16:00 bis 17.1. 16:00 UTC
-	const doc = echt('2026-01-17');
-
-	it('nimmt den Bericht innerhalb seiner Gueltigkeit', () => {
-		expect(currentBulletin(doc, new Date('2026-01-17T08:00:00Z'))?.kind).toBe('echt');
+describe('parseCaaml - Gueltigkeit', () => {
+	it('uebernimmt Veroeffentlichung und Ende aus dem Bericht', () => {
+		// Der echte Bericht vom 17.1.2026 gilt vom 16.1. 16:00 bis 17.1. 16:00 UTC
+		const b = parseCaaml(echt('2026-01-17'));
+		expect(new Date(b.validUntil).toISOString()).toBe('2026-01-17T16:00:00.000Z');
 	});
 
-	it('verwirft ihn nach Ablauf - etwa den letzten vom Fruehjahr im Herbst', () => {
-		expect(currentBulletin(doc, new Date('2026-01-17T16:01:00Z'))).toBeNull();
-		expect(currentBulletin(doc, new Date('2026-09-29T08:00:00Z'))).toBeNull();
-	});
-
-	it('verwirft unlesbare Berichte, statt abzustuerzen', () => {
-		expect(currentBulletin({ bulletins: [] }, new Date())).toBeNull();
+	it('verweigert Berichte ohne Gueltigkeitszeitraum, statt "ab jetzt" anzunehmen', () => {
+		const doc = echt('2026-01-17');
+		for (const b of doc.bulletins) delete b.validTime;
+		expect(() => parseCaaml(doc)).toThrow(/validTime/);
 	});
 });

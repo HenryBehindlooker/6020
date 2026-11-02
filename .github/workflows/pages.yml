@@ -1,61 +1,59 @@
 name: Demo-Fassung auf GitHub Pages
 
-# Baut die vorgerenderte Fassung und veroeffentlicht sie. Lawinenbericht und
-# Busverbindungen kommen aus den Abzuegen des Abholers (echt, sofern gueltig);
-# das Wetter ist noch Beispieldaten.
+# Baut die vorgerenderte Fassung und veroeffentlicht sie. Lawinenbericht,
+# Busverbindungen und Wetter kommen aus den Abzuegen des Abholers.
+#
+# Der Abholer ruft diesen Workflow nach jedem Lauf direkt auf (workflow_call).
+# Frueher sollte das ueber workflow_run passieren - das hat nach den geplanten
+# Laeufen nie ausgeloest, und die Seite stand vom 29.9. bis 2.11.2026 still.
 on:
   push:
     branches: [main]
-  # Der Abholer committet neue Daten mit dem Workflow-Token - solche Pushes
-  # loesen bewusst keine anderen Workflows aus. Darum hier ausdruecklich auf
-  # sein Ende warten, damit der frische Lagebericht auch veroeffentlicht wird.
-  workflow_run:
-    workflows: ['Echte Daten holen (OSM + Fahrplan)']
-    types: [completed]
-    branches: [main]
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
   build:
-    # Nach dem Abholer nur bauen, wenn er erfolgreich war
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    # Auf Jobebene, damit die Sperre auch beim Aufruf aus dem Abholer gilt
+    concurrency:
+      group: pages-build
+      cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
-          # Beim Ausloesen durch den Abholer den neuesten Stand von main nehmen,
+          # Beim Aufruf aus dem Abholer den eben gepushten Datenstand nehmen,
           # nicht den Commit, auf dem der Abholer gestartet ist.
           ref: main
-      - uses: actions/setup-node@v4
+          persist-credentials: false
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
       - run: npm ci
       - run: npm test
-      - run: npm run build:pages
-        env:
-          # Projektseiten liegen unter /<repo>
-          BASE_PATH: /${{ github.event.repository.name }}
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      # Projektseiten liegen unter /<repo>. Aus GITHUB_REPOSITORY, weil
+      # github.event bei geplanten Laeufen keine Repository-Angaben hat.
+      - run: BASE_PATH="/${GITHUB_REPOSITORY#*/}" npm run build:pages
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: build
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

@@ -1,4 +1,4 @@
-import type { Signal } from '$lib/logic/rating';
+import type { Signal } from '#lib/logic/rating.js';
 
 /**
  * Texte der Oberflaeche - mit Innsbrucker Einschlag.
@@ -21,11 +21,14 @@ export const TEXT = {
 	titel: 'Bergampel',
 	untertitel: 'Innsbruck',
 	frage: 'Wos geat heit?',
+	frageMorgen: 'Wos geat morgn?',
+	heute: 'Heit',
+	morgen: 'Morgn',
 	nav: { touren: 'Touren', karte: 'Karte', radl: 'Radl', taeler: 'Täler', methodik: 'Wia grechnet wird' },
 	gruppeGeht: 'Des geat si aus',
 	gruppeNicht: 'Heit lei nit',
 	leerGeht: 'Heit geat si leider nix aus. Schau morgen wieder vorbei.',
-	aufbruch: 'Wann geat\'s los?',
+	aufbruch: "Wann geat's los?",
 	puffer: 'Puffer bis zum Bus',
 	rechnen: 'Nochamol rechnen',
 	letzterBus: 'Letzter Bus',
@@ -33,7 +36,7 @@ export const TEXT = {
 	warum: 'Warum de Ampel?',
 	zeitplan: 'Zeitplan',
 	bergwetter: 'Bergwetter',
-	lage: 'Wo\'s is',
+	lage: "Wo's is",
 	einkehr: 'Einkehrn',
 	hoamfahrn: 'Hoamfahrn',
 	zurueck: 'Zruck zu de Touren',

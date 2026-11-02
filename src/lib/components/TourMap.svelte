@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
-	import { env } from '$env/dynamic/public';
-	import type { Signal } from '$lib/logic/rating';
+	import { browser } from '$app/env';
+	import type { AssetPath } from '$app/types';
+	import { PUBLIC_TILE_URL, PUBLIC_TILE_ATTRIBUTION } from '$app/env/public';
+	import type { Signal } from '#lib/logic/rating.js';
 	import type { MapMarker, MapTrack } from './mapTypes';
-	import { base } from '$app/paths';
+	import { asset } from '$app/paths';
 	import { addOsmLayers, escapeHtml } from './osmLayers';
 
 	let {
@@ -15,21 +16,22 @@
 		zoom = 10,
 		center,
 		osmVisible = {}
+
+		/** Wege, Huetten und Seilbahnen aus OpenStreetMap dazuladen. */
+		/** Welche OSM-Ebenen anfangs sichtbar sind, etwa { bike: true, skitour: false } */
 	}: {
 		markers: MapMarker[];
 		tracks?: MapTrack[];
-		/** Wege, Huetten und Seilbahnen aus OpenStreetMap dazuladen. */
 		osm?: boolean;
 		height?: string;
 		zoom?: number;
 		center?: [number, number];
-		/** Welche OSM-Ebenen anfangs sichtbar sind, etwa { bike: true, skitour: false } */
 		osmVisible?: Parameters<typeof addOsmLayers>[4];
 	} = $props();
 
-	const TILE_URL = env.PUBLIC_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+	const TILE_URL = PUBLIC_TILE_URL || 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 	const TILE_ATTRIBUTION =
-		env.PUBLIC_TILE_ATTRIBUTION || '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>';
+		PUBLIC_TILE_ATTRIBUTION || '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>';
 
 	/**
 	 * Leaflet braucht die Ampelfarben als Zeichenkette. Sie werden aus denselben
@@ -87,9 +89,7 @@
 						dashArray: track.schematic ? '6 7' : undefined
 					}).addTo(map);
 
-					const hinweis = track.schematic
-						? '<div class="sub">Schematischer Verlauf, keine Aufzeichnung</div>'
-						: '';
+					const hinweis = track.schematic ? '<div class="sub">Schematischer Verlauf, keine Aufzeichnung</div>' : '';
 					const titel = track.href
 						? `<a href="${escapeHtml(track.href)}">${escapeHtml(track.label)}</a>`
 						: escapeHtml(track.label);
@@ -129,9 +129,7 @@
 									popupAnchor: [0, -14]
 								});
 
-					L.marker([marker.lat, marker.lon], { icon, title: marker.label })
-						.addTo(map)
-						.bindPopup(popupHtml(marker));
+					L.marker([marker.lat, marker.lon], { icon, title: marker.label }).addTo(map).bindPopup(popupHtml(marker));
 					points.push([marker.lat, marker.lon]);
 				}
 
@@ -149,15 +147,21 @@
 				if (osm) {
 					const css = getComputedStyle(document.documentElement);
 					const token = (name: string, fallback: string) => css.getPropertyValue(name).trim() || fallback;
-					await addOsmLayers(L, map, base, {
-						route: token('--sky', '#2b7fb8'),
-						skitour: token('--forest', '#2f6b41'),
-						aerialway: token('--text', '#17232e'),
-						// Grau statt Gold: Gold laege zu nah am Ampel-Gelb "Heikel".
-						hut: token('--muted', '#56697a'),
-						bike: '#8e44ad',
-						poi: token('--muted', '#56697a')
-					}, osmVisible);
+					await addOsmLayers(
+						L,
+						map,
+						(path) => asset(path as AssetPath),
+						{
+							route: token('--sky', '#2b7fb8'),
+							skitour: token('--forest', '#2f6b41'),
+							aerialway: token('--text', '#17232e'),
+							// Grau statt Gold: Gold laege zu nah am Ampel-Gelb "Heikel".
+							hut: token('--muted', '#56697a'),
+							bike: '#8e44ad',
+							poi: token('--muted', '#56697a')
+						},
+						osmVisible
+					);
 				}
 			} catch (err) {
 				console.error('[karte] Leaflet konnte nicht geladen werden:', err);
@@ -224,7 +228,10 @@
 		color: #ffffff;
 		border: 2px solid var(--marker-ring);
 		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-		font: 600 0.75rem/1 ui-sans-serif, system-ui, sans-serif;
+		font:
+			600 0.75rem/1 ui-sans-serif,
+			system-ui,
+			sans-serif;
 	}
 
 	/* Gipfel als Dreieck in der Ampelfarbe der Tour */
@@ -249,7 +256,10 @@
 
 	:global(.leaflet-popup-content) {
 		margin: 0.7rem 0.9rem;
-		font: 0.85rem/1.5 ui-sans-serif, system-ui, sans-serif;
+		font:
+			0.85rem/1.5 ui-sans-serif,
+			system-ui,
+			sans-serif;
 	}
 
 	:global(.leaflet-popup-content .sub) {

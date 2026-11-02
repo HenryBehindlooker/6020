@@ -1,7 +1,7 @@
 import type * as Leaflet from 'leaflet';
-import { openingOn, viennaDay } from '$lib/logic/openingHours';
-import { paymentInfo } from '$lib/logic/payment';
-import { LANDMARK_LABEL, landmarkKind } from '$lib/logic/landmarks';
+import { openingOn, viennaDay } from '#lib/logic/openingHours.js';
+import { paymentInfo } from '#lib/logic/payment.js';
+import { LANDMARK_LABEL, landmarkKind } from '#lib/logic/landmarks.js';
 
 /**
  * Zusatzebenen aus OpenStreetMap: Wege, Skitouren, Seilbahnen, Huetten.
@@ -68,7 +68,9 @@ export function routePopup(props: Props, kind: 'Wanderweg' | 'Skitour'): string 
 		kind === 'Wanderweg'
 			? '<div class="sub warn">Sommerweg laut OSM - im Winter keine Aufstiegsroute</div>'
 			: '<div class="sub">Skitour laut OSM</div>';
-	const laenge = props.length_km_in_region ? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>` : '';
+	const laenge = props.length_km_in_region
+		? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>`
+		: '';
 	return `<strong>${name}</strong>${ref}${hinweis}${laenge}${links(props)}`;
 }
 
@@ -109,18 +111,26 @@ export function bikePopup(props: Props): string {
 	const name = escapeHtml(props.name ?? 'Radroute');
 	const ref = props.ref ? ` <span class="sub">(${escapeHtml(props.ref)})</span>` : '';
 	const art = props.route === 'mtb' ? 'Mountainbike-Route' : 'Radroute';
-	const scale = props['mtb:scale'] ? ` · ${escapeHtml(MTB_SCALE[String(props['mtb:scale'])] ?? props['mtb:scale'])}` : '';
-	const laenge = props.length_km_in_region ? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>` : '';
+	const scale = props['mtb:scale']
+		? ` · ${escapeHtml(MTB_SCALE[String(props['mtb:scale'])] ?? props['mtb:scale'])}`
+		: '';
+	const laenge = props.length_km_in_region
+		? `<div class="sub">${escapeHtml(props.length_km_in_region)} km in der Region</div>`
+		: '';
 	return `<strong>${name}</strong>${ref}<div class="sub">${art} laut OSM${scale}</div>${laenge}${links(props)}`;
 }
 
 export function poiPopup(props: Props): string {
 	const kind = landmarkKind(props);
 	const art = kind ? LANDMARK_LABEL[kind] : 'Punkt';
-	const name = props.name ? `<strong>${escapeHtml(props.name)}</strong><div class="sub">${art}</div>` : `<strong>${art}</strong>`;
+	const name = props.name
+		? `<strong>${escapeHtml(props.name)}</strong><div class="sub">${art}</div>`
+		: `<strong>${art}</strong>`;
 	const hoehe = props.ele ? `<div class="sub">${escapeHtml(props.ele)} m</div>` : '';
 	const wasser =
-		kind === 'wasser' || kind === 'quelle' ? '<div class="sub warn">Im Winter oft eingeschneit oder abgedreht</div>' : '';
+		kind === 'wasser' || kind === 'quelle'
+			? '<div class="sub warn">Im Winter oft eingeschneit oder abgedreht</div>'
+			: '';
 	return `${name}${hoehe}${wasser}${links(props)}`;
 }
 
@@ -146,9 +156,9 @@ const FILES = {
 	pois: 'pois.geojson'
 } as const;
 
-async function load(basePath: string, file: string): Promise<GeoJSON.FeatureCollection | null> {
+async function load(assetUrl: (path: string) => string, file: string): Promise<GeoJSON.FeatureCollection | null> {
 	try {
-		const res = await fetch(`${basePath}/osm/${file}`);
+		const res = await fetch(assetUrl(`osm/${file}`));
 		if (!res.ok) return null;
 		const data = (await res.json()) as GeoJSON.FeatureCollection;
 		return data.features?.length ? data : null;
@@ -164,17 +174,25 @@ async function load(basePath: string, file: string): Promise<GeoJSON.FeatureColl
 export async function addOsmLayers(
 	L: typeof Leaflet,
 	map: Leaflet.Map,
-	basePath: string,
+	/** Pfad unter static/ zur Adresse, in der App: asset() aus $app/paths */
+	assetUrl: (path: string) => string,
 	style: OsmLayerStyle,
-	visible: { hiking?: boolean; skitour?: boolean; aerialways?: boolean; huts?: boolean; bike?: boolean; pois?: boolean } = {}
+	visible: {
+		hiking?: boolean;
+		skitour?: boolean;
+		aerialways?: boolean;
+		huts?: boolean;
+		bike?: boolean;
+		pois?: boolean;
+	} = {}
 ): Promise<Record<string, number>> {
 	const [hiking, skitour, aerialways, huts, bike, pois] = await Promise.all([
-		load(basePath, FILES.hiking),
-		load(basePath, FILES.skitour),
-		load(basePath, FILES.aerialways),
-		load(basePath, FILES.huts),
-		load(basePath, FILES.bike),
-		load(basePath, FILES.pois)
+		load(assetUrl, FILES.hiking),
+		load(assetUrl, FILES.skitour),
+		load(assetUrl, FILES.aerialways),
+		load(assetUrl, FILES.huts),
+		load(assetUrl, FILES.bike),
+		load(assetUrl, FILES.pois)
 	]);
 
 	const attribution = '&copy; OpenStreetMap-Mitwirkende (ODbL)';

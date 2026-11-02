@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import type { TourPlan } from '$lib/server/plan';
-	import { formatReserve, hhmm } from '$lib/logic/turnaround';
-	import { TEXT } from '$lib/copy';
+	import { resolve } from '$app/paths';
+	import type { TourPlan } from '#lib/logic/dayPlan.js';
+	import { formatReserve, hhmm } from '#lib/logic/turnaround.js';
+	import { TEXT } from '#lib/copy.js';
 	import SignalBadge from './SignalBadge.svelte';
 
 	let { plan, query = '' }: { plan: TourPlan; query?: string } = $props();
@@ -12,16 +12,16 @@
 	const turnaround = $derived(plan.turnaround);
 	const transit = $derived(plan.transit);
 	const hinweise = $derived(rating.reasons.filter((r) => r.impact !== 'neutral'));
-	const stunden = $derived(Math.round((tour.ascentMinutes / 60) * 10) / 10);
+	/** "2 h 30 min" ohne Umbruch zwischen Zahl und Einheit */
+	const nb = (text: string) => text.replace(/ /g, '\u00a0');
+	const aufstieg = $derived(nb(formatReserve(tour.ascentMinutes)));
 </script>
 
-<a class="card {rating.signal}" href="{base}/tour/{tour.id}{query}">
+<a class="card {rating.signal}" href="{resolve(`tour/${tour.id}`)}{query}">
 	<header>
 		<div>
 			<h3>{tour.name}</h3>
-			<p class="meta">
-				{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} Hm · {stunden} h Aufstieg
-			</p>
+			<p class="meta">{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} Hm · {aufstieg} Aufstieg</p>
 		</div>
 		<SignalBadge signal={rating.signal} />
 	</header>
@@ -47,8 +47,10 @@
 				<span class="label">{TEXT.umkehr}</span>
 				<strong>{turnaround.turnaroundAt ? hhmm(turnaround.turnaroundAt) : '-'}</strong>
 				{#if turnaround.slackMinutes !== null}
-					<span class="line">
-						{turnaround.slackMinutes >= 0 ? `+${formatReserve(turnaround.slackMinutes)}` : `-${formatReserve(-turnaround.slackMinutes)}`}
+					<span class="line" class:knapp={turnaround.slackMinutes < 0}>
+						{turnaround.slackMinutes >= 0
+							? `${nb(formatReserve(turnaround.slackMinutes))} Reserve`
+							: `${nb(formatReserve(-turnaround.slackMinutes))} zu knapp`}
 					</span>
 				{/if}
 			</div>
@@ -71,7 +73,9 @@
 		color: inherit;
 		text-decoration: none;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-		transition: transform 0.15s ease, box-shadow 0.15s ease;
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease;
 	}
 
 	.card:hover {
@@ -79,9 +83,15 @@
 		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 	}
 
-	.card.gruen { border-left-color: var(--gruen); }
-	.card.gelb { border-left-color: var(--gelb); }
-	.card.rot { border-left-color: var(--rot); }
+	.card.gruen {
+		border-left-color: var(--gruen);
+	}
+	.card.gelb {
+		border-left-color: var(--gelb);
+	}
+	.card.rot {
+		border-left-color: var(--rot);
+	}
 
 	header {
 		display: flex;
@@ -112,8 +122,12 @@
 		font-size: 0.85rem;
 	}
 
-	.reasons li.kritisch { color: var(--text-kritisch); }
-	.reasons li.warnung { color: var(--text-warnung); }
+	.reasons li.kritisch {
+		color: var(--text-kritisch);
+	}
+	.reasons li.warnung {
+		color: var(--text-warnung);
+	}
 
 	.reasons-ok {
 		margin: 0;
@@ -132,9 +146,15 @@
 		font-size: 0.86rem;
 	}
 
-	.transit.eng strong { color: var(--text-kritisch); }
+	.transit.eng strong {
+		color: var(--text-kritisch);
+	}
 
-	.transit p { margin: 0; color: var(--muted); font-size: 0.82rem; }
+	.transit p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.82rem;
+	}
 
 	.label {
 		display: block;
@@ -147,6 +167,10 @@
 	.line {
 		color: var(--muted);
 		margin-left: 0.3rem;
+	}
+
+	.line.knapp {
+		color: var(--text-kritisch);
 	}
 
 	.tag {

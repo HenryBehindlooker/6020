@@ -1,15 +1,15 @@
 import type { PageServerLoad } from './$types';
-import { base } from '$app/paths';
-import { building } from '$app/environment';
-import { buildDayPlan } from '$lib/server/plan';
-import { groupByTrailhead } from '$lib/logic/trailheads';
-import { getSimplifiedTracks } from '$lib/server/sources/tracks';
-import { parsePlanParams } from '$lib/planParams';
+import { resolve } from '$app/paths';
+import { building } from '$app/env';
+import { buildDayPlan } from '#lib/server/plan.js';
+import { planningDate } from '#lib/logic/dayPlan.js';
+import { getSimplifiedTracks } from '#lib/server/sources/tracks.js';
+import { parsePlanParams } from '#lib/planParams.js';
 
 export const load: PageServerLoad = async ({ url, setHeaders }) => {
 	const params = parsePlanParams(building ? null : url.searchParams);
 	const [plan, tracks] = await Promise.all([
-		buildDayPlan({ notBefore: params.notBefore, bufferMinutes: params.bufferMinutes }),
+		buildDayPlan({ date: planningDate(params.tag), notBefore: params.notBefore, bufferMinutes: params.bufferMinutes }),
 		getSimplifiedTracks()
 	]);
 
@@ -19,19 +19,17 @@ export const load: PageServerLoad = async ({ url, setHeaders }) => {
 	setHeaders({ 'cache-control': 'public, max-age=300' });
 
 	return {
-		groups: groupByTrailhead(plan.tours),
+		plan,
 		tracks: tracks
 			.filter((track) => signalByTour.has(track.tourId))
 			.map((track) => ({
+				tourId: track.tourId,
 				points: track.points.map((p) => [p.lat, p.lon] as [number, number]),
 				signal: signalByTour.get(track.tourId)!,
 				label: nameByTour.get(track.tourId) ?? track.name,
 				schematic: track.schematic,
-				href: `${base}/tour/${track.tourId}`
+				href: resolve(`tour/${track.tourId}`)
 			})),
-		bulletin: plan.bulletin,
-		status: plan.status,
-		mode: plan.mode,
 		params
 	};
 };

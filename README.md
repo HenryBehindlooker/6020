@@ -1,231 +1,160 @@
 # Bergampel Innsbruck
 
-Tagesplaner für Skitouren und Winterwanderungen rund um Innsbruck. Die App
-beantwortet eine einzige Frage: **Was geht heute, und wie komme ich hin und
-zurück?**
+Tagesplaner für Skitouren, Winterwanderungen und Radltouren rund um Innsbruck.
+Die App beantwortet eine Frage: **Was geht heute (oder morgen), und wie komme
+ich mit dem Bus hin und zurück?**
 
-Sie führt zusammen, was man sonst aus fünf Quellen zusammensucht — Lawinen­lage­bericht,
-Bergwetter, Hangrichtung und Steilheit der Tour, Fahrplan — und rechnet daraus
-zwei Dinge aus:
+Sie führt zusammen, was man sonst aus fünf Quellen zusammensucht –
+Lawinenlagebericht, Bergwetter, Hangrichtung und Steilheit der Tour, Fahrplan –
+und rechnet daraus:
 
 - **eine Ampel pro Tour** (grün / gelb / rot), vollständig aufgeschlüsselt statt als Black Box
 - **die späteste Umkehrzeit**, rückwärts gerechnet aus dem letzten Bus ins Tal
 
-Das zweite ist der eigentliche Grund für die App: Wer in Praxmar oder Kühtai den
-letzten Bus verpasst, steht.
+Dazu: Karte mit Wegen, Hütten (heute offen? Bargeld?), Seilbahnen und markanten
+Punkten, Fotos, Google-Earth-Export, Sonnenuntergang, Radl- und Täler-Seite.
+
+Öffentliche Fassung: <https://henrybehindlooker.github.io/6020/>
 
 ## Schnellstart
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-npm test           # Tests für Ampel, Umkehrzeit, Karte, GPX, Fahrplan und OSM-Popups
-npm run build && npm start     # Node-Server, rechnet pro Anfrage
-npm run build:pages            # vorgerenderte Demo-Fassung für GitHub Pages
+npm run dev            # http://localhost:5173
+npm test               # Vitest: Ampel, Umkehrzeit, Tagesplan, Wetter, Öffnungszeiten …
+npm run check          # svelte-check (TypeScript)
+npm run format         # Prettier
+npm run build && npm start   # Node-Server
+npm run build:pages          # vorgerenderte Fassung für GitHub Pages
 ```
 
-Ohne Konfiguration startet die App im **Demo-Modus**: Lagebericht, Wetter und
-Fahrplan kommen aus mitgelieferten Beispieldateien, und ein Banner weist darauf
-hin.
+Voraussetzungen: Node 22.17 oder neuer. SvelteKit 3, Svelte 5, Vite 8, Leaflet.
 
-Die Demo-Linien heißen **„Demo A/B/C"** statt 4166, J oder R. Das ist
-Absicht: mit echten Liniennummern sah der erfundene Fahrplan wie eine Auskunft
-aus. Echte Linien und Zeiten kommen ausschließlich aus dem GTFS-Datensatz des
-VVT im Live-Modus — nichts in diesem Repository ist gegen VVT, ÖBB oder IVB
-geprüft.
+## Wie die Daten fließen
 
-## Echte Daten und woher sie kommen
+```
+GitHub Actions (3× täglich)          Repository                    Browser
+─────────────────────────────        ─────────────────────         ──────────────────────────
+scripts/fetch/avalanche.py   ──►     data/lawine/aktuell.json ─┐
+scripts/fetch/weather.py     ──►     data/wetter/prognose.json ├─► /daten/plan.json ─► computeDayPlan()
+scripts/fetch/transitous.py  ──►     data/transit/…           ─┘   (vorgerendert)       für heute/morgen,
+scripts/fetch/osm.py         ──►     static/osm/*.geojson     ───► Karte                 Aufbruch, Puffer
+scripts/fetch/photos.py      ──►     static/photos/photos.json ──► Tour- und Täler-Seite
+```
 
-Aus der Entwicklungsumgebung sind die meisten Datenquellen nicht erreichbar,
-auf dem GitHub-Runner schon. `.github/workflows/fetch-data.yml` holt die Daten
-dort und committet sie zurück; neu auslösen über **Actions → Echte Daten holen →
-Run workflow**.
+Der Workflow `.github/workflows/fetch-data.yml` läuft um 08:23, 17:23 und
+21:23 Uhr (Wiener Winterzeit; GitHub startet geplante Läufe oft deutlich
+später), committet die Abzüge nach `main` und baut danach die Pages-Fassung
+neu (`pages.yml`, als wiederverwendbarer Workflow aufgerufen). Von Hand: **Actions
+→ Echte Daten holen → Run workflow**.
+
+Der Tagesplan ist eine reine Funktion (`src/lib/logic/dayPlan.ts`). Dieselbe
+Rechnung läuft beim Vorrendern, auf dem Node-Server und im Browser – darum kann
+die statische Seite für den echten heutigen Tag, für morgen und mit eigener
+Aufbruchszeit rechnen. Tag, Aufbruch und Puffer stehen in der Adresse
+(`?tag=morgen&ab=08:00&puffer=45`).
 
 | Was | Quelle | Datei | Lizenz |
 |---|---|---|---|
-| Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Hütten und Einkehr, Seilbahnen | OpenStreetMap via Overpass (`scripts/fetch/osm.py`) | `static/osm/*.geojson` | ODbL, © OpenStreetMap-Mitwirkende |
-| Busverbindungen Ausgangspunkt ↔ Innsbruck Hbf | Transitous (`scripts/fetch/transitous.py`) | `data/transit/connections.json` | offene Fahrplandaten, fair use |
-| Suche nach offenen GTFS-Feeds | Mobility Database (`scripts/fetch/gtfs.py`) | `data/gtfs/PROBE.json` | — |
+| Lawinenlagebericht Tirol (CAAMLv6, je Mikroregion) | Lawinenwarndienst Tirol / EAWS, `static.avalanche.report` | `data/lawine/` | offen |
+| Mikroregionen (Zuordnung der Touren) | `regions.avalanches.org` | `data/lawine/regions-AT-07.geojson` | offen |
+| Bergwetter am Gipfel (AROME 2,5 km, stündlich) | GeoSphere Austria Data Hub | `data/wetter/prognose.json` | CC BY 4.0 |
+| Busverbindungen Ausgangspunkt ↔ Innsbruck Hbf | Transitous | `data/transit/connections.json` | offene Fahrplandaten |
+| Wege, Skitouren, Rad/MTB, Hütten, Seilbahnen, markante Punkte | OpenStreetMap via Overpass | `static/osm/*.geojson` | ODbL |
+| Fotos, Täler | Wikimedia Commons, Wikipedia | `static/photos/photos.json` | je Bild; Texte CC BY-SA |
 
-**Touren abgleichen:** `python3 scripts/verify_tours.py` prüft Gipfelname, -höhe
-und -lage sowie die Haltestelle jeder Tour gegen OSM und schreibt
-`src/fixtures/tours.json` neu. Hangrichtung, Steilheit und Gehzeiten gibt OSM
-nicht her; sie bleiben Richtwerte und die Tourenseite sagt das.
+Keine API-Schlüssel. **Bewusst nicht verwendet:** Komoot, Outdooractive
+(auch Alpenvereinaktiv) und Bergfex – ihre Touren sind urheberrechtlich
+geschützt.
 
-**Bewusst nicht verwendet:** Komoot, Outdooractive (auch Alpenvereinaktiv) und
-Bergfex. Ihre Touren sind urheberrechtlich geschützt, Outdooractive verlangt eine
-kostenpflichtige API-Lizenz. In einem öffentlichen Repository wäre ein Kopieren
-ein Lizenzverstoß. Die Alpenverein-Hütten und viele Wege sind ohnehin in OSM
-eingetragen — oft von den Sektionen selbst.
+## Was echt ist und was nicht
 
-**Fahrplan:** Die GTFS-Daten des VVT gibt es kostenlos, aber nur mit Login
-(data.mobilitaetsverbuende.at). Transitous bindet die österreichischen Fahrpläne
-ein und ist offen abfragbar; der Abzug gilt für die abgefragten Beispieltage und
-wird auf den Planungstag übertragen. Kennt Transitous an einem Tag keine Fahrt,
-zeigt die App **keine** Demo-Zeiten als Ersatz.
+Die Seite sagt oben immer, was an den Daten echt ist.
 
-## Zwei Build-Ziele
+- **Lagebericht:** echt, sobald einer gilt. Ein Bericht gilt ab dem Vorabend
+  (17 Uhr) bis 17 Uhr am Tag. **In der Saisonpause** (letzter echter Bericht
+  länger als zehn Tage her) zeigt die öffentliche Fassung einen gestempelten
+  Beispielbericht, damit man sieht, wie die Ampel rechnet. **In der Saison**
+  füllt sie eine Lücke nie mit Beispieldaten – dann steht die Ampel auf
+  *Unklar*.
+- **Wetter:** echte Prognose; Beispielwerte nur zum Beispielbericht, nie neben
+  einem echten.
+- **Fahrplan:** echt (Transitous-Abzug für Werktag, Samstag und Wintersamstag,
+  auf den Planungstag übertragen). Fährt an dem Tag nichts, gibt es keinen Bus –
+  keine erfundenen Zeiten.
+- **Richtwerte ohne geprüfte Quelle:** Hangrichtung, Steilheit und Gehzeiten der
+  Touren. Gipfel, Höhen und Haltestellen sind gegen OSM abgeglichen
+  (`scripts/verify_tours.py`), die Mikroregion ist zugeordnet
+  (`scripts/assign_regions.py`).
+- **Alter der Daten:** Sind sie älter als 36 Stunden, warnt die Seite.
 
-| Ziel | Befehl | Was läuft |
-|---|---|---|
-| Node-Server | `npm run build && npm start` | rechnet pro Anfrage, Live-Daten möglich, Filter funktioniert |
-| GitHub Pages | `npm run build:pages` | vorgerendert, Demodaten, Filter fest auf 07:00 / 30 min |
-
-GitHub führt die App nicht aus — es hostet nur Dateien. Die vorgerenderte
-Fassung ist deshalb eine Momentaufnahme des Build-Zeitpunkts: zum Durchklicken
-gedacht, nicht als Auskunft. Der Workflow in `.github/workflows/pages.yml`
-veröffentlicht sie bei jedem Push auf `main`; **Pages muss im Repository einmal
-aktiviert werden** (Settings → Pages → Source: GitHub Actions), sonst schlägt
-der Deploy-Schritt fehl. Danach liegt sie unter
-`https://<konto>.github.io/<repo>/`.
-
-Für Live-Daten braucht es den Node-Server: die Lawinenlage ändert sich zweimal
-täglich, Verspätungen im Minutentakt.
-
-## Live-Daten
-
-```bash
-cp .env.example .env    # DATA_MODE=live setzen
-```
-
-| Quelle | Wofür | Zugang |
-|---|---|---|
-| Lawinenwarndienst Tirol / EAWS (CAAMLv6) | Gefahrenstufe, Gefahrenmuster, Expositionen | offen, kein Key |
-| GeoSphere Austria (AROME, Open Data Hub) | Wind, Neuschnee, Temperatur | offen, kein Key |
-| VVT / OGD Tirol (GTFS + GTFS-RT) | Fahrplan, Echtzeit-Verspätungen | GTFS offen, GTFS-RT braucht i.d.R. einen kostenlosen Key |
-| OpenStreetMap | Ausgangspunkte, Wege, Hütten | offen |
-| data.gv.at / Stadt Innsbruck OGD | ergänzende Geodaten | offen |
-| OpenStreetMap-Kacheln (oder basemap.at) | Kartenhintergrund | offen, via `PUBLIC_TILE_URL` austauschbar |
-
-Jeder Adapter fällt bei Fehler oder Timeout auf die Demodaten zurück und
-protokolliert das — die App bleibt bedienbar, wenn eine Quelle ausfällt.
-
-> Hinweis: Die Live-Endpunkte konnten in der Entwicklungsumgebung nicht
-> aufgerufen werden (ausgehender Netzverkehr war auf Paket-Registries
-> beschränkt). Die Parser sind gegen die dokumentierten Formate geschrieben und
-> per Unit-Test abgedeckt, aber noch nicht gegen die echten Antworten verifiziert.
-> Das ist der erste Schritt beim Umstellen auf `DATA_MODE=live`.
+`DATA_MODE=live` (siehe `.env.example`) schaltet Beispieldaten ganz ab.
 
 ## Aufbau
 
 ```
 src/
 ├── lib/
-│   ├── types.ts                 Domänenmodell (Tour, Bulletin, Wetter, Fahrt)
-│   ├── logic/
-│   │   ├── rating.ts            Ampel-Heuristik + Tests
-│   │   ├── turnaround.ts        Umkehrzeit aus dem letzten Bus + Tests
-│   │   ├── trailheads.ts        Gruppierung nach Ausgangspunkt für die Karte + Tests
-│   │   └── gpx.ts               GPX-Parser, Streckenlänge, Douglas-Peucker + Tests
-│   ├── components/              SignalBadge, TourCard, TourMap
+│   ├── logic/          reine Funktionen, alle mit Tests
+│   │   ├── dayPlan.ts       Tagesplan aus den Eingangsdaten (Server und Browser)
+│   │   ├── rating.ts        Ampel
+│   │   ├── turnaround.ts    Umkehrzeit aus dem letzten Bus
+│   │   ├── weather.ts       Wetter je Planungstag aus der Stundenprognose
+│   │   ├── snapshot.ts      Fahrplan-Abzug auf den Planungstag übertragen
+│   │   ├── openingHours.ts  OSM-Öffnungszeiten für heute auswerten
+│   │   ├── payment.ts       Bargeld-Hinweis aus payment:*
+│   │   ├── landmarks.ts     markante Punkte zwischen Haltestelle und Gipfel
+│   │   ├── sun.ts           Sonnenuntergang (NOAA)
+│   │   ├── kml.ts           Export für Google Earth
+│   │   └── time.ts          Wanduhrzeiten in Europe/Vienna
+│   ├── planner.svelte.ts    Planung im Browser: Tag, Aufbruch, Puffer, Daten laden
+│   ├── components/          TourCard, TourMap (Leaflet), DataNotice, HutInfo …
 │   └── server/
-│       ├── config.ts            Env-Konfiguration
-│       ├── cache.ts             In-Memory-Cache für externe Antworten
-│       ├── plan.ts              Aggregation zum Tagesplan
-│       └── sources/             avalanche.ts, weather.ts, transit.ts, tours.ts, tracks.ts
-├── fixtures/                    Tourenliste + Demo-Fahrplan
-└── routes/
-    ├── +page.svelte             Tourenliste mit Ampel
-    ├── karte/                   Karte der Ausgangspunkte
-    ├── tour/[id]/               Detail: Begründung, Zeitplan, Wetter, Rückfahrten
-    ├── methodik/                Offenlegung der Rechenregeln
-    └── api/plan/                JSON-Sicht auf denselben Tagesplan
+│       ├── plan.ts          Eingangsdaten laden (loadPlanInputs)
+│       └── sources/         je Quelle eine Datei
+├── routes/
+│   ├── +page.svelte         Touren mit Ampel, Heit/Morgn
+│   ├── karte/  tour/[id]/  radl/  taeler/  methodik/
+│   ├── daten/plan.json/     Eingangsdaten für den Browser
+│   └── api/plan/            fertiger Tagesplan als JSON
+└── service-worker/          offline: App vorab, Daten zuerst aus dem Netz, Kacheln aus dem Cache
+scripts/fetch/               die Abholer (Python, nur Standardbibliothek)
 ```
-
-Die Logik in `src/lib/logic/` ist frei von Framework- und Netzwerkabhängigkeiten
-und damit direkt testbar. `src/lib/server/sources/` kapselt jede externe Quelle
-hinter einer Funktion mit demselben Rückgabetyp — eine Quelle austauschen heißt,
-eine Datei anzufassen.
-
-## Kartenansicht
-
-`/karte` zeigt einen Punkt je Ausgangspunkt, gefärbt nach der **besten** Tour von
-dort — die Karte beantwortet „wohin fahre ich heute", nicht „welche Tour ist die
-heikelste". Die Zahl im Punkt ist die Anzahl der Touren ab diesem Ausgangspunkt,
-das Popup verlinkt sie einzeln. Auf der Tourenseite steht eine kleine Karte des
-Ausgangspunkts.
-
-Die Karte nutzt Leaflet (~40 KB statt ~800 KB bei MapLibre — in einer PWA fürs
-Gebirge zählt jedes KB) und wird erst im Browser nachgeladen; die Seite selbst
-rendert serverseitig und bleibt ohne JavaScript als Liste bedienbar. Der Service
-Worker hält Kacheln cache-first vor (max. 400), damit eine einmal betrachtete
-Region offline verfügbar bleibt.
-
-Standard-Kachelquelle ist OpenStreetMap. Für Österreich bietet sich basemap.at an
-(CC BY 4.0) — beides über `PUBLIC_TILE_URL` und `PUBLIC_TILE_ATTRIBUTION`
-umstellbar; die URLs in `.env.example` sind hier ebenfalls nicht verifizierbar gewesen.
-
-## Gestaltung
-
-Die Palette nimmt Innsbrucker Farben auf: Himmelblau als Leitfarbe, Schneeweiß
-für die Karten, das Grau der Nordkette für Fließtext und Ränder, Waldgrün als
-zweite Farbe und das Gold des Goldenen Dachls für das Wappen der App — das als
-Inline-SVG gezeichnet ist, bewusst grob, damit es in Favicon-Größe nicht
-verschmiert.
-
-Alle Farben laufen über CSS-Tokens in `src/routes/+layout.svelte`; eine dunkle
-Fassung für die Planung am Abend schaltet über `prefers-color-scheme` dieselben
-Token um. Leaflet liest die Ampelfarben zur Laufzeit aus denselben Tokens, damit
-Karte und Oberfläche nicht auseinanderdriften.
-
-Das Ampelgrün ist bewusst ein anderes als das Waldgrün der Oberfläche: Signal
-und Dekoration sollen nicht verwechselbar sein. Alle Text-auf-Fläche-Paare
-erreichen WCAG AA (geprüft: 4.8–16.0), die Signalfarben als grafische Elemente
-mindestens 3.3.
-
-## Tourenverläufe (GPX)
-
-Liegt in `data/tracks/` eine Datei mit dem Namen der Tour-ID, zeichnet die Karte
-den Verlauf ein — auf der Übersicht ausgedünnt (Douglas-Peucker, 40 m Toleranz),
-auf der Tourenseite feiner (10 m). Fehlt die Datei, bleibt es beim Ausgangspunkt;
-das ist der Normalfall, kein Fehler. Verzeichnis umstellbar über `TRACKS_DIR`.
-
-**Erfinde keine Verläufe.** Eine plausibel aussehende, aber ausgedachte Linie
-über einen 38°-Hang ist gefährlicher als gar keine Linie. Enthält `<desc>` einer
-Datei das Wort *schematisch*, zeichnet die Karte sie gestrichelt und beschriftet
-sie als schematisch; alles andere gilt als echte Aufzeichnung. Die drei
-mitgelieferten Dateien sind schematisch und existieren nur, damit die Darstellung
-sichtbar ist. Details in `data/tracks/README.md`.
-
-Der Parser liest `<trkpt>` und `<rtept>` samt `<ele>` mit Textmustern statt einer
-XML-Bibliothek: GPX-Tracks sind flach aufgebaut, und die Dateien kommen aus dem
-eigenen Datenverzeichnis, nicht von Nutzereingaben. Kommt das anders — etwa ein
-Upload durch Nutzerinnen — gehört hier ein echter XML-Parser hin.
-
-`data/tracks/` wird zur Laufzeit relativ zum Arbeitsverzeichnis gelesen. Wer nur
-`build/` deployt, muss das Verzeichnis mitkopieren oder `TRACKS_DIR` auf einen
-absoluten Pfad setzen.
 
 ## Rechenregeln
 
-**Ampel** — wird nur angehoben, nie gesenkt; der ungünstigste Faktor gewinnt:
+Ausführlich auf der Seite **Wia grechnet wird** (`/methodik`). Kurz:
 
-- Gefahrenstufe 3 → gelb, Stufe 4/5 → rot (maßgeblich ist die Stufe auf Gipfelhöhe)
-- Gefahrenmuster überschneidet sich mit den Hangrichtungen der Tour → gelb, ab Stufe 3 rot
-- Schlüsselstelle ≥ 35° bei Stufe ≥ 3 → rot, ≥ 30° → gelb
-- Wind ≥ 40 km/h → gelb, ≥ 60 km/h → rot
-- Neuschnee ≥ 15 cm/24 h → gelb, ≥ 30 cm → rot
-- kein Lagebericht → *unklar*; kein Bergwetter → vorsorglich hochgestuft
+- Gefahrenstufe der Mikroregion, höchste zwischen Ausgangspunkt und Gipfel:
+  Stufe 3 → gelb, 4 und 5 → rot.
+- Lawinenproblem trifft Hangrichtung **und** Höhenband der Tour → hoch, ab
+  Stufe 3 rot. Entwarnungen („günstige Situation“) stufen nicht hoch.
+- Steilheit: Stufe 2 ab 40° gelb; ab Stufe 3 ab 30° gelb, ab 35° rot.
+- Wind (stärkster 07–16 Uhr) ab 40 km/h gelb, ab 60 km/h rot; Neuschnee ab 15 cm
+  gelb, ab 30 cm rot. Ohne Wetter vorsorglich hochgestuft.
+- Umkehrzeit = letzter Bus − Puffer − Abstiegszeit; dagegen steht die
+  rechnerische Gipfelzeit.
 
-**Umkehrzeit** — `letzter Bus (inkl. Verspätung) − Puffer (Standard 30 min) − Abstiegszeit`.
-Dagegen wird `Ankunft der Hinfahrt + Aufstiegszeit` gehalten; bleibt keine
-Reserve, gilt die Tour als zu knapp.
+Die Ampel wird nur angehoben, nie gesenkt. Sie ist eine Planungshilfe, kein
+Sicherheitsurteil: Sie kennt weder die Schneedecke vor Ort noch Gruppe,
+Ausrüstung oder Können. Der Originalbericht auf
+[lawinen.report](https://lawinen.report) bleibt Pflichtlektüre.
 
-## Grenzen
+## GitHub Pages einrichten
 
-Die Ampel ist eine Planungshilfe, kein Sicherheitsurteil. Sie kennt weder die
-Schneedecke vor Ort noch Gruppengröße, Ausrüstung oder Können, und die Gehzeiten
-sind Durchschnittswerte ohne Pausen. Der Lawinenlagebericht im Original bleibt
-Pflichtlektüre.
+Einmal im Repository: **Settings → Pages → Source: GitHub Actions**. Danach
+veröffentlicht jeder Push auf `main` und jeder Lauf des Abholers die Seite.
 
-Die Tourenliste (12 Touren) ist bewusst kurz und handgepflegt: lieber wenige
-Touren mit geprüften Hangrichtungen und Steilheiten als ein großer, ungeprüfter Datensatz.
+Den Zeitplan abschalten: **Actions → Echte Daten holen → ⋯ → Disable workflow**.
+GitHub pausiert geplante Läufe auch von selbst, wenn im Repository 60 Tage
+lang nichts passiert.
 
-## Nächste Schritte
+## Offene Punkte
 
-- Live-Parser gegen echte API-Antworten verifizieren (siehe Hinweis oben)
-- echte GPX-Aufzeichnungen statt der schematischen Demo-Verläufe
-- Höhenprofil aus den GPX-Daten, mit der Umkehrzeit als Marke darin
-- Aufstiegszeit nach eigenem Tempo skalieren statt fixer Durchschnittswerte
-- Zweisprachigkeit DE/EN für internationale Studierende und Gäste
-- Liftstatus der Bergbahnen als zusätzliche Quelle
+- Das 1-km-Modell von GeoSphere (`nwp-v2-1h-1km`) nutzen; es benennt seine
+  Parameter anders (`10u`, `2t`, `sf`), die Beschreibungen legt der Abholer in
+  `data/wetter/PROBE.json` ab.
+- Echte GPX-Aufzeichnungen (`data/tracks/`); erfundene Verläufe gibt es bewusst
+  keine.
+- Hangrichtung, Steilheit und Gehzeiten der Touren gegen eine geprüfte Quelle
+  abgleichen.

@@ -13,13 +13,23 @@ describe('buildKml', () => {
 		expect(kml).not.toContain('LineString');
 	});
 	it('Verlauf als lon,lat', () => {
-		const kml = buildKml({ name: 'T', description: '', points: [], track: [[47.1, 11.1], [47.2, 11.2]] });
+		const kml = buildKml({
+			name: 'T',
+			description: '',
+			points: [],
+			track: [
+				[47.1, 11.1],
+				[47.2, 11.2]
+			]
+		});
 		expect(kml).toContain('11.1,47.1,0 11.2,47.2,0');
 	});
 });
 
 describe('googleEarthUrl', () => {
 	it('baut den Blick auf den Punkt', () => {
-		expect(googleEarthUrl(47.19207, 11.32472, 2404)).toBe('https://earth.google.com/web/@47.19207,11.32472,2404a,4500d,35y,0h,60t,0r');
+		expect(googleEarthUrl(47.19207, 11.32472, 2404)).toBe(
+			'https://earth.google.com/web/@47.19207,11.32472,2404a,4500d,35y,0h,60t,0r'
+		);
 	});
 });

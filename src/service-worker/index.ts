@@ -1,5 +1,6 @@
-/// <reference types="@sveltejs/kit" />
-import { build, files, version } from '$service-worker';
+import { self as sw } from '$app/service-worker';
+import { version } from '$app/env';
+import { assets, immutable } from '$app/manifest';
 
 // Im Sellrain- und Halltal gibt es streckenweise kein Netz. Die App muss den
 // zuletzt geladenen Tagesplan deshalb auch offline anzeigen koennen.
@@ -19,12 +20,20 @@ const SKIP = [
 	'/osm/routes-bike.geojson',
 	'/photos/photos.json'
 ];
-const ASSETS = [...build, ...files].filter((f) => !SKIP.some((skip) => f.endsWith(skip)));
-
-const sw = self as unknown as ServiceWorkerGlobalScope;
+// Die Manifest-Pfade sind relativ zum Basispfad (/6020/ auf GitHub Pages) -
+// gegen den Geltungsbereich des Service Workers aufgeloest werden sie absolut.
+const absolute = (path: string) => new URL(path, sw.registration.scope).pathname;
+const ASSETS = [...immutable, ...assets]
+	.map((entry) => absolute(entry.path))
+	.filter((f) => !SKIP.some((skip) => f.endsWith(skip)));
 
 sw.addEventListener('install', (event) => {
-	event.waitUntil(caches.open(APP_CACHE).then((cache) => cache.addAll(ASSETS)).then(() => sw.skipWaiting()));
+	event.waitUntil(
+		caches
+			.open(APP_CACHE)
+			.then((cache) => cache.addAll(ASSETS))
+			.then(() => sw.skipWaiting())
+	);
 });
 
 sw.addEventListener('activate', (event) => {
@@ -33,9 +42,7 @@ sw.addEventListener('activate', (event) => {
 			.keys()
 			.then((keys) =>
 				Promise.all(
-					keys
-						.filter((k) => k !== APP_CACHE && k !== DATA_CACHE && k !== TILE_CACHE)
-						.map((k) => caches.delete(k))
+					keys.filter((k) => k !== APP_CACHE && k !== DATA_CACHE && k !== TILE_CACHE).map((k) => caches.delete(k))
 				)
 			)
 			.then(() => sw.clients.claim())

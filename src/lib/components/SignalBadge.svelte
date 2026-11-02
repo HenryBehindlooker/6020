@@ -1,12 +1,17 @@
 <script lang="ts">
-	import type { Signal } from '$lib/logic/rating';
-	import { SIGNAL_TEXT } from '$lib/copy';
+	import type { Signal } from '#lib/logic/rating.js';
+	import { SIGNAL_TEXT } from '#lib/copy.js';
 
 	let { signal, size = 'normal' }: { signal: Signal; size?: 'normal' | 'gross' } = $props();
 	const text = $derived(SIGNAL_TEXT[signal]);
 </script>
 
-<span class="badge {signal}" class:gross={size === 'gross'} aria-label="Ampel: {text.hochdeutsch}" title={text.hochdeutsch}>
+<span
+	class="badge {signal}"
+	class:gross={size === 'gross'}
+	aria-label="Ampel: {text.hochdeutsch}"
+	title={text.hochdeutsch}
+>
 	<span class="dot" aria-hidden="true"></span>
 	<span aria-hidden="true">{text.kurz}</span>
 </span>
@@ -37,7 +42,13 @@
 		box-shadow: 0 0 0 2px color-mix(in srgb, var(--surface) 70%, transparent);
 	}
 
-	.gruen .dot { background: var(--gruen); }
-	.gelb .dot { background: var(--gelb); }
-	.rot .dot { background: var(--rot); }
+	.gruen .dot {
+		background: var(--gruen);
+	}
+	.gelb .dot {
+		background: var(--gelb);
+	}
+	.rot .dot {
+		background: var(--rot);
+	}
 </style>

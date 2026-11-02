@@ -1,5 +1,5 @@
-import { SIGNAL_ORDER, type Signal } from '$lib/logic/rating';
-import type { TourPlan } from '$lib/server/plan';
+import { SIGNAL_ORDER, type Signal } from '#lib/logic/rating.js';
+import type { TourPlan } from '#lib/logic/dayPlan.js';
 
 export interface TrailheadGroup {
 	stop: string;

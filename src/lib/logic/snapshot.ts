@@ -1,5 +1,5 @@
-import type { Departure } from '$lib/types';
-import { viennaMonth, viennaTime, viennaWeekday } from '$lib/logic/time';
+import type { Departure } from '#lib/types.js';
+import { viennaMonth, viennaTime, viennaWeekday } from '#lib/logic/time.js';
 
 /** Eine Reise aus data/transit/connections.json (scripts/fetch/transitous.py). */
 export interface SnapshotItinerary {
@@ -21,10 +21,7 @@ export interface SnapshotItinerary {
 
 export interface SnapshotDay {
 	date: string;
-	trailheads: Record<
-		string,
-		{ outbound: SnapshotItinerary[]; inbound: SnapshotItinerary[]; errors?: string[] }
-	>;
+	trailheads: Record<string, { outbound: SnapshotItinerary[]; inbound: SnapshotItinerary[]; errors?: string[] }>;
 }
 
 export interface Snapshot {
@@ -56,7 +53,6 @@ export function pickSnapshotDay(snapshot: Snapshot, date: Date): { label: string
 	}
 	return null;
 }
-
 
 /** Eine Reise in das App-Modell. Liefert null, wenn Zeiten fehlen. */
 export function toDeparture(it: SnapshotItinerary, date: Date, direction: 'outbound' | 'inbound'): Departure | null {

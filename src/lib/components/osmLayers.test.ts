@@ -64,7 +64,6 @@ describe('Popups', () => {
 	});
 });
 
-
 describe('poiPopup und hutPopup', () => {
 	it('benennt Punkte und warnt bei Wasser im Winter', () => {
 		expect(poiPopup({ amenity: 'drinking_water' })).toContain('Trinkwasser');
@@ -73,7 +72,10 @@ describe('poiPopup und hutPopup', () => {
 	});
 	it('Huette: heute offen und Bargeld', () => {
 		// Mittwoch, 15.7.2026, Mittag in Wien
-		const html = hutPopup({ name: 'Alm', opening_hours: 'Mo-Su 10:00-18:00', 'payment:cash': 'only' }, new Date('2026-07-15T10:00:00Z'));
+		const html = hutPopup(
+			{ name: 'Alm', opening_hours: 'Mo-Su 10:00-18:00', 'payment:cash': 'only' },
+			new Date('2026-07-15T10:00:00Z')
+		);
 		expect(html).toContain('Heute offen laut OSM: 10:00–18:00');
 		expect(html).toContain('Nur Bargeld');
 	});

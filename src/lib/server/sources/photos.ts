@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
-import { cached } from '$lib/server/cache';
-import { config } from '$lib/server/config';
+import { cached } from '#lib/server/cache.js';
+import { config } from '#lib/server/config.js';
 
 /** Von scripts/fetch/photos.py befuellt: Wikimedia-Fotos mit Urheber und Lizenz. */
 const PATH = 'static/photos/photos.json';
@@ -36,11 +36,7 @@ interface PhotoFile {
 
 /** Nur Bilder von Wikimedia-Servern - die Datei kommt aus dem Repo, aber sicher ist sicher. */
 function sicher(photo: Photo | undefined): photo is Photo {
-	return (
-		!!photo &&
-		typeof photo.thumb === 'string' &&
-		/^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(photo.thumb)
-	);
+	return !!photo && typeof photo.thumb === 'string' && /^https:\/\/(upload|thumb)\.wikimedia\.org\//.test(photo.thumb);
 }
 
 async function load(): Promise<PhotoFile> {

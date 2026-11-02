@@ -1,16 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import type { TourPlan } from '$lib/server/plan';
-import type { Signal } from '$lib/logic/rating';
+import type { TourPlan } from '#lib/logic/dayPlan.js';
+import type { Signal } from '#lib/logic/rating.js';
 import { boundsOf, groupByTrailhead } from './trailheads';
 
-function plan(
-	id: string,
-	stop: string,
-	signal: Signal,
-	feasible: boolean,
-	lat = 47.1,
-	lon = 11.1
-): TourPlan {
+function plan(id: string, stop: string, signal: Signal, feasible: boolean, lat = 47.1, lon = 11.1): TourPlan {
 	return {
 		tour: {
 			id,
@@ -31,6 +24,7 @@ function plan(
 		},
 		rating: { signal, effectiveDangerLevel: 2, reasons: [] },
 		weather: null,
+		weatherNote: null,
 		transit: { kind: 'echt', originStop: 'Innsbruck', destinationStop: stop, outbound: [], inbound: [], source: 't' },
 		turnaround: {
 			outbound: null,
@@ -56,18 +50,12 @@ describe('groupByTrailhead', () => {
 	});
 
 	it('faerbt den Punkt nach der besten Tour', () => {
-		const groups = groupByTrailhead([
-			plan('a', 'Praxmar', 'rot', true),
-			plan('b', 'Praxmar', 'gelb', true)
-		]);
+		const groups = groupByTrailhead([plan('a', 'Praxmar', 'rot', true), plan('b', 'Praxmar', 'gelb', true)]);
 		expect(groups[0].bestSignal).toBe('gelb');
 	});
 
 	it('zaehlt nur die zeitlich machbaren Touren', () => {
-		const groups = groupByTrailhead([
-			plan('a', 'Praxmar', 'gruen', true),
-			plan('b', 'Praxmar', 'gruen', false)
-		]);
+		const groups = groupByTrailhead([plan('a', 'Praxmar', 'gruen', true), plan('b', 'Praxmar', 'gruen', false)]);
 		expect(groups[0].feasibleCount).toBe(1);
 	});
 
@@ -90,10 +78,7 @@ describe('groupByTrailhead', () => {
 	});
 
 	it('sortiert innerhalb eines Ausgangspunkts die beste Tour nach vorne', () => {
-		const groups = groupByTrailhead([
-			plan('rot', 'Praxmar', 'rot', true),
-			plan('gruen', 'Praxmar', 'gruen', true)
-		]);
+		const groups = groupByTrailhead([plan('rot', 'Praxmar', 'rot', true), plan('gruen', 'Praxmar', 'gruen', true)]);
 		expect(groups[0].tours[0].tour.id).toBe('gruen');
 	});
 });

@@ -2,16 +2,22 @@ import { describe, expect, it } from 'vitest';
 import { nearby, toPointFeature, type PointFeature } from './nearby';
 
 const huette = (name: string, lat: number, lon: number): PointFeature => ({
-	name, lat, lon, ele: null, kind: 'einkehr', openingHours: null, website: null, osm: null,
-	payment: { kind: 'unbekannt', text: '' }, phone: null, seasonal: null, checkDate: null
+	name,
+	lat,
+	lon,
+	ele: null,
+	kind: 'einkehr',
+	openingHours: null,
+	website: null,
+	osm: null,
+	payment: { kind: 'unbekannt', text: '' },
+	phone: null,
+	seasonal: null,
+	checkDate: null
 });
 
 describe('nearby', () => {
-	const punkte = [
-		huette('weit weg', 47.5, 11.9),
-		huette('nah', 47.201, 11.301),
-		huette('mittel', 47.215, 11.3)
-	];
+	const punkte = [huette('weit weg', 47.5, 11.9), huette('nah', 47.201, 11.301), huette('mittel', 47.215, 11.3)];
 
 	it('liefert nur Punkte im Umkreis', () => {
 		expect(nearby(punkte, 47.2, 11.3).map((p) => p.name)).toEqual(['nah', 'mittel']);
@@ -39,7 +45,10 @@ describe('toPointFeature', () => {
 	});
 
 	it('liest Hoehen mit Komma und Einheit', () => {
-		const p = toPointFeature({ geometry: { type: 'Point', coordinates: [11, 47] }, properties: { name: 'A', ele: '1067,5 m' } });
+		const p = toPointFeature({
+			geometry: { type: 'Point', coordinates: [11, 47] },
+			properties: { name: 'A', ele: '1067,5 m' }
+		});
 		expect(p?.ele).toBe(1068);
 	});
 

@@ -1,16 +1,47 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
-	import GoldenesDachl from '$lib/components/GoldenesDachl.svelte';
-	import { TEXT } from '$lib/copy';
+	import GoldenesDachl from '#lib/components/GoldenesDachl.svelte';
+	import { TEXT } from '#lib/copy.js';
+	import { planner } from '#lib/planner.svelte.js';
+	import { onMount } from 'svelte';
 	let { children } = $props();
 
+	// Planung im Browser starten: Werte aus der Adresse, Daten aus /daten/plan.json
+	onMount(() => planner.start(new URL(location.href).searchParams));
+
 	const links = [
-		{ href: `${base}/`, label: TEXT.nav.touren, match: (p: string) => p === `${base}/` || p.startsWith(`${base}/tour/`) },
-		{ href: `${base}/karte`, label: TEXT.nav.karte, match: (p: string) => p.startsWith(`${base}/karte`) },
-		{ href: `${base}/radl`, label: TEXT.nav.radl, match: (p: string) => p.startsWith(`${base}/radl`) },
-		{ href: `${base}/taeler`, label: TEXT.nav.taeler, match: (p: string) => p.startsWith(`${base}/taeler`) },
-		{ href: `${base}/methodik`, label: TEXT.nav.methodik, match: (p: string) => p.startsWith(`${base}/methodik`) }
+		{
+			plan: true,
+			href: resolve(''),
+			label: TEXT.nav.touren,
+			match: (p: string) => p === resolve('') || p.startsWith(resolve(`tour/`))
+		},
+
+		{
+			plan: true,
+			href: resolve(`karte`),
+			label: TEXT.nav.karte,
+			match: (p: string) => p.startsWith(resolve(`karte`))
+		},
+
+		{
+			href: resolve(`radl`),
+			label: TEXT.nav.radl,
+			match: (p: string) => p.startsWith(resolve(`radl`))
+		},
+
+		{
+			href: resolve(`taeler`),
+			label: TEXT.nav.taeler,
+			match: (p: string) => p.startsWith(resolve(`taeler`))
+		},
+
+		{
+			href: resolve(`methodik`),
+			label: TEXT.nav.methodik,
+			match: (p: string) => p.startsWith(resolve(`methodik`))
+		}
 	];
 </script>
 
@@ -22,7 +53,7 @@
 
 <div class="shell">
 	<header>
-		<a class="brand" href="{base}/" aria-label="Bergampel Innsbruck - Startseite">
+		<a class="brand" href={resolve('')} aria-label="Bergampel Innsbruck - Startseite">
 			<GoldenesDachl size={36} />
 			<span>
 				<strong>{TEXT.titel}</strong>
@@ -31,7 +62,11 @@
 		</a>
 		<nav aria-label="Hauptmenü">
 			{#each links as link}
-				<a href={link.href} aria-current={link.match(page.url.pathname) ? 'page' : undefined}>{link.label}</a>
+				<!-- Tag, Aufbruch und Puffer mitnehmen - nur Touren und Karte rechnen damit -->
+				<a
+					href={link.plan ? link.href + planner.query : link.href}
+					aria-current={link.match(page.url.pathname) ? 'page' : undefined}>{link.label}</a
+				>
 			{/each}
 		</nav>
 	</header>
@@ -43,14 +78,27 @@
 	<footer>
 		<p class="pfiati">{TEXT.pfiati}</p>
 		<p>
-			Die Bergampel ist eine Planungshilfe, keine Sicherheitsgarantie. Die Entscheidung im Gelände
-			liegt bei dir. Lies immer den Originalbericht des
+			Die Bergampel ist eine Planungshilfe, keine Sicherheitsgarantie. Die Entscheidung im Gelände liegt bei dir. Lies
+			immer den Originalbericht des
 			<a href="https://lawinen.report" rel="noreferrer">Lawinenwarndienstes Tirol</a>.
 		</p>
 		<p class="quellen">
-			Karten- und Wegdaten &copy; <a href="https://www.openstreetmap.org/copyright" rel="noreferrer">OpenStreetMap-Mitwirkende</a> (ODbL) ·
-			Fahrpläne über <a href="https://transitous.org" rel="noreferrer">Transitous</a> ·
-			Fotos von <a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a> (Urheber je Bild) ·
+			Karten- und Wegdaten ©
+
+			<a href="https://www.openstreetmap.org/copyright" rel="noreferrer">OpenStreetMap-Mitwirkende</a>
+
+			(ODbL) · Fahrpläne über
+			<a href="https://transitous.org" rel="noreferrer">Transitous</a>
+			· Wetter:
+
+			<a href="https://data.hub.geosphere.at" rel="noreferrer">GeoSphere Austria</a>
+
+			(CC BY 4.0) · Fotos von
+
+			<a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a>
+
+			(Urheber je Bild) ·
+
 			<a href="https://github.com/HenryBehindlooker/6020" rel="noreferrer">Quellcode</a>
 		</p>
 	</footer>
@@ -137,7 +185,12 @@
 		margin: 0;
 		background: var(--bg);
 		color: var(--text);
-		font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+		font-family:
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			'Segoe UI',
+			sans-serif;
 		line-height: 1.55;
 		-webkit-font-smoothing: antialiased;
 		text-rendering: optimizeLegibility;
@@ -193,7 +246,9 @@
 		text-decoration: none;
 		padding: 0.45rem 0.75rem;
 		border-radius: 999px;
-		transition: background 0.15s, color 0.15s;
+		transition:
+			background 0.15s,
+			color 0.15s;
 	}
 
 	nav a:hover {
@@ -201,11 +256,35 @@
 		background: var(--surface-2);
 	}
 
+	/* Am Handy alle Punkte in einer Zeile */
+	@media (max-width: 26rem) {
+		nav {
+			gap: 0;
+		}
+
+		nav a {
+			padding: 0.4rem 0.5rem;
+			font-size: 0.86rem;
+		}
+	}
+
 	nav a[aria-current='page'] {
 		color: var(--sky-deep);
 		background: var(--surface);
 		font-weight: 600;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+	}
+
+	:global(.visually-hidden) {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+		border: 0;
 	}
 
 	.skip {

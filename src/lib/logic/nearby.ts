@@ -1,5 +1,5 @@
-import { distanceKm } from '$lib/logic/gpx';
-import { paymentInfo, type PaymentInfo } from '$lib/logic/payment';
+import { distanceKm } from '#lib/logic/gpx.js';
+import { paymentInfo, type PaymentInfo } from '#lib/logic/payment.js';
 
 export interface PointFeature {
 	name: string;
@@ -30,7 +30,10 @@ export interface Nearby extends PointFeature {
  */
 export function nearby(points: PointFeature[], lat: number, lon: number, radiusKm = 2.5, limit = 5): Nearby[] {
 	return points
-		.map((p) => ({ ...p, km: Math.round(distanceKm({ lat, lon, ele: null }, { lat: p.lat, lon: p.lon, ele: null }) * 10) / 10 }))
+		.map((p) => ({
+			...p,
+			km: Math.round(distanceKm({ lat, lon, ele: null }, { lat: p.lat, lon: p.lon, ele: null }) * 10) / 10
+		}))
 		.filter((p) => p.km <= radiusKm)
 		.sort((a, b) => a.km - b.km)
 		.slice(0, limit);
@@ -49,7 +52,11 @@ export function toPointFeature(feature: {
 
 	const eleRaw = typeof props.ele === 'string' ? Number.parseFloat(props.ele.replace(',', '.')) : Number(props.ele);
 	const kind =
-		props.tourism === 'alpine_hut' ? 'schutzhuette' : props.tourism === 'wilderness_hut' ? 'selbstversorger' : 'einkehr';
+		props.tourism === 'alpine_hut'
+			? 'schutzhuette'
+			: props.tourism === 'wilderness_hut'
+				? 'selbstversorger'
+				: 'einkehr';
 	const website = props.website ?? props['contact:website'];
 
 	return {
