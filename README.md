@@ -15,7 +15,6 @@ Dazu: Karte mit Wegen, Hütten (heute offen? Bargeld?), Seilbahnen, markanten
 Punkten, Hangneigung und Wildschutzzonen, Messstationen an jeder Tour, Fotos, Google-Earth-Export, Sonnenuntergang, Radl- und Täler-Seite.
 
 Öffentliche Fassung: <https://henrybehindlooker.github.io/6020/> ·
-ausführliche Dokumentation: [DOKUMENTATION.md](DOKUMENTATION.md)
 
 ## Schnellstart
 
