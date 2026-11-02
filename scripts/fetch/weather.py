@@ -49,7 +49,7 @@ def available_parameters(dataset):
     params = meta.get("parameters", [])
     names = [p.get("name") for p in params if isinstance(p, dict)]
     units = {p.get("name"): p.get("unit") for p in params if isinstance(p, dict)}
-    return names, units, meta
+    return names, units, meta, params
 
 
 def rnd(value):
@@ -68,10 +68,11 @@ def main():
     result = None
     for dataset in DATASETS:
         try:
-            names, units, meta = available_parameters(dataset)
+            names, units, meta, details = available_parameters(dataset)
             params = [p for p in WANTED if p in names]
+            # Mit Beschreibung und Einheit - das 1-km-Modell benennt anders (10u, 2t, sf ...)
             probe["versuche"].append({"dataset": dataset, "parameters_all": names, "parameters_used": params,
-                                      "meta_keys": sorted(meta.keys())})
+                                      "parameters_detail": details, "meta_keys": sorted(meta.keys())})
             if not {"u10m", "v10m", "t2m"} <= set(params):
                 print(f"{dataset}: Wind oder Temperatur fehlen - naechster Datensatz")
                 continue

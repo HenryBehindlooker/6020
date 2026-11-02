@@ -83,9 +83,10 @@ export function weatherForDay(snapshot: WeatherSnapshot, tourId: string, day: Da
 	const tempC = tUnit === 'k' || tUnit.includes('kelvin') ? tRaw - 273.15 : tRaw;
 
 	const wolken = fenster.map((i) => at('tcc', i)).filter(Number.isFinite);
-	// tcc kommt je nach Datensatz als Anteil (0-1) oder Prozent
 	const wolkenMittel = wolken.length ? wolken.reduce((a, b) => a + b, 0) / wolken.length : NaN;
-	const wolkenPct = Number.isFinite(wolkenMittel) ? (wolkenMittel <= 1.0001 ? wolkenMittel * 100 : wolkenMittel) : 0;
+	// tcc: GeoSphere liefert einen Anteil (Einheit "1"); nur bei "%" schon Prozent
+	const wolkenProzent = String(snapshot.units.tcc ?? '1').includes('%');
+	const wolkenPct = Number.isFinite(wolkenMittel) ? (wolkenProzent ? wolkenMittel : wolkenMittel * 100) : 0;
 
 	// Neuschnee: aufsummierter Schnee, 1 mm Wasserwert ~ 1 cm Neuschnee
 	const start = Math.max(vorabend, times[0]);

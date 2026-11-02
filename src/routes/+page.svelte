@@ -152,6 +152,9 @@
 
 <section aria-labelledby="gruppe-geht">
 	<h2 class="gruppe" id="gruppe-geht">{TEXT.gruppeGeht} <span class="anzahl">{machbar.length}</span></h2>
+	{#if bulletin?.kind === 'demo'}
+		<p class="beispiel-hinweis">Bewertet mit dem Beispielbericht – zum Ausprobieren, nicht zum Losgehen.</p>
+	{/if}
 	{#if machbar.length > 0}
 		<div class="grid">
 			{#each machbar as tourPlan (tourPlan.tour.id)}
@@ -402,6 +405,12 @@
 		color: var(--muted);
 		border-radius: 999px;
 		padding: 0.05rem 0.55rem;
+	}
+
+	.beispiel-hinweis {
+		margin: -0.4rem 0 0.8rem;
+		font-size: 0.85rem;
+		color: var(--text-warnung);
 	}
 
 	.grid {

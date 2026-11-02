@@ -12,7 +12,9 @@
 	const turnaround = $derived(plan.turnaround);
 	const transit = $derived(plan.transit);
 	const hinweise = $derived(rating.reasons.filter((r) => r.impact !== 'neutral'));
-	const stunden = $derived(Math.round((tour.ascentMinutes / 60) * 10) / 10);
+	/** "2 h 30 min" ohne Umbruch zwischen Zahl und Einheit */
+	const nb = (text: string) => text.replace(/ /g, '\u00a0');
+	const aufstieg = $derived(nb(formatReserve(tour.ascentMinutes)));
 </script>
 
 <a class="card {rating.signal}" href="{base}/tour/{tour.id}{query}">
@@ -20,7 +22,7 @@
 		<div>
 			<h3>{tour.name}</h3>
 			<p class="meta">
-				{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} Hm · {stunden} h Aufstieg
+				{tour.trailhead} · {tour.summitAltitude}&nbsp;m · {tour.ascentMeters}&nbsp;Hm · {aufstieg} Aufstieg
 			</p>
 		</div>
 		<SignalBadge signal={rating.signal} />
@@ -47,8 +49,10 @@
 				<span class="label">{TEXT.umkehr}</span>
 				<strong>{turnaround.turnaroundAt ? hhmm(turnaround.turnaroundAt) : '-'}</strong>
 				{#if turnaround.slackMinutes !== null}
-					<span class="line">
-						{turnaround.slackMinutes >= 0 ? `+${formatReserve(turnaround.slackMinutes)}` : `-${formatReserve(-turnaround.slackMinutes)}`}
+					<span class="line" class:knapp={turnaround.slackMinutes < 0}>
+						{turnaround.slackMinutes >= 0
+							? `${nb(formatReserve(turnaround.slackMinutes))} Reserve`
+							: `${nb(formatReserve(-turnaround.slackMinutes))} zu knapp`}
 					</span>
 				{/if}
 			</div>
@@ -147,6 +151,10 @@
 	.line {
 		color: var(--muted);
 		margin-left: 0.3rem;
+	}
+
+	.line.knapp {
+		color: var(--text-kritisch);
 	}
 
 	.tag {

@@ -9,7 +9,7 @@ function snapshot(
 	start: string,
 	hours: number,
 	f: Partial<Record<'u10m' | 'v10m' | 'ugust' | 'vgust' | 't2m' | 'tcc' | 'snow_acc', (h: number) => number>>,
-	units: Record<string, string> = { t2m: 'degree_Celsius' }
+	units: Record<string, string> = { t2m: 'degree Celsius', tcc: '1' }
 ): WeatherSnapshot {
 	const t0 = new Date(start).getTime();
 	const timestamps = Array.from({ length: hours }, (_, h) => new Date(t0 + h * 3_600_000).toISOString());
@@ -78,6 +78,12 @@ describe('weatherForDay', () => {
 		const r = weatherForDay(s, 'saile', tag);
 		expect(r.ok).toBe(false);
 		expect(!r.ok && r.reason).toContain('reicht nur bis');
+	});
+
+	it('Bewoelkung in Prozent bleibt Prozent - auch bei fast klarem Himmel', () => {
+		const s = snapshot('2026-01-16T18:00:00Z', 48, { ...ruhig, tcc: () => 0.5 }, { t2m: 'degree Celsius', tcc: '%' });
+		const r = weatherForDay(s, 'saile', tag);
+		expect(r.ok && r.forecast.cloudCoverPct).toBe(1);
 	});
 
 	it('meldet einen unbekannten Gipfel', () => {

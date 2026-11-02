@@ -56,6 +56,7 @@
 		<p class="quellen">
 			Karten- und Wegdaten &copy; <a href="https://www.openstreetmap.org/copyright" rel="noreferrer">OpenStreetMap-Mitwirkende</a> (ODbL) ·
 			Fahrpläne über <a href="https://transitous.org" rel="noreferrer">Transitous</a> ·
+			Wetter: <a href="https://data.hub.geosphere.at" rel="noreferrer">GeoSphere Austria</a> (CC BY 4.0) ·
 			Fotos von <a href="https://commons.wikimedia.org" rel="noreferrer">Wikimedia Commons</a> (Urheber je Bild) ·
 			<a href="https://github.com/HenryBehindlooker/6020" rel="noreferrer">Quellcode</a>
 		</p>
@@ -205,6 +206,18 @@
 	nav a:hover {
 		color: var(--text);
 		background: var(--surface-2);
+	}
+
+	/* Am Handy alle Punkte in einer Zeile */
+	@media (max-width: 26rem) {
+		nav {
+			gap: 0;
+		}
+
+		nav a {
+			padding: 0.4rem 0.5rem;
+			font-size: 0.86rem;
+		}
 	}
 
 	nav a[aria-current='page'] {

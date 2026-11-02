@@ -32,8 +32,15 @@
 			liegt die Tour in seinem Höhenband, steigt die Ampel - ab Stufe 3 direkt auf rot.
 		</li>
 		<li><strong>Steilheit:</strong> Bei Stufe 2 sind Schlüsselstellen ab 40&deg; gelb. Ab Stufe 3 sind sie ab 35&deg; rot, ab 30&deg; gelb - angelehnt an die Reduktionsmethode.</li>
-		<li><strong>Wind:</strong> Ab 40 km/h gelb, ab 60 km/h rot (frischer Triebschnee).</li>
-		<li><strong>Neuschnee:</strong> Ab 15 cm in 24 h gelb, ab 30 cm rot.</li>
+		<li>
+			<strong>Wind:</strong> Stärkster Wind zwischen 7 und 16 Uhr am Gipfel-Gitterpunkt der
+			Prognose. Ab 40 km/h gelb, ab 60 km/h rot (frischer Triebschnee).
+		</li>
+		<li>
+			<strong>Neuschnee:</strong> Vom Vorabend 18 Uhr bis Mittag, laut Prognose. Ab 15 cm gelb, ab
+			30 cm rot. Schnee, der vor dem Prognosebeginn gefallen ist, kennt die Prognose nicht – dafür ist
+			der Lagebericht da.
+		</li>
 	</ul>
 	<p>
 		Die Ampel wird nur hochgestuft, nie herunter: Der ungünstigste Faktor entscheidet. Fehlt der
@@ -43,10 +50,30 @@
 </section>
 
 <section>
+	<h2>Heit oder morgn</h2>
+	<p>
+		Der Lagebericht erscheint um 17 Uhr für den nächsten Tag und gilt bis 17 Uhr an diesem Tag. Für
+		„Heit“ zählt der Bericht, der jetzt gilt; für „Morgn“ der für morgen – vor 17 Uhr gibt es den noch
+		nicht, und die Ampel steht auf <em>Unklar</em>.
+	</p>
+	<p>
+		<strong>Beispielbericht:</strong> Nur in der Saisonpause (etwa Juni bis November, wenn der letzte
+		echte Bericht mehr als zehn Tage zurückliegt) zeigt die öffentliche Fassung einen erfundenen
+		Beispielbericht, deutlich gekennzeichnet – damit man sieht, wie die Ampel rechnet. In der Saison
+		füllt die Bergampel eine Lücke nie mit Beispieldaten.
+	</p>
+	<p>
+		Die Daten holt ein Abholer auf GitHub dreimal am Tag (gegen 8:30, 17:30 und 21:30 Uhr) und baut
+		die Seite danach neu. Gerechnet wird im Browser – auch für die gewählte Aufbruchszeit. Sind die
+		Daten älter als anderthalb Tage, sagt die Seite das oben.
+	</p>
+</section>
+
+<section>
 	<h2>Die Umkehrzeit</h2>
 	<p>
-		Gerechnet wird rückwärts vom letzten Bus am Ausgangspunkt: Abfahrt (mit Echtzeit-Verspätung,
-		falls bekannt) minus Puffer minus Abstiegszeit ergibt die späteste Umkehrzeit. Dagegen steht die
+		Gerechnet wird rückwärts vom letzten Bus am Ausgangspunkt: Abfahrt minus Puffer minus
+		Abstiegszeit ergibt die späteste Umkehrzeit. Dagegen steht die
 		rechnerische Gipfelzeit: Ankunft mit dem Bus plus Aufstiegszeit. Bleibt keine Reserve, ist die
 		Tour zu knapp.
 	</p>
@@ -65,7 +92,8 @@
 	<h2>Was belegt ist und was nicht</h2>
 	<ul>
 		<li><strong>Belegt aus OpenStreetMap:</strong> Gipfelname, Gipfelhöhe und -lage, Haltestellen, Wege, Hütten, Seilbahnen.</li>
-		<li><strong>Echte Busverbindungen:</strong> über Transitous, als Abzug für Beispieltage, auf den Planungstag übertragen.</li>
+		<li><strong>Echte Busverbindungen:</strong> über Transitous, als Abzug für Beispieltage (Werktag, Samstag, Wintersamstag), auf den Planungstag übertragen.</li>
+		<li><strong>Echtes Bergwetter:</strong> stündliche AROME-Prognose von GeoSphere Austria am Gitterpunkt jedes Gipfels. Der Gitterpunkt liegt oft etwas tiefer als der Gipfel; am Grat ist es meist windiger.</li>
 		<li>
 			<strong>Richtwerte ohne geprüfte Quelle:</strong> Hangrichtung, Steilheit und Gehzeiten der
 			Touren - und genau sie gehen in die Ampel ein.
@@ -108,7 +136,7 @@
 			<thead><tr><th>Quelle</th><th>Wofür</th></tr></thead>
 			<tbody>
 				<tr><td>Lawinenwarndienst Tirol / EAWS (CAAMLv6)</td><td>Gefahrenstufe, Lawinenprobleme, Hangrichtungen</td></tr>
-				<tr><td>GeoSphere Austria (AROME, Open Data)</td><td>Wind, Neuschnee, Temperatur</td></tr>
+				<tr><td>GeoSphere Austria (AROME 1 km, Open Data, CC BY 4.0)</td><td>Wind, Böen, Neuschnee, Temperatur, Bewölkung am Gipfel</td></tr>
 				<tr><td>Transitous (transitous.org)</td><td>Busverbindungen zwischen Ausgangspunkt und Innsbruck</td></tr>
 				<tr><td>OpenStreetMap</td><td>Gipfel, Haltestellen, Wanderwege, Skitouren-Aufstiege, Rad- und MTB-Routen, Hütten mit Öffnungszeiten und Zahlungsarten, Seilbahnen, markante Punkte</td></tr>
 				<tr><td>Wikimedia Commons, Wikipedia</td><td>Fotos rund um die Gipfel, Talbilder und -texte</td></tr>

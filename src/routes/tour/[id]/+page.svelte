@@ -120,7 +120,7 @@
 	<div class="kachel">
 		<span class="label">Am Gipfel</span>
 		<strong>{turnaround.summitAt ? hhmm(turnaround.summitAt) : '-'}</strong>
-		<span class="klein">{Math.round((tour.ascentMinutes / 60) * 10) / 10} h Aufstieg</span>
+		<span class="klein">{formatReserve(tour.ascentMinutes)} Aufstieg</span>
 	</div>
 </section>
 
