@@ -359,6 +359,33 @@
 		background: var(--sky-deep);
 	}
 
+	/* Am Handy: Tag oben, Aufbruch und Puffer nebeneinander */
+	@media (max-width: 30rem) {
+		.filter {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		}
+
+		.filter label,
+		.mit-einheit {
+			min-width: 0;
+		}
+
+		.tage {
+			grid-column: 1 / -1;
+			justify-self: start;
+		}
+
+		.filter input[type='time'] {
+			width: 100%;
+		}
+
+		.filter input[type='number'] {
+			flex: 1;
+			min-width: 0;
+		}
+	}
+
 	.tage {
 		display: inline-flex;
 		border: 1px solid var(--border);
