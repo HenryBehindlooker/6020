@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-02T14:48:35+00:00",
+ "fetched_at": "2026-11-02T15:36:47+00:00",
  "date_dirs": {
   "count": 1939,
   "first": [
@@ -14,111 +14,9 @@
    "2026-11-03"
   ]
  },
- "checked_until_found": 62,
- "search_errors": [],
- "latest": {
-  "date": "2026-05-03",
-  "file": "2026-05-03-AT-07.json",
-  "summary": {
-   "bulletin_count": 2,
-   "top_keys": [
-    "bulletins"
-   ],
-   "bulletins": [
-    {
-     "regions": [
-      "AT-07-05",
-      "AT-07-06",
-      "AT-07-18",
-      "AT-07-02-01",
-      "AT-07-17-02",
-      "AT-07-17-01"
-     ],
-     "region_count": 6,
-     "ratings": [
-      [
-       "low",
-       null,
-       "all_day"
-      ]
-     ],
-     "problems": [],
-     "keys": [
-      "avalancheActivity",
-      "bulletinID",
-      "customData",
-      "dangerRatings",
-      "lang",
-      "publicationTime",
-      "regions",
-      "snowpackStructure",
-      "source",
-      "tendency",
-      "unscheduled",
-      "validTime"
-     ],
-     "validTime": {
-      "startTime": "2026-05-02T15:00:00+00:00",
-      "endTime": "2026-05-03T15:00:00+00:00"
-     },
-     "publicationTime": "2026-05-02T15:00:00+00:00"
-    },
-    {
-     "regions": [
-      "AT-07-14-01",
-      "AT-07-10",
-      "AT-07-11",
-      "AT-07-12",
-      "AT-07-13",
-      "AT-07-15"
-     ],
-     "region_count": 60,
-     "ratings": [
-      [
-       "low",
-       null,
-       "all_day"
-      ]
-     ],
-     "problems": [
-      [
-       "wet_snow",
-       [
-        "S",
-        "W",
-        "E",
-        "SE",
-        "SW"
-       ],
-       {
-        "lowerBound": "2500"
-       },
-       "all_day"
-      ]
-     ],
-     "keys": [
-      "avalancheActivity",
-      "avalancheProblems",
-      "bulletinID",
-      "customData",
-      "dangerRatings",
-      "lang",
-      "publicationTime",
-      "regions",
-      "snowpackStructure",
-      "source",
-      "tendency",
-      "unscheduled",
-      "validTime"
-     ],
-     "validTime": {
-      "startTime": "2026-05-02T15:00:00+00:00",
-      "endTime": "2026-05-03T15:00:00+00:00"
-     },
-     "publicationTime": "2026-05-02T15:00:00+00:00"
-    }
-   ]
-  }
- },
+ "checked_until_found": 17,
+ "search_errors": [
+  "2026-06-17: <urlopen error [Errno 111] Connection refused>"
+ ],
  "aktuell": []
 }

@@ -78,6 +78,13 @@ jobs:
         timeout-minutes: 5
         run: python scripts/fetch/probe_apis.py
 
+      # Nur von Hand und beim Pushen auf den Arbeitszweig - nicht dreimal taeglich
+      - name: Weitere Schnittstellen im Detail pruefen
+        if: github.event_name != 'schedule'
+        continue-on-error: true
+        timeout-minutes: 8
+        run: python scripts/fetch/probe_deep.py
+
       - name: Ergebnisse committen
         run: |
           git config user.name "github-actions[bot]"
