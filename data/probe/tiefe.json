@@ -1,6 +1,367 @@
 {
- "checked_at": "2026-11-02T15:59:52+00:00",
+ "checked_at": "2026-11-02T16:14:41+00:00",
  "pruefungen": {
+  "tiris_legende_export": {
+   "ok": true,
+   "terrain_legende": {
+    "status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "ms": 959,
+    "bytes": 44085,
+    "ebenen": [
+     {
+      "id": 18,
+      "name": "Boundary_Gelaendeneigung_Wintersport",
+      "klassen": [
+       {
+        "label": "",
+        "contentType": "image/png",
+        "bild_base64_laenge": 184,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAPElEQVQ4je3MQREAIAwDwetM1VQQetCDoNoJTxDQZ1bAptAGihmdQAWxJjahkxPRz6FDhw4dvrCFztDXFxpsC0351cVUAAAAAElFTkSuQmCC"
+       }
+      ]
+     },
+     {
+      "id": 19,
+      "name": "Footprint_Gelaendeneigung_Wintersport",
+      "klassen": [
+       {
+        "label": "",
+        "contentType": "image/png",
+        "bild_base64_laenge": 184,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAO0lEQVQ4je3MQREAIAwDwWOmaioIPeipoNopTxCQZ1bABsMBEo0OIFlsSTdUSKKPQ4cOHTp8YTOU6OsLzf4IT5Ka1rUAAAAASUVORK5CYII="
+       }
+      ]
+     },
+     {
+      "id": 20,
+      "name": "Image_Gelaendeneigung_Wintersport",
+      "klassen": [
+       {
+        "label": "0 - 30",
+        "contentType": "image/png",
+        "bild_base64_laenge": 140,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAG0lEQVQ4jWNhoDJgGTVw1MBRA0cNHDVwpBoIABArAFHmDwDcAAAAAElFTkSuQmCC"
+       },
+       {
+        "label": "30 - 35",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB//8zbKbEIEZGBl8UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgAiuQOgUNvqsgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "35 - 40",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB/xcybKbEIMZ4Bl8UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgBDCQP+WYdoqgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "40 - 90",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB/xkYNlNiECMDgy+KgdQCowaOGjhq4KiBdDYQVp5RzUBqAQB6BwKfRcDJowAAAABJRU5ErkJggg=="
+       }
+      ]
+     },
+     {
+      "id": 22,
+      "name": "Boundary_Exposition",
+      "klassen": [
+       {
+        "label": "",
+        "contentType": "image/png",
+        "bild_base64_laenge": 184,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAPElEQVQ4je3MQREAIAwDwetM1VQQetCDoNoJTxDQZ1bAptAGihmdQAWxJjahkxPRz6FDhw4dvrCFztDXFxpsC0351cVUAAAAAElFTkSuQmCC"
+       }
+      ]
+     },
+     {
+      "id": 23,
+      "name": "Footprint_Exposition",
+      "klassen": [
+       {
+        "label": "",
+        "contentType": "image/png",
+        "bild_base64_laenge": 184,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAO0lEQVQ4je3MQREAIAwDwWOmaioIPeipoNopTxCQZ1bABsMBEo0OIFlsSTdUSKKPQ4cOHTp8YTOU6OsLzf4IT5Ka1rUAAAAASUVORK5CYII="
+       }
+      ]
+     },
+     {
+      "id": 24,
+      "name": "Image_Exposition",
+      "klassen": [
+       {
+        "label": "keine Exposition",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB79+/30yJQYKCgr4oBlILjBo4auCogaMG0tlAWHlGNQOpBQDa2wTRh51qVAAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "N (337,5 - 22,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 168,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAL0lEQVQ4jWNhoDJgoZ2Bvis2U2TS5ghfVAOpBEYNHDVw1MBRA+ltILQ8o56BVAIAe3gEqfC7fxUAAAAASUVORK5CYII="
+       },
+       {
+        "label": "NE (22,5 - 67,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 168,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAL0lEQVQ4jWNhoDJgoZ2Bq55upsikMGlfVAOpBEYNHDVw1MBRA+ltILQ8o56BVAIARsUED8f/a+QAAAAASUVORK5CYII="
+       },
+       {
+        "label": "E (67,5 - 112,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmBxQ/+b6bEoF4FRl8UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgAFvgVMdI8qxwAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "SE (112,5 - 157,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmBM54ybKbEoAxpBl8UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgBPeAQhJP0sUgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "S (157,5 - 202,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB//8zbKbEIEZGBl8UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgAiuQOgUNvqsgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "SW (202,5 - 247,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB/1cxbKbEIMYwBl8UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgA/8QP1zXUKMwAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "W (247,5 - 292,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB/0MZNlNiEONqBl8UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgBdKQRK6T7B9wAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "NW (292,5 - 337,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmBKxgYNlNiUAQDgy+KgdQCowaOGjhq4KiBdDYQVp5RzUBqAQCYRgL2+BwLrgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "N (337,5 - 22,5)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 168,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAL0lEQVQ4jWNhoDJgoZ2Bvis2U2TS5ghfVAOpBEYNHDVw1MBRA+ltILQ8o56BVAIAe3gEqfC7fxUAAAAASUVORK5CYII="
+       }
+      ]
+     }
+    ]
+   },
+   "ogd_sport_legende": {
+    "status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "ms": 957,
+    "bytes": 51346,
+    "ebenen": [
+     {
+      "id": 1,
+      "name": "Rettungspunkte",
+      "klassen": [
+       {
+        "label": "",
+        "contentType": "image/png",
+        "bild_base64_laenge": 140,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAG0lEQVQ4jWNhoDJgGTVw1MBRA0cNHDVwpBoIABArAFHmDwDcAAAAAElFTkSuQmCC"
+       }
+      ]
+     },
+     {
+      "id": 9,
+      "name": "Rodelbahnen",
+      "klassen": [
+       {
+        "label": "Naturrodelbahn leicht",
+        "contentType": "image/png",
+        "bild_base64_laenge": 196,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQ0lEQVQ4jWNhoDJgGTVwJBlYvOn/f1I09voxMuI1kFqAdgb2+mH1AT6AHkSMKAYWbyIpCAcgDHHZSLaB1AKjBg5CAwH4SAoLMWSYfQAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "Naturrodelbahn mittelschwierig",
+        "contentType": "image/png",
+        "bild_base64_laenge": 196,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQ0lEQVQ4jWNhoDJgGTVwJBn4v77+PykaGRsbGfEaSC1AOwMZGxtJ1YseRIwoBv6vryfJNPqHIS4byTaQWmDUwEFoIAC2WgpZXdhoHwAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "Naturrodelbahn schwierig",
+        "contentType": "image/png",
+        "bild_base64_laenge": 196,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQ0lEQVQ4jWNhoDJgGTVwJBnY1NT0nxSNdXV1jHgNpBagnYF1dXWk6kUPIkYUA5uamkgyjf5hiMtGsg2kFhg1cBAaCAABsgtHlvzoBAAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "Naturrodelbahn",
+        "contentType": "image/png",
+        "bild_base64_laenge": 164,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAK0lEQVQ4jWNhoDJgGTVw1MBBZuB/Cs1iRDeQKgDZQEZqG0gVMGrgqIFkAACB5QFSIZLASgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "Sommerrodelbahn",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMklEQVQ4jWNhoDJgGTVw1MDBZOCzTIb/lBgkNZ2BEcVAagG4gTAbqGYgtcCogaMGkgEAKmUEA/Y0swIAAAAASUVORK5CYII="
+       },
+       {
+        "label": "Eiskanal",
+        "contentType": "image/png",
+        "bild_base64_laenge": 168,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMElEQVQ4jWNhoDJgGTVw1MBBZWDMs/8UmbREihHVQCoBhIFQG6hnIJXAqIGjBpIBAEl0BBCWknI6AAAAAElFTkSuQmCC"
+       }
+      ]
+     },
+     {
+      "id": 10,
+      "name": "Wald- u. Wildschutzzonen (Wintersport)",
+      "klassen": [
+       {
+        "label": "Wald- u. Wildschutzzone (vereinb.)",
+        "contentType": "image/png",
+        "bild_base64_laenge": 260,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAc0lEQVQ4je2USwrAIAwFR/BiOZPn8Ew5ml2o/VhKP0l3zsqXoIQREotqQoQVVSw5HppGAuTo9hpQIEVUz52xdpd3uE5YHxwFf6HdCyJODttQ1w4NTId2pkM7PzuEzWOvP8ltyfrtw73DALkHqD/1NvczwAK+A0THj30WzgAAAABJRU5ErkJggg=="
+       }
+      ]
+     },
+     {
+      "id": 11,
+      "name": "Proj.-Geb.: Wald-/Wildschutzzonen",
+      "klassen": [
+       {
+        "label": "",
+        "contentType": "image/png",
+        "bild_base64_laenge": 220,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAVUlEQVQ4jWMxMTH5z4AGzpw5w4jMx6YGXR1MDQs2hZQAFnTXEHIJQQMpcw89DIQFJinewgZg+oeAlwetgfCETWlkoIPB62XaGTiasGlnILklOdVdCABbVyUbIWQ2DgAAAABJRU5ErkJggg=="
+       }
+      ]
+     },
+     {
+      "id": 14,
+      "name": "Geländeneigung für Wintersportler",
+      "klassen": [
+       {
+        "label": "0° - <30°",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB////L6bEIEZGxl4UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgDf2wTheimHqgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "30° - <35°",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB////L6bEIEZGxl4UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgDf2wTheimHqgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "35° - <40°",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB////L6bEIEZGxl4UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgDf2wTheimHqgAAAABJRU5ErkJggg=="
+       },
+       {
+        "label": "≥40°",
+        "contentType": "image/png",
+        "bild_base64_laenge": 172,
+        "bild": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAMUlEQVQ4jWNhoDJgoZmB////L6bEIEZGxl4UA6kFRg0cNXDUwFED6WwgrDyjmoHUAgDf2wTheimHqgAAAABJRU5ErkJggg=="
+       }
+      ]
+     }
+    ]
+   },
+   "export_wildschutz": {
+    "layer": "10",
+    "content_type": "image/png",
+    "bytes": 5638
+   },
+   "export_neigung_wintersport": {
+    "layer": "14",
+    "content_type": "image/png",
+    "bytes": 20890
+   },
+   "export_rettungspunkte": {
+    "layer": "1",
+    "content_type": "image/png",
+    "bytes": 885
+   },
+   "export_rodelbahnen": {
+    "layer": "9",
+    "content_type": "image/png",
+    "bytes": 2399
+   },
+   "wildschutz_abfrage": {
+    "status": 200,
+    "content_type": "application/json;charset=UTF-8",
+    "ms": 846,
+    "bytes": 12630,
+    "anzahl": 37,
+    "felder": [
+     "OBJECTID",
+     "NAME",
+     "STAND",
+     "EMASST",
+     "LINK",
+     "SHAPE.AREA",
+     "UPDATETIMESTAMP",
+     "ORTSBEZEICHNUNG"
+    ],
+    "beispiele": [
+     {
+      "OBJECTID": 182,
+      "NAME": "Schutzgut: Gams, Steinbock",
+      "STAND": 1542844800000,
+      "EMASST": 10000,
+      "LINK": "https://www.bergwelt-miteinander.at/winter/ski-snowboardtouren/lokale-projekte/sellrain.html",
+      "SHAPE.AREA": 1006629.85146898,
+      "UPDATETIMESTAMP": 1791994455000,
+      "ORTSBEZEICHNUNG": "Sel_Huehnereggen Osthang"
+     },
+     {
+      "OBJECTID": 183,
+      "NAME": "Schutzgut: Birkhuhn, Auerhuhn",
+      "STAND": 1542844800000,
+      "EMASST": 10000,
+      "LINK": "https://www.bergwelt-miteinander.at/winter/ski-snowboardtouren/lokale-projekte/sellrain.html",
+      "SHAPE.AREA": 258063.98823923,
+      "UPDATETIMESTAMP": 1791994455000,
+      "ORTSBEZEICHNUNG": "Sel_Achselkogel Südwesthang"
+     },
+     {
+      "OBJECTID": 184,
+      "NAME": "Schutzgut: Birkhuhn, Auerhuhn",
+      "STAND": 1542844800000,
+      "EMASST": 10000,
+      "LINK": "https://www.bergwelt-miteinander.at/winter/ski-snowboardtouren/lokale-projekte/sellrain.html",
+      "SHAPE.AREA": 296833.847734535,
+      "UPDATETIMESTAMP": 1791994455000,
+      "ORTSBEZEICHNUNG": "Sel_Almindalm"
+     },
+     {
+      "OBJECTID": 185,
+      "NAME": "Schutzgut: Birkhuhn, Auerhuhn",
+      "STAND": 1542844800000,
+      "EMASST": 10000,
+      "LINK": "https://www.bergwelt-miteinander.at/winter/ski-snowboardtouren/lokale-projekte/sellrain.html",
+      "SHAPE.AREA": 189901.64118829,
+      "UPDATETIMESTAMP": 1791994455000,
+      "ORTSBEZEICHNUNG": "Sel_Rauer Kopf Suedhang"
+     },
+     {
+      "OBJECTID": 186,
+      "NAME": "Schutzgut: Birkhuhn, Auerhuhn",
+      "STAND": 1542844800000,
+      "EMASST": 10000,
+      "LINK": "https://www.bergwelt-miteinander.at/winter/ski-snowboardtouren/lokale-projekte/sellrain.html",
+      "SHAPE.AREA": 165599.144814455,
+      "UPDATETIMESTAMP": 1791994455000,
+      "ORTSBEZEICHNUNG": "Sel_Mutenkogel Osthang"
+     }
+    ],
+    "fehler": null
+   }
+  },
   "lwd_lizenz": {
    "ok": true,
    "Wetterstationen Lawinenwarndienst": {
@@ -21,7 +382,7 @@
    "terrain": {
     "status": 200,
     "content_type": "text/xml",
-    "ms": 2051,
+    "ms": 1769,
     "bytes": 220646,
     "ebenen": [
      {
@@ -262,13 +623,10 @@
     "status": 200,
     "allow_origin": "*",
     "cache_control": null,
-    "last_modified": "Mon, 02 Nov 2026 15:54:13 GMT"
+    "last_modified": "Mon, 02 Nov 2026 16:14:31 GMT"
    },
    "albina_stationen": {
-    "status": 200,
-    "allow_origin": "*",
-    "cache_control": null,
-    "last_modified": "Mon, 02 Nov 2026 15:54:13 GMT"
+    "fehler": "<urlopen error [Errno 111] Connection refused>"
    },
    "geosphere": {
     "status": 200,
@@ -281,7 +639,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json; charset=utf-8",
-   "ms": 619,
+   "ms": 909,
    "bytes": 537,
    "property_keys": [
     "location",
@@ -294,7 +652,7 @@
    "start": {
     "status": 200,
     "content_type": "text/html; charset=UTF-8",
-    "ms": 677,
+    "ms": 770,
     "bytes": 222
    },
    "skripte": [],
@@ -886,7 +1244,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 715,
+   "ms": 777,
    "bytes": 1406,
    "parameter": [
     [
@@ -974,7 +1332,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 580,
+   "ms": 677,
    "bytes": 9350,
    "parameter": [
     [
@@ -1180,15 +1538,263 @@
    ]
   },
   "albina_nochmal": {
-   "ok": false,
-   "fehler": "<urlopen error timed out>"
+   "ok": true,
+   "status": 200,
+   "content_type": "application/geo+json",
+   "ms": 2571,
+   "bytes": 297538,
+   "stationen_gesamt": 355,
+   "nahe_stationen": [
+    {
+     "name": "Lampsenspitze Windstation",
+     "naechste_tour": "lampsenspitze",
+     "km": 0.0,
+     "werte": {
+      "Beobachtungsbeginn": "2008",
+      "LT": -5.2,
+      "LT_MAX": -2.6,
+      "LT_MIN": -5.5,
+      "LWD-Nummer": "SSLA1",
+      "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
+      "RH": 73.7,
+      "TD": -9.143,
+      "WG": 8.526,
+      "WG_BOE": 17.568,
+      "WR": 48.823,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Lampsenspitze Windstation",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "lampsenspitze"
+     }
+    },
+    {
+     "name": "Hafelekar",
+     "naechste_tour": "hafelekar",
+     "km": 0.2,
+     "werte": {
+      "Beobachtungsbeginn": "1993",
+      "LT": -1.5,
+      "LT_MAX": 0.1,
+      "LT_MIN": -7.3,
+      "LWD-Nummer": "ISEE1",
+      "LWD-Region": "AT-07-04-01 Karwendel West",
+      "RH": 86.5,
+      "TD": -3.451,
+      "WG": 6.697,
+      "WG_BOE": 28.584,
+      "WR": 67.814,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Hafelekar",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "seegrube"
+     }
+    },
+    {
+     "name": "Birgitzköpfl",
+     "naechste_tour": "nockspitze",
+     "km": 0.7,
+     "werte": {
+      "Beobachtungsbeginn": "2019",
+      "LT": -4.9,
+      "LT_MAX": -1.7,
+      "LT_MIN": -7.6,
+      "LWD-Nummer": "ABIR1",
+      "LWD-Region": "AT-07-14-04 Kalkkögel",
+      "RH": 94.3,
+      "TD": -5.671,
+      "WG": 1.225,
+      "WG_BOE": 7.524,
+      "WR": 191.442,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Birgitzköpfl",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "birgitzkoepfl"
+     }
+    },
+    {
+     "name": "Innsbruck Seegrube",
+     "naechste_tour": "hafelekar",
+     "km": 0.9,
+     "werte": {
+      "Beobachtungsbeginn": "1995",
+      "HS": 0.0,
+      "HSD24": -4.0,
+      "HSD48": 0.0,
+      "HSD72": 0.0,
+      "LT": -3.8,
+      "LT_MAX": 0.5,
+      "LT_MIN": -6.5,
+      "LWD-Nummer": "ISEE3",
+      "LWD-Region": "AT-07-04-01 Karwendel West",
+      "N24": 0.07,
+      "N48": 4.07,
+      "N6": 0.0,
+      "N72": 4.07,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Innsbruck Seegrube",
+      "operator": "HD Tirol",
+      "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
+      "plot": "seegrube_hd"
+     }
+    },
+    {
+     "name": "Zwölferkogel",
+     "naechste_tour": "sulzkogel",
+     "km": 0.9,
+     "werte": {
+      "Beobachtungsbeginn": "2020",
+      "LT": -6.2,
+      "LT_MAX": -5.0,
+      "LT_MIN": -7.2,
+      "LWD-Nummer": "KZWO1",
+      "LWD-Region": "AT-07-14-02 Kühtai - Geigenkamm",
+      "RH": 72.8,
+      "TD": -10.264,
+      "WG": 0.0,
+      "WG_BOE": 0.0,
+      "WR": 0.0,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Zwölferkogel",
+      "operator": "LWD Tirol/TIWAG",
+      "plot": "zwoelferkogel"
+     }
+    },
+    {
+     "name": "Gossenkölle",
+     "naechste_tour": "pirchkogel",
+     "km": 0.9,
+     "werte": {
+      "Beobachtungsbeginn": "1996",
+      "HS": 5.0,
+      "HSD24": 0.0,
+      "HSD48": 0.0,
+      "HSD72": 0.0,
+      "LT": -3.0,
+      "LT_MAX": 5.8,
+      "LT_MIN": -9.0,
+      "LWD-Region": "AT-07-09 Grieskogelgruppe",
+      "N24": 0.0,
+      "N48": 1.09,
+      "N6": 0.0,
+      "N72": 1.09,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Gossenkölle",
+      "operator": "HD Tirol",
+      "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
+      "plot": "gossenkoelle"
+     }
+    },
+    {
+     "name": "Seegrube",
+     "naechste_tour": "hafelekar",
+     "km": 1.0,
+     "werte": {
+      "Beobachtungsbeginn": "1993",
+      "GS_O": 6.0,
+      "HS": 6.4,
+      "HSD24": -2.017,
+      "HSD48": 0.239,
+      "HSD72": 0.386,
+      "LT": -4.1,
+      "LT_MAX": -1.7,
+      "LT_MIN": -6.5,
+      "LWD-Nummer": "ISEE2",
+      "LWD-Region": "AT-07-04-01 Karwendel West",
+      "OFT": -2.77,
+      "RH": 100.0,
+      "TD": -4.1,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Seegrube",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "seegrube"
+     }
+    },
+    {
+     "name": "Lampsenspitze Schneestation",
+     "naechste_tour": "lampsenspitze",
+     "km": 1.9,
+     "werte": {
+      "Beobachtungsbeginn": "2008",
+      "GS_O": 10.0,
+      "HS": 10.2,
+      "HSD24": 0.042,
+      "HSD48": 1.31,
+      "HSD72": 1.524,
+      "LT": -4.0,
+      "LT_MAX": -1.7,
+      "LT_MIN": -7.7,
+      "LWD-Nummer": "SSLA2",
+      "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
+      "OFT": -3.9,
+      "RH": 99.8,
+      "TD": -4.027,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Lampsenspitze Schneestation",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "lampsenspitze"
+     }
+    },
+    {
+     "name": "Inzinger Alm [Kaserboden]",
+     "naechste_tour": "rosskogel",
+     "km": 2.0,
+     "werte": {
+      "Beobachtungsbeginn": "2002",
+      "HS": 0.0,
+      "HSD24": 0.0,
+      "HSD48": 0.0,
+      "HSD72": 0.0,
+      "LT": -2.9,
+      "LT_MAX": -0.9,
+      "LT_MIN": -6.2,
+      "LWD-Region": "AT-07-09 Grieskogelgruppe",
+      "N24": 0.0,
+      "N48": 2.39,
+      "N6": 0.0,
+      "N72": 2.39,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Inzinger Alm [Kaserboden]",
+      "operator": "HD Tirol",
+      "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
+      "plot": "inzinger_alm"
+     }
+    },
+    {
+     "name": "Kühtai Hochalter",
+     "naechste_tour": "pirchkogel",
+     "km": 2.4,
+     "werte": {
+      "Beobachtungsbeginn": "1994",
+      "LT": -4.0,
+      "LT_MAX": -0.2,
+      "LT_MIN": -10.3,
+      "LWD-Nummer": "KUET1",
+      "LWD-Region": "AT-07-09 Grieskogelgruppe",
+      "RH": 83.2,
+      "TD": -6.418,
+      "WG": 10.2,
+      "WG_BOE": 17.28,
+      "WR": 91.952,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Kühtai Hochalter",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "laengental"
+     }
+    }
+   ]
   },
   "lwd_stationen": {
    "ok": true,
    "status": 200,
    "content_type": "application/geo+json",
-   "ms": 973,
-   "bytes": 182085,
+   "ms": 1051,
+   "bytes": 181705,
    "stationen_gesamt": 221,
    "property_keys": [
     "Beobachtungsbeginn",
@@ -1227,17 +1833,17 @@
      "km": 0.0,
      "werte": {
       "Beobachtungsbeginn": "2008",
-      "LT": -5.0,
+      "LT": -5.2,
       "LT_MAX": -2.6,
       "LT_MIN": -5.5,
       "LWD-Nummer": "SSLA1",
       "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
-      "RH": 72.2,
-      "TD": -9.211,
-      "WG": 8.219,
-      "WG_BOE": 16.236,
-      "WR": 50.102,
-      "date": "2026-11-02T16:40:00+01:00",
+      "RH": 73.7,
+      "TD": -9.143,
+      "WG": 8.526,
+      "WG_BOE": 17.568,
+      "WR": 48.823,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Lampsenspitze Windstation",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1251,17 +1857,17 @@
      "km": 0.2,
      "werte": {
       "Beobachtungsbeginn": "1993",
-      "LT": -1.4,
+      "LT": -1.5,
       "LT_MAX": 0.1,
       "LT_MIN": -7.3,
       "LWD-Nummer": "ISEE1",
       "LWD-Region": "AT-07-04-01 Karwendel West",
-      "RH": 86.2,
-      "TD": -3.399,
-      "WG": 6.387,
+      "RH": 86.5,
+      "TD": -3.451,
+      "WG": 6.697,
       "WG_BOE": 28.584,
-      "WR": 69.894,
-      "date": "2026-11-02T16:40:00+01:00",
+      "WR": 67.814,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Hafelekar",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1275,17 +1881,17 @@
      "km": 0.7,
      "werte": {
       "Beobachtungsbeginn": "2019",
-      "LT": -4.8,
+      "LT": -4.9,
       "LT_MAX": -1.7,
       "LT_MIN": -7.6,
       "LWD-Nummer": "ABIR1",
       "LWD-Region": "AT-07-14-04 Kalkkögel",
-      "RH": 94.1,
-      "TD": -5.599,
-      "WG": 1.298,
+      "RH": 94.3,
+      "TD": -5.671,
+      "WG": 1.225,
       "WG_BOE": 7.524,
-      "WR": 205.041,
-      "date": "2026-11-02T16:40:00+01:00",
+      "WR": 191.442,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Birgitzköpfl",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1312,7 +1918,7 @@
       "N48": 4.07,
       "N6": 0.0,
       "N72": 4.07,
-      "date": "2026-11-02T16:00:00+01:00",
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Innsbruck Seegrube",
       "operator": "HD Tirol",
       "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
@@ -1326,17 +1932,17 @@
      "km": 0.9,
      "werte": {
       "Beobachtungsbeginn": "2020",
-      "LT": -6.1,
+      "LT": -6.2,
       "LT_MAX": -5.0,
       "LT_MIN": -7.2,
       "LWD-Nummer": "KZWO1",
       "LWD-Region": "AT-07-14-02 Kühtai - Geigenkamm",
-      "RH": 73.8,
-      "TD": -9.996,
+      "RH": 72.8,
+      "TD": -10.264,
       "WG": 0.0,
       "WG_BOE": 0.0,
       "WR": 0.0,
-      "date": "2026-11-02T16:30:00+01:00",
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Zwölferkogel",
       "operator": "LWD Tirol/TIWAG",
       "plot": "zwoelferkogel"
@@ -1353,7 +1959,7 @@
       "HSD24": 0.0,
       "HSD48": 0.0,
       "HSD72": 0.0,
-      "LT": -2.5,
+      "LT": -3.0,
       "LT_MAX": 5.8,
       "LT_MIN": -9.0,
       "LWD-Region": "AT-07-09 Grieskogelgruppe",
@@ -1361,7 +1967,7 @@
       "N48": 1.09,
       "N6": 0.0,
       "N72": 1.09,
-      "date": "2026-11-02T16:00:00+01:00",
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Gossenkölle",
       "operator": "HD Tirol",
       "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
@@ -1376,19 +1982,19 @@
      "werte": {
       "Beobachtungsbeginn": "1993",
       "GS_O": 6.0,
-      "HS": 6.6,
-      "HSD24": -1.754,
-      "HSD48": 0.585,
-      "HSD72": 0.642,
-      "LT": -4.2,
+      "HS": 6.4,
+      "HSD24": -2.017,
+      "HSD48": 0.239,
+      "HSD72": 0.386,
+      "LT": -4.1,
       "LT_MAX": -1.7,
       "LT_MIN": -6.5,
       "LWD-Nummer": "ISEE2",
       "LWD-Region": "AT-07-04-01 Karwendel West",
-      "OFT": -2.61,
+      "OFT": -2.77,
       "RH": 100.0,
-      "TD": -4.2,
-      "date": "2026-11-02T16:40:00+01:00",
+      "TD": -4.1,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Seegrube",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1402,20 +2008,20 @@
      "km": 1.9,
      "werte": {
       "Beobachtungsbeginn": "2008",
-      "GS_O": 34.0,
-      "HS": 10.3,
-      "HSD24": 0.05,
-      "HSD48": 1.368,
-      "HSD72": 1.659,
-      "LT": -3.9,
+      "GS_O": 10.0,
+      "HS": 10.2,
+      "HSD24": 0.042,
+      "HSD48": 1.31,
+      "HSD72": 1.524,
+      "LT": -4.0,
       "LT_MAX": -1.7,
       "LT_MIN": -7.7,
       "LWD-Nummer": "SSLA2",
       "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
-      "OFT": -2.7,
+      "OFT": -3.9,
       "RH": 99.8,
-      "TD": -3.927,
-      "date": "2026-11-02T16:40:00+01:00",
+      "TD": -4.027,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Lampsenspitze Schneestation",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1437,11 +2043,11 @@
       "LT_MAX": -0.9,
       "LT_MIN": -6.2,
       "LWD-Region": "AT-07-09 Grieskogelgruppe",
-      "N24": 0.08,
+      "N24": 0.0,
       "N48": 2.39,
       "N6": 0.0,
       "N72": 2.39,
-      "date": "2026-11-02T16:00:00+01:00",
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Inzinger Alm [Kaserboden]",
       "operator": "HD Tirol",
       "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
@@ -1455,17 +2061,17 @@
      "km": 2.4,
      "werte": {
       "Beobachtungsbeginn": "1994",
-      "LT": -3.9,
+      "LT": -4.0,
       "LT_MAX": -0.2,
       "LT_MIN": -10.3,
       "LWD-Nummer": "KUET1",
       "LWD-Region": "AT-07-09 Grieskogelgruppe",
-      "RH": 81.8,
-      "TD": -6.54,
-      "WG": 9.631,
+      "RH": 83.2,
+      "TD": -6.418,
+      "WG": 10.2,
       "WG_BOE": 17.28,
-      "WR": 95.541,
-      "date": "2026-11-02T16:40:00+01:00",
+      "WR": 91.952,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Kühtai Hochalter",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1483,15 +2089,15 @@
       "HSD24": 0.0,
       "HSD48": 0.0,
       "HSD72": 0.0,
-      "LT": 1.7,
+      "LT": 1.5,
       "LT_MAX": 3.2,
       "LT_MIN": -2.8,
       "LWD-Region": "AT-07-09 Grieskogelgruppe",
-      "N24": 0.12,
+      "N24": 0.0,
       "N48": 0.54,
       "N6": 0.0,
       "N72": 0.54,
-      "date": "2026-11-02T16:00:00+01:00",
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Gries im Sellrain",
       "operator": "HD Tirol",
       "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
@@ -1506,10 +2112,10 @@
      "werte": {
       "Beobachtungsbeginn": "2019",
       "GS_O": 195.0,
-      "HS": 13.362,
-      "HSD24": -0.023,
-      "HSD48": 1.812,
-      "HSD72": 1.712,
+      "HS": 13.39,
+      "HSD24": 0.005,
+      "HSD48": 1.84,
+      "HSD72": 1.74,
       "LT": -3.7,
       "LT_MAX": -0.7,
       "LT_MIN": -7.5,
@@ -1545,10 +2151,10 @@
       "LWD-Region": "AT-07-14-04 Kalkkögel",
       "RH": 99.9,
       "TD": -4.113,
-      "WG": 4.641,
+      "WG": 3.736,
       "WG_BOE": 13.752,
-      "WR": 37.59,
-      "date": "2026-11-02T16:40:00+01:00",
+      "WR": 40.794,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Axams Hoadlsattel",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1562,20 +2168,20 @@
      "km": 4.5,
      "werte": {
       "Beobachtungsbeginn": "1991",
-      "GS_O": 7.0,
-      "HS": 8.3,
-      "HSD24": 0.75,
-      "HSD48": 3.608,
-      "HSD72": 3.377,
-      "LT": -2.3,
+      "GS_O": 5.0,
+      "HS": 8.2,
+      "HSD24": 0.712,
+      "HSD48": 3.46,
+      "HSD72": 3.257,
+      "LT": -2.1,
       "LT_MAX": -1.4,
       "LT_MIN": -6.2,
       "LWD-Nummer": "FSEE2",
       "LWD-Region": "AT-07-14-04 Kalkkögel",
-      "OFT": -4.0,
-      "RH": 100.0,
-      "TD": -2.3,
-      "date": "2026-11-02T16:40:00+01:00",
+      "OFT": -4.1,
+      "RH": 99.6,
+      "TD": -2.154,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Schlicker Alm",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1593,7 +2199,7 @@
       "HSD24": 0.0,
       "HSD48": 0.0,
       "HSD72": 0.0,
-      "LT": 4.2,
+      "LT": 4.0,
       "LT_MAX": 6.1,
       "LT_MIN": -0.2,
       "LWD-Region": "AT-07-14-04 Kalkkögel",
@@ -1601,9 +2207,9 @@
       "N48": 0.27,
       "N6": 0.0,
       "N72": 0.27,
-      "RH": 79.0,
-      "TD": 1.2,
-      "date": "2026-11-02T16:00:00+01:00",
+      "RH": 83.0,
+      "TD": 1.4,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Telfes im Stubai",
       "operator": "HD Tirol",
       "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
@@ -1617,7 +2223,7 @@
      "km": 5.0,
      "werte": {
       "Beobachtungsbeginn": "1984",
-      "LT": 4.3,
+      "LT": 4.4,
       "LT_MAX": 5.4,
       "LT_MIN": -1.8,
       "LWD-Region": "AT-07-14-04 Kalkkögel",
@@ -1625,7 +2231,7 @@
       "N48": 2.59,
       "N6": 0.0,
       "N72": 2.59,
-      "date": "2026-11-02T16:45:00+01:00",
+      "date": "2026-11-02T17:05:00+01:00",
       "name": "Axams",
       "operator": "HD Tirol",
       "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
@@ -1644,12 +2250,12 @@
       "LT_MIN": -11.6,
       "LWD-Nummer": "NFRA1",
       "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
-      "RH": 82.6,
-      "TD": -7.49,
-      "WG": 1.556,
+      "RH": 77.5,
+      "TD": -8.309,
+      "WG": 1.6,
       "WG_BOE": 9.648,
-      "WR": 188.141,
-      "date": "2026-11-02T16:30:00+01:00",
+      "WR": 190.535,
+      "date": "2026-11-02T16:50:00+01:00",
       "name": "Franz-Senn-Hütte Horntaler Spitzl",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1663,17 +2269,17 @@
      "km": 6.4,
      "werte": {
       "Beobachtungsbeginn": "2016",
-      "LT": -8.2,
+      "LT": -8.6,
       "LT_MAX": -6.1,
       "LT_MIN": -15.0,
       "LWD-Nummer": "LBRE1",
       "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
-      "RH": 92.2,
-      "TD": -9.235,
-      "WG": 5.222,
+      "RH": 90.9,
+      "TD": -9.811,
+      "WG": 5.459,
       "WG_BOE": 14.544,
-      "WR": 108.709,
-      "date": "2026-11-02T16:40:00+01:00",
+      "WR": 105.984,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Breiter Grieskogel Windstation",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1687,17 +2293,17 @@
      "km": 6.4,
      "werte": {
       "Beobachtungsbeginn": "2010",
-      "LT": -3.3,
+      "LT": -3.5,
       "LT_MAX": -1.1,
       "LT_MIN": -7.7,
       "LWD-Nummer": "FSEE1",
       "LWD-Region": "AT-07-14-04 Kalkkögel",
-      "RH": 93.9,
-      "TD": -4.138,
-      "WG": 0.512,
+      "RH": 96.3,
+      "TD": -4.002,
+      "WG": 0.499,
       "WG_BOE": 7.704,
-      "WR": 275.212,
-      "date": "2026-11-02T16:40:00+01:00",
+      "WR": 307.324,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Sennjoch",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1711,20 +2317,20 @@
      "km": 6.5,
      "werte": {
       "Beobachtungsbeginn": "2015",
-      "GS_O": 12.0,
-      "HS": 4.1,
-      "HSD24": 1.7,
-      "HSD48": -4.587,
-      "HSD72": -5.7,
-      "LT": -2.1,
+      "GS_O": 5.0,
+      "HS": 5.5,
+      "HSD24": 3.1,
+      "HSD48": -2.945,
+      "HSD72": -4.449,
+      "LT": -2.5,
       "LT_MAX": -0.5,
       "LT_MIN": -9.7,
       "LWD-Nummer": "NFRA2",
       "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
-      "OFT": -4.7,
-      "RH": 62.9,
-      "TD": -8.196,
-      "date": "2026-11-02T16:30:00+01:00",
+      "OFT": -6.1,
+      "RH": 65.3,
+      "TD": -8.097,
+      "date": "2026-11-02T16:50:00+01:00",
       "name": "Franz-Senn-Hütte Kl Horntal",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1738,20 +2344,20 @@
      "km": 7.4,
      "werte": {
       "Beobachtungsbeginn": "2016",
-      "GS_O": 42.0,
-      "HS": 9.1,
-      "HSD24": -2.407,
-      "HSD48": 0.836,
-      "HSD72": 0.38,
-      "LT": -3.0,
+      "GS_O": 20.0,
+      "HS": 8.8,
+      "HSD24": -2.75,
+      "HSD48": 0.603,
+      "HSD72": 0.261,
+      "LT": -3.7,
       "LT_MAX": 1.3,
       "LT_MIN": -8.7,
       "LWD-Nummer": "LBRE2",
       "LWD-Region": "AT-07-14-02 Kühtai - Geigenkamm",
-      "OFT": -2.4,
-      "RH": 90.2,
-      "TD": -4.374,
-      "date": "2026-11-02T16:40:00+01:00",
+      "OFT": -3.6,
+      "RH": 89.4,
+      "TD": -5.183,
+      "date": "2026-11-02T17:00:00+01:00",
       "name": "Breiter Grieskogel Schneestation",
       "operator": "LWD Tirol",
       "operatorLink": "https://lawine.tirol.gv.at/",
@@ -1761,15 +2367,263 @@
    ]
   },
   "albina_stationen": {
-   "ok": false,
-   "fehler": "<urlopen error timed out>"
+   "ok": true,
+   "status": 200,
+   "content_type": "application/geo+json",
+   "ms": 1138,
+   "bytes": 297538,
+   "stationen_gesamt": 355,
+   "nahe_stationen": [
+    {
+     "name": "Lampsenspitze Windstation",
+     "naechste_tour": "lampsenspitze",
+     "km": 0.0,
+     "werte": {
+      "Beobachtungsbeginn": "2008",
+      "LT": -5.2,
+      "LT_MAX": -2.6,
+      "LT_MIN": -5.5,
+      "LWD-Nummer": "SSLA1",
+      "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
+      "RH": 73.7,
+      "TD": -9.143,
+      "WG": 8.526,
+      "WG_BOE": 17.568,
+      "WR": 48.823,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Lampsenspitze Windstation",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "lampsenspitze"
+     }
+    },
+    {
+     "name": "Hafelekar",
+     "naechste_tour": "hafelekar",
+     "km": 0.2,
+     "werte": {
+      "Beobachtungsbeginn": "1993",
+      "LT": -1.5,
+      "LT_MAX": 0.1,
+      "LT_MIN": -7.3,
+      "LWD-Nummer": "ISEE1",
+      "LWD-Region": "AT-07-04-01 Karwendel West",
+      "RH": 86.5,
+      "TD": -3.451,
+      "WG": 6.697,
+      "WG_BOE": 28.584,
+      "WR": 67.814,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Hafelekar",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "seegrube"
+     }
+    },
+    {
+     "name": "Birgitzköpfl",
+     "naechste_tour": "nockspitze",
+     "km": 0.7,
+     "werte": {
+      "Beobachtungsbeginn": "2019",
+      "LT": -4.9,
+      "LT_MAX": -1.7,
+      "LT_MIN": -7.6,
+      "LWD-Nummer": "ABIR1",
+      "LWD-Region": "AT-07-14-04 Kalkkögel",
+      "RH": 94.3,
+      "TD": -5.671,
+      "WG": 1.225,
+      "WG_BOE": 7.524,
+      "WR": 191.442,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Birgitzköpfl",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "birgitzkoepfl"
+     }
+    },
+    {
+     "name": "Innsbruck Seegrube",
+     "naechste_tour": "hafelekar",
+     "km": 0.9,
+     "werte": {
+      "Beobachtungsbeginn": "1995",
+      "HS": 0.0,
+      "HSD24": -4.0,
+      "HSD48": 0.0,
+      "HSD72": 0.0,
+      "LT": -3.8,
+      "LT_MAX": 0.5,
+      "LT_MIN": -6.5,
+      "LWD-Nummer": "ISEE3",
+      "LWD-Region": "AT-07-04-01 Karwendel West",
+      "N24": 0.07,
+      "N48": 4.07,
+      "N6": 0.0,
+      "N72": 4.07,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Innsbruck Seegrube",
+      "operator": "HD Tirol",
+      "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
+      "plot": "seegrube_hd"
+     }
+    },
+    {
+     "name": "Zwölferkogel",
+     "naechste_tour": "sulzkogel",
+     "km": 0.9,
+     "werte": {
+      "Beobachtungsbeginn": "2020",
+      "LT": -6.2,
+      "LT_MAX": -5.0,
+      "LT_MIN": -7.2,
+      "LWD-Nummer": "KZWO1",
+      "LWD-Region": "AT-07-14-02 Kühtai - Geigenkamm",
+      "RH": 72.8,
+      "TD": -10.264,
+      "WG": 0.0,
+      "WG_BOE": 0.0,
+      "WR": 0.0,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Zwölferkogel",
+      "operator": "LWD Tirol/TIWAG",
+      "plot": "zwoelferkogel"
+     }
+    },
+    {
+     "name": "Gossenkölle",
+     "naechste_tour": "pirchkogel",
+     "km": 0.9,
+     "werte": {
+      "Beobachtungsbeginn": "1996",
+      "HS": 5.0,
+      "HSD24": 0.0,
+      "HSD48": 0.0,
+      "HSD72": 0.0,
+      "LT": -3.0,
+      "LT_MAX": 5.8,
+      "LT_MIN": -9.0,
+      "LWD-Region": "AT-07-09 Grieskogelgruppe",
+      "N24": 0.0,
+      "N48": 1.09,
+      "N6": 0.0,
+      "N72": 1.09,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Gossenkölle",
+      "operator": "HD Tirol",
+      "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
+      "plot": "gossenkoelle"
+     }
+    },
+    {
+     "name": "Seegrube",
+     "naechste_tour": "hafelekar",
+     "km": 1.0,
+     "werte": {
+      "Beobachtungsbeginn": "1993",
+      "GS_O": 6.0,
+      "HS": 6.4,
+      "HSD24": -2.017,
+      "HSD48": 0.239,
+      "HSD72": 0.386,
+      "LT": -4.1,
+      "LT_MAX": -1.7,
+      "LT_MIN": -6.5,
+      "LWD-Nummer": "ISEE2",
+      "LWD-Region": "AT-07-04-01 Karwendel West",
+      "OFT": -2.77,
+      "RH": 100.0,
+      "TD": -4.1,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Seegrube",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "seegrube"
+     }
+    },
+    {
+     "name": "Lampsenspitze Schneestation",
+     "naechste_tour": "lampsenspitze",
+     "km": 1.9,
+     "werte": {
+      "Beobachtungsbeginn": "2008",
+      "GS_O": 10.0,
+      "HS": 10.2,
+      "HSD24": 0.042,
+      "HSD48": 1.31,
+      "HSD72": 1.524,
+      "LT": -4.0,
+      "LT_MAX": -1.7,
+      "LT_MIN": -7.7,
+      "LWD-Nummer": "SSLA2",
+      "LWD-Region": "AT-07-14-03 Sellrain - Alpeiner Berge",
+      "OFT": -3.9,
+      "RH": 99.8,
+      "TD": -4.027,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Lampsenspitze Schneestation",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "lampsenspitze"
+     }
+    },
+    {
+     "name": "Inzinger Alm [Kaserboden]",
+     "naechste_tour": "rosskogel",
+     "km": 2.0,
+     "werte": {
+      "Beobachtungsbeginn": "2002",
+      "HS": 0.0,
+      "HSD24": 0.0,
+      "HSD48": 0.0,
+      "HSD72": 0.0,
+      "LT": -2.9,
+      "LT_MAX": -0.9,
+      "LT_MIN": -6.2,
+      "LWD-Region": "AT-07-09 Grieskogelgruppe",
+      "N24": 0.0,
+      "N48": 2.39,
+      "N6": 0.0,
+      "N72": 2.39,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Inzinger Alm [Kaserboden]",
+      "operator": "HD Tirol",
+      "operatorLink": "https://www.tirol.gv.at/umwelt/wasserwirtschaft/wasserkreislauf/",
+      "plot": "inzinger_alm"
+     }
+    },
+    {
+     "name": "Kühtai Hochalter",
+     "naechste_tour": "pirchkogel",
+     "km": 2.4,
+     "werte": {
+      "Beobachtungsbeginn": "1994",
+      "LT": -4.0,
+      "LT_MAX": -0.2,
+      "LT_MIN": -10.3,
+      "LWD-Nummer": "KUET1",
+      "LWD-Region": "AT-07-09 Grieskogelgruppe",
+      "RH": 83.2,
+      "TD": -6.418,
+      "WG": 10.2,
+      "WG_BOE": 17.28,
+      "WR": 91.952,
+      "date": "2026-11-02T17:00:00+01:00",
+      "name": "Kühtai Hochalter",
+      "operator": "LWD Tirol",
+      "operatorLink": "https://lawine.tirol.gv.at/",
+      "plot": "laengental"
+     }
+    }
+   ]
   },
   "geosphere_datensaetze": {
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 610,
-   "bytes": 13765,
+   "ms": 520,
+   "bytes": 13372,
    "datensaetze": [
     "/grid/forecast/chem-v1-1h-12km",
     "/grid/forecast/chem-v1-1h-4km",
@@ -1785,7 +2639,6 @@
     "/grid/historical/apolis-v2-1d-100m",
     "/grid/historical/apolis_short-v1-1d-100m",
     "/grid/historical/inca-v1-1h-1km",
-    "/grid/historical/inca-v2-1h-1km",
     "/grid/historical/snowgrid_cl-v2-1d-1km",
     "/grid/historical/spartacus-v1-1d-1km",
     "/grid/historical/spartacus-v1-1m-1km",
@@ -1826,7 +2679,6 @@
     "/timeseries/historical/apolis-v2-1d-100m",
     "/timeseries/historical/apolis_short-v1-1d-100m",
     "/timeseries/historical/inca-v1-1h-1km",
-    "/timeseries/historical/inca-v2-1h-1km",
     "/timeseries/historical/snowgrid_cl-v2-1d-1km",
     "/timeseries/historical/spartacus-v1-1d-1km",
     "/timeseries/historical/spartacus-v1-1m-1km",
@@ -1846,7 +2698,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 742,
+   "ms": 698,
    "bytes": 86829,
    "keys": [
     "frequency",
@@ -2314,9 +3166,9 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 650,
-   "bytes": 6867,
-   "zeit": "2026-11-02T16:00+00:00",
+   "ms": 1003,
+   "bytes": 6482,
+   "zeit": "2026-11-02T16:10+00:00",
    "parameter": [
     "TL",
     "FF",
@@ -2332,14 +3184,14 @@
     {
      "station": "11126",
      "werte": {
-      "TL": -4.4,
-      "FF": 2.1,
-      "FFX": 4.0,
+      "TL": -4.3,
+      "FF": 2.8,
+      "FFX": 4.4,
       "DD": 58.0,
       "SCHNEE": null,
       "RR": 0.0,
       "SO": 0.0,
-      "TP": -5.3,
+      "TP": -5.2,
       "RF": 95.0
      },
      "einheiten": {
@@ -2357,15 +3209,15 @@
     {
      "station": "11320",
      "werte": {
-      "TL": 7.0,
+      "TL": 6.9,
       "FF": 2.4,
-      "FFX": 4.1,
+      "FFX": 4.5,
       "DD": 80.0,
       "SCHNEE": null,
       "RR": 0.0,
       "SO": 0.0,
-      "TP": 1.1,
-      "RF": 66.0
+      "TP": 1.2,
+      "RF": 67.0
      },
      "einheiten": {
       "TL": "°C",
@@ -2432,15 +3284,15 @@
     {
      "station": "8989035",
      "werte": {
-      "TL": null,
+      "TL": 3.2,
       "FF": null,
       "FFX": null,
       "DD": null,
       "SCHNEE": null,
       "RR": null,
       "SO": null,
-      "TP": null,
-      "RF": null
+      "TP": 1.3,
+      "RF": 85.0
      },
      "einheiten": {
       "TL": "°C",
@@ -2457,15 +3309,15 @@
     {
      "station": "8989036",
      "werte": {
-      "TL": null,
+      "TL": 5.7,
       "FF": null,
       "FFX": null,
       "DD": null,
       "SCHNEE": null,
       "RR": null,
       "SO": null,
-      "TP": null,
-      "RF": null
+      "TP": 2.6,
+      "RF": 78.0
      },
      "einheiten": {
       "TL": "°C",
@@ -2482,15 +3334,15 @@
     {
      "station": "8989037",
      "werte": {
-      "TL": null,
-      "FF": null,
-      "FFX": null,
-      "DD": null,
+      "TL": 6.5,
+      "FF": 2.3,
+      "FFX": 4.8,
+      "DD": 77.0,
       "SCHNEE": null,
       "RR": null,
       "SO": null,
-      "TP": null,
-      "RF": null
+      "TP": -0.8,
+      "RF": 59.0
      },
      "einheiten": {
       "TL": "°C",
@@ -2507,15 +3359,15 @@
     {
      "station": "8989038",
      "werte": {
-      "TL": null,
-      "FF": null,
-      "FFX": null,
-      "DD": null,
+      "TL": 6.3,
+      "FF": 4.5,
+      "FFX": 6.5,
+      "DD": 70.0,
       "SCHNEE": null,
       "RR": null,
       "SO": null,
-      "TP": null,
-      "RF": null
+      "TP": 1.3,
+      "RF": 71.0
      },
      "einheiten": {
       "TL": "°C",
@@ -2535,7 +3387,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 442,
+   "ms": 3827,
    "bytes": 2971,
    "keys": [
     "available_forecast_reftimes",
@@ -2667,34 +3519,34 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 880,
-   "bytes": 4353,
+   "ms": 15259,
+   "bytes": 4526,
    "tour": "nockspitze",
-   "reference_time": "2026-11-02T09:00+00:00",
-   "schritte": 54,
+   "reference_time": "2026-11-02T12:00+00:00",
+   "schritte": 57,
    "von": [
     "2026-11-02T16:00+00:00"
    ],
    "bis": [
-    "2026-11-04T21:00+00:00"
+    "2026-11-05T00:00+00:00"
    ],
    "reihen": {
     "2t": {
      "name": "2m temperature",
      "unit": "degree Celsius",
      "erste_12": [
-      -2.8,
-      -2.9,
-      -3.0,
-      -3.1,
-      -3.1,
+      -3.3,
+      -3.5,
+      -3.3,
       -3.2,
-      -3.2,
+      -3.4,
+      -3.5,
       -3.7,
       -4.1,
       -4.3,
       -4.5,
-      -4.6
+      -4.5,
+      -4.5
      ],
      "monoton_steigend": false
     },
@@ -2702,17 +3554,17 @@
      "name": "10m wind speed in eastward direction",
      "unit": "m s-1",
      "erste_12": [
-      -2.7,
-      -2.7,
-      -2.7,
-      -2.6,
       -2.3,
+      -2.4,
+      -2.7,
+      -2.4,
+      -2.3,
+      -2.8,
       -2.1,
-      -2.0,
-      -1.5,
-      -1.1,
-      -1.2,
       -1.3,
+      -1.0,
+      -0.9,
+      -1.1,
       -1.0
      ],
      "monoton_steigend": false
@@ -2721,18 +3573,18 @@
      "name": "10m wind speed in northward direction",
      "unit": "m s-1",
      "erste_12": [
-      -0.1,
-      -0.3,
-      0.1,
+      0.3,
       0.2,
-      0.4,
+      0.3,
+      0.8,
+      0.6,
       0.5,
-      1.0,
+      1.1,
       1.2,
       0.9,
-      1.0,
-      1.0,
-      0.7
+      0.8,
+      0.9,
+      0.8
      ],
      "monoton_steigend": false
     },
@@ -2740,18 +3592,18 @@
      "name": "maximum 10 metre wind gust in the last forecast interval",
      "unit": "m s-1",
      "erste_12": [
-      4.9,
+      4.7,
+      4.5,
       5.3,
-      5.8,
+      5.0,
+      4.6,
       5.5,
       5.2,
-      4.7,
-      4.4,
-      4.0,
-      2.6,
+      3.9,
+      1.9,
+      1.8,
       2.0,
-      2.0,
-      2.1
+      2.0
      ],
      "monoton_steigend": false
     },
@@ -2760,13 +3612,13 @@
      "unit": "kg m-2",
      "erste_12": [
       0.0,
-      0.005,
-      0.041,
-      0.063,
-      0.063,
-      0.053,
-      0.019,
-      0.002,
+      0.001,
+      0.01,
+      0.014,
+      0.009,
+      0.022,
+      0.013,
+      0.001,
       0.0,
       0.0,
       0.0,
@@ -2778,16 +3630,16 @@
      "name": "total precipitation amount in the last forecast interval",
      "unit": "kg m-2",
      "erste_12": [
-      0.001,
-      0.005,
-      0.041,
-      0.064,
-      0.064,
-      0.053,
-      0.018,
-      0.002,
       0.0,
       0.002,
+      0.009,
+      0.015,
+      0.009,
+      0.022,
+      0.014,
+      0.0,
+      0.0,
+      0.0,
       0.0,
       0.0
      ],
@@ -2797,18 +3649,18 @@
      "name": "snowlimit",
      "unit": "m",
      "erste_12": [
-      1082.9,
-      1015.3,
-      971.5,
-      954.9,
-      933.6,
-      928.0,
-      950.3,
-      948.1,
-      952.9,
-      954.2,
-      950.4,
-      946.9
+      1080.3,
+      996.5,
+      962.6,
+      964.3,
+      916.1,
+      892.6,
+      937.5,
+      943.2,
+      944.2,
+      931.2,
+      945.6,
+      925.9
      ],
      "monoton_steigend": false
     },
@@ -2816,18 +3668,18 @@
      "name": "total cloud cover",
      "unit": "%",
      "erste_12": [
+      100.0,
       99.5,
       100.0,
       100.0,
       100.0,
       100.0,
       100.0,
-      100.0,
-      99.0,
-      93.5,
-      84.0,
-      84.0,
-      58.5
+      94.0,
+      68.5,
+      77.5,
+      92.5,
+      92.0
      ],
      "monoton_steigend": false
     }
@@ -2837,7 +3689,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 26916,
+   "ms": 4516,
    "bytes": 1591,
    "keys": [
     "available_forecast_reftimes",
@@ -2921,14 +3773,14 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 533,
-   "bytes": 1034,
-   "schritte": 11,
+   "ms": 1804,
+   "bytes": 1078,
+   "schritte": 12,
    "von": [
-    "2026-11-02T16:00+00:00"
+    "2026-11-02T16:15+00:00"
    ],
    "bis": [
-    "2026-11-02T18:30+00:00"
+    "2026-11-02T19:00+00:00"
    ],
    "parameter": {
     "rr": "kg m-2",
@@ -2942,28 +3794,28 @@
    "nockspitze": {
     "status": 200,
     "content_type": "application/json; charset=utf-8",
-    "ms": 600,
+    "ms": 686,
     "bytes": 537,
     "struktur": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"MultiPolygon\", \"coordinates\": [[[[247156, 368589], [247634, 367675], [247941, 367819], [247270, 367090], [247002, 365869], [245509, 365515], [244539, 366607], [244586, 367951], [244404, 368783], [243037, 369305], [242674, 371633], [243377, 372583], [243297, 373509], [244095, 373969], [246072, 373772], [245212, 372728], [246053, 371966], [245916, 371100], [245131, 370577], [246063, 370272], [247156, 368589]]]]}, \"properties\": {\"location\": {\"type\": \"Municipal\", \"properties\": {\"gemeindenr\": 70304, \"name\": \"Axams\", \"urlname\": \"axams\"}}, \"warnings\": []}}"
    },
    "rangger-koepfl": {
     "status": 200,
     "content_type": "application/json; charset=utf-8",
-    "ms": 720,
+    "ms": 920,
     "bytes": 555,
     "struktur": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"MultiPolygon\", \"coordinates\": [[[[240559, 375989], [239103, 375942], [239038, 375486], [237796, 375145], [237289, 373689], [236695, 373462], [235334, 372453], [235075, 371599], [233863, 370929], [232616, 371312], [233136, 372240], [233453, 374024], [233734, 374523], [235253, 374719], [236374, 375801], [236974, 376764], [236986, 377532], [237508, 377901], [238058, 378033], [239201, 377838], [239617, 377025], [240559, 375989]]]]}, \"properties\": {\"location\": {\"type\": \"Municipal\", \"properties\": {\"gemeindenr\": 70319, \"name\": \"Inzing\", \"urlname\": \"inzing\"}},"
    },
    "pirchkogel": {
     "status": 200,
     "content_type": "application/json; charset=utf-8",
-    "ms": 702,
+    "ms": 777,
     "bytes": 871,
     "struktur": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"MultiPolygon\", \"coordinates\": [[[[220923, 378319], [220239, 377220], [221206, 377509], [222302, 374782], [222189, 374047], [223385, 372934], [224368, 373135], [226342, 372627], [227103, 371068], [227436, 369708], [226957, 369007], [226260, 368651], [226547, 367146], [225555, 366987], [225007, 366538], [224109, 366939], [223051, 366422], [220966, 366163], [220344, 366734], [220437, 367266], [220041, 368283], [219977, 369314], [219595, 370087], [219835, 370561], [220435, 371734], [221733, 372270], [222445, 373465], [219879, 373773], [218713, 373464], [21"
    },
    "zischgeles": {
     "status": 200,
     "content_type": "application/json; charset=utf-8",
-    "ms": 626,
+    "ms": 503,
     "bytes": 908,
     "struktur": "{\"type\": \"Feature\", \"geometry\": {\"type\": \"MultiPolygon\", \"coordinates\": [[[[233863, 370929], [234122, 370683], [233888, 368986], [233561, 367897], [232420, 367670], [231776, 366556], [232174, 365167], [233610, 364872], [233564, 363305], [235022, 363467], [236012, 363282], [235853, 361471], [236064, 360702], [235095, 359363], [235503, 358543], [234468, 357515], [233701, 356381], [231924, 355203], [230746, 355163], [230623, 354203], [229520, 356031], [228808, 356856], [228250, 358146], [228380, 358603], [227886, 359660], [227613, 361699], [227685, 362474], [228078, 362739], [227035, 364147], [22"
    }
@@ -2972,8 +3824,8 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json; charset=utf-8",
-   "ms": 191,
-   "bytes": 38321,
+   "ms": 718,
+   "bytes": 38247,
    "tour": "nockspitze",
    "modell_hoehe": 2404.0,
    "keys": [
@@ -3016,24 +3868,24 @@
     "visibility_best_match"
    ],
    "letzter_wert_je_reihe": {
-    "temperature_2m_icon_d2": "2026-11-04T13:00",
-    "snowfall_icon_d2": "2026-11-04T13:00",
-    "wind_speed_10m_icon_d2": "2026-11-04T13:00",
+    "temperature_2m_icon_d2": "2026-11-04T14:00",
+    "snowfall_icon_d2": "2026-11-04T15:00",
+    "wind_speed_10m_icon_d2": "2026-11-04T14:00",
     "wind_gusts_10m_icon_d2": "2026-11-04T13:00",
     "freezing_level_height_icon_d2": "2026-11-04T13:00",
-    "wind_speed_700hPa_icon_d2": "2026-11-04T13:00",
-    "wind_direction_700hPa_icon_d2": "2026-11-04T13:00",
-    "cloud_cover_icon_d2": "2026-11-04T13:00",
+    "wind_speed_700hPa_icon_d2": "2026-11-04T16:00",
+    "wind_direction_700hPa_icon_d2": "2026-11-04T16:00",
+    "cloud_cover_icon_d2": "2026-11-04T14:00",
     "visibility_icon_d2": "2026-11-04T13:00",
-    "temperature_2m_icon_eu": "2026-11-07T07:00",
-    "snowfall_icon_eu": "2026-11-07T07:00",
-    "wind_speed_10m_icon_eu": "2026-11-07T07:00",
-    "wind_gusts_10m_icon_eu": "2026-11-07T07:00",
-    "freezing_level_height_icon_eu": "2026-11-07T07:00",
-    "wind_speed_700hPa_icon_eu": "2026-11-07T07:00",
-    "wind_direction_700hPa_icon_eu": "2026-11-07T07:00",
-    "cloud_cover_icon_eu": "2026-11-07T07:00",
-    "visibility_icon_eu": "2026-11-07T07:00",
+    "temperature_2m_icon_eu": "2026-11-07T13:00",
+    "snowfall_icon_eu": "2026-11-07T13:00",
+    "wind_speed_10m_icon_eu": "2026-11-07T13:00",
+    "wind_gusts_10m_icon_eu": "2026-11-07T13:00",
+    "freezing_level_height_icon_eu": "2026-11-07T13:00",
+    "wind_speed_700hPa_icon_eu": "2026-11-07T13:00",
+    "wind_direction_700hPa_icon_eu": "2026-11-07T13:00",
+    "cloud_cover_icon_eu": "2026-11-07T13:00",
+    "visibility_icon_eu": "2026-11-07T13:00",
     "temperature_2m_ecmwf_ifs025": "2026-11-08T23:00",
     "snowfall_ecmwf_ifs025": "2026-11-08T23:00",
     "wind_speed_10m_ecmwf_ifs025": "2026-11-08T23:00",
@@ -3059,7 +3911,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json; charset=utf-8",
-   "ms": 496,
+   "ms": 683,
    "bytes": 32126,
    "anzahl_reihen": 81,
    "keys": [
@@ -3077,7 +3929,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 69,
+   "ms": 161,
    "bytes": 94,
    "hoehen": {
     "nockspitze": 2359.0,
@@ -3111,7 +3963,7 @@
    "ok": true,
    "status": 200,
    "content_type": "text/xml",
-   "ms": 1241,
+   "ms": 1393,
    "bytes": 220646,
    "ebenen": [],
    "lizenz": [
@@ -3129,7 +3981,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json;charset=UTF-8",
-   "ms": 522,
+   "ms": 667,
    "bytes": 1406,
    "dienste": [
     "Service_Public/euregio",
@@ -3162,7 +4014,7 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json; charset=utf-8",
-   "ms": 463,
+   "ms": 223,
    "bytes": 3551,
    "feiertage": [
     [
@@ -3285,8 +4137,8 @@
    "ok": true,
    "status": 200,
    "content_type": "application/json",
-   "ms": 995,
-   "bytes": 250622,
+   "ms": 1164,
+   "bytes": 250611,
    "kameras_gesamt": 409,
    "keys": [
     "id",

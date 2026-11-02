@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-02T15:58:30+00:00",
+ "fetched_at": "2026-11-02T16:13:43+00:00",
  "versuche": [
   {
    "dataset": "timeseries/forecast/nwp-v2-1h-1km",
@@ -323,7 +323,6 @@
   "type": "FeatureCollection",
   "version": "v1",
   "timestamps": [
-   "2026-11-02T15:00+00:00",
    "2026-11-02T16:00+00:00",
    "2026-11-02T17:00+00:00",
    "2026-11-02T18:00+00:00",
@@ -382,7 +381,7 @@
    "2026-11-04T23:00+00:00",
    "2026-11-05T00:00+00:00"
   ],
-  "datapoints": 6380,
+  "datapoints": 6270,
   "feature0": {
    "type": "Feature",
    "geometry": {
@@ -398,7 +397,6 @@
       "name": "2m temperature",
       "unit": "degree Celsius",
       "data": [
-       -2.6,
        -3.5,
        -3.7,
        -3.5,
@@ -462,7 +460,6 @@
       "name": "10m wind speed in eastward direction",
       "unit": "m s-1",
       "data": [
-       -2.2,
        -2.1,
        -2.1,
        -2.5,
@@ -526,7 +523,6 @@
       "name": "10m wind speed in northward direction",
       "unit": "m s-1",
       "data": [
-       -0.3,
        0.0,
        -0.2,
        -0.1,
@@ -591,7 +587,6 @@
       "unit": "m s-1",
       "data": [
        -4.6,
-       -4.6,
        -4.3,
        -5.0,
        -4.7,
@@ -654,7 +649,6 @@
       "name": "v compoment of maximum wind gust",
       "unit": "m s-1",
       "data": [
-       -0.8,
        -0.6,
        -0.5,
        -0.5,
@@ -719,7 +713,6 @@
       "unit": "kg m-2",
       "data": [
        0.0,
-       0.0,
        0.002,
        0.013,
        0.026,
@@ -782,7 +775,6 @@
       "name": "Total cloud cover",
       "unit": "1",
       "data": [
-       0.3,
        1.0,
        1.0,
        1.0,
@@ -846,7 +838,6 @@
       "name": "total precipitation amount",
       "unit": "kg m-2",
       "data": [
-       0.0,
        0.0,
        0.002,
        0.014,
@@ -966,7 +957,6 @@
        0.0,
        0.0,
        0.0,
-       0.0,
        0.0
       ]
      },
@@ -974,7 +964,6 @@
       "name": "snowlimit",
       "unit": "m",
       "data": [
-       1125.8,
        1104.0,
        1035.3,
        1001.9,
@@ -1038,7 +1027,6 @@
       "name": "weather symbol",
       "unit": "1",
       "data": [
-       3.0,
        5.0,
        5.0,
        5.0,
