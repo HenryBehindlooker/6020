@@ -3,11 +3,16 @@
 	import { page } from '$app/state';
 	import GoldenesDachl from '$lib/components/GoldenesDachl.svelte';
 	import { TEXT } from '$lib/copy';
+	import { planner } from '$lib/planner.svelte';
+	import { onMount } from 'svelte';
 	let { children } = $props();
 
+	// Planung im Browser starten: Werte aus der Adresse, Daten aus /daten/plan.json
+	onMount(() => planner.start(new URL(location.href).searchParams));
+
 	const links = [
-		{ href: `${base}/`, label: TEXT.nav.touren, match: (p: string) => p === `${base}/` || p.startsWith(`${base}/tour/`) },
-		{ href: `${base}/karte`, label: TEXT.nav.karte, match: (p: string) => p.startsWith(`${base}/karte`) },
+		{ plan: true, href: `${base}/`, label: TEXT.nav.touren, match: (p: string) => p === `${base}/` || p.startsWith(`${base}/tour/`) },
+		{ plan: true, href: `${base}/karte`, label: TEXT.nav.karte, match: (p: string) => p.startsWith(`${base}/karte`) },
 		{ href: `${base}/radl`, label: TEXT.nav.radl, match: (p: string) => p.startsWith(`${base}/radl`) },
 		{ href: `${base}/taeler`, label: TEXT.nav.taeler, match: (p: string) => p.startsWith(`${base}/taeler`) },
 		{ href: `${base}/methodik`, label: TEXT.nav.methodik, match: (p: string) => p.startsWith(`${base}/methodik`) }
@@ -31,7 +36,8 @@
 		</a>
 		<nav aria-label="Hauptmenü">
 			{#each links as link}
-				<a href={link.href} aria-current={link.match(page.url.pathname) ? 'page' : undefined}>{link.label}</a>
+				<!-- Tag, Aufbruch und Puffer mitnehmen - nur Touren und Karte rechnen damit -->
+				<a href={link.plan ? link.href + planner.query : link.href} aria-current={link.match(page.url.pathname) ? 'page' : undefined}>{link.label}</a>
 			{/each}
 		</nav>
 	</header>
@@ -206,6 +212,18 @@
 		background: var(--surface);
 		font-weight: 600;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+	}
+
+	:global(.visually-hidden) {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+		border: 0;
 	}
 
 	.skip {

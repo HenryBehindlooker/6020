@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import type { TourPlan } from '$lib/server/plan';
+	import type { TourPlan } from '$lib/logic/dayPlan';
 	import { formatReserve, hhmm } from '$lib/logic/turnaround';
 	import { TEXT } from '$lib/copy';
 	import SignalBadge from './SignalBadge.svelte';

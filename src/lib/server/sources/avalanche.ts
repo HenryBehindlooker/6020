@@ -2,7 +2,7 @@ import type { Aspect, AvalancheBulletin, AvalancheProblem, DangerLevel } from '$
 import { cached } from '$lib/server/cache';
 import { config } from '$lib/server/config';
 import { readFile } from 'node:fs/promises';
-import { TIME_ZONE, viennaTime } from '$lib/logic/time';
+import { TIME_ZONE } from '$lib/logic/time';
 
 const LEVEL_BY_NAME: Record<string, DangerLevel> = {
 	no_snow: 0,
@@ -17,81 +17,80 @@ const LEVEL_BY_NAME: Record<string, DangerLevel> = {
 const REGION_ID = 'AT-07';
 
 /** Vom Abholer auf dem GitHub-Runner geschrieben (scripts/fetch/avalanche.py). */
-const SNAPSHOT_PATH = 'data/lawine/latest.json';
+const LATEST_PATH = 'data/lawine/latest.json';
+/** Die Berichte fuer heute und morgen, soweit erschienen. */
+const AKTUELL_PATH = 'data/lawine/aktuell.json';
 
-interface Snapshot {
+interface StoredBulletin {
 	date: string;
 	bulletin: unknown;
 	fetched_at?: string;
 }
 
-async function loadSnapshot(): Promise<Snapshot | null> {
-	return cached('lawine:snapshot', config.cacheTtlMs, async () => {
-		try {
-			return JSON.parse(await readFile(SNAPSHOT_PATH, 'utf8')) as Snapshot;
-		} catch {
-			return null;
-		}
-	});
+async function readJson<T>(path: string): Promise<T | null> {
+	try {
+		return JSON.parse(await readFile(path, 'utf8')) as T;
+	} catch {
+		return null;
+	}
 }
 
-/**
- * Nur ein gueltiger Bericht zaehlt als aktuelle Lage. Ein abgelaufener - etwa
- * der letzte vom Fruehjahr - wird nie als heutige Einschaetzung ausgegeben.
- */
-export function currentBulletin(raw: unknown, now: Date): AvalancheBulletin | null {
+function parseOrNull(raw: unknown): AvalancheBulletin | null {
 	try {
-		const bulletin = parseCaaml(raw, now);
-		const start = new Date(bulletin.publishedAt).getTime();
-		const end = new Date(bulletin.validUntil).getTime();
-		return now.getTime() <= end && now.getTime() >= start - 24 * 3_600_000 ? bulletin : null;
+		return parseCaaml(raw);
 	} catch (err) {
 		console.error('[avalanche] Bericht nicht lesbar:', err);
 		return null;
 	}
 }
 
-/** Datum des letzten echten Berichts - fuer den Hinweis auf die Saisonpause. */
+/** Datum des neuesten echten Berichts - fuer den Hinweis auf die Saisonpause. */
 export async function lastBulletinDate(): Promise<string | null> {
-	return (await loadSnapshot())?.date ?? null;
+	return (await readJson<StoredBulletin>(LATEST_PATH))?.date ?? null;
 }
 
 /**
- * Laedt den Lawinenlagebericht.
+ * Alle vorliegenden echten Berichte, neuester zuerst. Welcher am Planungstag
+ * gilt, entscheidet bulletinFor() in $lib/logic/dayPlan - auch im Browser.
  *
- * 1. Gueltiger Bericht im Abzug des Runners: der gilt - auch in der
- *    oeffentlichen Demo-Fassung.
- * 2. Sonst im Demo-Modus: der mitgelieferte Beispielbericht.
- * 3. Sonst im Live-Modus: direkt bei avalanche.report nachfragen - und wenn
- *    das nichts bringt, null. Niemals still auf Demodaten ausweichen: ein
- *    erfundener Bericht, der wie ein echter aussieht, ist gefaehrlicher als
- *    gar keiner. Ohne Bericht zeigt die Ampel "unklar".
+ * Im Live-Modus wird zusaetzlich direkt bei avalanche.report nachgefragt,
+ * wenn der Abzug fuer heute und morgen nichts Gueltiges hat.
  */
-export async function getBulletin(now = new Date()): Promise<AvalancheBulletin | null> {
-	const snapshot = await loadSnapshot();
-	const fromSnapshot = snapshot ? currentBulletin(snapshot.bulletin, now) : null;
-	if (fromSnapshot) return fromSnapshot;
+export async function loadBulletins(now = new Date()): Promise<AvalancheBulletin[]> {
+	return cached('lawine:berichte', config.cacheTtlMs, async () => {
+		const aktuell = await readJson<{ bulletins?: StoredBulletin[] }>(AKTUELL_PATH);
+		const latest = await readJson<StoredBulletin>(LATEST_PATH);
+		const stored = [...(aktuell?.bulletins ?? []), ...(latest ? [latest] : [])];
+		const parsed = stored.map((s) => parseOrNull(s.bulletin)).filter((b): b is AvalancheBulletin => b !== null);
 
-	if (config.mode === 'demo') return demoBulletin(now);
-
-	return cached('bulletin', config.cacheTtlMs, async () => {
-		// Der Bericht fuer morgen erscheint gegen 17 Uhr im Ordner von morgen.
-		for (const offset of [1, 0]) {
-			const tag = new Date(now.getTime() + offset * 86_400_000).toLocaleDateString('en-CA', { timeZone: TIME_ZONE });
-			try {
-				const res = await fetch(`${config.avalancheBaseUrl}/${tag}/${tag}-AT-07.json`, {
-					headers: { accept: 'application/json' },
-					signal: AbortSignal.timeout(10_000)
-				});
-				if (!res.ok) continue;
-				const bulletin = currentBulletin(await res.json(), now);
-				if (bulletin) return bulletin;
-			} catch (err) {
-				console.error('[avalanche] Lagebericht nicht verfuegbar:', err);
-			}
+		if (config.mode === 'live' && !parsed.some((b) => new Date(b.validUntil).getTime() > now.getTime())) {
+			parsed.push(...(await fetchLive(now)));
 		}
-		return null;
+
+		// Doppelte (latest.json ist meist auch in aktuell.json) entfernen, neuester zuerst
+		const unique = new Map(parsed.map((b) => [b.validUntil, b]));
+		return [...unique.values()].sort((a, b) => b.validUntil.localeCompare(a.validUntil));
 	});
+}
+
+async function fetchLive(now: Date): Promise<AvalancheBulletin[]> {
+	const found: AvalancheBulletin[] = [];
+	// Der Bericht fuer morgen erscheint um 17 Uhr im Ordner von morgen.
+	for (const offset of [1, 0]) {
+		const tag = new Date(now.getTime() + offset * 86_400_000).toLocaleDateString('en-CA', { timeZone: TIME_ZONE });
+		try {
+			const res = await fetch(`${config.avalancheBaseUrl}/${tag}/${tag}-AT-07.json`, {
+				headers: { accept: 'application/json' },
+				signal: AbortSignal.timeout(10_000)
+			});
+			if (!res.ok) continue;
+			const bulletin = parseOrNull(await res.json());
+			if (bulletin) found.push(bulletin);
+		} catch (err) {
+			console.error('[avalanche] Lagebericht nicht verfuegbar:', err);
+		}
+	}
+	return found;
 }
 
 interface RegionRating {
@@ -148,12 +147,12 @@ function readBulletin(bulletin: any): RegionRating {
  * Uebersetzt ein CAAMLv6-Dokument (EAWS) in das interne Modell.
  *
  * Tirol ist in Mikroregionen geteilt, und das Dokument enthaelt ein Bulletin je
- * Regionsgruppe - oft mit verschiedenen Stufen. Die Touren sind noch keiner
- * Mikroregion zugeordnet, darum gilt die unguenstigste Einschaetzung aller
- * Tiroler Bulletins: hoechste Stufe ober- und unterhalb, tiefste Hoehengrenze,
- * alle Gefahrenmuster. Lieber zu vorsichtig als eine Stufe zu niedrig.
+ * Regionsgruppe - oft mit verschiedenen Stufen. byRegion haelt die
+ * Einschaetzung je Mikroregion; rating und problems oben sind die
+ * unguenstigste aller Tiroler Bulletins (hoechste Stufe ober- und unterhalb,
+ * tiefste Hoehengrenze, alle Gefahrenmuster) - fuer Touren ohne Region.
  */
-export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
+export function parseCaaml(raw: unknown): AvalancheBulletin {
 	const doc = raw as Record<string, any>;
 	const list: any[] = Array.isArray(doc?.bulletins) ? doc.bulletins : Array.isArray(doc) ? doc : [];
 	const tirol = list.filter((b) =>
@@ -169,8 +168,8 @@ export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
 		kind: 'echt',
 		regionId: REGION_ID,
 		regionName: parts.length > 1 ? `Tirol (ungünstigste von ${parts.length} Regionen)` : 'Tirol',
-		publishedAt: tirol[0].publicationTime ?? now.toISOString(),
-		validUntil: tirol[0].validTime?.endTime ?? now.toISOString(),
+		publishedAt: requireTime(tirol[0].publicationTime, 'publicationTime'),
+		validUntil: requireTime(tirol[0].validTime?.endTime, 'validTime.endTime'),
 		rating: {
 			above: max(parts.map((p) => p.above)),
 			below: max(parts.map((p) => p.below)),
@@ -198,7 +197,6 @@ export function parseCaaml(raw: unknown, now = new Date()): AvalancheBulletin {
 	};
 }
 
-/** CAAML erlaubt "treeline" statt einer Zahl. */
 /**
  * Hoehenangabe aus CAAML. "treeline" (Waldgrenze) liegt in Tirol irgendwo
  * zwischen 1800 und 2200 m - ausgelegt wird sie immer zur sicheren Seite:
@@ -214,23 +212,10 @@ export function parseElevation(value: unknown, bound: 'lower' | 'upper'): number
 	return Number.isNaN(parsed) ? null : parsed;
 }
 
-/** Beispielbericht: erhebliche Lage mit Triebschneeproblem in Nordsektoren. */
-export function demoBulletin(now = new Date()): AvalancheBulletin {
-	const end = viennaTime(now, '17:00');
-
-	return {
-		kind: 'demo',
-		regionId: REGION_ID,
-		regionName: 'Tirol (Demodaten)',
-		publishedAt: now.toISOString(),
-		validUntil: end.toISOString(),
-		rating: { above: 3, below: 2, elevationBoundary: 2200, aspects: ['N', 'NE', 'E', 'NW'] },
-		problems: [
-			{ type: 'wind_slab', aspects: ['N', 'NE', 'E', 'NW'], elevationAbove: 2200, elevationBelow: null },
-			{ type: 'persistent_weak_layers', aspects: ['N', 'NW', 'W'], elevationAbove: 2400, elevationBelow: null }
-		],
-		summary:
-			'Frischer Triebschnee ist die Hauptgefahr. Störanfällig sind kammnahe Bereiche der Expositionen Nordwest über Nord bis Ost oberhalb von 2200 m.',
-		source: 'Demodaten im Format des Lawinenwarndienstes Tirol'
-	};
+/** Ohne Gueltigkeitszeitraum ist ein Bericht nicht verwendbar - nicht "ab jetzt". */
+function requireTime(value: unknown, name: string): string {
+	if (typeof value !== 'string' || Number.isNaN(new Date(value).getTime())) {
+		throw new Error(`Bericht ohne gueltiges ${name}`);
+	}
+	return value;
 }

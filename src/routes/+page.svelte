@@ -4,14 +4,17 @@
 	import TourCard from '$lib/components/TourCard.svelte';
 	import { problemLabel } from '$lib/logic/rating';
 	import { planQuery } from '$lib/planParams';
+	import { planner } from '$lib/planner.svelte';
 	import { TEXT } from '$lib/copy';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
-	const plan = $derived(data.plan);
+	// Vorgerendert bzw. vom Server - bis der Browser selbst rechnen kann
+	const plan = $derived(planner.plan() ?? data.plan);
+	const params = $derived(planner.inputs ? planner.params : data.params);
+	const query = $derived(planQuery(params));
 	const bulletin = $derived(plan.bulletin);
-	const query = $derived(planQuery(data.params));
 	const machbar = $derived(plan.tours.filter((t) => t.rating.signal !== 'rot' && t.turnaround.feasible));
 	const rest = $derived(plan.tours.filter((t) => !machbar.includes(t)));
 
@@ -26,28 +29,31 @@
 
 	const STUFE = ['kein Schnee', 'gering', 'mäßig', 'erheblich', 'groß', 'sehr groß'];
 
-	/** Formular sofort abschicken, sobald sich ein Wert aendert - ohne Knopfdruck. */
-	function sofort(event: Event) {
-		(event.currentTarget as HTMLFormElement).requestSubmit();
+	/** Mit JavaScript rechnet der Browser; ohne schickt das Formular an den Server. */
+	function abschicken(event: SubmitEvent) {
+		if (!planner.inputs) return;
+		event.preventDefault();
+		planner.syncUrl();
 	}
 </script>
 
 <svelte:head>
-	<title>Wos geat heit? - Bergampel Innsbruck</title>
+	<title>{params.tag === 'morgen' ? TEXT.frageMorgen : TEXT.frage} - Bergampel Innsbruck</title>
 </svelte:head>
 
-<DataNotice status={plan.status} />
+<DataNotice status={plan.status} builtAt={plan.builtAt} />
 
 <section class="lage" aria-labelledby="frage">
 	<div class="kopf">
-		<h1 id="frage">{TEXT.frage}</h1>
+		<h1 id="frage">{params.tag === 'morgen' ? TEXT.frageMorgen : TEXT.frage}</h1>
 		<span class="datum">{datum}</span>
 	</div>
 
 	{#if bulletin}
-		<p class="stufe">
+		<p class="stufe" class:beispiel={bulletin.kind === 'demo'}>
 			<span class="zahl stufe-{bulletin.rating.above}">{bulletin.rating.above}</span>
 			<span>
+				{#if bulletin.kind === 'demo'}<span class="stempel">Beispiel</span>{/if}
 				<strong>Gefahrenstufe {bulletin.rating.above} ({STUFE[bulletin.rating.above]})</strong>
 				{#if bulletin.rating.elevationBoundary && bulletin.rating.below !== bulletin.rating.above}
 					oberhalb {bulletin.rating.elevationBoundary} m, darunter {bulletin.rating.below}
@@ -64,7 +70,13 @@
 				</span>
 			</p>
 		{:else}
-			<p class="summary">{bulletin.summary}</p>
+			<p class="summary">
+				{bulletin.summary}
+				<span class="herkunft">
+					Erfundener Beispielbericht, damit man sieht, wie die Ampel rechnet – keine Auskunft über
+					die heutige Lage.
+				</span>
+			</p>
 		{/if}
 		{#if bulletin.problems.length > 0}
 			<ul class="problems" aria-label="Lawinenprobleme">
@@ -77,6 +89,17 @@
 				{/each}
 			</ul>
 		{/if}
+	{:else if plan.status.lawineGrund === 'noch-nicht'}
+		<p class="fehlt">
+			<strong>Der Lagebericht für diesen Tag ist noch nicht erschienen.</strong> Der
+			Lawinenwarndienst Tirol veröffentlicht ihn um 17 Uhr am Vortag. Bis dahin bewertet die
+			Bergampel keine Tour.
+		</p>
+	{:else if plan.status.lawineGrund === 'saisonpause'}
+		<p class="fehlt">
+			<strong>Saisonpause:</strong> Der Lawinenwarndienst Tirol berichtet etwa von Dezember bis Mai.
+			Ohne Bericht bewertet die Bergampel keine Tour.
+		</p>
 	{:else}
 		<p class="fehlt">
 			<strong>Der Lawinenlagebericht ist gerade nicht verfügbar.</strong> Ohne ihn bewertet die
@@ -86,26 +109,45 @@
 	{/if}
 </section>
 
-{#if data.staticPreview}
-	<p class="statisch">
-		Vorgerenderte Fassung: gerechnet mit Aufbruch um {data.params.notBefore} Uhr und
-		{data.params.bufferMinutes} min Puffer bis zum letzten Bus.
-	</p>
-{:else}
-	<form class="filter" method="get" onchange={sofort} data-sveltekit-keepfocus data-sveltekit-noscroll>
-		<label>
-			<span>{TEXT.aufbruch}</span>
+<form class="filter" method="get" onsubmit={abschicken} onchange={() => planner.inputs && planner.syncUrl()}>
+	<fieldset class="tage">
+		<legend class="visually-hidden">Planungstag</legend>
+		{#if planner.inputs}
+			<label><input type="radio" name="tag" value="heute" bind:group={planner.tag} /><span>{TEXT.heute}</span></label>
+			<label><input type="radio" name="tag" value="morgen" bind:group={planner.tag} /><span>{TEXT.morgen}</span></label>
+		{:else}
+			<label><input type="radio" name="tag" value="heute" checked={data.params.tag === 'heute'} /><span>{TEXT.heute}</span></label>
+			<label><input type="radio" name="tag" value="morgen" checked={data.params.tag === 'morgen'} /><span>{TEXT.morgen}</span></label>
+		{/if}
+	</fieldset>
+	<label>
+		<span>{TEXT.aufbruch}</span>
+		{#if planner.inputs}
+			<input type="time" name="ab" bind:value={planner.notBefore} step="300" required />
+		{:else}
 			<input type="time" name="ab" value={data.params.notBefore} step="300" />
-		</label>
-		<label>
-			<span>{TEXT.puffer}</span>
-			<span class="mit-einheit">
+		{/if}
+	</label>
+	<label>
+		<span>{TEXT.puffer}</span>
+		<span class="mit-einheit">
+			{#if planner.inputs}
+				<input type="number" name="puffer" min="0" max="180" step="5" bind:value={planner.bufferMinutes} inputmode="numeric" required />
+			{:else}
 				<input type="number" name="puffer" min="0" max="180" step="5" value={data.params.bufferMinutes} inputmode="numeric" />
-				min
-			</span>
-		</label>
+			{/if}
+			min
+		</span>
+	</label>
+	{#if !planner.inputs}
 		<button type="submit">{TEXT.rechnen}</button>
-	</form>
+	{/if}
+</form>
+{#if planner.failed && data.staticPreview}
+	<p class="statisch">
+		Offline: Die Daten zum Neurechnen ließen sich nicht laden. Angezeigt wird der Plan vom
+		Bauzeitpunkt mit Aufbruch {data.params.notBefore} Uhr und {data.params.bufferMinutes} min Puffer.
+	</p>
 {/if}
 
 <section aria-labelledby="gruppe-geht">
@@ -277,6 +319,66 @@
 
 	button:hover {
 		background: var(--sky-deep);
+	}
+
+	.tage {
+		display: inline-flex;
+		border: 1px solid var(--border);
+		border-radius: 0.65rem;
+		padding: 0.2rem;
+		margin: 0;
+		background: var(--surface);
+		align-self: flex-end;
+	}
+
+	.tage label {
+		flex-direction: row;
+		position: relative;
+	}
+
+	.tage input {
+		position: absolute;
+		opacity: 0;
+		inset: 0;
+		min-height: 0;
+		cursor: pointer;
+	}
+
+	.tage span {
+		padding: 0.45rem 1rem;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	.tage input:checked + span {
+		background: var(--sky-deep);
+		color: var(--snow);
+	}
+
+	.tage input:focus-visible + span {
+		outline: 2px solid var(--sky);
+		outline-offset: 2px;
+	}
+
+	.beispiel .zahl {
+		background: repeating-linear-gradient(-45deg, var(--surface-2) 0 6px, var(--surface) 6px 12px);
+		color: var(--muted);
+		border: 2px dashed var(--border);
+	}
+
+	.stempel {
+		display: inline-block;
+		margin-right: 0.4rem;
+		padding: 0.05rem 0.5rem;
+		border: 1.5px solid var(--text-warnung);
+		border-radius: 0.35rem;
+		color: var(--text-warnung);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		vertical-align: 0.1em;
 	}
 
 	.statisch {

@@ -5,11 +5,11 @@ const p = (q: string) => parsePlanParams(new URLSearchParams(q));
 
 describe('parsePlanParams', () => {
 	it('nimmt gueltige Werte', () => {
-		expect(p('ab=10:15&puffer=60')).toEqual({ notBefore: '10:15', bufferMinutes: 60, custom: true });
+		expect(p('ab=10:15&puffer=60')).toEqual({ tag: 'heute', notBefore: '10:15', bufferMinutes: 60, custom: true });
 	});
 
 	it('faellt ohne Angaben auf den Standard zurueck', () => {
-		expect(p('')).toEqual({ notBefore: '07:00', bufferMinutes: 30, custom: false });
+		expect(p('')).toEqual({ tag: 'heute', notBefore: '07:00', bufferMinutes: 30, custom: false });
 		expect(parsePlanParams(null).notBefore).toBe('07:00');
 	});
 
@@ -36,5 +36,15 @@ describe('planQuery', () => {
 		expect(planQuery({ notBefore: '07:00', bufferMinutes: 30 })).toBe('');
 		expect(planQuery({ notBefore: '09:30', bufferMinutes: 30 })).toBe('?ab=09%3A30');
 		expect(planQuery({ notBefore: '07:00', bufferMinutes: 45 })).toBe('?puffer=45');
+	});
+});
+
+describe('Planungstag', () => {
+	it('liest morgen und laesst alles andere heute sein', () => {
+		expect(parsePlanParams(new URLSearchParams('tag=morgen')).tag).toBe('morgen');
+		expect(parsePlanParams(new URLSearchParams('tag=gestern')).tag).toBe('heute');
+	});
+	it('gibt morgen in Links mit', () => {
+		expect(planQuery({ tag: 'morgen', notBefore: '07:00', bufferMinutes: 30 })).toBe('?tag=morgen');
 	});
 });

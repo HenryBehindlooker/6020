@@ -127,7 +127,6 @@
 	ul { margin: 0 0 0.8rem; padding-left: 1.1rem; }
 	li { margin-bottom: 0.4rem; font-size: 0.92rem; }
 	p { font-size: 0.92rem; }
-	.grenze { border-left: 3px solid var(--text-warnung); padding-left: 0.7rem; }
 	.tabelle { overflow-x: auto; }
 	table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
 	th { text-align: left; color: var(--muted); font-weight: 600; }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { TourPlan } from '$lib/server/plan';
+import type { TourPlan } from '$lib/logic/dayPlan';
 import type { Signal } from '$lib/logic/rating';
 import { boundsOf, groupByTrailhead } from './trailheads';
 
@@ -31,6 +31,7 @@ function plan(
 		},
 		rating: { signal, effectiveDangerLevel: 2, reasons: [] },
 		weather: null,
+		weatherNote: null,
 		transit: { kind: 'echt', originStop: 'Innsbruck', destinationStop: stop, outbound: [], inbound: [], source: 't' },
 		turnaround: {
 			outbound: null,

@@ -11,17 +11,30 @@
 	import { googleEarthUrl } from '$lib/logic/kml';
 	import { planQuery } from '$lib/planParams';
 	import { TEXT } from '$lib/copy';
+	import { planner } from '$lib/planner.svelte';
+	import { sunTimes } from '$lib/logic/sun';
 	import type { Departure } from '$lib/types';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
-	const tour = $derived(data.tourPlan.tour);
-	const rating = $derived(data.tourPlan.rating);
-	const weather = $derived(data.tourPlan.weather);
-	const transit = $derived(data.tourPlan.transit);
-	const turnaround = $derived(data.tourPlan.turnaround);
-	const query = $derived(planQuery(data.params));
+	// Im Browser fuer den gewaehlten Tag nachgerechnet, sonst der vorgerenderte Plan
+	const live = $derived(planner.plan());
+	const tourPlan = $derived(live?.tours.find((t) => t.tour.id === data.tourPlan.tour.id) ?? data.tourPlan);
+	const status = $derived(live?.status ?? data.status);
+	const planDate = $derived(live?.date ?? data.date);
+	const params = $derived(planner.inputs ? planner.params : data.params);
+	const tour = $derived(tourPlan.tour);
+	const rating = $derived(tourPlan.rating);
+	const weather = $derived(tourPlan.weather);
+	const transit = $derived(tourPlan.transit);
+	const turnaround = $derived(tourPlan.turnaround);
+	const query = $derived(planQuery(params));
+	// Am Ausgangspunkt gerechnet, freier Horizont
+	const sunset = $derived(sunTimes(new Date(planDate), tour.lat, tour.lon)?.sunset.toISOString() ?? null);
+	const tagText = $derived(
+		new Date(planDate).toLocaleDateString('de-AT', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Vienna' })
+	);
 
 	/** Die letzten Rueckfahrten zaehlen fuer die Umkehrzeit - die zeigen wir zuerst. */
 	const letzteFahrten = $derived(transit.inbound.slice(-6));
@@ -59,7 +72,7 @@
 	const zurueckAm = $derived(
 		turnaround.summitAt ? new Date(new Date(turnaround.summitAt).getTime() + tour.descentMinutes * 60_000).toISOString() : null
 	);
-	const imDunkeln = $derived(!!(data.sunset && zurueckAm && zurueckAm > data.sunset));
+	const imDunkeln = $derived(!!(sunset && zurueckAm && zurueckAm > sunset));
 
 	const huettenArt = { schutzhuette: 'Schutzhütte', selbstversorger: 'Selbstversorgerhütte', einkehr: 'Einkehr' };
 </script>
@@ -70,13 +83,17 @@
 
 <p class="zurueck"><a href="{base}/{query}">&larr; {TEXT.zurueck}</a></p>
 
-<DataNotice status={data.status} />
+<DataNotice {status} builtAt={live?.builtAt ?? data.builtAt} />
 
 <header class="kopf">
 	<div>
 		<h1>{tour.name}</h1>
 		<p class="meta">
 			{tour.trailhead} · {tour.summitAltitude} m · {tour.ascentMeters} Hm · Exposition {tour.aspects.join('/')} · bis {tour.steepnessMax}&deg;
+		</p>
+		<p class="fuer">
+			Plan für {tagText} · Aufbruch ab {params.notBefore} Uhr · {params.bufferMinutes} min Puffer ·
+			<a href="{base}/{query}">ändern</a>
 		</p>
 	</div>
 	<SignalBadge signal={rating.signal} size="gross" />
@@ -108,10 +125,10 @@
 </section>
 
 <p class="note" class:eng={!turnaround.feasible}>{turnaround.note}</p>
-{#if imDunkeln && zurueckAm && data.sunset}
+{#if imDunkeln && zurueckAm && sunset}
 	<p class="note eng">
 		Rechnerisch bist du erst um {hhmm(zurueckAm)} zurück am Ausgangspunkt – nach Sonnenuntergang
-		({hhmm(data.sunset)}). Früher aufbrechen oder umkehren, Stirnlampe einpacken.
+		({hhmm(sunset)}). Früher aufbrechen oder umkehren, Stirnlampe einpacken.
 	</p>
 {/if}
 
@@ -162,13 +179,13 @@
 			</li>
 		{/if}
 	</ol>
-	{#if data.sunset}
+	{#if sunset}
 		<p class="sonne" class:dunkel={imDunkeln}>
-			Sonnenuntergang {hhmm(data.sunset)} – bei freiem Horizont; im Tal und am Nordhang wird's früher finster.
+			Sonnenuntergang {hhmm(sunset)} – bei freiem Horizont; im Tal und am Nordhang wird's früher finster.
 		</p>
 	{/if}
 	<p class="quelle">
-		Umkehrzeit = letzter Bus - {data.params.bufferMinutes} min Puffer - {tour.descentMinutes} min Abstieg.
+		Umkehrzeit = letzter Bus - {params.bufferMinutes} min Puffer - {tour.descentMinutes} min Abstieg.
 		Gehzeiten ohne Pausen.
 	</p>
 </section>
@@ -183,6 +200,11 @@
 			<div><dt>Bewölkung</dt><dd>{weather.cloudCoverPct} %</dd></div>
 		</dl>
 		<p class="quelle">{weather.source}</p>
+	</section>
+{:else}
+	<section class="panel">
+		<h2>{TEXT.bergwetter}</h2>
+		<p class="leer">{tourPlan.weatherNote ?? 'Keine Wetterprognose verfügbar.'} Die Ampel ist deshalb vorsichtshalber strenger.</p>
 	</section>
 {/if}
 
@@ -330,6 +352,8 @@
 	h1 { margin: 0; font-size: clamp(1.6rem, 4.5vw, 2.1rem); letter-spacing: -0.02em; color: var(--sky-deep); }
 
 	.meta { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.87rem; }
+	.fuer { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.82rem; }
+	.fuer a { color: var(--sky-deep); }
 
 	.blick {
 		display: grid;

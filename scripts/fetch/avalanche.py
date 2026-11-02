@@ -212,6 +212,36 @@ def main():
     else:
         print(f"Kein neuer Bericht ({errors[-1] if errors else 'keiner gefunden'}); latest.json bleibt.")
 
+    # Die Berichte fuer heute und morgen nebeneinander: abends gilt der fuer
+    # morgen, wer morgens fuer heute plant, braucht den von heute. Die App
+    # waehlt je Planungstag den, der dann gilt.
+    aktuell = []
+    for d in (0, 1):
+        day = (heute + timedelta(days=d)).isoformat()
+        if latest and latest["date"] == day:
+            aktuell.append(latest)
+            continue
+        if latest is None or latest["date"] < day:
+            continue  # morgen gibt es noch nicht, wenn schon heute fehlte
+        url = f"{BASE}{day}/{day}-AT-07.json"
+        try:
+            time.sleep(1)
+            aktuell.append({"date": day, "file": f"{day}-AT-07.json", "url": url,
+                            "bulletin": json.loads(get(url)), "fetched_at": probe["fetched_at"]})
+        except Exception as err:  # noqa: BLE001
+            print(f"{day}: {err}", file=sys.stderr)
+    alt = None
+    try:
+        alt = json.loads((OUT / "aktuell.json").read_text())
+    except (OSError, ValueError):
+        pass
+    # Bei einem Netzfehler die bisherigen Berichte behalten, solange sie neu genug sind
+    if not aktuell and alt and errors:
+        aktuell = [b for b in alt.get("bulletins", []) if b.get("date", "") >= heute.isoformat()]
+    (OUT / "aktuell.json").write_text(json.dumps({"fetched_at": probe["fetched_at"], "bulletins": aktuell},
+                                                 ensure_ascii=False))
+    probe["aktuell"] = [b["date"] for b in aktuell]
+
     # Beispieltage einmalig ablegen
     for day in SAMPLE_DAYS:
         path = OUT / "samples" / f"{day}.json"

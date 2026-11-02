@@ -5,13 +5,19 @@
 	import type { MapMarker, MapTrack } from '$lib/components/mapTypes';
 	import SignalBadge from '$lib/components/SignalBadge.svelte';
 	import { hhmm } from '$lib/logic/turnaround';
+	import { groupByTrailhead } from '$lib/logic/trailheads';
 	import { planQuery } from '$lib/planParams';
+	import { planner } from '$lib/planner.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
-	const groups = $derived(data.groups);
-	const query = $derived(planQuery(data.params));
+	const plan = $derived(planner.plan() ?? data.plan);
+	const groups = $derived(groupByTrailhead(plan.tours));
+	const query = $derived(planQuery(planner.inputs ? planner.params : data.params));
+	const signalByTour = $derived(new Map(plan.tours.map((t) => [t.tour.id, t.rating.signal])));
+	/** Leaflet zeichnet einmal - aendern sich die Ampeln, wird die Karte neu aufgebaut. */
+	const kartenSchluessel = $derived(plan.tours.map((t) => `${t.tour.id}:${t.rating.signal}:${t.turnaround.feasible}`).join('|'));
 	const tourHref = (id: string) => `${base}/tour/${id}${query}`;
 
 	function anzahl(count: number, einzahl: string, mehrzahl: string): string {
@@ -47,22 +53,26 @@
 	);
 
 	const tracks = $derived(
-		(data.tracks as MapTrack[]).map((t) => ({ ...t, href: t.href ? `${t.href}${query}` : undefined }))
+		(data.tracks as (MapTrack & { tourId: string })[]).map((t) => ({
+			...t,
+			signal: signalByTour.get(t.tourId) ?? t.signal,
+			href: t.href ? `${t.href}${query}` : undefined
+		}))
 	);
 </script>
 
 <svelte:head><title>Karte - Bergampel Innsbruck</title></svelte:head>
 
-<DataNotice status={data.status} />
+<DataNotice status={plan.status} builtAt={plan.builtAt} />
 
 <header class="kopf">
 	<div>
 		<h1>Karte</h1>
 		<p class="meta">
 			Ein Kreis je Ausgangspunkt, gefärbt nach der <em>besten</em> Tour von dort.
-			{#if data.bulletin}
-				Gefahrenstufe {data.bulletin.rating.above}{#if data.bulletin.rating.elevationBoundary}
-					&nbsp;oberhalb {data.bulletin.rating.elevationBoundary} m{/if}.
+			{#if plan.bulletin}
+				{plan.bulletin.kind === 'demo' ? 'Beispiel-Lage: ' : ''}Gefahrenstufe {plan.bulletin.rating.above}{#if plan.bulletin.rating.elevationBoundary}
+					&nbsp;oberhalb {plan.bulletin.rating.elevationBoundary} m{/if}.
 			{:else}
 				Lagebericht nicht verfügbar.
 			{/if}
@@ -71,7 +81,9 @@
 	<a class="wechsel" href="{base}/{query}">Als Liste</a>
 </header>
 
-<TourMap markers={[...gipfel, ...ausgangspunkte]} {tracks} osm height="min(70vh, 36rem)" />
+{#key kartenSchluessel}
+	<TourMap markers={[...gipfel, ...ausgangspunkte]} {tracks} osm height="min(70vh, 36rem)" />
+{/key}
 
 <ul class="legende" aria-label="Legende">
 	<li><span class="punkt gruen"></span>Geat</li>
