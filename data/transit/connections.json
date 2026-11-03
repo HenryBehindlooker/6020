@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-02T23:38:00+00:00",
+ "fetched_at": "2026-11-03T15:21:54+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -43220,8 +43220,8 @@
   "Hungerburg": [
    {
     "name": "Aventoft Hungerburg",
-    "lat": 54.90391,
-    "lon": 8.830244,
+    "lat": 54.90392,
+    "lon": 8.830247,
     "type": "STOP"
    },
    {
