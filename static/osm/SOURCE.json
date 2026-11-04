@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-28T21:24:22+00:00",
+  "fetched_at": "2026-11-04T22:07:26+00:00",
   "bbox_s_w_n_e": [
     47.08,
     10.95,
@@ -12,42 +12,42 @@
     "routes-hiking": {
       "count": 252,
       "kb": 419,
-      "osm_timestamp": "2026-10-28T21:13:02Z"
+      "osm_timestamp": "2026-11-04T21:58:26Z"
     },
     "routes-skitour": {
       "count": 273,
       "kb": 159,
-      "osm_timestamp": "2026-10-28T21:14:02Z"
+      "osm_timestamp": "2026-11-04T22:00:29Z"
     },
     "huts": {
       "count": 186,
       "kb": 48,
-      "osm_timestamp": "2026-10-28T21:14:02Z"
+      "osm_timestamp": "2026-11-04T22:00:29Z"
     },
     "routes-bike": {
       "count": 187,
       "kb": 408,
-      "osm_timestamp": "2026-10-28T21:15:00Z"
+      "osm_timestamp": "2026-11-04T22:02:27Z"
     },
     "pois": {
-      "count": 1875,
-      "kb": 311,
-      "osm_timestamp": "2026-10-28T21:16:03Z"
+      "count": 1876,
+      "kb": 312,
+      "osm_timestamp": "2026-11-04T22:03:30Z"
     },
     "aerialways": {
-      "count": 76,
-      "kb": 27,
-      "osm_timestamp": "2026-06-01T08:52:28Z"
+      "count": 78,
+      "kb": 28,
+      "osm_timestamp": "2026-11-04T22:03:30Z"
     },
     "peaks": {
       "count": 455,
       "kb": 89,
-      "osm_timestamp": "2026-10-28T21:22:05Z"
+      "osm_timestamp": "2026-11-04T22:04:26Z"
     },
     "bus-stops": {
-      "count": 1648,
-      "kb": 328,
-      "osm_timestamp": "2026-10-28T21:23:06Z"
+      "count": 1650,
+      "kb": 329,
+      "osm_timestamp": "2026-11-04T22:05:35Z"
     }
   }
 }

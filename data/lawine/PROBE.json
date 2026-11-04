@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-04T15:40:44+00:00",
+ "fetched_at": "2026-11-04T22:14:08+00:00",
  "date_dirs": {
   "count": 1941,
   "first": [
@@ -14,9 +14,9 @@
    "2026-11-05"
   ]
  },
- "checked_until_found": 37,
+ "checked_until_found": 24,
  "search_errors": [
-  "2026-05-30: <urlopen error timed out>"
+  "2026-06-12: <urlopen error [Errno 111] Connection refused>"
  ],
  "aktuell": []
 }
