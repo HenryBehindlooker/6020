@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-03T21:52:05+00:00",
+ "fetched_at": "2026-11-04T15:34:04+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -13540,7 +13540,7 @@
    }
   },
   "werktag": {
-   "date": "2026-11-04",
+   "date": "2026-11-11",
    "trailheads": {
     "Praxmar Wendestelle": {
      "outbound": [],
