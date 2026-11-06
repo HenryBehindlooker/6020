@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-06T15:22:35+00:00",
+ "fetched_at": "2026-11-06T21:47:22+00:00",
  "versuche": [
   {
    "dataset": "timeseries/forecast/nwp-v2-1h-1km",
@@ -322,10 +322,8 @@
   "media_type": "application/json",
   "type": "FeatureCollection",
   "version": "v1",
-  "timestamps": [
-   "2026-11-06T15:00+00:00"
-  ],
-  "datapoints": 110,
+  "timestamps": [],
+  "datapoints": 0,
   "feature0": {
    "type": "Feature",
    "geometry": {
@@ -340,79 +338,57 @@
      "t2m": {
       "name": "2m temperature",
       "unit": "degree Celsius",
-      "data": [
-       4.8
-      ]
+      "data": []
      },
      "u10m": {
       "name": "10m wind speed in eastward direction",
       "unit": "m s-1",
-      "data": [
-       0.3
-      ]
+      "data": []
      },
      "v10m": {
       "name": "10m wind speed in northward direction",
       "unit": "m s-1",
-      "data": [
-       0.2
-      ]
+      "data": []
      },
      "ugust": {
       "name": "u component of maximum wind gust",
       "unit": "m s-1",
-      "data": [
-       -0.4
-      ]
+      "data": []
      },
      "vgust": {
       "name": "v compoment of maximum wind gust",
       "unit": "m s-1",
-      "data": [
-       0.5
-      ]
+      "data": []
      },
      "snow_acc": {
       "name": "total snowfall amount",
       "unit": "kg m-2",
-      "data": [
-       0.0
-      ]
+      "data": []
      },
      "tcc": {
       "name": "Total cloud cover",
       "unit": "1",
-      "data": [
-       1.0
-      ]
+      "data": []
      },
      "rr_acc": {
       "name": "total precipitation amount",
       "unit": "kg m-2",
-      "data": [
-       0.0
-      ]
+      "data": []
      },
      "rain_acc": {
       "name": "total rainfall amount",
       "unit": "kg m-2",
-      "data": [
-       0.0
-      ]
+      "data": []
      },
      "snowlmt": {
       "name": "snowlimit",
       "unit": "m",
-      "data": [
-       2383.1
-      ]
+      "data": []
      },
      "sy": {
       "name": "weather symbol",
       "unit": "1",
-      "data": [
-       5.0
-      ]
+      "data": []
      }
     }
    }
