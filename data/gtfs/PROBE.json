@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-31T20:09:34+00:00",
+  "fetched_at": "2026-11-07T20:20:21+00:00",
   "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
   "candidates": [
     {
@@ -94,7 +94,7 @@
         "Arriva",
         "Blauwnet Arriva",
         "Blauwnet Keolis",
-        "DB",
+        "Deutsche Bahn",
         "Eurobahn",
         "Eu Sleeper",
         "GoVolta",
@@ -109,8 +109,8 @@
         "MeerPlus",
         "Miljoenenlijn"
       ],
-      "agency_count": 42,
-      "valid_from": "20261029",
+      "agency_count": 44,
+      "valid_from": "20261105",
       "valid_to": "20261212",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
@@ -155,7 +155,7 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 215.7
+      "size_mb": 214.7
     },
     {
       "agencies": [
@@ -194,27 +194,27 @@
       "license": "https://proxy.busone.app/sta/readme",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 55.8
+      "size_mb": 57.4
     },
     {
       "agencies": [
-        "SBB",
-        "MAV",
-        "ZSSK",
-        "DB Fernverkehr AG",
-        "PKP Intercity",
-        "HZZP",
-        "DB Fernverkehr (Codesharing)",
-        "ÖBB",
-        "Ceske Drahy",
         "Nederlandse Spoorwegen",
+        "HZZP",
+        "DB Fernverkehr AG",
+        "Ceske Drahy",
+        "ZSSK",
+        "DB Fernverkehr (Codesharing)",
         "BahnTouristikExpress",
+        "ÖBB",
+        "PKP Intercity",
         "Dänische Staatsbahnen",
-        "SNCF"
+        "MAV",
+        "SNCF",
+        "SBB"
       ],
       "agency_count": 13,
-      "valid_from": "20261024",
-      "valid_to": "20261123",
+      "valid_from": "20261031",
+      "valid_to": "20261130",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
         "Kühtai Dortmunderhütte": 0,
@@ -235,11 +235,11 @@
       },
       "central_stops": [
         {
-          "stop_id": "556913",
-          "name": "Innsbruck Hauptbahnhof"
+          "stop_id": "548866",
+          "name": "Innsbruck Hbf"
         },
         {
-          "stop_id": "332983",
+          "stop_id": "328252",
           "name": "Innsbruck Hbf"
         }
       ],
@@ -254,7 +254,7 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": false,
-      "size_mb": 0.4
+      "size_mb": 0.3
     },
     {
       "agencies": [
@@ -334,7 +334,7 @@
       "license": "",
       "covers_innsbruck": false,
       "relevant_name": false,
-      "size_mb": 96.3
+      "size_mb": 96.4
     },
     {
       "agencies": [
