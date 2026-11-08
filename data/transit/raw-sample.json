@@ -2,7 +2,7 @@
  "requestParameters": {},
  "debugOutput": {
   "algorithm": 1,
-  "direct": 6,
+  "direct": 8,
   "execute_time": 27,
   "fares": 0,
   "fastest_direct": 0,
@@ -24,9 +24,9 @@
   "n_start_offsets": 78,
   "n_td_dest_offsets": 0,
   "n_td_start_offsets": 0,
-  "prepare": 8,
-  "prepare_backward_WALK": 0,
-  "prepare_forward_WALK": 8,
+  "prepare": 14,
+  "prepare_backward_WALK": 1,
+  "prepare_forward_WALK": 13,
   "route_update_prevented_by_lower_bound": 0,
   "search_interval_reduction_by_early_termination": 0
  },
@@ -68,7 +68,7 @@
      "to": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -688,7 +688,7 @@
      "from": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -711,7 +711,7 @@
      "to": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -739,7 +739,7 @@
      "tripFrom": {
       "name": "Innsbruck Nordkette",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65353:0:1",
-      "importance": 1.5672621884732507e-05,
+      "importance": 1.54174049384892e-05,
       "lat": 47.28576152,
       "lon": 11.3989562,
       "level": 0.0,
@@ -758,7 +758,7 @@
      "tripTo": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -793,7 +793,7 @@
       {
        "name": "Innsbruck Freibad Tivoli",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:62095:0:2",
-       "importance": 2.7506841433933005e-05,
+       "importance": 2.705006227188278e-05,
        "lat": 47.26132642,
        "lon": 11.40662782,
        "level": 0.0,
@@ -815,7 +815,7 @@
       {
        "name": "Innsbruck Pacherstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61594:0:1",
-       "importance": 2.7495241738506593e-05,
+       "importance": 2.7038460757466964e-05,
        "lat": 47.26019247000001,
        "lon": 11.40966412,
        "level": 0.0,
@@ -837,7 +837,7 @@
       {
        "name": "Innsbruck Tivoli Stadion",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61335:0:1",
-       "importance": 3.874507456202991e-05,
+       "importance": 3.811138230958022e-05,
        "lat": 47.25658316,
        "lon": 11.41240398,
        "level": 0.0,
@@ -861,7 +861,7 @@
       {
        "name": "Innsbruck Kraftwerk Untere Sill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65347:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.249510150000006,
        "lon": 11.405208479999999,
        "level": 0.0,
@@ -883,7 +883,7 @@
       {
        "name": "Innsbruck Gluirschegg",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61650:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.24349735,
        "lon": 11.401462500000001,
        "level": 0.0,
@@ -905,7 +905,7 @@
       {
        "name": "Innsbruck Vill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64247:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23635550000001,
        "lon": 11.402396750000001,
        "level": 0.0,
@@ -927,7 +927,7 @@
       {
        "name": "Innsbruck Igls Altes Rathaus",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64248:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23036561000001,
        "lon": 11.406978159999998,
        "level": 0.0,
@@ -949,7 +949,7 @@
       {
        "name": "Innsbruck Igls Ortsmitte",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65348:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.23082311,
        "lon": 11.409906670000002,
        "level": 0.0,
@@ -971,7 +971,7 @@
       {
        "name": "Innsbruck Igls Alte Talstation",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64249:0:1",
-       "importance": 1.6096048057079315e-05,
+       "importance": 1.5832130884518847e-05,
        "lat": 47.22971901000001,
        "lon": 11.413796370000002,
        "level": 0.0,
@@ -993,7 +993,7 @@
       {
        "name": "Innsbruck Romedihof",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61658:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23681295000001,
        "lon": 11.4172459,
        "level": 0.0,
@@ -1015,7 +1015,7 @@
       {
        "name": "Lans Dorf",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64250:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23834385000001,
        "lon": 11.431026059999999,
        "level": 0.0,
@@ -1037,7 +1037,7 @@
       {
        "name": "Lans Römerstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61985:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.23783762,
        "lon": 11.433190999999999,
        "level": 0.0,
@@ -1059,7 +1059,7 @@
       {
        "name": "Innsbruck Badhaussiedlung",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:68132:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.225198630000015,
        "lon": 11.42949892,
        "level": 0.0,
@@ -1094,7 +1094,7 @@
      "from": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -1325,7 +1325,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:1187:0:25",
       "parentId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_Pat:47:1187",
-      "importance": 0.004107300657778978,
+      "importance": 0.004065941087901592,
       "lat": 47.26260666,
       "lon": 11.40008808,
       "level": 0.0,
@@ -1615,7 +1615,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:1187:0:25",
       "parentId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_Pat:47:1187",
-      "importance": 0.004107300657778978,
+      "importance": 0.004065941087901592,
       "lat": 47.26260666,
       "lon": 11.40008808,
       "level": 0.0,
@@ -1642,7 +1642,7 @@
      "to": {
       "name": "Patsch Grünwalderhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64255:0:1",
-      "importance": 4.402486865728861e-06,
+      "importance": 4.3314321374055e-06,
       "lat": 47.211940320000004,
       "lon": 11.416527250000001,
       "level": 0.0,
@@ -1672,7 +1672,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:1187:0:25",
       "parentId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_Pat:47:1187",
-      "importance": 0.004107300657778978,
+      "importance": 0.004065941087901592,
       "lat": 47.26260666,
       "lon": 11.40008808,
       "level": 0.0,
@@ -1700,7 +1700,7 @@
       "name": "Steinach a. Br. Bahnhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:2264:0:3",
       "parentId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_Pat:47:2264",
-      "importance": 0.0002882628177758306,
+      "importance": 0.00028391979867592454,
       "lat": 47.08889445999999,
       "lon": 11.469698530000002,
       "level": 0.0,
@@ -1739,7 +1739,7 @@
       {
        "name": "Innsbruck Kaiserschützenplatz",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64233:0:1",
-       "importance": 4.450049891602248e-05,
+       "importance": 4.3788502807728946e-05,
        "lat": 47.25755257,
        "lon": 11.39706974,
        "level": 0.0,
@@ -1761,7 +1761,7 @@
       {
        "name": "Innsbruck Olympiaworld",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64234:0:2",
-       "importance": 2.9954600904602557e-05,
+       "importance": 2.9468819775502197e-05,
        "lat": 47.25798544999999,
        "lon": 11.40766986,
        "level": 0.0,
@@ -1783,7 +1783,7 @@
       {
        "name": "Innsbruck Tivoli Stadion",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61335:0:1",
-       "importance": 3.874507456202991e-05,
+       "importance": 3.811138230958022e-05,
        "lat": 47.25658316,
        "lon": 11.41240398,
        "level": 0.0,
@@ -1807,7 +1807,7 @@
       {
        "name": "Innsbruck Vill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64247:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23635550000001,
        "lon": 11.402396750000001,
        "level": 0.0,
@@ -1829,7 +1829,7 @@
       {
        "name": "Innsbruck Igls Altes Rathaus",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64248:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23036561000001,
        "lon": 11.406978159999998,
        "level": 0.0,
@@ -1851,7 +1851,7 @@
       {
        "name": "Innsbruck Gletscherblick",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64253:0:1",
-       "importance": 4.402486865728861e-06,
+       "importance": 4.3314321374055e-06,
        "lat": 47.22582699000001,
        "lon": 11.40952039,
        "level": 0.0,
@@ -1873,7 +1873,7 @@
       {
        "name": "Patsch Goldbichl",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64254:0:1",
-       "importance": 4.402486865728861e-06,
+       "importance": 4.3314321374055e-06,
        "lat": 47.21477774,
        "lon": 11.418260999999998,
        "level": 0.0,
@@ -1908,7 +1908,7 @@
      "from": {
       "name": "Patsch Grünwalderhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64255:0:1",
-      "importance": 4.402486865728861e-06,
+      "importance": 4.3314321374055e-06,
       "lat": 47.211940320000004,
       "lon": 11.416527250000001,
       "level": 0.0,
@@ -1928,7 +1928,7 @@
      "to": {
       "name": "Patsch Grünwalderhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64255:0:2",
-      "importance": 4.402486865728861e-06,
+      "importance": 4.3314321374055e-06,
       "lat": 47.210713770000005,
       "lon": 11.41620386,
       "level": 0.0,
@@ -1980,7 +1980,7 @@
      "from": {
       "name": "Patsch Grünwalderhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64255:0:2",
-      "importance": 4.402486865728861e-06,
+      "importance": 4.3314321374055e-06,
       "lat": 47.210713770000005,
       "lon": 11.41620386,
       "level": 0.0,
@@ -2000,7 +2000,7 @@
      "to": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -2030,7 +2030,7 @@
       "name": "Steinach a. Br. Bahnhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:2264:0:6",
       "parentId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_Pat:47:2264",
-      "importance": 0.0002882628177758306,
+      "importance": 0.00028391979867592454,
       "lat": 47.08915134000001,
       "lon": 11.4696087,
       "level": 0.0,
@@ -2054,7 +2054,7 @@
       "name": "Innsbruck Hauptbahnhof",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:1187:0:25",
       "parentId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_Pat:47:1187",
-      "importance": 0.004107300657778978,
+      "importance": 0.004065941087901592,
       "lat": 47.26260666,
       "lon": 11.40008808,
       "level": 0.0,
@@ -2109,7 +2109,7 @@
      "from": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -2340,7 +2340,7 @@
      "to": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -2960,7 +2960,7 @@
      "from": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -2983,7 +2983,7 @@
      "to": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -3011,7 +3011,7 @@
      "tripFrom": {
       "name": "Innsbruck Nordkette",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65353:0:1",
-      "importance": 1.5672621884732507e-05,
+      "importance": 1.54174049384892e-05,
       "lat": 47.28576152,
       "lon": 11.3989562,
       "level": 0.0,
@@ -3030,7 +3030,7 @@
      "tripTo": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -3065,7 +3065,7 @@
       {
        "name": "Innsbruck Freibad Tivoli",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:62095:0:2",
-       "importance": 2.7506841433933005e-05,
+       "importance": 2.705006227188278e-05,
        "lat": 47.26132642,
        "lon": 11.40662782,
        "level": 0.0,
@@ -3087,7 +3087,7 @@
       {
        "name": "Innsbruck Pacherstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61594:0:1",
-       "importance": 2.7495241738506593e-05,
+       "importance": 2.7038460757466964e-05,
        "lat": 47.26019247000001,
        "lon": 11.40966412,
        "level": 0.0,
@@ -3109,7 +3109,7 @@
       {
        "name": "Innsbruck Tivoli Stadion",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61335:0:1",
-       "importance": 3.874507456202991e-05,
+       "importance": 3.811138230958022e-05,
        "lat": 47.25658316,
        "lon": 11.41240398,
        "level": 0.0,
@@ -3133,7 +3133,7 @@
       {
        "name": "Innsbruck Kraftwerk Untere Sill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65347:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.249510150000006,
        "lon": 11.405208479999999,
        "level": 0.0,
@@ -3155,7 +3155,7 @@
       {
        "name": "Innsbruck Gluirschegg",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61650:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.24349735,
        "lon": 11.401462500000001,
        "level": 0.0,
@@ -3177,7 +3177,7 @@
       {
        "name": "Innsbruck Vill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64247:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23635550000001,
        "lon": 11.402396750000001,
        "level": 0.0,
@@ -3199,7 +3199,7 @@
       {
        "name": "Innsbruck Igls Altes Rathaus",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64248:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23036561000001,
        "lon": 11.406978159999998,
        "level": 0.0,
@@ -3221,7 +3221,7 @@
       {
        "name": "Innsbruck Igls Ortsmitte",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65348:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.23082311,
        "lon": 11.409906670000002,
        "level": 0.0,
@@ -3243,7 +3243,7 @@
       {
        "name": "Innsbruck Igls Alte Talstation",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64249:0:1",
-       "importance": 1.6096048057079315e-05,
+       "importance": 1.5832130884518847e-05,
        "lat": 47.22971901000001,
        "lon": 11.413796370000002,
        "level": 0.0,
@@ -3265,7 +3265,7 @@
       {
        "name": "Innsbruck Romedihof",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61658:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23681295000001,
        "lon": 11.4172459,
        "level": 0.0,
@@ -3287,7 +3287,7 @@
       {
        "name": "Lans Dorf",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64250:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23834385000001,
        "lon": 11.431026059999999,
        "level": 0.0,
@@ -3309,7 +3309,7 @@
       {
        "name": "Lans Römerstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61985:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.23783762,
        "lon": 11.433190999999999,
        "level": 0.0,
@@ -3331,7 +3331,7 @@
       {
        "name": "Innsbruck Badhaussiedlung",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:68132:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.225198630000015,
        "lon": 11.42949892,
        "level": 0.0,
@@ -3366,7 +3366,7 @@
      "from": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -3596,7 +3596,7 @@
      "to": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -4216,7 +4216,7 @@
      "from": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -4239,7 +4239,7 @@
      "to": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -4267,7 +4267,7 @@
      "tripFrom": {
       "name": "Innsbruck Nordkette",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65353:0:1",
-      "importance": 1.5672621884732507e-05,
+      "importance": 1.54174049384892e-05,
       "lat": 47.28576152,
       "lon": 11.3989562,
       "level": 0.0,
@@ -4286,7 +4286,7 @@
      "tripTo": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -4321,7 +4321,7 @@
       {
        "name": "Innsbruck Freibad Tivoli",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:62095:0:2",
-       "importance": 2.7506841433933005e-05,
+       "importance": 2.705006227188278e-05,
        "lat": 47.26132642,
        "lon": 11.40662782,
        "level": 0.0,
@@ -4343,7 +4343,7 @@
       {
        "name": "Innsbruck Pacherstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61594:0:1",
-       "importance": 2.7495241738506593e-05,
+       "importance": 2.7038460757466964e-05,
        "lat": 47.26019247000001,
        "lon": 11.40966412,
        "level": 0.0,
@@ -4365,7 +4365,7 @@
       {
        "name": "Innsbruck Tivoli Stadion",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61335:0:1",
-       "importance": 3.874507456202991e-05,
+       "importance": 3.811138230958022e-05,
        "lat": 47.25658316,
        "lon": 11.41240398,
        "level": 0.0,
@@ -4389,7 +4389,7 @@
       {
        "name": "Innsbruck Kraftwerk Untere Sill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65347:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.249510150000006,
        "lon": 11.405208479999999,
        "level": 0.0,
@@ -4411,7 +4411,7 @@
       {
        "name": "Innsbruck Gluirschegg",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61650:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.24349735,
        "lon": 11.401462500000001,
        "level": 0.0,
@@ -4433,7 +4433,7 @@
       {
        "name": "Innsbruck Vill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64247:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23635550000001,
        "lon": 11.402396750000001,
        "level": 0.0,
@@ -4455,7 +4455,7 @@
       {
        "name": "Innsbruck Igls Altes Rathaus",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64248:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23036561000001,
        "lon": 11.406978159999998,
        "level": 0.0,
@@ -4477,7 +4477,7 @@
       {
        "name": "Innsbruck Igls Ortsmitte",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65348:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.23082311,
        "lon": 11.409906670000002,
        "level": 0.0,
@@ -4499,7 +4499,7 @@
       {
        "name": "Innsbruck Igls Alte Talstation",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64249:0:1",
-       "importance": 1.6096048057079315e-05,
+       "importance": 1.5832130884518847e-05,
        "lat": 47.22971901000001,
        "lon": 11.413796370000002,
        "level": 0.0,
@@ -4521,7 +4521,7 @@
       {
        "name": "Innsbruck Romedihof",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61658:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23681295000001,
        "lon": 11.4172459,
        "level": 0.0,
@@ -4543,7 +4543,7 @@
       {
        "name": "Lans Dorf",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64250:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23834385000001,
        "lon": 11.431026059999999,
        "level": 0.0,
@@ -4565,7 +4565,7 @@
       {
        "name": "Lans Römerstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61985:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.23783762,
        "lon": 11.433190999999999,
        "level": 0.0,
@@ -4587,7 +4587,7 @@
       {
        "name": "Innsbruck Badhaussiedlung",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:68132:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.225198630000015,
        "lon": 11.42949892,
        "level": 0.0,
@@ -4622,7 +4622,7 @@
      "from": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -4852,7 +4852,7 @@
      "to": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -5472,7 +5472,7 @@
      "from": {
       "name": "Innsbruck Sillpark",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61589:0:2",
-      "importance": 0.00012471392983570695,
+      "importance": 0.00012258229253347963,
       "lat": 47.26548405,
       "lon": 11.4030615,
       "level": 0.0,
@@ -5495,7 +5495,7 @@
      "to": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -5523,7 +5523,7 @@
      "tripFrom": {
       "name": "Innsbruck Nordkette",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65353:0:1",
-      "importance": 1.5672621884732507e-05,
+      "importance": 1.54174049384892e-05,
       "lat": 47.28576152,
       "lon": 11.3989562,
       "level": 0.0,
@@ -5542,7 +5542,7 @@
      "tripTo": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
@@ -5577,7 +5577,7 @@
       {
        "name": "Innsbruck Freibad Tivoli",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:62095:0:2",
-       "importance": 2.7506841433933005e-05,
+       "importance": 2.705006227188278e-05,
        "lat": 47.26132642,
        "lon": 11.40662782,
        "level": 0.0,
@@ -5599,7 +5599,7 @@
       {
        "name": "Innsbruck Pacherstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61594:0:1",
-       "importance": 2.7495241738506593e-05,
+       "importance": 2.7038460757466964e-05,
        "lat": 47.26019247000001,
        "lon": 11.40966412,
        "level": 0.0,
@@ -5621,7 +5621,7 @@
       {
        "name": "Innsbruck Tivoli Stadion",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61335:0:1",
-       "importance": 3.874507456202991e-05,
+       "importance": 3.811138230958022e-05,
        "lat": 47.25658316,
        "lon": 11.41240398,
        "level": 0.0,
@@ -5645,7 +5645,7 @@
       {
        "name": "Innsbruck Kraftwerk Untere Sill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65347:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.249510150000006,
        "lon": 11.405208479999999,
        "level": 0.0,
@@ -5667,7 +5667,7 @@
       {
        "name": "Innsbruck Gluirschegg",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61650:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.24349735,
        "lon": 11.401462500000001,
        "level": 0.0,
@@ -5689,7 +5689,7 @@
       {
        "name": "Innsbruck Vill",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64247:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23635550000001,
        "lon": 11.402396750000001,
        "level": 0.0,
@@ -5711,7 +5711,7 @@
       {
        "name": "Innsbruck Igls Altes Rathaus",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64248:0:1",
-       "importance": 2.0557989046210423e-05,
+       "importance": 2.0221566956024617e-05,
        "lat": 47.23036561000001,
        "lon": 11.406978159999998,
        "level": 0.0,
@@ -5733,7 +5733,7 @@
       {
        "name": "Innsbruck Igls Ortsmitte",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:65348:0:1",
-       "importance": 1.615550172573421e-05,
+       "importance": 1.5890134818619117e-05,
        "lat": 47.23082311,
        "lon": 11.409906670000002,
        "level": 0.0,
@@ -5755,7 +5755,7 @@
       {
        "name": "Innsbruck Igls Alte Talstation",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64249:0:1",
-       "importance": 1.6096048057079315e-05,
+       "importance": 1.5832130884518847e-05,
        "lat": 47.22971901000001,
        "lon": 11.413796370000002,
        "level": 0.0,
@@ -5777,7 +5777,7 @@
       {
        "name": "Innsbruck Romedihof",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61658:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23681295000001,
        "lon": 11.4172459,
        "level": 0.0,
@@ -5799,7 +5799,7 @@
       {
        "name": "Lans Dorf",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:64250:0:1",
-       "importance": 1.5107084436749574e-05,
+       "importance": 1.4853318134555593e-05,
        "lat": 47.23834385000001,
        "lon": 11.431026059999999,
        "level": 0.0,
@@ -5821,7 +5821,7 @@
       {
        "name": "Lans Römerstraße",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61985:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.23783762,
        "lon": 11.433190999999999,
        "level": 0.0,
@@ -5843,7 +5843,7 @@
       {
        "name": "Innsbruck Badhaussiedlung",
        "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:68132:0:1",
-       "importance": 2.0906012650812045e-05,
+       "importance": 2.0565239537972957e-05,
        "lat": 47.225198630000015,
        "lon": 11.42949892,
        "level": 0.0,
@@ -5878,7 +5878,7 @@
      "from": {
       "name": "Innsbruck Patscherkofel",
       "stopId": "at-Fahrplandaten-Verkehrsverbund-Tirol-Flex-2026_at:47:61655:0:2",
-      "importance": 2.1749967345385812e-05,
+      "importance": 2.1396144802565686e-05,
       "lat": 47.22220924000001,
       "lon": 11.42578888,
       "level": 0.0,
