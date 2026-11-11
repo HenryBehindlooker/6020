@@ -1,22 +1,22 @@
 {
- "fetched_at": "2026-11-10T21:58:14+00:00",
+ "fetched_at": "2026-11-11T15:34:35+00:00",
  "date_dirs": {
-  "count": 1947,
+  "count": 1948,
   "first": [
    "2021-01-25",
    "2021-01-26"
   ],
   "last": [
-   "2026-11-07",
    "2026-11-08",
    "2026-11-09",
    "2026-11-10",
-   "2026-11-11"
+   "2026-11-11",
+   "2026-11-12"
   ]
  },
- "checked_until_found": 30,
+ "checked_until_found": 21,
  "search_errors": [
-  "2026-06-12: <urlopen error [Errno 111] Connection refused>"
+  "2026-06-22: <urlopen error timed out>"
  ],
  "aktuell": []
 }
