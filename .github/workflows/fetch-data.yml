@@ -2,8 +2,8 @@ name: Echte Daten holen (OSM + Fahrplan)
 
 # Holt Wege, Huetten und Seilbahnen aus OpenStreetMap, Fahrplaene und den
 # Lawinenlagebericht. Laeuft auf GitHub, weil nur dort freies Internet ist, und
-# committet die Ergebnisse nach static/osm/ und data/ zurueck. Auf main wird
-# danach die Pages-Fassung neu gebaut.
+# schreibt die Ergebnisse auf den Zweig "daten" (static/ und data/). Danach
+# wird die Pages-Fassung neu gebaut; die baut den Datenstand von "daten" ein.
 on:
   # Der Lagebericht erscheint um 17 Uhr, Aktualisierungen um 8 Uhr (Wiener
   # Zeit). GitHub startet geplante Laeufe oft Stunden spaeter, besonders zur
@@ -40,6 +40,13 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
+
+      # Die Abholer lesen den bisherigen Stand (etwa den letzten Lagebericht),
+      # also zuerst den aktuellen Datenzweig einbauen.
+      - name: Bisherigen Datenstand holen
+        run: |
+          git fetch -q origin daten
+          git checkout FETCH_HEAD -- data static
 
       - name: OpenStreetMap (Wege, Huetten, Seilbahnen, Gipfel, Haltestellen)
         continue-on-error: true
@@ -90,23 +97,34 @@ jobs:
         timeout-minutes: 8
         run: python scripts/fetch/probe_deep.py
 
-      - name: Ergebnisse committen
+      # Die Ergebnisse gehen auf den Zweig "daten", NICHT auf main. Sonst kaeme
+      # main dreimal taeglich ein Commit dazu, und jeder Pull Request wuerde
+      # gegen einen sich staendig bewegenden Stand laufen ("out of date").
+      - name: Ergebnisse auf den Datenzweig schreiben
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Jeden Pfad einzeln: fehlt einer, soll das nicht die anderen verschlucken.
+          # Nur die Datenpfade einpacken; fehlt einer, soll das die anderen nicht verschlucken.
+          PFADE=""
           for pfad in static/osm static/stationen static/photos data/gtfs data/transit data/probe data/lawine data/wetter; do
-            if [ -e "$pfad" ]; then git add "$pfad"; fi
+            if [ -e "$pfad" ]; then PFADE="$PFADE $pfad"; fi
           done
+          tar -cf "$RUNNER_TEMP/daten.tar" $PFADE
+          git fetch -q origin daten
+          git checkout -q -f -B daten FETCH_HEAD
+          tar -xf "$RUNNER_TEMP/daten.tar"
+          git add $PFADE
           if git diff --cached --quiet; then
             echo "Keine neuen Daten."
           else
-            git commit -m "Daten aktualisiert: Lawine, Fahrplan, OSM ($(date -u "+%Y-%m-%d %H:%M") UTC)"
-            # Der Zweig kann sich waehrend des Laufs bewegt haben - etwa durch
-            # einen zweiten Lauf. Bei Konflikten in den Daten gewinnt der eben
-            # geholte, frischere Stand (beim Rebase ist das "theirs").
-            git pull --rebase -X theirs
-            git push
+            git commit -q -m "Daten aktualisiert: Lawine, Fahrplan, OSM ($(date -u "+%Y-%m-%d %H:%M") UTC)"
+            # Im Zweig kann sich waehrend des Laufs etwas bewegt haben. Bei
+            # Konflikten gewinnt der eben geholte, frischere Stand.
+            for versuch in 1 2 3; do
+              if git push -q origin HEAD:daten; then break; fi
+              git fetch -q origin daten
+              git rebase -q -X theirs FETCH_HEAD || git rebase --abort
+            done
           fi
 
   # Neu bauen, auch wenn der Commit-Schritt scheitert: dann mit dem letzten

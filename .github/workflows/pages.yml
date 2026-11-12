@@ -31,6 +31,12 @@ jobs:
           # nicht den Commit, auf dem der Abholer gestartet ist.
           ref: main
           persist-credentials: false
+      # Der Code kommt von main, die Daten vom Zweig "daten" (dorthin schreibt
+      # der Abholer). So bleibt main frei von den staendigen Datencommits.
+      - name: Datenstand vom Zweig daten einbauen
+        run: |
+          git fetch -q --depth=1 origin daten
+          git checkout FETCH_HEAD -- data static/osm static/stationen static/photos
       - uses: actions/setup-node@v7
         with:
           node-version: 22
