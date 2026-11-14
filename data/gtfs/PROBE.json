@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-07T20:20:21+00:00",
+  "fetched_at": "2026-11-14T20:48:57+00:00",
   "catalog": "https://files.mobilitydatabase.org/feeds_v2.csv",
   "candidates": [
     {
@@ -80,6 +80,7 @@
       "agencies": [
         "allGo (Keolis)",
         "Arriva",
+        "Blauwnet",
         "Bravo",
         "Bravo (Arriva)",
         "Bravo (Hermes)",
@@ -91,26 +92,25 @@
         "GVB",
         "Hermes",
         "HTM",
-        "Arriva",
-        "Blauwnet Arriva",
-        "Blauwnet Keolis",
-        "Deutsche Bahn",
+        "DB",
         "Eurobahn",
-        "Eu Sleeper",
+        "European Sleeper",
         "GoVolta",
         "NMBS",
-        "NS",
-        "NS International",
-        "R-net NS",
-        "R-net Qbuzz",
-        "RRReis Arriva",
-        "RRReis Keolis",
         "VIAS",
         "MeerPlus",
-        "Miljoenenlijn"
+        "Miljoenenlijn",
+        "Electrische Museumtramlijn Amsterdam",
+        "Regego Vervoer",
+        "RVO Busvervoer",
+        "De Opstap",
+        "NS",
+        "NS International",
+        "Qbuzz",
+        "RET"
       ],
-      "agency_count": 44,
-      "valid_from": "20261105",
+      "agency_count": 39,
+      "valid_from": "20261114",
       "valid_to": "20261212",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
@@ -155,7 +155,7 @@
       "license": "",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 214.7
+      "size_mb": 172.6
     },
     {
       "agencies": [
@@ -194,27 +194,27 @@
       "license": "https://proxy.busone.app/sta/readme",
       "covers_innsbruck": true,
       "relevant_name": true,
-      "size_mb": 57.4
+      "size_mb": 57.6
     },
     {
       "agencies": [
-        "Nederlandse Spoorwegen",
-        "HZZP",
-        "DB Fernverkehr AG",
-        "Ceske Drahy",
-        "ZSSK",
-        "DB Fernverkehr (Codesharing)",
-        "BahnTouristikExpress",
+        "SBB",
         "ÖBB",
-        "PKP Intercity",
+        "ZSSK",
+        "DB Fernverkehr AG",
         "Dänische Staatsbahnen",
-        "MAV",
         "SNCF",
-        "SBB"
+        "Nederlandse Spoorwegen",
+        "BahnTouristikExpress",
+        "HZZP",
+        "Ceske Drahy",
+        "MAV",
+        "DB Fernverkehr (Codesharing)",
+        "PKP Intercity"
       ],
       "agency_count": 13,
-      "valid_from": "20261031",
-      "valid_to": "20261130",
+      "valid_from": "20261107",
+      "valid_to": "20261207",
       "trailheads_found": {
         "Praxmar Wendestelle": 0,
         "Kühtai Dortmunderhütte": 0,
@@ -235,11 +235,11 @@
       },
       "central_stops": [
         {
-          "stop_id": "548866",
+          "stop_id": "349309",
           "name": "Innsbruck Hbf"
         },
         {
-          "stop_id": "328252",
+          "stop_id": "584699",
           "name": "Innsbruck Hbf"
         }
       ],
@@ -298,8 +298,8 @@
     },
     {
       "agencies": [
-        "Wiener Lokalbahnen GmbH",
-        "Wiener Linien GmbH & Co KG"
+        "Wiener Linien GmbH & Co KG",
+        "Wiener Lokalbahnen GmbH"
       ],
       "agency_count": 2,
       "valid_from": "20251214",
@@ -334,7 +334,7 @@
       "license": "",
       "covers_innsbruck": false,
       "relevant_name": false,
-      "size_mb": 96.4
+      "size_mb": 98.4
     },
     {
       "agencies": [
