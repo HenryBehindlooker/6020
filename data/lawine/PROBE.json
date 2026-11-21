@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-21T15:34:41+00:00",
+ "fetched_at": "2026-11-21T21:50:51+00:00",
  "date_dirs": {
   "count": 1958,
   "first": [
@@ -14,7 +14,9 @@
    "2026-11-22"
   ]
  },
- "checked_until_found": 80,
- "search_errors": [],
+ "checked_until_found": 28,
+ "search_errors": [
+  "2026-06-25: <urlopen error timed out>"
+ ],
  "aktuell": []
 }
