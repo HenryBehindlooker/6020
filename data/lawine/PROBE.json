@@ -1,22 +1,20 @@
 {
- "fetched_at": "2026-11-20T22:49:29+00:00",
+ "fetched_at": "2026-11-21T15:34:41+00:00",
  "date_dirs": {
-  "count": 1957,
+  "count": 1958,
   "first": [
    "2021-01-25",
    "2021-01-26"
   ],
   "last": [
-   "2026-11-17",
    "2026-11-18",
    "2026-11-19",
    "2026-11-20",
-   "2026-11-21"
+   "2026-11-21",
+   "2026-11-22"
   ]
  },
- "checked_until_found": 35,
- "search_errors": [
-  "2026-06-17: <urlopen error timed out>"
- ],
+ "checked_until_found": 80,
+ "search_errors": [],
  "aktuell": []
 }

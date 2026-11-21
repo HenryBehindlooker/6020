@@ -1,20 +1,764 @@
 {
- "fetched_at": "2026-11-20T22:42:49+00:00",
+ "fetched_at": "2026-11-21T15:28:01+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
  "days": {
   "samstag": {
-   "date": "2026-11-21",
+   "date": "2026-11-28",
    "trailheads": {
     "Praxmar Wendestelle": {
-     "outbound": [],
-     "inbound": [],
+     "outbound": [
+      {
+       "departure": "06:07",
+       "arrival": "09:00",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Gries i. S. Juifenau",
+         "departure": "06:10",
+         "arrival": "06:54",
+         "headsign": "Gries i. S. Juifenau"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Juifenau",
+         "to": "Praxmar Wendestelle",
+         "departure": "08:50",
+         "arrival": "08:59",
+         "headsign": "Kühtai via Praxmar"
+        }
+       ]
+      },
+      {
+       "departure": "06:32",
+       "arrival": "09:00",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Gries i. S. Kirche",
+         "departure": "06:35",
+         "arrival": "07:16",
+         "headsign": "Gries i. S. Kirche"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Praxmar Wendestelle",
+         "departure": "08:45",
+         "arrival": "08:59",
+         "headsign": "Kühtai via Praxmar"
+        }
+       ]
+      },
+      {
+       "departure": "10:57",
+       "arrival": "13:05",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "St. Sigmund i. S. Neu Peida",
+         "departure": "11:00",
+         "arrival": "11:52",
+         "headsign": "Kühtai Dortmunder Hütte"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "St. Sigmund i. S. Neu Peida",
+         "to": "Praxmar Wendestelle",
+         "departure": "12:40",
+         "arrival": "13:04",
+         "headsign": "Gries i. S. Kirche"
+        }
+       ]
+      },
+      {
+       "departure": "11:57",
+       "arrival": "13:05",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Gries i. S. Kirche",
+         "departure": "12:00",
+         "arrival": "12:45",
+         "headsign": "Kühtai Dortmunder Hütte"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Praxmar Wendestelle",
+         "departure": "12:50",
+         "arrival": "13:04",
+         "headsign": "Gries i. S. Kirche"
+        }
+       ]
+      },
+      {
+       "departure": "13:12",
+       "arrival": "14:55",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Gries i. S. Kirche",
+         "departure": "13:15",
+         "arrival": "14:00",
+         "headsign": "Kühtai Dortmunder Hütte"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Praxmar Wendestelle",
+         "departure": "14:40",
+         "arrival": "14:54",
+         "headsign": "Kühtai via Praxmar"
+        }
+       ]
+      },
+      {
+       "departure": "13:19",
+       "arrival": "14:55",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3320",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Völs Bahnhof",
+         "departure": "13:22",
+         "arrival": "13:29",
+         "headsign": "Landeck-Zams Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Völs Bahnhof/Bahnhofstraße",
+         "to": "Gries i. S. Kirche",
+         "departure": "13:34",
+         "arrival": "14:00",
+         "headsign": "Kühtai Dortmunder Hütte"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Praxmar Wendestelle",
+         "departure": "14:40",
+         "arrival": "14:54",
+         "headsign": "Kühtai via Praxmar"
+        }
+       ]
+      },
+      {
+       "departure": "14:27",
+       "arrival": "17:02",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Gries i. S. Kirche",
+         "departure": "14:30",
+         "arrival": "15:15",
+         "headsign": "Kühtai Dortmunder Hütte"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Praxmar Wendestelle",
+         "departure": "16:47",
+         "arrival": "17:01",
+         "headsign": "Praxmar Wendestelle"
+        }
+       ]
+      },
+      {
+       "departure": "22:12",
+       "arrival": "09:00",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Gries i. S. Kirche",
+         "departure": "22:15",
+         "arrival": "23:00",
+         "headsign": "St. Sigmund i. S. Neu Peida"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Praxmar Wendestelle",
+         "departure": "08:45",
+         "arrival": "08:59",
+         "headsign": "Kühtai via Praxmar"
+        }
+       ]
+      }
+     ],
+     "inbound": [
+      {
+       "departure": "08:59",
+       "arrival": "10:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Praxmar Wendestelle",
+         "to": "Gries i. S. Kirche",
+         "departure": "09:00",
+         "arrival": "09:12",
+         "headsign": "Kühtai Dortmunder Hütte"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:05",
+         "arrival": "10:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:09",
+       "arrival": "14:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Praxmar Wendestelle",
+         "to": "Gries i. S. Kirche",
+         "departure": "13:10",
+         "arrival": "13:22",
+         "headsign": "Gries i. S. Kirche"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Völs Bahnhof/Bahnhofstraße",
+         "departure": "13:30",
+         "arrival": "13:56",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3371",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Völs Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:58",
+         "arrival": "14:06",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:09",
+       "arrival": "14:17",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Praxmar Wendestelle",
+         "to": "Gries i. S. Kirche",
+         "departure": "13:10",
+         "arrival": "13:22",
+         "headsign": "Gries i. S. Kirche"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:30",
+         "arrival": "14:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:59",
+       "arrival": "16:27",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Praxmar Wendestelle",
+         "to": "Gries i. S. Kirche",
+         "departure": "15:00",
+         "arrival": "15:12",
+         "headsign": "Kühtai Dortmunder Hütte"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Gries i. S. Kirche",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:40",
+         "arrival": "16:24",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      }
+     ],
      "errors": []
     },
     "Kühtai Dortmunderhütte": {
-     "outbound": [],
-     "inbound": [],
+     "outbound": [
+      {
+       "departure": "07:57",
+       "arrival": "09:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "08:00",
+         "arrival": "09:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "08:57",
+       "arrival": "10:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "09:00",
+         "arrival": "10:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "09:57",
+       "arrival": "11:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "10:00",
+         "arrival": "11:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "10:57",
+       "arrival": "12:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "11:00",
+         "arrival": "12:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "11:57",
+       "arrival": "13:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "12:00",
+         "arrival": "13:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "13:12",
+       "arrival": "14:21",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "13:15",
+         "arrival": "14:20",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "13:19",
+       "arrival": "14:21",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3320",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Völs Bahnhof",
+         "departure": "13:22",
+         "arrival": "13:29",
+         "headsign": "Landeck-Zams Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Völs Bahnhof/Bahnhofstraße",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "13:34",
+         "arrival": "14:20",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "16:02",
+       "arrival": "17:08",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "16:05",
+         "arrival": "17:07",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      }
+     ],
+     "inbound": [
+      {
+       "departure": "09:39",
+       "arrival": "10:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "09:40",
+         "arrival": "10:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "10:39",
+       "arrival": "11:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:40",
+         "arrival": "11:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "11:39",
+       "arrival": "12:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "11:40",
+         "arrival": "12:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:04",
+       "arrival": "14:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Völs Bahnhof/Bahnhofstraße",
+         "departure": "13:05",
+         "arrival": "13:56",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3371",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Völs Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:58",
+         "arrival": "14:06",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:04",
+       "arrival": "14:17",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:05",
+         "arrival": "14:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:59",
+       "arrival": "15:02",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Völs Bahnhof/Bahnhofstraße",
+         "departure": "14:00",
+         "arrival": "14:51",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "SUBURBAN",
+         "line": "S4",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Völs Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:53",
+         "arrival": "15:01",
+         "headsign": "Jenbach Bahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:59",
+       "arrival": "15:12",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:00",
+         "arrival": "15:09",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:14",
+       "arrival": "16:27",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:15",
+         "arrival": "16:24",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:14",
+       "arrival": "17:27",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:15",
+         "arrival": "17:24",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "17:14",
+       "arrival": "18:27",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:15",
+         "arrival": "18:24",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      }
+     ],
      "errors": []
     },
     "Oberperfuss Rangger Köpfl Lift": {
@@ -1600,8 +2344,305 @@
      "errors": []
     },
     "Axams Axamer Lizum": {
-     "outbound": [],
-     "inbound": [],
+     "outbound": [
+      {
+       "departure": "07:35",
+       "arrival": "08:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "07:39",
+         "arrival": "08:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:05",
+       "arrival": "08:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:09",
+         "arrival": "08:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:35",
+       "arrival": "09:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:39",
+         "arrival": "09:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:05",
+       "arrival": "09:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:09",
+         "arrival": "09:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:35",
+       "arrival": "10:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:39",
+         "arrival": "10:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:05",
+       "arrival": "10:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:09",
+         "arrival": "10:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:35",
+       "arrival": "11:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:39",
+         "arrival": "11:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "11:05",
+       "arrival": "11:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "11:09",
+         "arrival": "11:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      }
+     ],
+     "inbound": [
+      {
+       "departure": "12:08",
+       "arrival": "12:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Justizanstalt",
+         "departure": "12:09",
+         "arrival": "12:35",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Justizanstalt",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:37",
+         "arrival": "12:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:08",
+       "arrival": "12:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:09",
+         "arrival": "12:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:08",
+       "arrival": "13:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:09",
+         "arrival": "13:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:08",
+       "arrival": "14:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:09",
+         "arrival": "14:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:08",
+       "arrival": "15:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:09",
+         "arrival": "15:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:08",
+       "arrival": "16:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:09",
+         "arrival": "16:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "17:19",
+       "arrival": "18:05",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:20",
+         "arrival": "18:01",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      }
+     ],
      "errors": []
     },
     "Patscherkofel": {
@@ -13064,8 +14105,276 @@
      "errors": []
     },
     "Axams Axamer Lizum": {
-     "outbound": [],
-     "inbound": [],
+     "outbound": [
+      {
+       "departure": "07:35",
+       "arrival": "08:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "07:39",
+         "arrival": "08:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:05",
+       "arrival": "08:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:09",
+         "arrival": "08:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:35",
+       "arrival": "09:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:39",
+         "arrival": "09:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:05",
+       "arrival": "09:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:09",
+         "arrival": "09:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:35",
+       "arrival": "10:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:39",
+         "arrival": "10:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:05",
+       "arrival": "10:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:09",
+         "arrival": "10:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:35",
+       "arrival": "11:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:39",
+         "arrival": "11:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "11:05",
+       "arrival": "11:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "11:09",
+         "arrival": "11:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      }
+     ],
+     "inbound": [
+      {
+       "departure": "12:08",
+       "arrival": "12:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:09",
+         "arrival": "12:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:08",
+       "arrival": "13:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:09",
+         "arrival": "13:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:08",
+       "arrival": "14:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:09",
+         "arrival": "14:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:08",
+       "arrival": "15:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:09",
+         "arrival": "15:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:08",
+       "arrival": "16:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:09",
+         "arrival": "16:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "17:19",
+       "arrival": "18:05",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:20",
+         "arrival": "18:01",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      }
+     ],
      "errors": []
     },
     "Patscherkofel": {
@@ -24175,8 +25484,229 @@
      "errors": []
     },
     "Axams Axamer Lizum": {
-     "outbound": [],
-     "inbound": [],
+     "outbound": [
+      {
+       "departure": "07:35",
+       "arrival": "08:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "07:39",
+         "arrival": "08:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:05",
+       "arrival": "08:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:09",
+         "arrival": "08:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:35",
+       "arrival": "09:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:39",
+         "arrival": "09:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:35",
+       "arrival": "10:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:39",
+         "arrival": "10:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:35",
+       "arrival": "11:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:39",
+         "arrival": "11:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      }
+     ],
+     "inbound": [
+      {
+       "departure": "12:08",
+       "arrival": "12:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Justizanstalt",
+         "departure": "12:09",
+         "arrival": "12:35",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Justizanstalt",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:37",
+         "arrival": "12:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:08",
+       "arrival": "12:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:09",
+         "arrival": "12:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:08",
+       "arrival": "13:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:09",
+         "arrival": "13:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:08",
+       "arrival": "14:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:09",
+         "arrival": "14:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:08",
+       "arrival": "15:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:09",
+         "arrival": "15:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:08",
+       "arrival": "16:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:09",
+         "arrival": "16:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      }
+     ],
      "errors": []
     },
     "Patscherkofel": {
@@ -38786,6 +40316,35 @@
        ]
       },
       {
+       "departure": "12:15",
+       "arrival": "13:48",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "HIGHSPEED_RAIL",
+         "line": "RJX 19950",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Ötztal-Bahnhof",
+         "departure": "12:16",
+         "arrival": "12:39",
+         "headsign": "Feldkirch Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Ötztal-Bahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "13:00",
+         "arrival": "13:47",
+         "headsign": "Kühtai Hochalterbahn"
+        }
+       ]
+      },
+      {
        "departure": "13:12",
        "arrival": "14:21",
        "walk_to_stop_min": 3,
@@ -38834,6 +40393,45 @@
        ]
       },
       {
+       "departure": "14:19",
+       "arrival": "16:02",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3322",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Ötztal-Bahnhof",
+         "departure": "14:22",
+         "arrival": "14:59",
+         "headsign": "Landeck-Zams Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "320",
+         "agency": "Ötztaler Verkehrsgesellschaft mbH",
+         "from": "Ötztal-Bahnhof",
+         "to": "Oetz Gemeindeamt",
+         "departure": "15:05",
+         "arrival": "15:19",
+         "headsign": "Obergurgl Zentrum"
+        },
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Oetz Abzw Kühtai",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "15:31",
+         "arrival": "16:01",
+         "headsign": "Kühtai Hochalterbahn"
+        }
+       ]
+      },
+      {
        "departure": "16:02",
        "arrival": "17:08",
        "walk_to_stop_min": 3,
@@ -38869,6 +40467,45 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "09:40",
          "arrival": "10:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "09:49",
+       "arrival": "11:39",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Oetz Gemeindeamt",
+         "departure": "09:50",
+         "arrival": "10:20",
+         "headsign": "Oetz Gemeindeamt"
+        },
+        {
+         "mode": "BUS",
+         "line": "320",
+         "agency": "Ötztaler Verkehrsgesellschaft mbH",
+         "from": "Oetz Acherkogelbahn",
+         "to": "Ötztal-Bahnhof",
+         "departure": "10:31",
+         "arrival": "10:46",
+         "headsign": "Ötztal-Bahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3315",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:59",
+         "arrival": "11:36",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -39041,6 +40678,64 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:15",
          "arrival": "17:24",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:18",
+       "arrival": "17:44",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Ötztal-Bahnhof",
+         "departure": "16:19",
+         "arrival": "17:03",
+         "headsign": "Silz Abzw Bahnhof"
+        },
+        {
+         "mode": "HIGHSPEED_RAIL",
+         "line": "RJX 169",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:20",
+         "arrival": "17:43",
+         "headsign": "Wien Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:38",
+       "arrival": "18:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Ötztal-Bahnhof",
+         "departure": "16:39",
+         "arrival": "17:23",
+         "headsign": "Ötztal-Bahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3379",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:29",
+         "arrival": "18:06",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -40650,8 +42345,740 @@
      "errors": []
     },
     "Axams Axamer Lizum": {
-     "outbound": [],
-     "inbound": [],
+     "outbound": [
+      {
+       "departure": "07:35",
+       "arrival": "08:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "07:39",
+         "arrival": "08:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:05",
+       "arrival": "08:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:09",
+         "arrival": "08:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:35",
+       "arrival": "09:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:39",
+         "arrival": "09:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:05",
+       "arrival": "09:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:09",
+         "arrival": "09:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:35",
+       "arrival": "10:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:39",
+         "arrival": "10:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:57",
+       "arrival": "10:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "10:01",
+         "arrival": "10:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "10:32",
+         "arrival": "10:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:05",
+       "arrival": "10:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:09",
+         "arrival": "10:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:35",
+       "arrival": "11:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:39",
+         "arrival": "11:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:57",
+       "arrival": "11:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "11:01",
+         "arrival": "11:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "11:32",
+         "arrival": "11:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "11:05",
+       "arrival": "11:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "11:09",
+         "arrival": "11:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "11:57",
+       "arrival": "12:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "12:01",
+         "arrival": "12:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "12:32",
+         "arrival": "12:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "12:57",
+       "arrival": "13:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "13:01",
+         "arrival": "13:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "13:32",
+         "arrival": "13:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "13:57",
+       "arrival": "14:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "14:01",
+         "arrival": "14:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "14:32",
+         "arrival": "14:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "14:57",
+       "arrival": "15:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "15:01",
+         "arrival": "15:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "15:32",
+         "arrival": "15:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "15:57",
+       "arrival": "16:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "16:01",
+         "arrival": "16:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "16:32",
+         "arrival": "16:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      }
+     ],
+     "inbound": [
+      {
+       "departure": "09:23",
+       "arrival": "10:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "09:24",
+         "arrival": "09:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "09:39",
+         "arrival": "10:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "10:23",
+       "arrival": "11:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "10:24",
+         "arrival": "10:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:39",
+         "arrival": "11:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "11:23",
+       "arrival": "12:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "11:24",
+         "arrival": "11:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "11:39",
+         "arrival": "12:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:08",
+       "arrival": "12:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Justizanstalt",
+         "departure": "12:09",
+         "arrival": "12:35",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Justizanstalt",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:37",
+         "arrival": "12:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:08",
+       "arrival": "12:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:09",
+         "arrival": "12:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:23",
+       "arrival": "13:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "12:24",
+         "arrival": "12:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:39",
+         "arrival": "13:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:08",
+       "arrival": "13:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:09",
+         "arrival": "13:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:23",
+       "arrival": "14:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "13:24",
+         "arrival": "13:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:39",
+         "arrival": "14:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:08",
+       "arrival": "14:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:09",
+         "arrival": "14:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:23",
+       "arrival": "15:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "14:24",
+         "arrival": "14:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:39",
+         "arrival": "15:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:08",
+       "arrival": "15:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:09",
+         "arrival": "15:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:23",
+       "arrival": "16:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "15:24",
+         "arrival": "15:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:39",
+         "arrival": "16:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:08",
+       "arrival": "16:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:09",
+         "arrival": "16:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:23",
+       "arrival": "17:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "16:24",
+         "arrival": "16:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:39",
+         "arrival": "17:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "17:19",
+       "arrival": "18:05",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:20",
+         "arrival": "18:01",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      }
+     ],
      "errors": []
     },
     "Patscherkofel": {
@@ -51009,21 +53436,31 @@
        ]
       },
       {
-       "departure": "11:57",
-       "arrival": "13:11",
-       "walk_to_stop_min": 3,
+       "departure": "12:15",
+       "arrival": "13:48",
+       "walk_to_stop_min": 1,
        "walk_from_stop_min": 1,
-       "transfers": 0,
+       "transfers": 1,
        "legs": [
         {
-         "mode": "BUS",
-         "line": "420",
-         "agency": "Österreichische Postbus AG",
+         "mode": "HIGHSPEED_RAIL",
+         "line": "RJX 160",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
          "from": "Innsbruck Hauptbahnhof",
+         "to": "Ötztal-Bahnhof",
+         "departure": "12:16",
+         "arrival": "12:39",
+         "headsign": "Sargans Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Ötztal-Bahnhof",
          "to": "Kühtai Dortmunder Hütte",
-         "departure": "12:00",
-         "arrival": "13:10",
-         "headsign": "Kühtai Dortmunder Hütte"
+         "departure": "13:00",
+         "arrival": "13:47",
+         "headsign": "Kühtai Hochalterbahn"
         }
        ]
       },
@@ -51076,6 +53513,45 @@
        ]
       },
       {
+       "departure": "14:19",
+       "arrival": "16:02",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3322",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Ötztal-Bahnhof",
+         "departure": "14:22",
+         "arrival": "14:59",
+         "headsign": "Landeck-Zams Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "320",
+         "agency": "Ötztaler Verkehrsgesellschaft mbH",
+         "from": "Ötztal-Bahnhof",
+         "to": "Oetz Gemeindeamt",
+         "departure": "15:05",
+         "arrival": "15:19",
+         "headsign": "Obergurgl Zentrum"
+        },
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Oetz Abzw Kühtai",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "15:31",
+         "arrival": "16:01",
+         "headsign": "Kühtai Hochalterbahn"
+        }
+       ]
+      },
+      {
        "departure": "16:02",
        "arrival": "17:08",
        "walk_to_stop_min": 3,
@@ -51111,6 +53587,45 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "09:40",
          "arrival": "10:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "09:49",
+       "arrival": "11:39",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Oetz Gemeindeamt",
+         "departure": "09:50",
+         "arrival": "10:20",
+         "headsign": "Oetz Gemeindeamt"
+        },
+        {
+         "mode": "BUS",
+         "line": "320",
+         "agency": "Ötztaler Verkehrsgesellschaft mbH",
+         "from": "Oetz Acherkogelbahn",
+         "to": "Ötztal-Bahnhof",
+         "departure": "10:31",
+         "arrival": "10:46",
+         "headsign": "Ötztal-Bahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3315",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:59",
+         "arrival": "11:36",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -51283,6 +53798,64 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:15",
          "arrival": "17:24",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:18",
+       "arrival": "17:44",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Ötztal-Bahnhof",
+         "departure": "16:19",
+         "arrival": "17:03",
+         "headsign": "Silz Abzw Bahnhof"
+        },
+        {
+         "mode": "HIGHSPEED_RAIL",
+         "line": "RJX 169",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:20",
+         "arrival": "17:43",
+         "headsign": "Wien Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:38",
+       "arrival": "18:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Ötztal-Bahnhof",
+         "departure": "16:39",
+         "arrival": "17:23",
+         "headsign": "Ötztal-Bahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3379",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:29",
+         "arrival": "18:06",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -52306,8 +54879,837 @@
      "errors": []
     },
     "Axams Axamer Lizum": {
-     "outbound": [],
-     "inbound": [],
+     "outbound": [
+      {
+       "departure": "07:35",
+       "arrival": "08:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "07:39",
+         "arrival": "08:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:05",
+       "arrival": "08:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:09",
+         "arrival": "08:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "08:35",
+       "arrival": "09:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "08:39",
+         "arrival": "09:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:05",
+       "arrival": "09:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:09",
+         "arrival": "09:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:35",
+       "arrival": "10:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "09:39",
+         "arrival": "10:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:57",
+       "arrival": "10:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "10:01",
+         "arrival": "10:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "10:32",
+         "arrival": "10:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:05",
+       "arrival": "10:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:09",
+         "arrival": "10:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:35",
+       "arrival": "11:21",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "10:39",
+         "arrival": "11:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "10:57",
+       "arrival": "11:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "11:01",
+         "arrival": "11:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "11:32",
+         "arrival": "11:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "11:05",
+       "arrival": "11:51",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axamer Lizum",
+         "departure": "11:09",
+         "arrival": "11:50",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "11:57",
+       "arrival": "12:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "12:01",
+         "arrival": "12:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "12:32",
+         "arrival": "12:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "12:57",
+       "arrival": "13:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "13:01",
+         "arrival": "13:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "13:32",
+         "arrival": "13:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "13:57",
+       "arrival": "14:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "14:01",
+         "arrival": "14:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "14:32",
+         "arrival": "14:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "14:57",
+       "arrival": "15:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "15:01",
+         "arrival": "15:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "15:32",
+         "arrival": "15:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "15:57",
+       "arrival": "16:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "16:01",
+         "arrival": "16:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "16:32",
+         "arrival": "16:49",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      }
+     ],
+     "inbound": [
+      {
+       "departure": "09:23",
+       "arrival": "10:18",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "09:24",
+         "arrival": "09:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "09:46",
+         "arrival": "10:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "10:23",
+       "arrival": "11:18",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "10:24",
+         "arrival": "10:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:46",
+         "arrival": "11:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "11:23",
+       "arrival": "12:18",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "11:24",
+         "arrival": "11:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "11:46",
+         "arrival": "12:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:08",
+       "arrival": "12:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Justizanstalt",
+         "departure": "12:09",
+         "arrival": "12:35",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Justizanstalt",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:37",
+         "arrival": "12:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:08",
+       "arrival": "12:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:09",
+         "arrival": "12:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:23",
+       "arrival": "13:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "12:24",
+         "arrival": "12:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:39",
+         "arrival": "13:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "12:23",
+       "arrival": "13:21",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "12:24",
+         "arrival": "12:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:49",
+         "arrival": "13:17",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:08",
+       "arrival": "13:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:09",
+         "arrival": "13:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:23",
+       "arrival": "14:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "13:24",
+         "arrival": "13:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:39",
+         "arrival": "14:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:23",
+       "arrival": "14:17",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "13:24",
+         "arrival": "13:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Finanzamt",
+         "departure": "13:46",
+         "arrival": "14:07",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Finanzamt",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:09",
+         "arrival": "14:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "13:23",
+       "arrival": "14:18",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "13:24",
+         "arrival": "13:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "13:46",
+         "arrival": "14:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:08",
+       "arrival": "14:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:09",
+         "arrival": "14:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "14:23",
+       "arrival": "15:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "14:24",
+         "arrival": "14:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "14:39",
+         "arrival": "15:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:08",
+       "arrival": "15:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:09",
+         "arrival": "15:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "15:23",
+       "arrival": "16:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "15:24",
+         "arrival": "15:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "15:39",
+         "arrival": "16:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:08",
+       "arrival": "16:54",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:09",
+         "arrival": "16:50",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:23",
+       "arrival": "17:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "413",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "16:24",
+         "arrival": "16:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "16:39",
+         "arrival": "17:05",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "17:19",
+       "arrival": "18:05",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:20",
+         "arrival": "18:01",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      }
+     ],
      "errors": []
     },
     "Patscherkofel": {
