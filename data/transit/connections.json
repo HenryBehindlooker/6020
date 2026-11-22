@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-21T21:44:10+00:00",
+ "fetched_at": "2026-11-22T15:28:48+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -12515,39 +12515,10 @@
    }
   },
   "sonntag": {
-   "date": "2026-11-22",
+   "date": "2026-11-29",
    "trailheads": {
     "Praxmar Wendestelle": {
      "outbound": [
-      {
-       "departure": "06:07",
-       "arrival": "09:00",
-       "walk_to_stop_min": 3,
-       "walk_from_stop_min": 1,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "420",
-         "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Gries i. S. Juifenau",
-         "departure": "06:10",
-         "arrival": "06:54",
-         "headsign": "Gries i. S. Juifenau"
-        },
-        {
-         "mode": "BUS",
-         "line": "420",
-         "agency": "Österreichische Postbus AG",
-         "from": "Gries i. S. Juifenau",
-         "to": "Praxmar Wendestelle",
-         "departure": "08:50",
-         "arrival": "08:59",
-         "headsign": "Kühtai via Praxmar"
-        }
-       ]
-      },
       {
        "departure": "06:32",
        "arrival": "09:00",
@@ -12660,7 +12631,7 @@
          "to": "Praxmar Wendestelle",
          "departure": "14:40",
          "arrival": "14:54",
-         "headsign": "Praxmar Wendestelle"
+         "headsign": "Kühtai via Praxmar"
         }
        ]
       },
@@ -12699,7 +12670,7 @@
          "to": "Praxmar Wendestelle",
          "departure": "14:40",
          "arrival": "14:54",
-         "headsign": "Praxmar Wendestelle"
+         "headsign": "Kühtai via Praxmar"
         }
        ]
       },
@@ -12733,20 +12704,30 @@
        ]
       },
       {
-       "departure": "22:12",
-       "arrival": "09:00",
-       "walk_to_stop_min": 3,
+       "departure": "15:27",
+       "arrival": "17:02",
+       "walk_to_stop_min": 2,
        "walk_from_stop_min": 1,
-       "transfers": 1,
+       "transfers": 2,
        "legs": [
+        {
+         "mode": "SUBURBAN",
+         "line": "S4",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kematen i. T. Bahnhof",
+         "departure": "15:29",
+         "arrival": "15:39",
+         "headsign": "Telfs-Pfaffenhofen Bahnhof"
+        },
         {
          "mode": "BUS",
          "line": "420",
          "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Hauptbahnhof",
+         "from": "Kematen i. T. Bahnhof",
          "to": "Gries i. S. Kirche",
-         "departure": "22:15",
-         "arrival": "23:00",
+         "departure": "16:10",
+         "arrival": "16:30",
          "headsign": "St. Sigmund i. S. Neu Peida"
         },
         {
@@ -12755,9 +12736,9 @@
          "agency": "Österreichische Postbus AG",
          "from": "Gries i. S. Kirche",
          "to": "Praxmar Wendestelle",
-         "departure": "08:45",
-         "arrival": "08:59",
-         "headsign": "Kühtai via Praxmar"
+         "departure": "16:47",
+         "arrival": "17:01",
+         "headsign": "Praxmar Wendestelle"
         }
        ]
       }
@@ -12875,7 +12856,7 @@
          "to": "Gries i. S. Kirche",
          "departure": "15:00",
          "arrival": "15:12",
-         "headsign": "Gries i. S. Kirche"
+         "headsign": "Kühtai Dortmunder Hütte"
         },
         {
          "mode": "BUS",
@@ -12893,7 +12874,189 @@
      "errors": []
     },
     "Kühtai Dortmunderhütte": {
-     "outbound": [],
+     "outbound": [
+      {
+       "departure": "07:57",
+       "arrival": "09:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "08:00",
+         "arrival": "09:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "08:57",
+       "arrival": "10:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "09:00",
+         "arrival": "10:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "09:57",
+       "arrival": "11:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "10:00",
+         "arrival": "11:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "10:57",
+       "arrival": "12:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "11:00",
+         "arrival": "12:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "11:57",
+       "arrival": "13:06",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "12:00",
+         "arrival": "13:05",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "11:57",
+       "arrival": "13:11",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "12:00",
+         "arrival": "13:10",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "13:12",
+       "arrival": "14:21",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "13:15",
+         "arrival": "14:20",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "13:19",
+       "arrival": "14:21",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3320",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Völs Bahnhof",
+         "departure": "13:22",
+         "arrival": "13:29",
+         "headsign": "Landeck-Zams Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Völs Bahnhof/Bahnhofstraße",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "13:34",
+         "arrival": "14:20",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      },
+      {
+       "departure": "16:02",
+       "arrival": "17:08",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 0,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "16:05",
+         "arrival": "17:07",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
+      }
+     ],
      "inbound": [
       {
        "departure": "09:39",
@@ -14260,6 +14423,35 @@
       }
      ],
      "inbound": [
+      {
+       "departure": "12:08",
+       "arrival": "12:52",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "412",
+         "agency": "Reisebüro Breuss",
+         "from": "Axamer Lizum",
+         "to": "Innsbruck Justizanstalt",
+         "departure": "12:09",
+         "arrival": "12:35",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Justizanstalt",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "12:37",
+         "arrival": "12:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
       {
        "departure": "12:08",
        "arrival": "12:54",
