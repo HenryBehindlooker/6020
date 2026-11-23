@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-22T21:54:59+00:00",
+ "fetched_at": "2026-11-23T19:21:48+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -2354,8 +2354,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "07:39",
@@ -2373,8 +2373,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:09",
@@ -2392,8 +2392,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:39",
@@ -2411,8 +2411,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:09",
@@ -2430,8 +2430,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:39",
@@ -2449,8 +2449,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:09",
@@ -2468,8 +2468,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:39",
@@ -2487,8 +2487,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "11:09",
@@ -2508,8 +2508,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Justizanstalt",
          "departure": "12:09",
@@ -2537,8 +2537,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "12:09",
@@ -2556,8 +2556,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "13:09",
@@ -2575,8 +2575,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "14:09",
@@ -2594,8 +2594,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "15:09",
@@ -2613,8 +2613,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:09",
@@ -2632,8 +2632,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "17:20",
@@ -14278,8 +14278,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "07:39",
@@ -14297,8 +14297,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:09",
@@ -14316,8 +14316,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:39",
@@ -14335,8 +14335,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:09",
@@ -14354,8 +14354,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:39",
@@ -14373,8 +14373,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:09",
@@ -14392,8 +14392,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:39",
@@ -14411,8 +14411,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "11:09",
@@ -14432,8 +14432,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Justizanstalt",
          "departure": "12:09",
@@ -14461,8 +14461,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "12:09",
@@ -14480,8 +14480,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "13:09",
@@ -14499,8 +14499,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "14:09",
@@ -14518,8 +14518,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "15:09",
@@ -14537,8 +14537,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:09",
@@ -14556,8 +14556,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "17:20",
@@ -25686,8 +25686,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "07:39",
@@ -25705,8 +25705,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:09",
@@ -25724,8 +25724,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:39",
@@ -25743,8 +25743,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:39",
@@ -25762,8 +25762,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:39",
@@ -25783,8 +25783,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Justizanstalt",
          "departure": "12:09",
@@ -25812,8 +25812,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "12:09",
@@ -25831,8 +25831,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "13:09",
@@ -25850,8 +25850,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "14:09",
@@ -25869,8 +25869,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "15:09",
@@ -25888,8 +25888,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:09",
@@ -42547,8 +42547,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "07:39",
@@ -42566,8 +42566,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:09",
@@ -42585,8 +42585,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:39",
@@ -42604,8 +42604,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:09",
@@ -42623,8 +42623,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:39",
@@ -42652,8 +42652,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "10:32",
@@ -42671,8 +42671,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:09",
@@ -42690,8 +42690,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:39",
@@ -42719,8 +42719,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "11:32",
@@ -42738,8 +42738,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "11:09",
@@ -42767,8 +42767,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "12:32",
@@ -42796,8 +42796,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "13:32",
@@ -42825,8 +42825,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "14:32",
@@ -42854,8 +42854,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "15:32",
@@ -42883,8 +42883,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "16:32",
@@ -42904,8 +42904,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "09:24",
@@ -42933,8 +42933,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "10:24",
@@ -42962,8 +42962,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "11:24",
@@ -42991,8 +42991,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Justizanstalt",
          "departure": "12:09",
@@ -43020,8 +43020,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "12:09",
@@ -43039,8 +43039,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "12:24",
@@ -43068,8 +43068,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "13:09",
@@ -43087,8 +43087,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "13:24",
@@ -43116,8 +43116,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "14:09",
@@ -43135,8 +43135,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "14:24",
@@ -43164,8 +43164,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "15:09",
@@ -43183,8 +43183,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "15:24",
@@ -43212,8 +43212,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:09",
@@ -43231,8 +43231,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "16:24",
@@ -43260,8 +43260,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "17:20",
@@ -55081,8 +55081,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "07:39",
@@ -55100,8 +55100,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:09",
@@ -55119,8 +55119,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "08:39",
@@ -55138,8 +55138,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:09",
@@ -55157,8 +55157,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "09:39",
@@ -55186,8 +55186,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "10:32",
@@ -55205,8 +55205,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:09",
@@ -55224,8 +55224,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "10:39",
@@ -55253,8 +55253,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "11:32",
@@ -55272,8 +55272,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Innsbruck Hauptbahnhof",
          "to": "Axamer Lizum",
          "departure": "11:09",
@@ -55301,8 +55301,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "12:32",
@@ -55330,8 +55330,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "13:32",
@@ -55359,8 +55359,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "14:32",
@@ -55388,8 +55388,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "15:32",
@@ -55417,8 +55417,8 @@
         },
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axams Terminal Kögele",
          "to": "Axamer Lizum",
          "departure": "16:32",
@@ -55438,8 +55438,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "09:24",
@@ -55467,8 +55467,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "10:24",
@@ -55496,8 +55496,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "11:24",
@@ -55525,8 +55525,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Justizanstalt",
          "departure": "12:09",
@@ -55554,8 +55554,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "12:09",
@@ -55573,8 +55573,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "12:24",
@@ -55602,8 +55602,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "12:24",
@@ -55631,8 +55631,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "13:09",
@@ -55650,8 +55650,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "13:24",
@@ -55679,8 +55679,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "13:24",
@@ -55718,8 +55718,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "13:24",
@@ -55747,8 +55747,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "14:09",
@@ -55766,8 +55766,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "14:24",
@@ -55795,8 +55795,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "15:09",
@@ -55814,8 +55814,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "15:24",
@@ -55843,8 +55843,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:09",
@@ -55862,8 +55862,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "413",
-         "agency": "Reisebüro Breuss",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Axams Terminal Kögele",
          "departure": "16:24",
@@ -55891,8 +55891,8 @@
        "legs": [
         {
          "mode": "BUS",
-         "line": "412",
-         "agency": "Reisebüro Breuss",
+         "line": "L1",
+         "agency": "Ledermair Linienverkehr",
          "from": "Axamer Lizum",
          "to": "Innsbruck Hauptbahnhof",
          "departure": "17:20",
