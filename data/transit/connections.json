@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-24T18:58:18+00:00",
+ "fetched_at": "2026-11-25T03:35:57+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
@@ -22994,39 +22994,10 @@
    }
   },
   "werktag": {
-   "date": "2026-11-25",
+   "date": "2026-12-02",
    "trailheads": {
     "Praxmar Wendestelle": {
      "outbound": [
-      {
-       "departure": "06:07",
-       "arrival": "09:00",
-       "walk_to_stop_min": 3,
-       "walk_from_stop_min": 1,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "420",
-         "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Gries i. S. Juifenau",
-         "departure": "06:10",
-         "arrival": "06:54",
-         "headsign": "Gries i. S. Juifenau"
-        },
-        {
-         "mode": "BUS",
-         "line": "420",
-         "agency": "Österreichische Postbus AG",
-         "from": "Gries i. S. Juifenau",
-         "to": "Praxmar Wendestelle",
-         "departure": "08:50",
-         "arrival": "08:59",
-         "headsign": "Kühtai via Praxmar"
-        }
-       ]
-      },
       {
        "departure": "06:32",
        "arrival": "09:00",
@@ -23080,35 +23051,6 @@
          "from": "St. Sigmund i. S. Neu Peida",
          "to": "Praxmar Wendestelle",
          "departure": "12:40",
-         "arrival": "13:04",
-         "headsign": "Gries i. S. Kirche"
-        }
-       ]
-      },
-      {
-       "departure": "11:57",
-       "arrival": "13:05",
-       "walk_to_stop_min": 3,
-       "walk_from_stop_min": 1,
-       "transfers": 1,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "420",
-         "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Gries i. S. Kirche",
-         "departure": "12:00",
-         "arrival": "12:45",
-         "headsign": "Kühtai Dortmunder Hütte"
-        },
-        {
-         "mode": "BUS",
-         "line": "420",
-         "agency": "Österreichische Postbus AG",
-         "from": "Gries i. S. Kirche",
-         "to": "Praxmar Wendestelle",
-         "departure": "12:50",
          "arrival": "13:04",
          "headsign": "Gries i. S. Kirche"
         }
@@ -23212,20 +23154,30 @@
        ]
       },
       {
-       "departure": "22:12",
-       "arrival": "09:00",
-       "walk_to_stop_min": 3,
+       "departure": "15:27",
+       "arrival": "17:02",
+       "walk_to_stop_min": 2,
        "walk_from_stop_min": 1,
-       "transfers": 1,
+       "transfers": 2,
        "legs": [
+        {
+         "mode": "SUBURBAN",
+         "line": "S4",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Kematen i. T. Bahnhof",
+         "departure": "15:29",
+         "arrival": "15:39",
+         "headsign": "Telfs-Pfaffenhofen Bahnhof"
+        },
         {
          "mode": "BUS",
          "line": "420",
          "agency": "Österreichische Postbus AG",
-         "from": "Innsbruck Hauptbahnhof",
+         "from": "Kematen i. T. Bahnhof",
          "to": "Gries i. S. Kirche",
-         "departure": "22:15",
-         "arrival": "23:00",
+         "departure": "16:10",
+         "arrival": "16:30",
          "headsign": "St. Sigmund i. S. Neu Peida"
         },
         {
@@ -23234,9 +23186,9 @@
          "agency": "Österreichische Postbus AG",
          "from": "Gries i. S. Kirche",
          "to": "Praxmar Wendestelle",
-         "departure": "08:45",
-         "arrival": "08:59",
-         "headsign": "Kühtai via Praxmar"
+         "departure": "16:47",
+         "arrival": "17:01",
+         "headsign": "Praxmar Wendestelle"
         }
        ]
       }
@@ -23553,6 +23505,35 @@
          "headsign": "Kühtai Dortmunder Hütte"
         }
        ]
+      },
+      {
+       "departure": "17:27",
+       "arrival": "19:43",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "St. Sigmund i. S. Neu Peida",
+         "departure": "17:30",
+         "arrival": "18:29",
+         "headsign": "St. Sigmund i. S. Neu Peida"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "St. Sigmund i. S. Neu Peida",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "19:29",
+         "arrival": "19:42",
+         "headsign": "Kühtai Dortmunder Hütte"
+        }
+       ]
       }
      ],
      "inbound": [
@@ -23765,6 +23746,74 @@
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
+      },
+      {
+       "departure": "19:41",
+       "arrival": "23:02",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 1,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Kühtai Hochalterbahn",
+         "departure": "19:42",
+         "arrival": "19:45",
+         "headsign": "Kühtai Hochalterbahn"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Hochalterbahn",
+         "to": "Völs Bahnhof/Bahnhofstraße",
+         "departure": "22:05",
+         "arrival": "22:46",
+         "headsign": "Innsbruck Hauptbahnhof"
+        },
+        {
+         "mode": "SUBURBAN",
+         "line": "S4",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Völs Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "22:53",
+         "arrival": "23:01",
+         "headsign": "Jenbach Bahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "19:41",
+       "arrival": "23:05",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Kühtai Hochalterbahn",
+         "departure": "19:42",
+         "arrival": "19:45",
+         "headsign": "Kühtai Hochalterbahn"
+        },
+        {
+         "mode": "BUS",
+         "line": "420",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Hochalterbahn",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "22:05",
+         "arrival": "23:02",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
       }
      ],
      "errors": []
@@ -23804,7 +23853,7 @@
          "from": "Innsbruck Hauptbahnhof",
          "to": "Sellrain Gh Neuwirt",
          "departure": "06:10",
-         "arrival": "06:41",
+         "arrival": "06:42",
          "headsign": "Sellrain Bodnerbrücke"
         },
         {
@@ -25697,25 +25746,6 @@
        ]
       },
       {
-       "departure": "08:05",
-       "arrival": "08:51",
-       "walk_to_stop_min": 4,
-       "walk_from_stop_min": 1,
-       "transfers": 0,
-       "legs": [
-        {
-         "mode": "BUS",
-         "line": "L1",
-         "agency": "Ledermair Linienverkehr",
-         "from": "Innsbruck Hauptbahnhof",
-         "to": "Axamer Lizum",
-         "departure": "08:09",
-         "arrival": "08:50",
-         "headsign": "Axamer Lizum"
-        }
-       ]
-      },
-      {
        "departure": "08:35",
        "arrival": "09:21",
        "walk_to_stop_min": 4,
@@ -25735,6 +25765,35 @@
        ]
       },
       {
+       "departure": "09:12",
+       "arrival": "10:05",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "09:16",
+         "arrival": "09:43",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "09:47",
+         "arrival": "10:04",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
        "departure": "09:35",
        "arrival": "10:21",
        "walk_to_stop_min": 4,
@@ -25749,6 +25808,35 @@
          "to": "Axamer Lizum",
          "departure": "09:39",
          "arrival": "10:20",
+         "headsign": "Axamer Lizum"
+        }
+       ]
+      },
+      {
+       "departure": "09:57",
+       "arrival": "10:50",
+       "walk_to_stop_min": 4,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Axams Terminal Kögele",
+         "departure": "10:01",
+         "arrival": "10:28",
+         "headsign": "Grinzens Wendestelle"
+        },
+        {
+         "mode": "BUS",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Axams Terminal Kögele",
+         "to": "Axamer Lizum",
+         "departure": "10:32",
+         "arrival": "10:49",
          "headsign": "Axamer Lizum"
         }
        ]
@@ -25774,6 +25862,93 @@
       }
      ],
      "inbound": [
+      {
+       "departure": "09:23",
+       "arrival": "10:18",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "09:24",
+         "arrival": "09:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "09:46",
+         "arrival": "10:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "10:23",
+       "arrival": "11:18",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "10:24",
+         "arrival": "10:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:46",
+         "arrival": "11:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "11:23",
+       "arrival": "12:18",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 4,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "L2",
+         "agency": "Ledermair Linienverkehr",
+         "from": "Axamer Lizum",
+         "to": "Axams Terminal Kögele",
+         "departure": "11:24",
+         "arrival": "11:36",
+         "headsign": "Mutters Muttereralm Bergbahnen"
+        },
+        {
+         "mode": "BUS",
+         "line": "404",
+         "agency": "Österreichische Postbus AG",
+         "from": "Axams Terminal Kögele",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "11:46",
+         "arrival": "12:14",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
       {
        "departure": "12:08",
        "arrival": "12:52",
