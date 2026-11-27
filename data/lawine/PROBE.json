@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-11-27T03:20:57+00:00",
+ "fetched_at": "2026-11-27T17:39:28+00:00",
  "date_dirs": {
   "count": 1964,
   "first": [
@@ -14,11 +14,11 @@
    "2026-11-28"
   ]
  },
- "checked_until_found": 2,
+ "checked_until_found": 1,
  "search_errors": [],
  "latest": {
-  "date": "2026-11-27",
-  "file": "2026-11-27-AT-07.json",
+  "date": "2026-11-28",
+  "file": "2026-11-28-AT-07.json",
   "summary": {
    "bulletin_count": 5,
    "top_keys": [
@@ -34,7 +34,7 @@
       "AT-07-21",
       "AT-07-26-01"
      ],
-     "region_count": 11,
+     "region_count": 10,
      "ratings": [
       [
        "moderate",
@@ -97,10 +97,73 @@
       "validTime"
      ],
      "validTime": {
-      "startTime": "2026-11-26T16:00:00+00:00",
-      "endTime": "2026-11-27T16:00:00+00:00"
+      "startTime": "2026-11-27T16:00:00+00:00",
+      "endTime": "2026-11-28T16:00:00+00:00"
      },
-     "publicationTime": "2026-11-26T16:00:00+00:00"
+     "publicationTime": "2026-11-27T16:00:00+00:00"
+    },
+    {
+     "regions": [
+      "AT-07-27",
+      "AT-07-28",
+      "AT-07-26-02",
+      "AT-07-29-02",
+      "AT-07-29-03",
+      "AT-07-29-01"
+     ],
+     "region_count": 7,
+     "ratings": [
+      [
+       "low",
+       {
+        "upperBound": "2200"
+       },
+       "all_day"
+      ],
+      [
+       "moderate",
+       {
+        "lowerBound": "2200"
+       },
+       "all_day"
+      ]
+     ],
+     "problems": [
+      [
+       "wind_slab",
+       [
+        "N",
+        "W",
+        "NE",
+        "NW",
+        "E"
+       ],
+       {
+        "lowerBound": "2200"
+       },
+       "all_day"
+      ]
+     ],
+     "keys": [
+      "avalancheActivity",
+      "avalancheProblems",
+      "bulletinID",
+      "customData",
+      "dangerRatings",
+      "lang",
+      "publicationTime",
+      "regions",
+      "snowpackStructure",
+      "source",
+      "tendency",
+      "unscheduled",
+      "validTime"
+     ],
+     "validTime": {
+      "startTime": "2026-11-27T16:00:00+00:00",
+      "endTime": "2026-11-28T16:00:00+00:00"
+     },
+     "publicationTime": "2026-11-27T16:00:00+00:00"
     },
     {
      "regions": [
@@ -175,73 +238,10 @@
       "validTime"
      ],
      "validTime": {
-      "startTime": "2026-11-26T16:00:00+00:00",
-      "endTime": "2026-11-27T16:00:00+00:00"
+      "startTime": "2026-11-27T16:00:00+00:00",
+      "endTime": "2026-11-28T16:00:00+00:00"
      },
-     "publicationTime": "2026-11-26T16:00:00+00:00"
-    },
-    {
-     "regions": [
-      "AT-07-27",
-      "AT-07-28",
-      "AT-07-26-02",
-      "AT-07-29-02",
-      "AT-07-29-03",
-      "AT-07-29-01"
-     ],
-     "region_count": 7,
-     "ratings": [
-      [
-       "low",
-       {
-        "upperBound": "2200"
-       },
-       "all_day"
-      ],
-      [
-       "moderate",
-       {
-        "lowerBound": "2200"
-       },
-       "all_day"
-      ]
-     ],
-     "problems": [
-      [
-       "wind_slab",
-       [
-        "N",
-        "W",
-        "NE",
-        "NW",
-        "E"
-       ],
-       {
-        "lowerBound": "2200"
-       },
-       "all_day"
-      ]
-     ],
-     "keys": [
-      "avalancheActivity",
-      "avalancheProblems",
-      "bulletinID",
-      "customData",
-      "dangerRatings",
-      "lang",
-      "publicationTime",
-      "regions",
-      "snowpackStructure",
-      "source",
-      "tendency",
-      "unscheduled",
-      "validTime"
-     ],
-     "validTime": {
-      "startTime": "2026-11-26T16:00:00+00:00",
-      "endTime": "2026-11-27T16:00:00+00:00"
-     },
-     "publicationTime": "2026-11-26T16:00:00+00:00"
+     "publicationTime": "2026-11-27T16:00:00+00:00"
     },
     {
      "regions": [
@@ -271,10 +271,10 @@
       "validTime"
      ],
      "validTime": {
-      "startTime": "2026-11-26T16:00:00+00:00",
-      "endTime": "2026-11-27T16:00:00+00:00"
+      "startTime": "2026-11-27T16:00:00+00:00",
+      "endTime": "2026-11-28T16:00:00+00:00"
      },
-     "publicationTime": "2026-11-26T16:00:00+00:00"
+     "publicationTime": "2026-11-27T16:00:00+00:00"
     },
     {
      "regions": [
@@ -309,15 +309,16 @@
       "validTime"
      ],
      "validTime": {
-      "startTime": "2026-11-26T16:00:00+00:00",
-      "endTime": "2026-11-27T16:00:00+00:00"
+      "startTime": "2026-11-27T16:00:00+00:00",
+      "endTime": "2026-11-28T16:00:00+00:00"
      },
-     "publicationTime": "2026-11-26T16:00:00+00:00"
+     "publicationTime": "2026-11-27T16:00:00+00:00"
     }
    ]
   }
  },
  "aktuell": [
-  "2026-11-27"
+  "2026-11-27",
+  "2026-11-28"
  ]
 }
