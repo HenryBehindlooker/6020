@@ -1,11 +1,11 @@
 {
- "fetched_at": "2026-11-27T17:32:48+00:00",
+ "fetched_at": "2026-11-28T02:49:22+00:00",
  "source": "Transitous (transitous.org), MOTIS",
  "endpoint": "https://api.transitous.org/api/v5/plan",
  "destination": "Innsbruck Hauptbahnhof",
  "days": {
   "samstag": {
-   "date": "2026-11-28",
+   "date": "2026-12-05",
    "trailheads": {
     "Praxmar Wendestelle": {
      "outbound": [
@@ -480,6 +480,35 @@
        ]
       },
       {
+       "departure": "12:15",
+       "arrival": "13:48",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "HIGHSPEED_RAIL",
+         "line": "RJX 19950",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Ötztal-Bahnhof",
+         "departure": "12:16",
+         "arrival": "12:39",
+         "headsign": "Feldkirch Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Ötztal-Bahnhof",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "13:00",
+         "arrival": "13:47",
+         "headsign": "Kühtai Hochalterbahn"
+        }
+       ]
+      },
+      {
        "departure": "13:12",
        "arrival": "14:21",
        "walk_to_stop_min": 3,
@@ -528,6 +557,45 @@
        ]
       },
       {
+       "departure": "14:19",
+       "arrival": "16:02",
+       "walk_to_stop_min": 3,
+       "walk_from_stop_min": 1,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3322",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Innsbruck Hauptbahnhof",
+         "to": "Ötztal-Bahnhof",
+         "departure": "14:22",
+         "arrival": "14:59",
+         "headsign": "Landeck-Zams Bahnhof"
+        },
+        {
+         "mode": "BUS",
+         "line": "320",
+         "agency": "Ötztaler Verkehrsgesellschaft mbH",
+         "from": "Ötztal-Bahnhof",
+         "to": "Oetz Gemeindeamt",
+         "departure": "15:05",
+         "arrival": "15:19",
+         "headsign": "Obergurgl Zentrum"
+        },
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Oetz Abzw Kühtai",
+         "to": "Kühtai Dortmunder Hütte",
+         "departure": "15:31",
+         "arrival": "16:01",
+         "headsign": "Kühtai Hochalterbahn"
+        }
+       ]
+      },
+      {
        "departure": "16:02",
        "arrival": "17:08",
        "walk_to_stop_min": 3,
@@ -563,6 +631,45 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "09:40",
          "arrival": "10:49",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "09:49",
+       "arrival": "11:39",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 2,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Oetz Gemeindeamt",
+         "departure": "09:50",
+         "arrival": "10:20",
+         "headsign": "Oetz Gemeindeamt"
+        },
+        {
+         "mode": "BUS",
+         "line": "320",
+         "agency": "Ötztaler Verkehrsgesellschaft mbH",
+         "from": "Oetz Acherkogelbahn",
+         "to": "Ötztal-Bahnhof",
+         "departure": "10:31",
+         "arrival": "10:46",
+         "headsign": "Ötztal-Bahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3315",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "10:59",
+         "arrival": "11:36",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
@@ -735,6 +842,64 @@
          "to": "Innsbruck Hauptbahnhof",
          "departure": "16:15",
          "arrival": "17:24",
+         "headsign": "Innsbruck Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:18",
+       "arrival": "17:44",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 1,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Ötztal-Bahnhof",
+         "departure": "16:19",
+         "arrival": "17:03",
+         "headsign": "Silz Abzw Bahnhof"
+        },
+        {
+         "mode": "HIGHSPEED_RAIL",
+         "line": "RJX 169",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:20",
+         "arrival": "17:43",
+         "headsign": "Wien Hauptbahnhof"
+        }
+       ]
+      },
+      {
+       "departure": "16:38",
+       "arrival": "18:09",
+       "walk_to_stop_min": 1,
+       "walk_from_stop_min": 3,
+       "transfers": 1,
+       "legs": [
+        {
+         "mode": "BUS",
+         "line": "4196",
+         "agency": "Österreichische Postbus AG",
+         "from": "Kühtai Dortmunder Hütte",
+         "to": "Ötztal-Bahnhof",
+         "departure": "16:39",
+         "arrival": "17:23",
+         "headsign": "Ötztal-Bahnhof"
+        },
+        {
+         "mode": "REGIONAL_RAIL",
+         "line": "REX 3379",
+         "agency": "OEBB Personenverkehr AG Kundenservice",
+         "from": "Ötztal-Bahnhof",
+         "to": "Innsbruck Hauptbahnhof",
+         "departure": "17:29",
+         "arrival": "18:06",
          "headsign": "Innsbruck Hauptbahnhof"
         }
        ]
